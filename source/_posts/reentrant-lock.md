@@ -3,7 +3,7 @@ title: 可重入锁ReentrantLock高级特性
 date: 2023-05-11T07:05:39+08:00
 tags: ReentrantLock
 categories: 可重入锁
-cover: /img/life/day1.jpg
+cover: /img/reentrant-lock/reentrant-lock.jpg
 feature: false
 ---
 
@@ -153,4 +153,4 @@ feature: false
 ```
 
 * 控制台输出. 可以看出两次唤醒相隔了两秒
-![alt](https://img2023.cnblogs.com/blog/2092447/202212/2092447-20221214173438641-1508702632.png)
+![alt](/img/reentrant-lock/reentrant-lock-test.png)
