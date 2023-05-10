@@ -46,21 +46,21 @@ menu:
   About: true
   Tags: true
   Archives: true
-  Github:
-    name: 'Github主页'
-    path: 'https://github.com/nichuanfang'
-  projects:
-    name: '项目'
-    children:
-      hexo-blog:
-        name: 'hexo-blog'
-        path: 'https://github.com/nichuanfang/hexo-blog'
-      config-server:
-        name: 'config-server'
-        path: 'https://github.com/nichuanfang/config-server'
-      crawler:
-        name: 'crawler'
-        path: 'https://github.com/nichuanfang/crawler'
+  # Github:
+  #   name: 'Github主页'
+  #   path: 'https://github.com/nichuanfang'
+  # projects:
+  #   name: '项目'
+  #   children:
+  #     hexo-blog:
+  #       name: 'hexo-blog'
+  #       path: 'https://github.com/nichuanfang/hexo-blog'
+  #     config-server:
+  #       name: 'config-server'
+  #       path: 'https://github.com/nichuanfang/config-server'
+  #     crawler:
+  #       name: 'crawler'
+  #       path: 'https://github.com/nichuanfang/crawler'
   Email:
     name: '发送邮件'
     path: 'mailto:f18326186224@gmail.com'
@@ -141,8 +141,8 @@ gitalk:
 # see https://valine.js.org/quickstart.html
 valine:
   enable: true
-  app_id: ${VALINE_APP_ID}
-  app_key: ${VALINE_APP_KEY}
+  app_id: 'enOFHBl7E8Mh2ZLlcjZ679m0-gzGzoHsz'
+  app_key: 'eZI7IWrl3Nq2PqR3CLZhsqTg'
   avatar: 'https://raw.githubusercontent.com/nichuanfang/nichuanfang/main/avatar.jpg'
   placeholder: Leave your thoughts behind~
   visitor: true
