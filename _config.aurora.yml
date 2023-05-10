@@ -126,8 +126,8 @@ site_meta:
 gitalk:
   enable: false
   autoExpand: true
-  clientID: ${BLOG_CLIENT_ID}
-  clientSecret: ${BLOG_CLIENT_SECRET}
+  clientID: 
+  clientSecret: 
   repo: 'dev-blog-comments'
   owner: 'nichuanfang'
   admin: ['nichuanfang']
