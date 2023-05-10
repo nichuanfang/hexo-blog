@@ -8,23 +8,22 @@
 #! Site Configs
 #！ @docs https://aurora.tridiamond.tech/guide/configuration.html
 #! ---------------------------------------------------------------
+# Site 配置
 site:
-  subtitle: Aurora's Blog
-  author: Aurora
-  nick: Auroral UI
-  description:
-  link: '/'
-  language: en
+  subtitle: TriDiamond's Blog
+  author: 三钻
+  nick: TriDiamond
+  description: 一位正在重塑知识的技术人 <br /> @ <b>公众号：技术银河</b>
+  language: cn
   multi_language: true
-  logo: https://img-blog.csdnimg.cn/20210313122054101.png
-  avatar: https://img-blog.csdnimg.cn/20210313122054101.png
-  beian:
-    number: ''
-    link: ''
+  logo: https://image-website.com/path-to-image.jpg
+  avatar: https://image-website.com/path-to-image.jpg
+  beian: # 如果不需要可以让 number 和 link 保持空白
+    number: '123123123123'
+    link: 'https://link-to-beian.com'
   police_beian:
-    number: ''
-    link: ''
-
+    number: '123123123123'
+    link: 'https://link-to-police-beian.com'
 #! ---------------------------------------------------------------
 #! Authors Configs
 #！ @docs https://aurora.tridiamond.tech/guide/authors.html
