@@ -9,8 +9,6 @@ feature: false
 
 ## `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
 
----
-
 ### 1. 公平锁
 
 ```java
@@ -59,7 +57,6 @@ feature: false
 
 ## 实战演示
 
----
 模拟三个线程,对其中两个线程分为一组绑定到`condition1`,剩下的一个线程单独一组绑定到`condition2`,main线程再分别唤醒等待状态的各线程组.
 
 * 创建线程池
