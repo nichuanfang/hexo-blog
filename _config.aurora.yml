@@ -140,9 +140,9 @@ gitalk:
 # Valine comment plugin (recommended!)
 # see https://valine.js.org/quickstart.html
 valine:
-  enable: false
-  app_id: ${BLOG_CLIENT_ID}
-  app_key: ${BLOG_CLIENT_SECRET}
+  enable: true
+  app_id: ${VALINE_APP_ID}
+  app_key: ${VALINE_APP_KEY}
   avatar: 'https://raw.githubusercontent.com/nichuanfang/nichuanfang/main/avatar.jpg'
   placeholder: Leave your thoughts behind~
   visitor: true
@@ -150,7 +150,7 @@ valine:
   avatarForce: false
   meta: ['nick', 'mail']
   requiredFields: []
-  admin: 'Nichuanfang'
+  admin: 'nichuanfang'
   recentComment: true
 
 # Enable Busuanzi statistic plugin
