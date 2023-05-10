@@ -1,8 +1,13 @@
 ---
+# 文章标题
 title: Hello World
+# 创建日期
 date: 2023-05-11T04:19:00+08:00
+# 标签
 tags: template
+# 分类
 categories: 文章模板
+# 文章封面
 cover: /img/hello-world/hello-world.jpg
 # 这个feature属性将允许 Aurora 引擎找到这些文章，并将它们添加到推荐列表或置顶列表数据中。使用推荐布局模式或置顶布局模式。
 feature: true
