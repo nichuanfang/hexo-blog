@@ -150,7 +150,7 @@ valine:
   avatarForce: false
   meta: ['nick', 'mail']
   requiredFields: []
-  admin: 'nichuanfang'
+  admin: '18326186224'
   recentComment: true
 
 # Enable Busuanzi statistic plugin
