@@ -124,7 +124,7 @@ site_meta:
 
 # For local development only!
 gitalk:
-  enable: true
+  enable: false
   autoExpand: true
   clientID: ${BLOG_CLIENT_ID}
   clientSecret: ${BLOG_CLIENT_SECRET}
