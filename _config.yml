@@ -102,4 +102,13 @@ theme: aurora
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/nichuanfang/nichuanfang.github.io
+  branch: gh-pages
+  token: ${GH_TOKEN}
+  message: hexo部署
+  name: jyzz
+  email: f18326186224@gmail.com
+  #extend_dirs: [extend directory]
+  ignore_hidden: false 
+  ignore_pattern: regexp  
