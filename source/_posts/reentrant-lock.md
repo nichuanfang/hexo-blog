@@ -9,7 +9,7 @@ feature: false
 
 ## `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
 
-### 1. 公平锁
+* 公平锁
 
 ```java
     /**
@@ -21,7 +21,7 @@ feature: false
     }
 ```
 
-### 2. 等待可中断
+* 等待可中断
 
 ```java
     /**
@@ -52,8 +52,8 @@ feature: false
 `ReentrantLock`条件通知使用注意点
 :::
 
-1. 每个condition可以绑定若干个线程,如果需要多个condition请先对线程进行分组;
-2. 使用`await()`和`signal()`或者`signalAll()`之前需要先获取锁,在finally代码块中要释放锁;
+* 每个condition可以绑定若干个线程,如果需要多个condition请先对线程进行分组;
+* 使用`await()`和`signal()`或者`signalAll()`之前需要先获取锁,在finally代码块中要释放锁;
 
 ## 实战演示
 
