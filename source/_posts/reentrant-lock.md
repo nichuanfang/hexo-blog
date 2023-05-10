@@ -11,11 +11,11 @@ feature: false
 
 </br>
 
-> ### `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
+### `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
 
 ---
 
-1. 公平锁
+#### 1. 公平锁
 
 ```java
     /**
@@ -27,7 +27,7 @@ feature: false
     }
 ```
 
-2. 等待可中断
+#### 2. 等待可中断
 
 ```java
     /**
@@ -44,7 +44,9 @@ feature: false
     }
 ```
 
-3. 条件通知,一把锁可以生成多个条件,每个条件可以对应一个线程分组,可以通过condition对象来进行分组等待和唤醒,解决了`synchronized`关键字只能`notifyAll()`的问题
+:::tip
+条件通知,一把锁可以生成多个条件,每个条件可以对应一个线程分组,可以通过condition对象来进行分组等待和唤醒,解决了`synchronized`关键字只能`notifyAll()`的问题
+:::
 
 ```java
     public Condition newCondition() {
@@ -59,7 +61,7 @@ feature: false
 1. 每个condition可以绑定若干个线程,如果需要多个condition请先对线程进行分组;
 2. 使用`await()`和`signal()`或者`signalAll()`之前需要先获取锁,在finally代码块中要释放锁;
 
-> ### 实战演示
+### 实战演示
 
 ---
 模拟三个线程,对其中两个线程分为一组绑定到`condition1`,剩下的一个线程单独一组绑定到`condition2`,main线程再分别唤醒等待状态的各线程组.
@@ -158,5 +160,4 @@ feature: false
 ```
 
 * 控制台输出. 可以看出两次唤醒相隔了两秒
-![](https://img2023.cnblogs.com/blog/2092447/202212/2092447-20221214173438641-1508702632.png)
-
+![alt](https://img2023.cnblogs.com/blog/2092447/202212/2092447-20221214173438641-1508702632.png)
