@@ -66,7 +66,7 @@ Normal Tips Container
 :::
 ```
 
-![alt](/img/hello-world/tip.png)
+![alt](https://aurora.tridiamond.tech/images/screenshots/tip.png)
 
 如果你不想使用默认的标题TIP，你可以使用以下方法重命名你的容器标题:
 
