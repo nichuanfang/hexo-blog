@@ -1,5 +1,5 @@
 ---
-title: 记一次可重入锁的实践心得
+title: 可重入锁ReentrantLock高级特性
 date: 2023-05-11T07:05:39+08:00
 tags: ReentrantLock
 categories: 可重入锁
@@ -7,15 +7,11 @@ cover: /img/life/day1.jpg
 feature: false
 ---
 
-## 可重入锁ReentrantLock高级特性
-
-</br>
-
-### `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
+## `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
 
 ---
 
-#### 1. 公平锁
+### 1. 公平锁
 
 ```java
     /**
@@ -27,7 +23,7 @@ feature: false
     }
 ```
 
-#### 2. 等待可中断
+### 2. 等待可中断
 
 ```java
     /**
@@ -61,7 +57,7 @@ feature: false
 1. 每个condition可以绑定若干个线程,如果需要多个condition请先对线程进行分组;
 2. 使用`await()`和`signal()`或者`signalAll()`之前需要先获取锁,在finally代码块中要释放锁;
 
-### 实战演示
+## 实战演示
 
 ---
 模拟三个线程,对其中两个线程分为一组绑定到`condition1`,剩下的一个线程单独一组绑定到`condition2`,main线程再分别唤醒等待状态的各线程组.
