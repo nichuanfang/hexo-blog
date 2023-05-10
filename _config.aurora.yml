@@ -1,5 +1,5 @@
 #! ---------------------------------------------------------------
-#! Aurora Theme for Hexo 
+#! Aurora Theme for Hexo
 #! ---------------------------------------------------------------
 #! Designed & Coded By TriDiamond
 #! ---------------------------------------------------------------
@@ -47,13 +47,13 @@ menu:
   Tags: true
   Archives: true
   Email:
-    name: 'Mail Me'
+    name: '邮件'
     path: 'mailto:f18326186224@gmail.com'
   Github:
-    name: 'Nichuanfang'
+    name: 'Github主页'
     path: 'https://github.com/nichuanfang'
   projects:
-    name: 'Projects'
+    name: '项目'
     children:
       hexo-blog:
         name: 'hexo-blog'
@@ -176,9 +176,9 @@ copy_protection:
 #! ---------------------------------------------------------------
 injects:
   scripts:
-    - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    # - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
   css:
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    # - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 
 #! ---------------------------------------------------------------
 #! Enable Aurora Bot Dia
