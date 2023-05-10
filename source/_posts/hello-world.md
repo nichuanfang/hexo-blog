@@ -8,7 +8,7 @@ tags: template
 # 分类
 categories: 文章模板
 # 文章封面
-cover: /img/hello-world.jpg
+cover: /img/hello-world/hello-world.jpg
 # 这个feature属性将允许 Aurora 引擎找到这些文章，并将它们添加到推荐列表或置顶列表数据中。使用推荐布局模式或置顶布局模式。
 # feature: true
 ---
@@ -86,7 +86,7 @@ Custom header
 :::
 ```
 
-![alt](https://aurora.tridiamond.tech/images/screenshots/tip-rename.png)
+![alt](/img/hello-world/tip-rename.png)
 
 ### Warning 容器
 
@@ -96,7 +96,7 @@ Warning!!!
 :::
 ```
 
-![alt](https://aurora.tridiamond.tech/images/screenshots/warning.png)
+![alt](/img/hello-world/warning.png)
 
 ### Danger 容器
 
@@ -106,7 +106,7 @@ Danger!!!
 :::
 ```
 
-![alt](https://aurora.tridiamond.tech/images/screenshots/danger.png)
+![alt](/img/hello-world/danger.png)
 
 ### Details 容器
 
@@ -130,8 +130,8 @@ Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi tristique 
 
 **关闭状态:**
 
-![alt](https://aurora.tridiamond.tech/images/screenshots/detail.png)
+![alt](/img/hello-world/detail.png)
 
 **展开状态:**
 
-![alt](https://aurora.tridiamond.tech/images/screenshots/detail-opened.png)
+![alt](/img/hello-world/detail-opened.png)
