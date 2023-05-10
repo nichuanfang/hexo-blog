@@ -126,13 +126,13 @@ site_meta:
 gitalk:
   enable: true
   autoExpand: true
-  clientID: ''
-  clientSecret: ''
+  clientID: ${BLOG_CLIENT_ID}
+  clientSecret: ${BLOG_CLIENT_SECRET}
   repo: 'dev-blog-comments'
-  owner: 'TriDiamond'
-  admin: ['TriDiamond']
+  owner: 'nichuanfang'
+  admin: ['nichuanfang']
   id: uid
-  language: en
+  language: cn
   distractionFreeMode: true
   recentComment: true
   proxy: ''
