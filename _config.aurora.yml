@@ -46,9 +46,6 @@ menu:
   About: true
   Tags: true
   Archives: true
-  Email:
-    name: '邮件'
-    path: 'mailto:f18326186224@gmail.com'
   Github:
     name: 'Github主页'
     path: 'https://github.com/nichuanfang'
@@ -64,7 +61,10 @@ menu:
       crawler:
         name: 'crawler'
         path: 'https://github.com/nichuanfang/crawler'
-
+  Email:
+    name: '发送邮件'
+    path: 'mailto:f18326186224@gmail.com'
+    
 #! ---------------------------------------------------------------
 #! Theme Config
 #! @docs https://aurora.tridiamond.tech/guide/theme.html
