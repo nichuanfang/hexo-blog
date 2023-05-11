@@ -39,9 +39,10 @@ jobs:
 
       - name: 更新webroot
         run: |
-          ls 
-          echo $GITHUB_WORKSPACE
-          ls $GITHUB_WORKSPACE
+          echo '============目录结构================='
+          ls
+          echo '============pwd================='
+          pwd
           cd $GITHUB_WORKSPACE/nginx-config/webroot
           rm -rf *
           cp -r ../public/* .
