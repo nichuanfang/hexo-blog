@@ -140,10 +140,10 @@ gitalk:
 # Valine comment plugin (recommended!)
 # see https://valine.js.org/quickstart.html
 valine:
-  enable: false
+  enable: true
   app_id: 'enOFHBl7E8Mh2ZLlcjZ679m0-gzGzoHsz'
   app_key: 'eZI7IWrl3Nq2PqR3CLZhsqTg'
-  avatar: 'https://raw.githubusercontent.com/nichuanfang/nichuanfang/main/avatar.jpg'
+  avatar: '/img/site/avatar.jpg'
   placeholder: Leave your thoughts behind~
   visitor: true
   lang: cn
