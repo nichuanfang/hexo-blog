@@ -30,7 +30,31 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy
+      - name: checkout出nginx-config
+        uses: actions/checkout@v2
+        with:
+          repository: nichuanfang/nginx-config
+          token: ${{ secrets.GH_TOKEN }}
+          ref: main
+
+      - name: 更新webroot
+        run: |
+          cd nginx-config/webroot
+          rm -rf *
+          cp -r ../public/* .
+
+      - name: 更新nginx-config项目 触发私服部署
+        uses: Smart-Transportation/push@v1.3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: 'main'
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          author_name: 'github-actions[bot]'
+          message: '🐳 chore: 更新博客'
+          directory: /home/runner/work/hexo-blog/nginx-config
+          repository: nichuanfang/nginx-config
+
+      - name: 部署到github
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GH_TOKEN }}
