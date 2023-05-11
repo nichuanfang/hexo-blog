@@ -176,7 +176,7 @@ copy_protection:
 #! ---------------------------------------------------------------
 injects:
   scripts:
-    # - <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    - <script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
   css:
     # - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 
