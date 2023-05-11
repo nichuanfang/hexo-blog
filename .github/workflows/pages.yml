@@ -12,8 +12,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
-        with: 
+        with:
           path: hexo-blog
+          
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -27,9 +28,11 @@ jobs:
             ${{ runner.OS }}-npm-cache
 
       - name: Install Dependencies
+        working-directory: $GITHUB_WORKSPACE/hexo-blog
         run: npm install
 
       - name: Build
+        working-directory: $GITHUB_WORKSPACE/hexo-blog
         run: npm run build
 
       - name: checkout出nginx-config
