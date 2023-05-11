@@ -43,22 +43,22 @@ jobs:
           ref: main
           path: nginx-config
 
-      - name: 更新webroot
-        run: |
-          cd $GITHUB_WORKSPACE/nginx-config/webroot
-          rm -rf *
-          cp -r $GITHUB_WORKSPACE/hexo-blog/public/* .
+#       - name: 更新webroot
+#         run: |
+#           cd $GITHUB_WORKSPACE/nginx-config/webroot
+#           rm -rf *
+#           cp -r $GITHUB_WORKSPACE/hexo-blog/public/* .
 
-      - name: 更新nginx-config项目 触发私服部署
-        uses: Smart-Transportation/push@v1.3
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: 'main'
-          author_email: 'github-actions[bot]@users.noreply.github.com'
-          author_name: 'github-actions[bot]'
-          message: '🐳 chore: 更新博客'
-          directory: nginx-config
-          repository: nichuanfang/nginx-config
+#       - name: 更新nginx-config项目 触发私服部署
+#         uses: Smart-Transportation/push@v1.3
+#         with:
+#           github_token: ${{ secrets.GH_TOKEN }}
+#           branch: 'main'
+#           author_email: 'github-actions[bot]@users.noreply.github.com'
+#           author_name: 'github-actions[bot]'
+#           message: '🐳 chore: 更新博客'
+#           directory: nginx-config
+#           repository: nichuanfang/nginx-config
 
       - name: 部署到github
         uses: peaceiris/actions-gh-pages@v3
