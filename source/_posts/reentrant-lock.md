@@ -17,7 +17,7 @@ feature: true
      * This is equivalent to using {@code ReentrantLock(false)}.
      */
     public ReentrantLock() {
-        sync = new NonfairSync();
+        sync = new NonfairSync(); 
     }
 ```
 
