@@ -12,12 +12,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
-      - name: 更新webroot
-        run: |
-          echo '============目录结构================='
-          ls
-          echo '============pwd================='
-          pwd
+        with: 
+          path: hexo-blog
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -42,16 +38,13 @@ jobs:
           repository: nichuanfang/nginx-config
           token: ${{ secrets.GH_TOKEN }}
           ref: main
+          path: nginx-config
 
       - name: 更新webroot
         run: |
-          echo '============目录结构================='
-          ls
-          echo '============pwd================='
-          pwd
           cd $GITHUB_WORKSPACE/nginx-config/webroot
           rm -rf *
-          cp -r ../public/* .
+          cp -r $GITHUB_WORKSPACE/hexo-blog/public/* .
 
       - name: 更新nginx-config项目 触发私服部署
         uses: Smart-Transportation/push@v1.3
@@ -61,7 +54,7 @@ jobs:
           author_email: 'github-actions[bot]@users.noreply.github.com'
           author_name: 'github-actions[bot]'
           message: '🐳 chore: 更新博客'
-          directory: /home/runner/work/hexo-blog/nginx-config
+          directory: /home/runner/work/hexo-blog/hexo-blog/nginx-config
           repository: nichuanfang/nginx-config
 
       - name: 部署到github
