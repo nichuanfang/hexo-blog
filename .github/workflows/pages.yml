@@ -12,6 +12,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
+      - name: 更新webroot
+        run: |
+          echo '============目录结构================='
+          ls
+          echo '============pwd================='
+          pwd
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
