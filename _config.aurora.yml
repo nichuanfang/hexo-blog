@@ -143,10 +143,10 @@ valine:
   enable: true
   app_id: 'enOFHBl7E8Mh2ZLlcjZ679m0-gzGzoHsz'
   app_key: 'eZI7IWrl3Nq2PqR3CLZhsqTg'
-  avatar: hide
+  avatar: ''
   placeholder: Leave your thoughts behind~
   visitor: true
-  lang: cn
+  # lang: cn
   avatarForce: false
   meta: ['nick', 'mail']
   requiredFields: []
