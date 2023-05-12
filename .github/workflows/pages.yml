@@ -43,7 +43,7 @@ jobs:
         uses: Smart-Transportation/push@v1.3
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-          branch: 'master'
+          branch: 'main'
           author_email: 'github-actions[bot]@users.noreply.github.com'
           author_name: 'github-actions[bot]'
           message: '🐳 chore: 更新hexo-blog文档图片'
