@@ -56,7 +56,7 @@ jobs:
 
       - name: 处理dist文件
         run: |
-          ls /home/runner/work/hexo-blog/hexo-blog
+          ls /home/runner/work/hexo-blog/hexo-blog/public
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
@@ -72,7 +72,7 @@ jobs:
           port: ${{ secrets.PORT }}
           connect_timeout: 20s
           scp: |
-            - '/home/runner/work/hexo-blog/hexo-blog/public/' => /opt/docker/nginx/html/
+            './public/*' => /opt/docker/nginx/html/
           last_ssh: |
             chmod 777 /opt/docker/nginx/html/
             docker restart nginx
