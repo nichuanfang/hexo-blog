@@ -62,8 +62,8 @@ jobs:
             git pull --allow-unrelated-histories
             hexo cl
             hexo g
-            docker restart nginx
             chmod 777 /root/code/hexo-blog/public
+            docker restart nginx
           scp: |
 
       - name: 部署到github
