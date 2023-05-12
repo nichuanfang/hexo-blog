@@ -4,7 +4,7 @@
 # 生成的静态资源处理 提升国内的访问速度
 import os
 import subprocess
-
+import lxml
 from bs4 import BeautifulSoup
 import re
 
