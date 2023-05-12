@@ -13,9 +13,9 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://nichuanfang.github.io
+url: https://www.vencenter.cn
 permalink: /post/:title.html
-permalink_defaults: 
+permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -110,5 +110,5 @@ deploy:
   name: jyzz
   email: f18326186224@gmail.com
   #extend_dirs: [extend directory]
-  ignore_hidden: false 
-  ignore_pattern: regexp  
+  ignore_hidden: false
+  ignore_pattern: regexp
