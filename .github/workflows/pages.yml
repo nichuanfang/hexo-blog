@@ -56,6 +56,7 @@ jobs:
 
       - name: 处理dist文件
         run: |
+          ls /home/runner/work/hexo-blog/hexo-blog
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
@@ -71,7 +72,7 @@ jobs:
           port: ${{ secrets.PORT }}
           connect_timeout: 20s
           scp: |
-            - './public/*' => /opt/docker/nginx/html/
+            - '/home/runner/work/hexo-blog/hexo-blog/public/' => /opt/docker/nginx/html/
           last_ssh: |
             chmod 777 /opt/docker/nginx/html/
             docker restart nginx
@@ -82,6 +83,6 @@ jobs:
           personal_token: ${{ secrets.GH_TOKEN }}
           external_repository: nichuanfang/nichuanfang.github.io
           publish_branch: gh-pages # default: gh-pages
-          publish_dir: ./hexo-blog/public
+          publish_dir: ./public
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
