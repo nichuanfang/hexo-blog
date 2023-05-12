@@ -56,7 +56,7 @@ jobs:
 
       - name: 处理dist文件
         run: |
-          ls /home/runner/work/hexo-blog/hexo-blog/public
+          python handle_dist.py
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest

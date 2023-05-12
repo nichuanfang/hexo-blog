@@ -1,13 +1,16 @@
 #!/usr/local/bin/python
 # coding=utf-8
 from PIL import Image
+import requests
 import re
+import base64
+import os
 
 # 自动生成文档的图片 并将该图片转为webp格式
 
 pattern = re.compile('.(png|jpeg|jpg)$')
 
-def format(input_path:str,output_path:str):
+def file_to_webp(input_path:str,output_path:str):
     """将jpg,jpeg,gif等转webp
 
     Args:
@@ -23,8 +26,22 @@ def format(input_path:str,output_path:str):
         im.thumbnail((1200,900), Image.ANTIALIAS) #重新设置图片大小
         im.save(output_path) #保存
 
-
+# 将目录的图片转webp
+def dir_to_webp(input_dir:str):
+    for dir_path,dir_list,file_list in os.walk(input_dir):
+        for file in file_list:
+            if not file.endswith('.jpg') and not file.endswith('.jpeg') and not file.endswith('.png'):
+                 continue
+            file_to_webp(dir_path.replace('\\','/')+'/'+file,dir_path.replace('\\','/'))
+            os.remove(dir_path+'/'+file)
 
 if __name__ == '__main__':
-    # format('test/resume.png','test')
-    pass
+    dir_to_webp(f'./source')
+    base64_data = requests.api.get('https://crawler.vencenter.cn/wallpaper/random')
+    #base64_data转换成图片
+    imgdata = base64.b64decode(base64_data)
+    with open('test.webp','wb') as file:
+        file.write(imgdata)
+
+
+

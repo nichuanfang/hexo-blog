@@ -8,8 +8,8 @@ import subprocess
 from bs4 import BeautifulSoup
 import re
 
-base_path = '/root/code/hexo-blog'
-# base_path = '.'
+# base_path = '/root/code/hexo-blog'
+base_path = '.'
 
 
 def saveFile(data,file_path):
