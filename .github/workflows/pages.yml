@@ -12,13 +12,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: hexo-blog
 
       - name: Use Node.js 12.x
         uses: actions/setup-node@v2
         with:
           node-version: '12'
+
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
@@ -27,23 +26,37 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-npm-cache
 
-      - name: Install Dependencies
+      - name: 设置python环境(v3.11)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 安装pip依赖(清华大学镜像源)
+        run: pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+
+      - name: 自动配置博客图片,图片转webp
+        run: |
+
+      - name: 更新hexo-blog项目
+        uses: Smart-Transportation/push@v1.3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: 'master'
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          author_name: 'github-actions[bot]'
+          message: '🐳 chore: 更新hexo-blog文档图片'
+          repository: nichuanfang/hexo-blog
+
+      - name: 安装npm依赖
         working-directory: hexo-blog
         run: npm install
 
-      - name: Build
+      - name: npm构建
         working-directory: hexo-blog
         run: npm run build
 
-      - name: checkout出nginx-config
-        uses: actions/checkout@v2
-        with:
-          repository: nichuanfang/nginx-config
-          token: ${{ secrets.GH_TOKEN }}
-          ref: main
-          path: nginx-config
-
-      - name: 自动配置博客图片
+      - name: 处理静态资源
         run: |
 
       - name: 发布blog服务
@@ -59,17 +72,10 @@ jobs:
           pass: ${{ secrets.PASS }}
           port: ${{ secrets.PORT }}
           connect_timeout: 20s
-          first_ssh: |
-            cd /root/code/hexo-blog
-            git checkout .
-            git pull --allow-unrelated-histories
-            hexo cl
-            hexo g
-            /usr/local/bin/pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r ./requirements.txt
-            /usr/local/bin/python handle_dist.py
-            chmod 777 /root/code/hexo-blog/public
-            docker restart nginx
           scp: |
+            - './public/*' => /opt/docker/nginx/html/
+          last_ssh: |
+            docker restart nginx
 
       - name: 部署到github
         uses: peaceiris/actions-gh-pages@v3
