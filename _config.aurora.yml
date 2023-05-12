@@ -64,6 +64,9 @@ menu:
   Email:
     name: '发送邮件'
     path: 'mailto:f18326186224@gmail.com'
+    i18n:
+      cn: '发送邮件'
+      en: 'EMAIL'
 
 #! ---------------------------------------------------------------
 #! Theme Config
