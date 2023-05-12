@@ -55,7 +55,7 @@ jobs:
         run: npm run build
 
       - name: 处理静态资源
-        run: |
+        run: | 
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
