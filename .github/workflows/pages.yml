@@ -54,8 +54,8 @@ jobs:
       - name: npm构建
         run: npm run build
 
-      - name: 处理静态资源
-        run: | 
+      - name: 处理dist文件
+        run: |
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
@@ -73,6 +73,7 @@ jobs:
           scp: |
             - './public/*' => /opt/docker/nginx/html/
           last_ssh: |
+            chmod 777 /opt/docker/nginx/html/
             docker restart nginx
 
       - name: 部署到github
