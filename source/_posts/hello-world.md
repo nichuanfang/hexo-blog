@@ -71,7 +71,7 @@ Normal Tips Container
 :::
 ```
 
-![alt](/img/hello-world/tip.png)
+![alt](/img/hello-world/tip.webp)
 
 如果你不想使用默认的标题TIP，你可以使用以下方法重命名你的容器标题:
 
@@ -86,7 +86,7 @@ Custom header
 :::
 ```
 
-![alt](/img/hello-world/tip-rename.png)
+![alt](/img/hello-world/tip-rename.webp)
 
 ### Warning 容器
 
@@ -96,7 +96,7 @@ Warning!!!
 :::
 ```
 
-![alt](/img/hello-world/warning.png)
+![alt](/img/hello-world/warning.webp)
 
 ### Danger 容器
 
@@ -106,7 +106,7 @@ Danger!!!
 :::
 ```
 
-![alt](/img/hello-world/danger.png)
+![alt](/img/hello-world/danger.webp)
 
 ### Details 容器
 
@@ -130,8 +130,8 @@ Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi tristique 
 
 **关闭状态:**
 
-![alt](/img/hello-world/detail.png)
+![alt](/img/hello-world/detail.webp)
 
 **展开状态:**
 
-![alt](/img/hello-world/detail-opened.png)
+![alt](/img/hello-world/detail-opened.webp)

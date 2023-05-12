@@ -16,8 +16,8 @@ site:
   description: 一位正在重塑知识的技术人 <br /> @ <b>微信：ncf08209270</b>
   language: cn
   multi_language: true
-  logo: /img/site/logo.jpg
-  avatar: /img/site/avatar.jpg
+  logo: /img/site/logo.webp
+  avatar: /img/site/avatar.webp
   beian: # 如果不需要可以让 number 和 link 保持空白
     number: ''
     link: ''

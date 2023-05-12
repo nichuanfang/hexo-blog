@@ -153,4 +153,4 @@ feature: true
 ```
 
 * 控制台输出. 可以看出两次唤醒相隔了两秒
-![alt](/img/reentrant-lock/reentrant-lock-test.png)
+![alt](/img/reentrant-lock/reentrant-lock-test.webp)
