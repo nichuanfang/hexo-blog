@@ -132,7 +132,7 @@ gitalk:
   owner: 'nichuanfang'
   admin: ['nichuanfang']
   id: uid
-  language: cn
+  language: zh-CN
   distractionFreeMode: true
   recentComment: true
   proxy: ''
@@ -146,7 +146,7 @@ valine:
   avatar: ''
   placeholder: Leave your thoughts behind~
   visitor: true
-  # lang: cn
+  lang: zh-CN
   avatarForce: false
   meta: ['nick', 'mail']
   requiredFields: []

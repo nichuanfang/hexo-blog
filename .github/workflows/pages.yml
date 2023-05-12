@@ -43,6 +43,9 @@ jobs:
           ref: main
           path: nginx-config
 
+      - name: 自动配置博客图片
+        run: |
+
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         env:
