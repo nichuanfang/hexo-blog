@@ -7,6 +7,7 @@ import re
 import base64
 import os
 from io import BytesIO
+import subprocess
 # 自动生成文档的图片 并将该图片转为webp格式
 
 pattern = re.compile('.(png|jpeg|jpg)$')
@@ -56,11 +57,13 @@ def random_img(file_path:str):
     Args:
         path (str): 保存的文件路径
     """    
+    file_name = file_path.split('/')[-1].split('.')[0]
     base64_data = requests.api.get('https://crawler.vencenter.cn/wallpaper/random')
     #base64_data转换成图片
     imgdata = base64.b64decode(base64_data.text)
     im = Image.open(BytesIO(imgdata))
     im.thumbnail((1200,900), Image.ANTIALIAS) #重新设置图片大小
+    subprocess.call(f'mkdir -p ./source/img/{file_name}',shell=True)
     im.save(f'./source{file_path}')
 
 if __name__ == '__main__':
