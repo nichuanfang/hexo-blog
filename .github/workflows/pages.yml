@@ -49,7 +49,6 @@ jobs:
           repository: nichuanfang/hexo-blog
 
       - name: 安装npm依赖
-        working-directory: hexo-blog
         run: npm install
 
       - name: npm构建
