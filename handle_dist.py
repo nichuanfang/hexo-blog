@@ -35,9 +35,13 @@ def hand_soup(soup):
 # 拷贝js文件
 subprocess.call(f'cp -rf {base_path}/source/js/* {base_path}/public/static/js',shell=True)
 
-
 # 拷贝css文件
 subprocess.call(f'cp -rf {base_path}/source/css/* {base_path}/public/static/css',shell=True)
+
+
+# 拷贝font文件
+subprocess.call(f'mkdir -p {base_path}/public/static/font',shell=True)
+subprocess.call(f'cp -rf {base_path}/source/font/* {base_path}/public/static/font',shell=True)
 
 # 处理index.html
 with open(f'{base_path}/public/index.html',encoding="utf-8") as index_file:
