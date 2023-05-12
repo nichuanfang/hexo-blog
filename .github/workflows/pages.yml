@@ -52,7 +52,6 @@ jobs:
         run: npm install
 
       - name: npm构建
-        working-directory: hexo-blog
         run: npm run build
 
       - name: 处理静态资源
