@@ -43,22 +43,26 @@ jobs:
           ref: main
           path: nginx-config
 
-#       - name: 更新webroot
-#         run: |
-#           cd $GITHUB_WORKSPACE/nginx-config/webroot
-#           rm -rf *
-#           cp -r $GITHUB_WORKSPACE/hexo-blog/public/* .
-
-#       - name: 更新nginx-config项目 触发私服部署
-#         uses: Smart-Transportation/push@v1.3
-#         with:
-#           github_token: ${{ secrets.GH_TOKEN }}
-#           branch: 'main'
-#           author_email: 'github-actions[bot]@users.noreply.github.com'
-#           author_name: 'github-actions[bot]'
-#           message: '🐳 chore: 更新博客'
-#           directory: nginx-config
-#           repository: nichuanfang/nginx-config
+      - name: 发布blog服务
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        env:
+          WELCOME: 'ssh scp ssh pipelines'
+          LASTSSH: 'Doing something after copying'
+        continue-on-error: true
+        with:
+          # HC代表发布xray配置的服务器
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          pass: ${{ secrets.PASS }}
+          port: ${{ secrets.PORT }}
+          connect_timeout: 20s
+          first_ssh: |
+            cd /root/code/hexo-blog
+            git checkout .
+            git pull --allow-unrelated-histories
+            hexo cl & hexo g
+            docker restart nginx
+          scp: |
 
       - name: 部署到github
         uses: peaceiris/actions-gh-pages@v3
