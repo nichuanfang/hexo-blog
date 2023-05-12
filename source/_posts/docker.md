@@ -3,7 +3,7 @@ title: Docker
 date: 2023-05-13T06:43:14+08:00
 tags: docker
 categories: devops
-cover:
+cover: /img/docker/docker.webp
 feature: false
 ---
 
