@@ -15,7 +15,7 @@ site:
   nick: Jaychouzzz
   description: 一位正在重塑知识的技术人 <br /> @ <b>微信：ncf08209270</b>
   language: cn
-  multi_language: true 
+  multi_language: true
   logo: /img/site/logo.jpg
   avatar: /img/site/avatar.jpg
   beian: # 如果不需要可以让 number 和 link 保持空白
