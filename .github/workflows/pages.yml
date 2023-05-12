@@ -62,6 +62,8 @@ jobs:
             git pull --allow-unrelated-histories
             hexo cl
             hexo g
+            /usr/local/bin/pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r ./requirements.txt
+            /usr/local/bin/python handle_dist.py
             chmod 777 /root/code/hexo-blog/public
             docker restart nginx
           scp: |
