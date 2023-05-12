@@ -71,6 +71,8 @@ jobs:
           pass: ${{ secrets.PASS }}
           port: ${{ secrets.PORT }}
           connect_timeout: 20s
+          first_ssh: |
+            rm -rf /opt/docker/nginx/html/*
           scp: |
             './public/*' => /opt/docker/nginx/html/
           last_ssh: |
