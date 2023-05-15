@@ -73,7 +73,7 @@ menu:
 #! @docs https://aurora.tridiamond.tech/guide/theme.html
 #! ---------------------------------------------------------------
 theme:
-  dark_mode: 'auto'
+  dark_mode: true
   profile_shape: circle # support `circle`, `diamond`, `rounded`
   feature: true
   gradient:
