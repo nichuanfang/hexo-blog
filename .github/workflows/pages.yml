@@ -33,7 +33,7 @@ jobs:
           cache: 'pip'
 
       - name: 安装pip依赖(清华大学镜像源)
-        run: pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: 自动配置博客图片,图片转webp
         run: |
