@@ -1,6 +1,6 @@
 ---
 title: 【Java】java23种设计模式案例之命令模式
-date: 2022-12-01T10:50:00+08:00
+date: 2020-12-01T10:50:00+08:00
 tags: 设计模式
 categories: Java
 feature: true
