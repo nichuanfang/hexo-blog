@@ -2,3 +2,4 @@ beautifulsoup4
 lxml==4.9.2
 Pillow==9.5.0
 requests==2.27.1
+SuperStream==0.2.6

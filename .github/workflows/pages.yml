@@ -55,6 +55,10 @@ jobs:
       - name: npm构建
         run: npm run build
 
+      - name: 处理api文件
+        run: |
+          python handle_api.py
+
       - name: 处理dist文件
         run: |
           python handle_dist.py
