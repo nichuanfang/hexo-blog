@@ -1,8 +1,9 @@
-﻿---
+---
 title: Redis的一个小坑
 date: 2019-03-23T22:23:00+08:00
 tags: tips
 categories: Redis
+cover: /img/Redis的一个小坑/Redis的一个小坑.webp
 ---
 <meta name="referrer" content="no-referrer" />
 
