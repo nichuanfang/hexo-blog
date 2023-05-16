@@ -89,6 +89,7 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
                     author['post_list'] = articles_simple
                     json.dump(author,open(f'./public/api/authors/{author_file}','w+',encoding='utf8'),ensure_ascii=False)
         case 'categories':
+            logging.info(f'=============================分类处理开始')
             # 分类
             for categories_dir_path,categories_dir_list,categories_file_list in os.walk(dir_path+'/'+dir):
                 for category_file in categories_file_list:
