@@ -61,7 +61,11 @@ def random_img(file_path:str):
     base64_data = requests.api.get('https://crawler.vencenter.cn/wallpaper/random')
     #base64_data转换成图片
     imgdata = base64.b64decode(base64_data.text)
-    im = Image.open(BytesIO(imgdata))
+    try:
+        im = Image.open(BytesIO(imgdata))
+    except:
+        random_img(file_path)
+        return
     im.thumbnail((1200,900), Image.ANTIALIAS) #重新设置图片大小
     subprocess.call(f'mkdir -p ./source/img/{file_name}',shell=True)
     im.save(f'./source{file_path}')
