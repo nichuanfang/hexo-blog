@@ -144,7 +144,7 @@ gitalk:
   language: zh-CN
   distractionFreeMode: false
   recentComment: true
-  proxy: ''
+  proxy: 'https://www.vencenter.cn/login/oauth/access_token'
 
 # Valine comment plugin (recommended!)
 # see https://valine.js.org/quickstart.html
