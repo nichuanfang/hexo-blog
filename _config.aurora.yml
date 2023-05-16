@@ -135,14 +135,14 @@ site_meta:
 gitalk:
   enable: true
   autoExpand: true
-  clientID:
-  clientSecret:
-  repo: 'dev-blog-comments'
+  clientID: 'ca420c20079ca22e7bb6'
+  clientSecret: 'ddd5921b74beedda73363cf89a851986311f914a'
+  repo: 'hexo-blog-comments'
   owner: 'nichuanfang'
   admin: ['nichuanfang']
-  id: uid
-  language: zh-CN
-  distractionFreeMode: true
+  id: location.pathname
+  language: en
+  distractionFreeMode: false
   recentComment: true
   proxy: ''
 
