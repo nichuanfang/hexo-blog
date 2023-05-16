@@ -142,7 +142,7 @@ gitalk:
   admin: ['nichuanfang']
   id: location.pathname
   language: en
-  distractionFreeMode: false
+  distractionFreeMode: true
   recentComment: true
   proxy: ''
 
