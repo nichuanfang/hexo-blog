@@ -7,8 +7,11 @@ import json
 import os
 import datetime
 import copy
-from tkinter import NO
+from numpy import info
 from superstream import Stream
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 UTC_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"
@@ -95,6 +98,8 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
                     category = json.load(category_f)
                     postlist = []
                     for article in articles_simple:
+                       logging.info(f'=============================分类名:{article["name"]}')
+                       logging.info(f'=============================分类列表:{article_uid_category[article["uid"]]}')
                        if category['name'] in article_uid_category[article['uid']]:
                           # 该文章属于当前分类
                           postlist.append(article)
