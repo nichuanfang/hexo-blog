@@ -93,7 +93,7 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
             # 分类
             for categories_dir_path,categories_dir_list,categories_file_list in os.walk(dir_path+'/'+dir):
                 logging.info(f'=============================分类文件数量:{len(categories_file_list)}个')
-                logging.info(f'=============================分类文件夹数量:{len(categories_dir_list)}个')
+                logging.info(f'=============================文章清单数量:{len(articles_simple)}个')
                 for category_file in categories_file_list:
                   with open(categories_dir_path+'/'+category_file,'r',encoding='utf8') as category_f:
                     category = json.load(category_f)
