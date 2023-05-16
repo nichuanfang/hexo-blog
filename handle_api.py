@@ -137,7 +137,7 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
           features:list[dict] = []
           count = 0
           for article in articles_simple:
-              if article['feature'] and count <3:
+              if article.__contains__('feature') and article['feature'] and count <3:
                 features.append(article)
                 count+=1
           json.dump(features,open(dir_path+'/'+file,'w+',encoding='utf8'),ensure_ascii=False)
