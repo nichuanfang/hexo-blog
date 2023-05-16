@@ -46,6 +46,12 @@ menu:
   About: true
   Tags: true
   Archives: true
+  # message-board:
+  #   name: 'MessageBoard'
+  #   i18n:
+  #     cn: '留言板'
+  #     en: 'Message Board'
+  #   path: '/page/message-board'
   # Github:
   #   name: 'Github主页'
   #   path: 'https://github.com/nichuanfang'
@@ -127,7 +133,7 @@ site_meta:
 
 # For local development only!
 gitalk:
-  enable: false
+  enable: true
   autoExpand: true
   clientID:
   clientSecret:
