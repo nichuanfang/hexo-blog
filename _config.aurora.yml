@@ -141,8 +141,8 @@ gitalk:
   owner: 'nichuanfang'
   admin: ['nichuanfang']
   id: location.pathname
-  language: cn
-  distractionFreeMode: true
+  language: zh-CN
+  distractionFreeMode: false
   recentComment: true
   proxy: ''
 
