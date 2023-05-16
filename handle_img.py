@@ -77,7 +77,7 @@ if __name__ == '__main__':
             need_rewrite:bool = False
             rewrite_lines:list[str] = []
             is_update = False
-            with open(dir_path+'/'+file,'r',encoding='utf-8') as md_file:
+            with open(dir_path+'/'+file,'r',encoding='utf-8-sig') as md_file:
                 # 若干操作 修改html内容
                 lines = md_file.readlines()
                 for line in lines:
