@@ -2,7 +2,7 @@
 title: 可重入锁ReentrantLock高级特性
 date: 2023-05-08T07:05:39+08:00
 tags: ReentrantLock
-categories: 测试
+categories: 分布式
 cover: /img/reentrant-lock/reentrant-lock.webp
 feature: true
 ---

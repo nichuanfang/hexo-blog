@@ -2,7 +2,7 @@
 title: 个人简历
 date: 2023-05-10T07:18:05+08:00
 tags: resume
-categories: 简历
+categories: 作品集
 cover: /img/resume/resume.webp
 feature: true
 ---
