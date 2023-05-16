@@ -32,54 +32,53 @@ article_uid_category:dict[str,list] = {}
 # 文章的uid与标签关系表
 article_uid_tag:dict[str,list] = {}
 for dir_path,dir_list,file_list in os.walk(f'./public/api'):
+    # 先处理文章列表
+    for article_dir_path,article_dir_list,article_file_list in os.walk(dir_path+'/'+'articles'):
+      for article_file in article_file_list:
+        # 修正为中国时区
+        with open(article_dir_path+'/'+article_file,'r',encoding='utf8') as article:
+          article_json_data = json.load(article)
+          date = article_json_data['date']
+          # 将UTC时间转为东八区时间
+          utc_format(article_json_data,'date')
+          utc_format(article_json_data,'updated')
+          articles.append(article_json_data)
+          pass
+      # 按照创建时间重新排序
+      articles = sorted(articles, key=lambda k: k['date'],reverse=True)
+
+      # 对每一篇文章的prev和post重新赋值
+      for index,art in enumerate(articles):
+        prev_post = {}
+        next_post = {}
+        if index == 0:
+          # 深拷贝: 拷贝当前对象的属性以及内部的对象属性
+          next_post = copy.deepcopy(articles[index+1])
+        elif index == len(articles)-1:
+          prev_post = copy.deepcopy(articles[index-1])
+        else:
+          prev_post = copy.deepcopy(articles[index-1])
+          next_post = copy.deepcopy(articles[index+1])
+        art['prev_post'] = prev_post
+        art['next_post'] = next_post
+        prev_post.pop('prev_post',None)
+        prev_post.pop('next_post',None)
+        next_post.pop('prev_post',None)
+        next_post.pop('next_post',None)
+        art_path:str = art['path']
+        # encoding='utf8'配合ensure_ascii=False 防止中文乱码
+        json.dump(art,open(f'./public/{art_path}','w+',encoding='utf8'),ensure_ascii=False)
+        art.pop('prev_post',None)
+        art.pop('next_post',None)
+        art.pop('content',None)
+        art.pop('toc',None)
+        articles_simple.append(art)
+        # 处理分类映射
+        article_uid_category[art['uid']] = Stream(art['categories']).map(lambda category: category['name']).to_list()
+        # 处理标签映射
+        article_uid_tag[art['uid']] = Stream(art['tags']).map(lambda tag: tag['name']).to_list()
     for dir in dir_list:
       match dir:
-        case 'articles':
-            # 文章列表
-            for article_dir_path,article_dir_list,article_file_list in os.walk(dir_path+'/'+dir):
-                for article_file in article_file_list:
-                  # 修正为中国时区
-                  with open(article_dir_path+'/'+article_file,'r',encoding='utf8') as article:
-                    article_json_data = json.load(article)
-                    date = article_json_data['date']
-                    # 将UTC时间转为东八区时间
-                    utc_format(article_json_data,'date')
-                    utc_format(article_json_data,'updated')
-                    articles.append(article_json_data)
-                    pass
-                # 按照创建时间重新排序
-                articles = sorted(articles, key=lambda k: k['date'],reverse=True)
-
-                # 对每一篇文章的prev和post重新赋值
-                for index,art in enumerate(articles):
-                  prev_post = {}
-                  next_post = {}
-                  if index == 0:
-                    # 深拷贝: 拷贝当前对象的属性以及内部的对象属性
-                    next_post = copy.deepcopy(articles[index+1])
-                  elif index == len(articles)-1:
-                    prev_post = copy.deepcopy(articles[index-1])
-                  else:
-                    prev_post = copy.deepcopy(articles[index-1])
-                    next_post = copy.deepcopy(articles[index+1])
-                  art['prev_post'] = prev_post
-                  art['next_post'] = next_post
-                  prev_post.pop('prev_post',None)
-                  prev_post.pop('next_post',None)
-                  next_post.pop('prev_post',None)
-                  next_post.pop('next_post',None)
-                  art_path:str = art['path']
-                  # encoding='utf8'配合ensure_ascii=False 防止中文乱码
-                  json.dump(art,open(f'./public/{art_path}','w+',encoding='utf8'),ensure_ascii=False)
-                  art.pop('prev_post',None)
-                  art.pop('next_post',None)
-                  art.pop('content',None)
-                  art.pop('toc',None)
-                  articles_simple.append(art)
-                  # 处理分类映射
-                  article_uid_category[art['uid']] = Stream(art['categories']).map(lambda category: category['name']).to_list()
-                  # 处理标签映射
-                  article_uid_tag[art['uid']] = Stream(art['tags']).map(lambda tag: tag['name']).to_list()
         case 'authors':
             # 作者信息
             for authors_dir_path,authors_dir_list,authors_file_list in os.walk(dir_path+'/'+dir):
@@ -89,18 +88,13 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
                     author['post_list'] = articles_simple
                     json.dump(author,open(f'./public/api/authors/{author_file}','w+',encoding='utf8'),ensure_ascii=False)
         case 'categories':
-            logging.info(f'=============================分类处理开始')
             # 分类
             for categories_dir_path,categories_dir_list,categories_file_list in os.walk(dir_path+'/'+dir):
-                logging.info(f'=============================分类文件数量:{len(categories_file_list)}个')
-                logging.info(f'=============================文章清单数量:{len(articles_simple)}个')
                 for category_file in categories_file_list:
                   with open(categories_dir_path+'/'+category_file,'r',encoding='utf8') as category_f:
                     category = json.load(category_f)
                     postlist = []
                     for article in articles_simple:
-                       logging.info(f'=============================分类名:{article["name"]}')
-                       logging.info(f'=============================分类列表:{article_uid_category[article["uid"]]}')
                        if category['name'] in article_uid_category[article['uid']]:
                           # 该文章属于当前分类
                           postlist.append(article)
