@@ -72,6 +72,16 @@ jobs:
         run: |
           python handle_dist.py
 
+      - name: 部署到github
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_TOKEN }}
+          external_repository: nichuanfang/nichuanfang.github.io
+          publish_branch: gh-pages # default: gh-pages
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         env:
@@ -92,13 +102,3 @@ jobs:
           last_ssh: |
             chmod 777 /opt/docker/nginx/html/
             docker restart nginx
-
-      - name: 部署到github
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.GH_TOKEN }}
-          external_repository: nichuanfang/nichuanfang.github.io
-          publish_branch: gh-pages # default: gh-pages
-          publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
