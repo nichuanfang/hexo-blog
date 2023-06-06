@@ -1,2 +1,2 @@
 # hexo-blog
-welcome to my [blog](https://www.vencenter.cn)
+welcome to my [blog](https://nichuanfang.github.io)
