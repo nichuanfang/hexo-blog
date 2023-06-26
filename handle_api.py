@@ -147,4 +147,3 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
           search:list[dict] = json.load(search_file)
           Stream(search).for_each(lambda item: utc_format(item,'date'))
           json.dump(search,open(dir_path+'/'+file,'w+',encoding='utf8'),ensure_ascii=False)
-              
