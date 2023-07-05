@@ -6,7 +6,6 @@ import json
 import os
 import datetime
 import copy
-from superstream import Stream
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -125,6 +124,7 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
                           postlist.append(article)
                     tag['postlist'] = postlist
                     json.dump(tag,open(tags_dir_path+'/'+tag_file,'w+',encoding='utf8'),ensure_ascii=False)
+        
         case _:
             # 缺省匹配
             pass

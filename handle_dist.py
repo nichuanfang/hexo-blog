@@ -75,7 +75,6 @@ for dir_path,dir_list,file_list in os.walk(f'{base_path}/public/page'):
                 # 保存
                 saveFile(soup.__str__(),dir_path+'/'+file)
 
-
 # 处理public/post/*.html 将国外的资源全部替换为私服的资源
 for dir_path,dir_list,file_list in os.walk(f'{base_path}/public/post'):
         for file in file_list:

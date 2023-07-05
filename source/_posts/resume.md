@@ -25,7 +25,7 @@ feature: true
 # 联系方式
 
 * 手机: 18326186224
-* Email: f18326186224@gmail.com / 1290274972@qq.com
+* Email: <f18326186224@gmail.com> / <1290274972@qq.com>
 * 微信号: ncf08209270
 
 # 技能清单
@@ -45,7 +45,7 @@ feature: true
   * 熟悉 Spring Cloud／Spring Cloud Alibaba 全家桶常见组件的使用，有微服务架构项目开发经验
 * 文档相关:  熟练掌握文档语法Markdown,熟悉设计工具Visio,掌握git提交、pr以及发版规范
 * 前端：掌握 HTML5、CSS、Javascript、Bootstrap、Ajax，了解ES5/ES6、TypeScript，有 AngularJs、Vue的实际开发经验
-* Devops：掌握Jenkins,Github Actions,Git Webhook,熟悉CI／CD 流程
+* Devops：掌握Jenkins,GitHub Actions workflows,Git Webhook,熟悉CI／CD 流程
 * 有微信公众平台,开放平台的开发经验(公众号)
 * 其他技术栈: 熟悉python相关的技术栈,包括爬虫工具selenium、bs4,http服务器框架Flask、hug ,图片处理Pillow、opencv、OCR(tesseract)等
 
@@ -76,7 +76,7 @@ feature: true
 * 参与商家入驻功能的开发
 * MyBatis 实现后台商家列表的读取，商家所在城区、所属的商品栏目的获取，并封装成 JSON 数据，为前端提供数据接口
 * 使用 Ajax 实现商家入驻时选择区域、类型
-* 使用 Spring 实现店铺图片的上传 
+* 使用 Spring 实现店铺图片的上传
 * 通过 Maven 进行项目管理，使用 Git 等工具辅助开发
 * 店铺信息更改功能等实现，使店主能够在管理后台实现店铺联系方式等基本信息的更改
 * 实现店铺活动的添加，使用 TreeView 实现对活动类型和所属区域、店铺的展示

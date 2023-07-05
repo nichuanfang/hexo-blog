@@ -50,7 +50,7 @@ def dir_to_webp(input_dir:str):
                  continue
             file_to_webp(dir_path.replace('\\','/')+'/'+file,dir_path.replace('\\','/'))
             os.remove(dir_path+'/'+file)
-
+            
 def random_img(file_path:str):
     """随机一张图片
 
@@ -124,6 +124,3 @@ if __name__ == '__main__':
                     md.writelines(rewrite_lines)
     
     # url_to_webp('https://w.wallhaven.cc/full/yx/wallhaven-yxqzpd.jpg','result.webp')
-
-
-
