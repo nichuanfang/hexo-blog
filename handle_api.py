@@ -8,7 +8,7 @@ import datetime
 import copy
 import logging
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO) 
 
 
 UTC_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"
