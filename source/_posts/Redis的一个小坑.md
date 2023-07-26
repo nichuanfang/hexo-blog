@@ -3,13 +3,14 @@ title: Redis的一个小坑
 date: 2019-03-23T22:23:00+08:00
 tags: tips
 categories: Redis
-cover: /img/Redis的一个小坑/Redis的一个小坑.webp
+cover: /img/Redis的一个小坑/Redis的一个小坑.jpg
 ---
+
 <meta name="referrer" content="no-referrer" />
 
-## Redis的一个小坑
->
-> 又忘了，修改了redis的配置文件就一定要重新制定配置文件启动
+## Redis 的一个小坑
+
+> 又忘了，修改了 redis 的配置文件就一定要重新制定配置文件启动
 > 太坑了，记录一下
 > ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190327173254216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTQ4Nzk1,size_16,color_FFFFFF,t_70)测试成功
 
@@ -22,7 +23,7 @@ import redis.clients.jedis.Jedis;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {

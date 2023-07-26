@@ -4,22 +4,23 @@ date: 2020-12-01T10:50:00+08:00
 tags: 设计模式
 categories: Java
 feature: true
-cover: /img/【Java】java23种设计模式案例之命令模式/【Java】java23种设计模式案例之命令模式.webp
+cover: /img/【Java】java23种设计模式案例之命令模式/【Java】java23种设计模式案例之命令模式.jpg
 ---
+
 <meta name="referrer" content="no-referrer" />
 
-## 【Java】java23种设计模式案例之命令模式
->
-><a href="http://www.runoob.com/design-pattern/command-pattern.html">命令模式定义参考</a>
+## 【Java】java23 种设计模式案例之命令模式
 
->例子:              <a href="https://github.com/LAGoonwe/Commandmode">源代码</a>
+> <a href="http://www.runoob.com/design-pattern/command-pattern.html">命令模式定义参考</a>
 
-3种案例
+> 例子: <a href="https://github.com/LAGoonwe/Commandmode">源代码</a>
+
+3 种案例
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190328202229793.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTQ4Nzk1,size_16,color_FFFFFF,t_70)
 
->1.Command案例
->问题描述：一个指挥官请求（命令）三连偷袭敌人
->代码
+> 1.Command 案例
+> 问题描述：一个指挥官请求（命令）三连偷袭敌人
+> 代码
 
 ```java
 package com.lagoon.command;
@@ -114,9 +115,9 @@ public class Application {
 
 ```
 
->2.Dir命令，演示命令模式的可撤销操作
->问题描述：该问题描述的是请求者请求在硬盘上建立目录，还可以撤销请求，这就要求接收者不仅可以在硬盘上建立目录，也可以删除上一次请求所建立的目录
->代码：
+> 2.Dir 命令，演示命令模式的可撤销操作
+> 问题描述：该问题描述的是请求者请求在硬盘上建立目录，还可以撤销请求，这就要求接收者不仅可以在硬盘上建立目录，也可以删除上一次请求所建立的目录
+> 代码：
 
 ```java
 package com.lagoon.Dir;
@@ -251,10 +252,10 @@ public class Application {
 
 ```
 
->3.Letter案例
->问题描述：请求者可以请求只输出英文字母表，俄文字母表或1-n之间的偶数
- 也可以请求三种都输出
- 代码：
+> 3.Letter 案例
+> 问题描述：请求者可以请求只输出英文字母表，俄文字母表或 1-n 之间的偶数
+> 也可以请求三种都输出
+> 代码：
 
 ```java
 package com.lagoon.Letter;

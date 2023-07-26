@@ -44,9 +44,9 @@ jobs:
       - name: 安装pip依赖(清华大学镜像源)
         run: pip install -r requirements.txt
 
-      - name: 自动配置博客图片,图片转webp
-        run: |
-          python handle_img.py
+      # - name: 自动配置博客图片,图片转webp
+      #   run: |
+      #     python handle_img.py
 
       - name: 更新hexo-blog项目
         uses: Smart-Transportation/push@v1.3

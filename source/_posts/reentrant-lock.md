@@ -3,12 +3,12 @@ title: 可重入锁ReentrantLock高级特性
 date: 2023-05-08T07:05:39+08:00
 tags: ReentrantLock
 categories: 分布式
-cover: /img/reentrant-lock/reentrant-lock.webp
+cover: /img/reentrant-lock/reentrant-lock.jpg
 ---
 
 ## `ReentrantLock`提供了`Synchronized`不具备的三个高级特性
 
-* 公平锁
+- 公平锁
 
 ```java
     /**
@@ -16,11 +16,11 @@ cover: /img/reentrant-lock/reentrant-lock.webp
      * This is equivalent to using {@code ReentrantLock(false)}.
      */
     public ReentrantLock() {
-        sync = new NonfairSync(); 
+        sync = new NonfairSync();
     }
 ```
 
-* 等待可中断
+- 等待可中断
 
 ```java
     /**
@@ -38,7 +38,7 @@ cover: /img/reentrant-lock/reentrant-lock.webp
 ```
 
 :::tip
-条件通知,一把锁可以生成多个条件,每个条件可以对应一个线程分组,可以通过condition对象来进行分组等待和唤醒,解决了`synchronized`关键字只能`notifyAll()`的问题
+条件通知,一把锁可以生成多个条件,每个条件可以对应一个线程分组,可以通过 condition 对象来进行分组等待和唤醒,解决了`synchronized`关键字只能`notifyAll()`的问题
 :::
 
 ```java
@@ -51,14 +51,14 @@ cover: /img/reentrant-lock/reentrant-lock.webp
 `ReentrantLock`条件通知使用注意点
 :::
 
-* 每个condition可以绑定若干个线程,如果需要多个condition请先对线程进行分组;
-* 使用`await()`和`signal()`或者`signalAll()`之前需要先获取锁,在finally代码块中要释放锁;
+- 每个 condition 可以绑定若干个线程,如果需要多个 condition 请先对线程进行分组;
+- 使用`await()`和`signal()`或者`signalAll()`之前需要先获取锁,在 finally 代码块中要释放锁;
 
 ## 实战演示
 
-模拟三个线程,对其中两个线程分为一组绑定到`condition1`,剩下的一个线程单独一组绑定到`condition2`,main线程再分别唤醒等待状态的各线程组.
+模拟三个线程,对其中两个线程分为一组绑定到`condition1`,剩下的一个线程单独一组绑定到`condition2`,main 线程再分别唤醒等待状态的各线程组.
 
-* 创建线程池
+- 创建线程池
 
 ```java
     private final ThreadFactory threadFactory = ThreadFactoryBuilder.create().setNamePrefix("test").build();
@@ -67,7 +67,7 @@ cover: /img/reentrant-lock/reentrant-lock.webp
             10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(16), threadFactory, new ThreadPoolExecutor.AbortPolicy());
 ```
 
-* 初始化`CountDownLatch`和`ReentrantLock`,注册两个`condition`.
+- 初始化`CountDownLatch`和`ReentrantLock`,注册两个`condition`.
 
 ```java
         //闭锁1  让3个子线程同时启动
@@ -81,7 +81,7 @@ cover: /img/reentrant-lock/reentrant-lock.webp
         Condition condition2 = lock.newCondition();
 ```
 
-* 创建子线程,进入等待状态,等主线程唤醒
+- 创建子线程,进入等待状态,等主线程唤醒
 
 ```java
     /**
@@ -123,7 +123,7 @@ cover: /img/reentrant-lock/reentrant-lock.webp
     executor.execute(getCallable(startCdl,endCdl,lock, condition2));
 ```
 
-* 主线程进行唤醒
+- 主线程进行唤醒
 
 ```java
     log.info("Main线程开始执行....");
@@ -151,5 +151,5 @@ cover: /img/reentrant-lock/reentrant-lock.webp
     }
 ```
 
-* 控制台输出. 可以看出两次唤醒相隔了两秒
-![alt](/img/reentrant-lock/reentrant-lock-test.webp)
+- 控制台输出. 可以看出两次唤醒相隔了两秒
+  ![alt](/img/reentrant-lock/reentrant-lock-test.webp)

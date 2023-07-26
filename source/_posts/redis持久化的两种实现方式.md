@@ -3,7 +3,7 @@ title: Redis持久化的两种实现方式
 date: 2019-03-30T16:33:00+08:00
 tags: 持久化
 categories: Redis
-cover: /img/redis持久化的两种实现方式/redis持久化的两种实现方式.webp
+cover: /img/redis持久化的两种实现方式/redis持久化的两种实现方式.jpg
 ---
 <meta name="referrer" content="no-referrer" />
 

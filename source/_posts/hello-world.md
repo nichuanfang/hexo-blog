@@ -7,20 +7,21 @@ date: 2023-05-11T08:19:00+08:00
 tags: template
 # 分类
 categories: 欢迎页
-# 文章封面 
+# 文章封面
 # 这个feature属性将允许 Aurora 引擎找到这些文章，并将它们添加到推荐列表或置顶列表数据中。使用推荐布局模式或置顶布局模式。
 feature: true
-cover: /img/hello-world/hello-world.webp
+cover: /img/hello-world/hello-world.jpg
 ---
 
 ---
+
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in[troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## 1. 快速开始
 
 ### 创建新文档
 
-``` bash
+```bash
 hexo new "My New Post"
 ```
 
@@ -28,7 +29,7 @@ More info: [Writing](https://hexo.io/docs/writing.html)
 
 ### 启动本地服务
 
-``` bash
+```bash
 hexo server
 ```
 
@@ -36,7 +37,7 @@ More info: [Server](https://hexo.io/docs/server.html)
 
 ### 构建静态文件
 
-``` bash
+```bash
 hexo generate
 ```
 
@@ -44,13 +45,13 @@ More info: [Generating](https://hexo.io/docs/generating.html)
 
 ### 部署
 
-``` bash
+```bash
 hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 
-## 2. Markdown自定义容器
+## 2. Markdown 自定义容器
 
 所有的自定义容器都使用这种格式:
 
@@ -63,7 +64,7 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 - `type` 是容器的类型
 - `title` 是可选的,可以用来重命名容器的标题
 
-### Tip容器
+### Tip 容器
 
 ```md
 :::tip
@@ -73,7 +74,7 @@ Normal Tips Container
 
 ![alt](/img/hello-world/tip.webp)
 
-如果你不想使用默认的标题TIP，你可以使用以下方法重命名你的容器标题:
+如果你不想使用默认的标题 TIP，你可以使用以下方法重命名你的容器标题:
 
 ```md
 :::tip Custom header
@@ -125,7 +126,6 @@ Fusce rutrum venenatis eros in hendrerit. Pellentesque habitant morbi tristique 
 `console.log('hello world')`
 
 :::
-
 ```
 
 **关闭状态:**

@@ -3,7 +3,7 @@ title: redis发布和订阅演示
 date: 2019-09-07T08:33:00+08:00
 tags: redis发布与订阅
 categories: Redis
-cover: /img/redis发布和订阅演示/redis发布和订阅演示.webp
+cover: /img/redis发布和订阅演示/redis发布和订阅演示.jpg
 ---
 <meta name="referrer" content="no-referrer" />
 

@@ -3,7 +3,7 @@ title: redis对事务控制的实现
 date: 2019-03-25T19:26:00+08:00
 tags: 事务控制
 categories: Redis
-cover: /img/redis对事务控制的实现/redis对事务控制的实现.webp
+cover: /img/redis对事务控制的实现/redis对事务控制的实现.jpg
 ---
 <meta name="referrer" content="no-referrer" />
 
