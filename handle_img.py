@@ -52,13 +52,13 @@ def dir_to_webp(input_dir:str):
             os.remove(dir_path+'/'+file)
             
 def random_img(file_path:str):
-    """随机一张图片
+    """随机一张图片 可以通过https://picsum.photos/1200/600 获取随机图片
 
     Args:
         path (str): 保存的文件路径
     """    
     file_name = file_path.split('/')[-1].split('.')[0]
-    base64_data = requests.api.get('https://crawler.vencenter.cn/wallpaper/random')
+    base64_data = requests.api.get('https://picsum.photos/1200/600')
     #base64_data转换成图片
     imgdata = base64.b64decode(base64_data.text)
     try:
