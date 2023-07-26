@@ -6,8 +6,6 @@ categories: Python
 cover: /img/python高级学习日志第一天之网络编程/python高级学习日志第一天之网络编程.jpg
 ---
 
-<meta name="referrer" content="no-referrer" />
-
 ## python 高级学习日志第一天之网络编程
 
 ### UDP 发送数据

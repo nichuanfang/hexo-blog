@@ -7,7 +7,6 @@ feature: true
 cover: /img/【Java】java23种设计模式案例之命令模式/【Java】java23种设计模式案例之命令模式.jpg
 ---
 
-<meta name="referrer" content="no-referrer" />
 
 ## 【Java】java23 种设计模式案例之命令模式
 

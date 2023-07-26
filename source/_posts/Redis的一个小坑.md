@@ -6,8 +6,6 @@ categories: Redis
 cover: /img/Redis的一个小坑/Redis的一个小坑.jpg
 ---
 
-<meta name="referrer" content="no-referrer" />
-
 ## Redis 的一个小坑
 
 > 又忘了，修改了 redis 的配置文件就一定要重新制定配置文件启动

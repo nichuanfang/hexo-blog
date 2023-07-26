@@ -5,7 +5,6 @@ tags: 持久化
 categories: Redis
 cover: /img/redis持久化的两种实现方式/redis持久化的两种实现方式.jpg
 ---
-<meta name="referrer" content="no-referrer" />
 
 ## Redis第七期：redis持久化的两种实现方式
 >

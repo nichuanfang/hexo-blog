@@ -5,7 +5,6 @@ tags: 事务控制
 categories: Redis
 cover: /img/redis对事务控制的实现/redis对事务控制的实现.jpg
 ---
-<meta name="referrer" content="no-referrer" />
 
 ## Redis第六期：redis对事务控制的实现
 >

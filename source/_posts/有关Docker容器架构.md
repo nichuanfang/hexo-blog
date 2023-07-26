@@ -5,7 +5,6 @@ tags: Docker
 categories: Devops
 cover: /img/有关Docker容器架构/有关Docker容器架构.jpg
 ---
-<meta name="referrer" content="no-referrer" />
 
 ## 有关Docker容器架构
 
