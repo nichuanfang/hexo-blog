@@ -7,6 +7,7 @@ import os
 import datetime
 import copy
 import logging
+from turtle import pos
 from superstream import Stream
 
 logging.basicConfig(level=logging.INFO) 
@@ -110,7 +111,12 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
                 for post_file in posts_file_list:
                   with open(posts_dir_path+'/'+post_file,'r',encoding='utf8') as post_f:
                      post = json.load(post_f)
-                     post['data'] = articles_simple
+                    #  将articles_simple分页 每页12
+                     post['data'] = articles_simple[12*(int(post_file.split('.')[0])-1):12*int(post_file.split('.')[0])]
+                     # 修改分页信息
+                     post['total'] = len(articles_simple)
+                     post['pageSize'] = 12
+                     post['pageCount'] = post_file.split('.')[0]
                      json.dump(post,open(posts_dir_path+'/'+post_file,'w+',encoding='utf8'),ensure_ascii=False)
         case 'tags':
             # 标签
