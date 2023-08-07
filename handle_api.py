@@ -116,7 +116,7 @@ for dir_path,dir_list,file_list in os.walk(f'./public/api'):
                      # 修改分页信息
                      post['total'] = len(articles_simple)
                      post['pageSize'] = 12
-                     post['pageCount'] = post_file.split('.')[0]
+                     post['pageCount'] = int(post_file.split('.')[0])
                      json.dump(post,open(posts_dir_path+'/'+post_file,'w+',encoding='utf8'),ensure_ascii=False)
         case 'tags':
             # 标签
