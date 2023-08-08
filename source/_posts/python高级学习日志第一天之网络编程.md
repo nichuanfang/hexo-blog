@@ -24,7 +24,7 @@ cover: /img/python高级学习日志第一天之网络编程/python高级学习�
 
 这里我用的编辑工具是== Pycharm ==
 测试的工具是 == 网络调试助手 ==
-其中网络调试助手有多种样式的，下对了能用的就 ok，我的就长这样子：![在这里插入图片描述](https://img-blog.csdnimg.cn/20190106212353613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTQ4Nzk1,size_16,color_FFFFFF,t_70)
+其中网络调试助手有多种样式的，下对了能用的就 ok，我的就长这样子：![在这里插入图片描述](https://images.weserv.nl/?url=https://img-blog.csdnimg.cn/20190106212353613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTQ4Nzk1,size_16,color_FFFFFF,t_70)
 利用 udp 进行简单的数据发送有四个步骤
 
 1.  创建一个套接字
