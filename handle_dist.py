@@ -21,6 +21,11 @@ def hand_soup(soup):
      # 替换静态资源
     js_scripts = soup.findAll('script',attrs={"src":re.compile(r'.js(.*)$')})
     css_links = soup.findAll('link',attrs={"href":re.compile(r'.css(.*)$')})
+    # 加入<meta name="referrer" content="no-referrer" />  防止外链403
+    meta = soup.new_tag('meta')
+    meta['name'] = 'referrer'
+    meta['content'] = 'no-referrer'
+    soup.head.append(meta)
     for script in js_scripts:
         src = script['src']
         script['src'] = '/static/js/'+src.split('/')[-1]
