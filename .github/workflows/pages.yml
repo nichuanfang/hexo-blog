@@ -8,7 +8,11 @@ on:
       theme:
         description: 'Hexo theme'
         required: true
-        default: 'aurora'
+        type: choice
+        # 选项
+        options:
+          - aurora
+          - fluid
 
 jobs:
   pages:
