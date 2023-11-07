@@ -40,33 +40,38 @@ jobs:
           cache: 'pip'
 
       - name: 安装pip依赖(清华大学镜像源)
+        working-directory: ./hexo-blog-aurora
         run: pip install -r requirements.txt
 
       # - name: 自动配置博客图片,图片转webp
       #   run: |
       #     python handle_img.py
 
-      - name: 更新hexo-blog项目
-        uses: Smart-Transportation/push@v1.3
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: 'main'
-          author_email: 'github-actions[bot]@users.noreply.github.com'
-          author_name: 'github-actions[bot]'
-          message: '🐳 chore: 更新hexo-blog文档图片'
-          repository: nichuanfang/hexo-blog
+      # - name: 更新hexo-blog项目
+      #   uses: Smart-Transportation/push@v1.3
+      #   with:
+      #     github_token: ${{ secrets.GH_TOKEN }}
+      #     branch: 'main'
+      #     author_email: 'github-actions[bot]@users.noreply.github.com'
+      #     author_name: 'github-actions[bot]'
+      #     message: '🐳 chore: 更新hexo-blog文档图片'
+      #     repository: nichuanfang/hexo-blog
 
       - name: 安装npm依赖
+        working-directory: ./hexo-blog-aurora
         run: npm install
 
       - name: npm构建
+        working-directory: ./hexo-blog-aurora
         run: npm run build
 
       - name: 处理api文件
+        working-directory: ./hexo-blog-aurora
         run: |
           python handle_api.py
 
       - name: 处理dist文件
+        working-directory: ./hexo-blog-aurora
         run: |
           python handle_dist.py
 
@@ -76,7 +81,7 @@ jobs:
           personal_token: ${{ secrets.GH_TOKEN }}
           external_repository: nichuanfang/nichuanfang.github.io
           publish_branch: gh-pages # default: gh-pages
-          publish_dir: ./public
+          publish_dir: ./hexo-blog-aurora/public
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
@@ -97,7 +102,7 @@ jobs:
             systemctl stop nginx
             rm -rf /root/blog
           scp: |
-            './public/*' => /root/blog
+            './hexo-blog-aurora/public/*' => /root/blog
           last_ssh: |
             chmod 777 /root/blog
             systemctl start nginx
