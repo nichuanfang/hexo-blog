@@ -3,21 +3,14 @@ name: Release Pages
 on:
   # 手动触发
   workflow_dispatch:
-    inputs:
-      # 选择hexo主题
-      theme:
-        description: 'Hexo theme'
-        required: true
-        type: choice
-        # 选项
-        options:
-          - aurora
-          - fluid
+  push:
+    branches:
+      - main
 
 jobs:
   aurora:
     runs-on: ubuntu-latest
-    if: github.event.inputs.theme == 'aurora'
+    if: ${{ vars.THEME == 'aurora' }}
     permissions:
       contents: write
     steps:
@@ -111,7 +104,7 @@ jobs:
 
   fluid:
     runs-on: ubuntu-latest
-    if: github.event.inputs.theme == 'fluid'
+    if: ${{ vars.THEME == 'fluid' }}
     permissions:
       contents: write
     steps:
