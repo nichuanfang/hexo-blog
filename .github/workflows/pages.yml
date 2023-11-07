@@ -3,6 +3,12 @@ name: Pages(aurora-theme)
 on:
   # 手动触发
   workflow_dispatch:
+    inputs:
+      # 选择hexo主题
+      theme:
+        description: 'Hexo theme'
+        required: true
+        default: 'aurora'
 
 jobs:
   pages:
