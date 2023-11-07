@@ -1,18 +1,11 @@
-name: Pages
+name: Pages(aurora-theme)
 
 on:
   # 手动触发
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Init Trigger'
-        required: false
-        default: 'warning'
       tags:
-        description: '初始化博客'
-  push:
-    branches:
-      - main # default branch
+        description: '初始化博客(aurora-theme)'
 
 jobs:
   pages:
@@ -20,12 +13,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v2
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4.0.0
         with:
-          node-version: '12'
+          node-version: 18
 
       - name: Cache NPM dependencies
         uses: actions/cache@v2
