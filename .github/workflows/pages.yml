@@ -115,9 +115,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
+          fetch-depth: 0
+          path: hexo-blog
+
+      - uses: actions/checkout@v4
+        with:
           ref: fluid-theme
           fetch-depth: 0
           path: hexo-blog-fluid
+
+      # 拷贝hexo-blog的文档和图片
+      - name: copy markdown and picture
+        run: |
+          cp -r hexo-blog/_posts/* hexo-blog-fluid/source
+          cp -r hexo-blog/img/* hexo-blog-fluid/source
 
       - name: Use Node.js 18.x
         uses: actions/setup-node@v4.0.0
