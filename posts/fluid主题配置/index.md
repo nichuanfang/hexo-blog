@@ -29,3 +29,16 @@ npm install -g hexo-cli
 # 查看版本
 hexo -v
 ```
+
+### 1.2. 初始化
+
+#### 1.2.1. 初始化
+
+```bash
+# 初始化
+hexo init blog
+# 进入目录
+cd blog
+# 安装依赖
+npm install
+```
