@@ -3,7 +3,10 @@ import datetime
 import sys
 import re
 
+
+img_regex = re.compile(r'[^/\\(]+.(jpg|png)')
 theme = sys.argv[1]
+# 正则替换
 
 # 获取现在的日期 格式yyyy-MM-dd HH:mm:ss 时区为中国
 date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -45,10 +48,12 @@ if theme == 'fluid':
                         for i in range(len(left_lines)):
                             if left_lines[i].__contains__('.jpg'):
                                 # 根据正则表达式[^/\\(]+.(jpg|png) 找出符合的字符串
-                                match_list = re.findall(r'[^/\\(]+.(jpg|png)',left_lines[i])
-                                for match in match_list:
+                                search_list = img_regex.search(left_lines[i]).regs
+                                for search in search_list:
+                                    start_index = search[0]
+                                    end_index = search[1]
                                     # 将xxx.jpg替换为/img/post/{dir}/xxx.jpg
-                                    left_lines[i] = left_lines[i].replace(match,f'/img/post/{dir}/{match}')
+                                    left_lines[i] = left_lines[i].replace(left_lines[i][start_index,end_index],f'/img/post/{dir}/{left_lines[i][start_index,end_index]}')
                         
                         # 如果当前目录下有banner.jpg则设置banner_img
                         if 'banner.jpg' in post_files:
