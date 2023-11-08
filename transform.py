@@ -50,6 +50,7 @@ if theme == 'fluid':
                                 # 根据正则表达式[^/\\(]+.(jpg|png) 找出符合的字符串
                                 result_list:list[str] = img_regex.findall(left_lines[i])
                                 for result in result_list:
+                                    result = result.strip()
                                     # 如果是https或者http开头 不替换
                                     if result.startswith('https') or result.startswith('http'):
                                         continue
