@@ -9,8 +9,7 @@ theme = sys.argv[1]
 # 正则替换
 
 # 获取现在的日期 格式yyyy-MM-dd HH:mm:ss 时区为中国
-date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print(f'当前时间为{date}')
+date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+datetime.timedelta(hours=8)
 
 if theme == 'fluid':
     fluid_posts_path = os.path.join(os.path.pardir,'hexo-blog-fluid','source','_posts')
