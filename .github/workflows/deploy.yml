@@ -1,4 +1,4 @@
-name: release
+name: fluid-theme-auto-deploy
 
 on: [push]
 
