@@ -125,12 +125,6 @@ jobs:
           fetch-depth: 0
           path: hexo-blog-fluid
 
-      # 拷贝hexo-blog的文档和图片
-      - name: copy markdown and picture
-        run: |
-          cp -r hexo-blog/_posts/* hexo-blog-fluid/source
-          cp -r hexo-blog/img/* hexo-blog-fluid/source
-
       - name: Use Node.js 18.x
         uses: actions/setup-node@v4.0.0
         with:
@@ -150,9 +144,19 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: 安装pip依赖(清华大学镜像源)
+      - name: 安装pip依赖(清华大学镜像源)- fluid
         working-directory: ./hexo-blog-fluid
         run: pip install -r requirements.txt
+
+      - name: 安装pip依赖(清华大学镜像源) - main
+        working-directory: ./hexo-blog
+        run: pip install -r requirements.txt
+
+        # 处理main分支的文档和图片
+      - name: transform 'main' branch
+        working-directory: ./hexo-blog
+        run: |
+          python transform.py
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-fluid
