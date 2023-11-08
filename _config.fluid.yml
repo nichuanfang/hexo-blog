@@ -352,8 +352,8 @@ navbar:
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
-    - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    # - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -727,11 +727,11 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
-    type: valine
+    type: gitalk
 
 
 #---------------------------
@@ -769,23 +769,37 @@ disqus:
 # 基于 GitHub Issues
 # Based on GitHub Issues
 # See: https://github.com/gitalk/gitalk#options
+# gitalk:
+#   clientID:
+#   clientSecret:
+#   repo:
+#   owner:
+#   admin: ['name']
+#   language: zh-CN
+#   labels: ['Gitalk']
+#   perPage: 10
+#   pagerDirection: last
+#   distractionFreeMode: false
+#   createIssueManually: true
+#   # 默认 proxy 可能会失效，解决方法请见下方链接
+#   # The default proxy may be invalid, refer to the links for solutions
+#   # https://github.com/gitalk/gitalk/issues/429
+#   # https://github.com/Zibri/cloudflare-cors-anywhere
+#   proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
+
 gitalk:
-  clientID:
-  clientSecret:
-  repo:
-  owner:
-  admin: ['name']
+  enable: true
+  autoExpand: true
+  clientID: 'ca420c20079ca22e7bb6'
+  clientSecret: 'ddd5921b74beedda73363cf89a851986311f914a'
+  repo: 'hexo-blog-comments'
+  owner: 'nichuanfang'
+  admin: ['nichuanfang']
+  id: location.pathname
   language: zh-CN
-  labels: ['Gitalk']
-  perPage: 10
-  pagerDirection: last
   distractionFreeMode: false
-  createIssueManually: true
-  # 默认 proxy 可能会失效，解决方法请见下方链接
-  # The default proxy may be invalid, refer to the links for solutions
-  # https://github.com/gitalk/gitalk/issues/429
-  # https://github.com/Zibri/cloudflare-cors-anywhere
-  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
+  recentComment: true
+
 
 # Valine
 # 基于 LeanCloud
