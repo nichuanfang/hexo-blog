@@ -9,7 +9,8 @@ theme = sys.argv[1]
 # 正则替换
 
 # 获取现在的日期 格式yyyy-MM-dd HH:mm:ss 时区为中国
-# date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+datetime.timedelta(hours=8)
+date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
 
 if theme == 'fluid':
     fluid_posts_path = os.path.join(os.path.pardir,'hexo-blog-fluid','source','_posts')
@@ -42,8 +43,8 @@ if theme == 'fluid':
                             
                         # 对head_lines进行处理
                         head_lines.append(f'title: {dir}\n')
-                        # head_lines.append(f'date: {date}\n')
-                        # head_lines.append(f'updated: {date}\n')
+                        # 如果文章存在 则更新时间
+                        head_lines.append(f'updated: {date}\n')
                         
                         # 对left_lines的图片进行替换
                         for i in range(len(left_lines)):
