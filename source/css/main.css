@@ -10,6 +10,11 @@ h5:hover > .anchorjs-link,
 h6:hover > .anchorjs-link {
   opacity: 1;
 }
+
+#seo-header {
+  display: none;
+}
+
 .banner {
   height: 100%;
   position: relative;
