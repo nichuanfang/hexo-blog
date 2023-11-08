@@ -71,4 +71,4 @@ for post in post_list:
             new_list.append(raw_style_list[6])
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
             # 保存
-            # saveFile(soup.__str__(),post)
+            saveFile(soup.__str__(),post)
