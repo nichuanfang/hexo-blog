@@ -173,14 +173,19 @@ jobs:
         working-directory: ./hexo-blog
         run: pip install -r requirements.txt
 
+      - name: get change files
+        id: get_change_files
+        run: |
+          echo "::set-output name=files::$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})"
+
         # 处理main分支的文档和图片
       - name: transform 'main' branch
         working-directory: ./hexo-blog
         env:
           THEME: ${{ vars.THEME }}
-          COMMITS: ${{ github.event.commits }}
+          CHANGES: ${{ steps.get_change_files.outputs.files }}
         run: |
-          python transform.py $THEME $COMMITS
+          python transform.py $THEME $CHANGES
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-fluid

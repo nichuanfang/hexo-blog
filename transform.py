@@ -6,8 +6,8 @@ import re
 
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
-commits = sys.argv[2]
-print(commits)
+changes = sys.argv[2]
+print(changes)
 
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -47,6 +47,7 @@ if theme == 'fluid':
                         # date和updated都设置为当前时间
                         if not os.path.exists(os.path.join(fluid_posts_path,dir+'.md')):
                             head_lines.append(f'date: {now}\n')
+                            head_lines.append(f'updated: {now}\n')
                         else:
                             # 读取os.path.join(fluid_posts_path,dir+'.md')文件的date和updated
                             with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
@@ -55,9 +56,10 @@ if theme == 'fluid':
                                     if line.startswith('date:'):
                                         head_lines.append(line)
                                         break
-                        # 获取此次git提交变化的文件列表
+                            # 比较 os.path.join(post_root,post_file)和os.path.join(fluid_posts_path,dir+'.md')文件是否相同
+                            with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
+                                pass
                         
-                        head_lines.append(f'updated: {now}\n')
                         
                         
                         
