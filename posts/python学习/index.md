@@ -91,7 +91,7 @@ python3
 brew install python3
 ```
 
-#### 2.3.3. 验证
+#### 2.3.3. 验证测试
 
 ```bash
 # 查看版本
