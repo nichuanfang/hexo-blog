@@ -194,6 +194,18 @@ jobs:
         run: |
           python handle.py
 
+      # 更新hexo-blog项目
+      - name: 更新hexo-blog项目
+        uses: Smart-Transportation/push@v1.3
+        with:
+          directory: ./hexo-blog-fluid
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: 'fluid-theme'
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          author_name: 'github-actions[bot]'
+          message: '🐳 chore: 更新hexo-blog-fluid主题文件'
+          repository: nichuanfang/hexo-blog
+
       - name: 部署到github
         uses: peaceiris/actions-gh-pages@v3
         with:
