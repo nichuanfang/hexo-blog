@@ -7,8 +7,6 @@ categories: hello-world
 banner_img_ratio: 90
 ---
 
-# 哈哈啊哈哈
-
 ```stylus
 ---------------- dest 列表 -----------------
 1) learn.microsoft.com
