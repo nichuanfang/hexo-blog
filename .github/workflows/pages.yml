@@ -173,17 +173,28 @@ jobs:
         working-directory: ./hexo-blog
         run: pip install -r requirements.txt
 
-      - name: get change files
-        id: get_change_files
+      - id: changed_files
+        name: git-changesets
+        uses: collin-miller/git-changesets@v0.0.2
+        with:
+          # Default format is 'csv'. Other valid options are 'space-delimited' and 'json'.
+          format: json
+
+      - name: Print steps context output
         run: |
-          echo "::set-output name=files::$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})"
+          echo 'All=${{ steps.changed_files.outputs.all }}'
+          echo 'Added=${{ steps.changed_files.outputs.added }}'
+          echo 'Modified=${{ steps.changed_files.outputs.modified }}'
+          echo 'Removed=${{ steps.changed_files.outputs.removed }}'
+          echo 'Renamed=${{ steps.changed_files.outputs.renamed }}'
+          echo 'Added/Modified=${{ steps.changed_files.outputs.added_modified }}'
 
         # 处理main分支的文档和图片
       - name: transform 'main' branch
         working-directory: ./hexo-blog
         env:
           THEME: ${{ vars.THEME }}
-          CHANGES: ${{ steps.get_change_files.outputs.files }}
+          CHANGES: ${{ steps.changed_files.outputs.all }}
         run: |
           python transform.py $THEME $CHANGES
 
