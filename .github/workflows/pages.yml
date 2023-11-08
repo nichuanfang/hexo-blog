@@ -175,6 +175,7 @@ jobs:
 
       - id: changed_files
         name: git-changesets
+        continue-on-error: true
         uses: collin-miller/git-changesets@v0.0.2
         with:
           format: json

@@ -9,8 +9,6 @@ theme = sys.argv[1]
 changes = sys.argv[2]
 # [".github/workflows/pages.yml","posts/python学习/index.md"]
 change_files = changes.replace('[','').replace(']','').replace('"','').split(',')
-for change_file in change_files:
-    print(change_file)
 
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
