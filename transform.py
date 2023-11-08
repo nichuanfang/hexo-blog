@@ -23,10 +23,16 @@ for root, dirs, files in os.walk('posts'):
                     # 处理post_file的头部
                     with open(os.path.join(post_root,post_file),'r',encoding='utf-8') as f:
                         lines = f.readlines()
-                        first_index = lines.index('---\n')
-                        last_index = lines.index('---\n',first_index+1)
-                        head_lines = lines[first_index+1:last_index]
-                        left_lines = lines[last_index+1:]
+                        try:
+                            first_index = lines.index('---\n')
+                            last_index = lines.index('---\n',first_index+1)
+                            head_lines = lines[first_index+1:last_index]
+                            left_lines = lines[last_index+1:]
+                        except:
+                            head_lines = []
+                            left_lines = lines
+                            pass
+                        
                         
                         # 对head_lines进行处理
                         head_lines.append(f'title: {dir}\n')

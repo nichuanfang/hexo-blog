@@ -155,8 +155,10 @@ jobs:
         # 处理main分支的文档和图片
       - name: transform 'main' branch
         working-directory: ./hexo-blog
+        env:
+          THEME: ${{ vars.THEME }}
         run: |
-          python transform.py
+          python transform.py $THEME
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-fluid
