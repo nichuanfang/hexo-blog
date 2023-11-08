@@ -16,6 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
+          fetch-depth: 0
+          path: hexo-blog
+
+      - uses: actions/checkout@v4
+        with:
           ref: aurora-theme
           fetch-depth: 0
           path: hexo-blog-aurora
@@ -43,6 +49,10 @@ jobs:
         working-directory: ./hexo-blog-aurora
         run: pip install -r requirements.txt
 
+      - name: 安装pip依赖(清华大学镜像源) - main
+        working-directory: ./hexo-blog
+        run: pip install -r requirements.txt
+
       # - name: 自动配置博客图片,图片转webp
       #   run: |
       #     python handle_img.py
@@ -56,6 +66,14 @@ jobs:
       #     author_name: 'github-actions[bot]'
       #     message: '🐳 chore: 更新hexo-blog文档图片'
       #     repository: nichuanfang/hexo-blog
+
+      # 处理main分支的文档和图片
+      - name: transform 'main' branch
+        working-directory: ./hexo-blog
+        env:
+          THEME: ${{ vars.THEME }}
+        run: |
+          python transform.py $THEME
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-aurora
