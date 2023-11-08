@@ -1,16 +1,16 @@
-name: fluid-theme-auto-deploy
+# name: fluid-theme-auto-deploy
 
-on: [push]
+# on: [push]
 
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      # 触发工作流
-      - name: 部署fluid主题
-        uses: rshop/trigger-workflow-action@v1
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          repository: 'nichuanfang/hexo-blog'
-          workflowId: 56880669
-          branch: main
+# jobs:
+#   release:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # 触发工作流
+#       - name: 部署fluid主题
+#         uses: rshop/trigger-workflow-action@v1
+#         with:
+#           token: ${{ secrets.GH_TOKEN }}
+#           repository: 'nichuanfang/hexo-blog'
+#           workflowId: 56880669
+#           branch: main
