@@ -7,7 +7,29 @@ categories: hello-world
 banner_img_ratio: 90
 ---
 
-![](test.jpg)
+`单行注释`
+
+{%  note  success  %}
+这是一段 success 效果测试代码
+{%  endnote %}
+
+{%  note  info  %}
+这是一段 info 效果测试代码
+{%  endnote %}
+
+{%  note  warning  %}
+这是一段 warning 效果测试代码
+{%  endnote %}
+
+{%  note  danger  %}
+这是一段 danger 效果测试代码
+{%  endnote %}
+
+{%  note  primary  %}
+这是一段 primary 效果测试代码
+{%  endnote %}
+
+![](https://i0.wp.com/www.additudemag.com/wp-content/uploads/2016/11/78_8_Diagnose_Kids_Autism-Misdiagnosis_Slideshow_78_girl-father-playroom_ts_83480810.jpg)
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
