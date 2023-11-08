@@ -7,7 +7,7 @@ categories: 个人博客
 banner_img_ratio: 20
 title: fluid主题配置
 date: 2023-11-09 05:24:11
-updated: 2023-11-09 05:24:11
+updated: 2023-11-09 05:45:20
 banner_img: /img/post/fluid主题配置/banner.jpg
 index_img: /img/post/fluid主题配置/index.jpg
 ---
@@ -33,4 +33,17 @@ index_img: /img/post/fluid主题配置/index.jpg
 npm install -g hexo-cli
 # 查看版本
 hexo -v
+```
+
+### 1.2. 初始化
+
+#### 1.2.1. 初始化
+
+```bash
+# 初始化
+hexo init blog
+# 进入目录
+cd blog
+# 安装依赖
+npm install
 ```
