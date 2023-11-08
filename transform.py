@@ -4,7 +4,7 @@ import sys
 import re
 
 
-img_regex = re.compile(r'[^/\\(]+.(jpg|png)')
+img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
 # 正则替换
 
@@ -48,14 +48,17 @@ if theme == 'fluid':
                         for i in range(len(left_lines)):
                             if left_lines[i].__contains__('.jpg'):
                                 # 根据正则表达式[^/\\(]+.(jpg|png) 找出符合的字符串
-                                search_list = img_regex.search(left_lines[i]).regs
-                                for search in search_list:
-                                    start_index = search[0]
-                                    end_index = search[1]
-                                    print(f'{i}: 替换前的图片为:{left_lines[i]}')
-                                    # 将xxx.jpg替换为/img/post/{dir}/xxx.jpg
-                                    left_lines[i] = left_lines[i].replace(left_lines[i][start_index:end_index],f'/img/post/{dir}/{left_lines[i][start_index:end_index]}')
-                                    print(f'{i}: 替换后的图片为:{left_lines[i]}')
+                                result_list:list[str] = img_regex.findall(left_lines[i])
+                                for result in result_list:
+                                    # 如果是https或者http开头 不替换
+                                    if result.startswith('https') or result.startswith('http'):
+                                        continue
+                                    elif result.endswith('.jpg') or result.endswith('.png'):
+                                        # 如果是/开头 则在前面加上posts/目录名
+                                        if result.startswith('/'):
+                                            left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}{result}')
+                                        else:
+                                            left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result}')
                         
                         # 如果当前目录下有banner.jpg则设置banner_img
                         if 'banner.jpg' in post_files:
