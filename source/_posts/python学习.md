@@ -6,6 +6,7 @@ categories: 编程语言
 # banner图片比例
 banner_img_ratio: 10
 title: python学习
+updated: 2023-11-09 04:14:00
 banner_img: /img/post/python学习/banner.jpg
 index_img: /img/post/python学习/index.jpg
 ---

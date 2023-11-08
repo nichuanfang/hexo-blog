@@ -6,6 +6,7 @@ categories: hello-world
 # banner图片比例
 banner_img_ratio: 90
 title: hello-world
+updated: 2023-11-09 04:14:00
 banner_img: /img/post/hello-world/banner.jpg
 index_img: /img/post/hello-world/index.jpg
 ---
