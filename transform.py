@@ -8,6 +8,10 @@ img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
 # 正则替换
 
+# 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
+now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+
 if theme == 'fluid':
     fluid_posts_path = os.path.join(os.path.pardir,'hexo-blog-fluid','source','_posts')
     fluid_img_path = os.path.join(os.path.pardir,'hexo-blog-fluid','source','img','post')
@@ -39,6 +43,19 @@ if theme == 'fluid':
                             
                         # 对head_lines进行处理
                         head_lines.append(f'title: {dir}\n')
+                        # date和updated都设置为当前时间
+                        if not os.path.exists(os.path.join(fluid_posts_path,dir+'.md')):
+                            head_lines.append(f'date: {now}\n')
+                        else:
+                            # 读取os.path.join(fluid_posts_path,dir+'.md')文件的date和updated
+                            with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
+                                lines = f.readlines()
+                                for line in lines:
+                                    if line.startswith('date:'):
+                                        head_lines.append(line)
+                                        break
+                        head_lines.append(f'updated: {now}\n')
+                        
                         
                         # 对left_lines的图片进行替换
                         for i in range(len(left_lines)):
