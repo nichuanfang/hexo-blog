@@ -57,7 +57,14 @@ for post in post_list:
                     break
         if banner_img_ratio:
             raw_style_list = raw_style.split(' ')
-            raw_style_list[3] = f'{banner_img_ratio}%'
-            soup.find('div',class_='banner')['style'] = ' '.join(raw_style_list)
+            # center 90% / cover no-repeat;
+            raw_style_list[4] = f'{banner_img_ratio}%;'
+            new_list = []
+            new_list.append(raw_style_list[0])
+            new_list.append(raw_style_list[1])
+            new_list.append(f'center {banner_img_ratio}% / cover no-repeat;')
+            new_list.append(raw_style_list[5])
+            new_list.append(raw_style_list[6])
+            soup.find('div',class_='banner')['style'] = ' '.join(new_list)
             # 保存
             saveFile(soup.__str__(),post)
