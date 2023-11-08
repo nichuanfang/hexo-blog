@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import lxml
 
 # 将source/css/main.css拷贝到public/css/
-shutil.copy('source/css/main.css','public/css/main.css')
+# shutil.copy('source/css/main.css','public/css/main.css')
 
 def saveFile(data,file_path):
     f_obj = open(f'{file_path}', 'w+',encoding="utf-8") # w 表示打开方式,也可用wb
@@ -48,6 +48,20 @@ for post in post_list:
     # 修改html指定标签的内容
     with open(post, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'lxml')
+         # 添加编辑按钮
+        license_dev = soup.find('div',class_='license-meta')
+        # 添加编辑按钮  <div class="license-meta-item"> <div>编辑</div> <div><a href="https://github.com/Oooutman/oooutman.github.io/edit/HexoBlog/source/_posts/FileBrowser安装配置教程.md" target="_blank">✏️</a></div> </div>
+        license_tag = soup.new_tag('div',class_='license-meta-item')
+        edit_dev_tag = soup.new_tag('div',text='编辑')
+        alink_tag= soup.new_tag('div' )
+        a_tag= soup.new_tag('a',href=f'https://github.com/Oooutman/oooutman.github.io/edit/HexoBlog/source/_posts/FileBrowser安装配置教程.md',target='_blank',text='✏️')
+        alink_tag.append(a_tag)
+        license_tag.append(edit_dev_tag)
+        license_tag.append(alink_tag)
+        license_dev.append(license_tag)
+        
+        
+        
         # 修改图片比例
         raw_style = soup.find('div',class_='banner')['style']
         # 读取/source/_posts/文章.md里的banner_img_ratio
@@ -70,5 +84,7 @@ for post in post_list:
             new_list.append(raw_style_list[5])
             new_list.append(raw_style_list[6])
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
+            
+            
             # 保存
             saveFile(soup.__str__(),post)
