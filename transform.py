@@ -52,8 +52,10 @@ if theme == 'fluid':
                                 for search in search_list:
                                     start_index = search[0]
                                     end_index = search[1]
+                                    print(f'{i}: 替换前的图片为:{left_lines[i]}')
                                     # 将xxx.jpg替换为/img/post/{dir}/xxx.jpg
                                     left_lines[i] = left_lines[i].replace(left_lines[i][start_index:end_index],f'/img/post/{dir}/{left_lines[i][start_index:end_index]}')
+                                    print(f'{i}: 替换后的图片为:{left_lines[i]}')
                         
                         # 如果当前目录下有banner.jpg则设置banner_img
                         if 'banner.jpg' in post_files:
