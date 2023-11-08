@@ -52,7 +52,7 @@ for post in post_list:
         with open(raw_post_path, 'r', encoding='utf-8') as raw_post:
             raw_lines = raw_post.readlines()
             for line in raw_lines:
-                if 'banner_img_ratio' in line:
+                if line.startswith('banner_img_ratio:'):
                     banner_img_ratio = line.split(':')[1].strip()
                     break
         if banner_img_ratio:
