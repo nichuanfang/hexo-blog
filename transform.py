@@ -6,7 +6,8 @@ import re
 
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
-# 正则替换
+change_list = sys.argv[2]
+print(change_list)
 
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -54,7 +55,10 @@ if theme == 'fluid':
                                     if line.startswith('date:'):
                                         head_lines.append(line)
                                         break
+                        # 获取此次git提交变化的文件列表
+                        
                         head_lines.append(f'updated: {now}\n')
+                        
                         
                         
                         # 对left_lines的图片进行替换
