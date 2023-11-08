@@ -7,7 +7,6 @@ categories: 编程语言
 banner_img_ratio: 10
 title: python学习
 date: 2023-11-09 04:18:36
-updated: 2023-11-09 04:18:36
 banner_img: /img/post/python学习/banner.jpg
 index_img: /img/post/python学习/index.jpg
 ---
@@ -42,7 +41,7 @@ index_img: /img/post/python学习/index.jpg
 
 > 在命令行中输入 `python`，如果出现以下信息，则说明安装成功。
 
-```shell
+```bash
 Python 3.9.1 (tags/v3.9.1:1e5d33e, Dec  7 2020, 17:08:21) [MSC v.1927 64 bit (AMD64)] on win32
 Type "help", "copyright", ...
 ```
@@ -55,7 +54,7 @@ Type "help", "copyright", ...
 
 #### 2.2.2. 安装
 
-```shell
+```bash
 # 下载
 wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
 # 解压
@@ -72,9 +71,55 @@ make install
 
 #### 2.2.3. 验证
 
-```shell
+```bash
 # 查看版本
 python3 -V
 # 进入交互式环境
 python3
+```
+
+### 2.3. Mac
+
+#### 2.3.1. 下载
+
+[Python 官网](https://www.python.org/downloads/)下载最新版本的 Python，目前最新版本为 3.9.1。
+
+#### 2.3.2. 安装
+
+{%note warning%}
+安装时注意勾选 `Add Python 3.9 to PATH`，这样就可以在命令行中直接使用 `python` 命令。
+如果安装失败，可以尝试使用 `brew` 安装。
+{%endnote%}
+
+```bash
+brew install python3
+```
+
+#### 2.3.3. 验证
+
+```bash
+# 查看版本
+python3 -V
+# 进入交互式环境
+python3
+```
+
+## 3. Python 基础
+
+### 3.1. Python 交互式环境
+
+在命令行中输入 `python`，进入 Python 交互式环境。
+
+```bash
+Python 3.9.1 (tags/v3.9.1:1e5d33e, Dec  7 2020, 17:08:21) [MSC v.1927 64 bit (AMD64)] on win32
+Type "help", "copyright",
+```
+
+### 3.2. Python 注释
+
+Python 中单行注释以 `#` 开头，实例如下：
+
+```python
+# 这是一个注释
+print("Hello, World!")
 ```

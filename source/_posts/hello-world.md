@@ -7,7 +7,6 @@ categories: hello-world
 banner_img_ratio: 90
 title: hello-world
 date: 2023-11-09 04:18:36
-updated: 2023-11-09 04:18:36
 banner_img: /img/post/hello-world/banner.jpg
 index_img: /img/post/hello-world/index.jpg
 ---

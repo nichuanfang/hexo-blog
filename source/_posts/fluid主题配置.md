@@ -7,7 +7,6 @@ categories: 个人博客
 banner_img_ratio: 20
 title: fluid主题配置
 date: 2023-11-09 04:18:36
-updated: 2023-11-09 04:18:36
 banner_img: /img/post/fluid主题配置/banner.jpg
 index_img: /img/post/fluid主题配置/index.jpg
 ---
