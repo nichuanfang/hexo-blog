@@ -8,8 +8,12 @@ img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
 changes = sys.argv[2]
 # [".github/workflows/pages.yml","posts/python学习/index.md"]
-change_files = changes.replace('[','').replace(']','').replace('"','').split(',')
-
+try:
+    change_files = changes.replace('[','').replace(']','').replace('"','').split(',')
+except:
+    change_files = []
+if len(change_files) == 0:
+    exit(0)
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
