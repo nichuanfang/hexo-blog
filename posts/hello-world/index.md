@@ -9,6 +9,16 @@ banner_img_ratio: 90
 
 `单行注释`
 
+> REALITY 使用其它端口貌似也具有相同伪装性（不打保证），对于自己服务器上已经有站点的，也不用为了共存另外设置反向代理或分流之类的。
+
+<!-- 块引用 -->
+
+```css
+iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+```
+
+以后要进入这个管理脚本界面输入 `bash Xray-script.sh` 这个**命令**就可以进入了，*现在*别管**dsd**。
+
 {%  note  success  %}
 这是一段 success 效果测试代码
 {%  endnote %}
@@ -66,39 +76,3 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
-
-```markdown
---------------- Xray-script ---------------
-Version : v2023-03-15(beta)
-Description : Xray 管理脚本
------------------ 装载管理 ----------------
-
-1. 安装
-2. 更新
-3. 卸载
-   ----------------- 操作管理 ----------------
-4. 启动
-5. 停止
-6. 重启
-   ----------------- 配置管理 ----------------
-7. 查看配置
-8. 信息统计
-9. 修改 id
-10. 修改 dest
-11. 修改 x25519 key
-12. 修改 shortIds
-13. 修改 xray 监听端口
-14. 刷新已有的 shortIds
-15. 追加自定义的 shortIds
-16. 使用 WARP 分流，开启 OpenAI
-    ----------------- 其他选项 ----------------
-17. 更新至最新稳定版内核
-18. 卸载多余内核
-19. 修改 ssh 端口
-20. 网络连接优化
-
----
-
-0. 退出
-   Choose:
-```
