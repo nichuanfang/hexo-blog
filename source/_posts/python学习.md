@@ -7,6 +7,7 @@ categories: 编程语言
 banner_img_ratio: 10
 title: python学习
 date: 2023-11-09 04:18:36
+updated: 2023-11-09 05:14:21
 banner_img: /img/post/python学习/banner.jpg
 index_img: /img/post/python学习/index.jpg
 ---
@@ -95,7 +96,7 @@ python3
 brew install python3
 ```
 
-#### 2.3.3. 验证
+#### 2.3.3. 验证测试
 
 ```bash
 # 查看版本
