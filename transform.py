@@ -42,7 +42,8 @@ if theme == 'fluid':
                             
                         # 对head_lines进行处理
                         head_lines.append(f'title: {dir}\n')
-                        head_lines.append(f'date: {date}\n')
+                        # head_lines.append(f'date: {date}\n')
+                        # head_lines.append(f'updated: {date}\n')
                         
                         # 对left_lines的图片进行替换
                         for i in range(len(left_lines)):
