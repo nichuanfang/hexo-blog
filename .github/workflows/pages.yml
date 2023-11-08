@@ -154,17 +154,16 @@ jobs:
         working-directory: ./hexo-blog-fluid
         run: |
           python handle.py
-          cat ./public/2023/11/08/hello-world/index.html
 
-      # - name: 部署到github
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     personal_token: ${{ secrets.GH_TOKEN }}
-      #     external_repository: nichuanfang/nichuanfang.github.io
-      #     publish_branch: gh-pages # default: gh-pages
-      #     publish_dir: ./hexo-blog-fluid/public
-      #     user_name: 'github-actions[bot]'
-      #     user_email: 'github-actions[bot]@users.noreply.github.com'
+      - name: 部署到github
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_TOKEN }}
+          external_repository: nichuanfang/nichuanfang.github.io
+          publish_branch: gh-pages # default: gh-pages
+          publish_dir: ./hexo-blog-fluid/public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 
       # - name: 发布blog服务
       #   uses: cross-the-world/ssh-scp-ssh-pipelines@latest
