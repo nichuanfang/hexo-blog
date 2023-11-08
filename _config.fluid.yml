@@ -15,7 +15,6 @@
 # 全局
 # Global
 #---------------------------
-
 background_image:
   enable: true
   src: /img/bg/bg01.png
@@ -683,7 +682,7 @@ post:
   # 文章图片可点击放大
   # Zoom feature of images
   image_zoom:
-    enable: true
+    enable: false
     # 放大后图片链接替换规则，可用于将压缩图片链接替换为原图片链接，如 ['-slim', ''] 是将链接中 `-slim` 移除；如果想使用正则请使用 `re:` 前缀，如 ['re:\\d{3,4}\\/\\d{3,4}\\/', '']
     # The image url replacement when zooming, the feature can be used to replace the compressed image to the original image, eg: ['-slim', ''] removes `-slim` from the image url when zooming; if you want to use regular, use prefix `re:`, eg: ['re:\\d{3,4}\\/\\d{3,4}\\/','']
     img_url_replace: ['', '']
