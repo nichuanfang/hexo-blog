@@ -7,7 +7,10 @@ import re
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
 changes = sys.argv[2]
-print(changes)
+# [".github/workflows/pages.yml","posts/python学习/index.md"]
+change_files = changes.replace('[','').replace(']','').replace('"','').split(',')
+for change_file in change_files:
+    print(change_file)
 
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -19,6 +22,8 @@ if theme == 'fluid':
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
+            if not f'posts/{dir}/index.md' in change_files:
+                continue
             for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):  
                 for post_file in post_files:
                     # 横幅图片
@@ -47,7 +52,6 @@ if theme == 'fluid':
                         # date和updated都设置为当前时间
                         if not os.path.exists(os.path.join(fluid_posts_path,dir+'.md')):
                             head_lines.append(f'date: {now}\n')
-                            head_lines.append(f'updated: {now}\n')
                         else:
                             # 读取os.path.join(fluid_posts_path,dir+'.md')文件的date和updated
                             with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
@@ -56,12 +60,8 @@ if theme == 'fluid':
                                     if line.startswith('date:'):
                                         head_lines.append(line)
                                         break
-                            # 比较 os.path.join(post_root,post_file)和os.path.join(fluid_posts_path,dir+'.md')文件是否相同
-                            with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
-                                pass
-                        
-                        
-                        
+                            # posts/python学习/index.md
+                        head_lines.append(f'updated: {now}\n')
                         
                         # 对left_lines的图片进行替换
                         for i in range(len(left_lines)):
