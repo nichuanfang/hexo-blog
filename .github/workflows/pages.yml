@@ -165,24 +165,24 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      # - name: 发布blog服务
-      #   uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-      #   env:
-      #     WELCOME: 'ssh scp ssh pipelines'
-      #     LASTSSH: 'Doing something after copying'
-      #   continue-on-error: true
-      #   with:
-      #     # HC代表发布xray配置的服务器
-      #     host: ${{ secrets.VPS_HOST }}
-      #     user: ${{ secrets.VPS_USER }}
-      #     pass: ${{ secrets.VPS_PASS }}
-      #     port: ${{ secrets.VPS_PORT }}
-      #     connect_timeout: 20s
-      #     first_ssh: |
-      #       systemctl stop nginx
-      #       rm -rf /root/blog
-      #     scp: |
-      #       './hexo-blog-fluid/public/*' => /root/blog
-      #     last_ssh: |
-      #       chmod 777 /root/blog
-      #       systemctl start nginx
+      - name: 发布blog服务
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        env:
+          WELCOME: 'ssh scp ssh pipelines'
+          LASTSSH: 'Doing something after copying'
+        continue-on-error: true
+        with:
+          # HC代表发布xray配置的服务器
+          host: ${{ secrets.VPS_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASS }}
+          port: ${{ secrets.VPS_PORT }}
+          connect_timeout: 20s
+          first_ssh: |
+            systemctl stop nginx
+            rm -rf /root/blog
+          scp: |
+            './hexo-blog-fluid/public/*' => /root/blog
+          last_ssh: |
+            chmod 777 /root/blog
+            systemctl start nginx
