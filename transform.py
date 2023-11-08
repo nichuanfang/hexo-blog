@@ -21,7 +21,7 @@ for root, dirs, files in os.walk('posts'):
                 # 文档
                 elif post_file == 'index.md':
                     # 处理post_file的头部
-                    with open(os.path.join(post_root,post_file),'r',encoding='utf-8') as f:
+                    with open(os.path.join(post_root,post_file),'r+',encoding='utf-8') as f:
                         lines = f.readlines()
                         try:
                             first_index = lines.index('---\n')
@@ -31,8 +31,6 @@ for root, dirs, files in os.walk('posts'):
                         except:
                             head_lines = []
                             left_lines = lines
-                            pass
-                        
                         
                         # 对head_lines进行处理
                         head_lines.append(f'title: {dir}\n')
@@ -52,5 +50,6 @@ for root, dirs, files in os.walk('posts'):
                     if not os.path.exists(fluid_posts_path):
                         os.mkdir(fluid_posts_path)
                     file_name = dir + '.md'
-                    # 将文件移动到_posts文件夹
-                    os.rename(os.path.join(post_root,post_file),os.path.join(fluid_posts_path,file_name))
+                    # 将处理后的文件写入
+                    with open(os.path.join(fluid_posts_path,file_name),'w+',encoding='utf-8') as f:
+                        f.writelines(new_lines)
