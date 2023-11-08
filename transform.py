@@ -53,7 +53,7 @@ if theme == 'fluid':
                                     start_index = search[0]
                                     end_index = search[1]
                                     # 将xxx.jpg替换为/img/post/{dir}/xxx.jpg
-                                    left_lines[i] = left_lines[i].replace(left_lines[i][start_index,end_index],f'/img/post/{dir}/{left_lines[i][start_index,end_index]}')
+                                    left_lines[i] = left_lines[i].replace(left_lines[i][start_index:end_index],f'/img/post/{dir}/{left_lines[i][start_index:end_index]}')
                         
                         # 如果当前目录下有banner.jpg则设置banner_img
                         if 'banner.jpg' in post_files:
