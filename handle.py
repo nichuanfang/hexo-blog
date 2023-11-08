@@ -2,9 +2,13 @@
 
 from genericpath import isdir
 import os
+import shutil 
 import re
 from bs4 import BeautifulSoup
 import lxml
+
+# 将source/css/main.css拷贝到public/css/
+shutil.copy('source/css/main.css','public/css/main.css')
 
 def saveFile(data,file_path):
     f_obj = open(f'{file_path}', 'w+',encoding="utf-8") # w 表示打开方式,也可用wb
