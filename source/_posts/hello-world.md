@@ -2,7 +2,7 @@
 title: Hello World
 index_img: /img/post/hello-world/index.jpg
 banner_img: /img/post/hello-world/banner.jpg
-banner_img_ratio: 60
+banner_img_ratio: 90
 ---
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
