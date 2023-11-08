@@ -119,3 +119,12 @@ Python 中单行注释以 `#` 开头，实例如下：
 # 这是一个注释
 print("Hello, World!")
 ```
+
+### 3.3. Python 缩进
+
+Python 使用缩进来表示代码块，不需要使用大括号 `{}`，实例如下：
+
+```python
+if 5 > 2:
+  print("Five is greater than two!")
+```

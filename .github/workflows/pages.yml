@@ -177,17 +177,7 @@ jobs:
         name: git-changesets
         uses: collin-miller/git-changesets@v0.0.2
         with:
-          # Default format is 'csv'. Other valid options are 'space-delimited' and 'json'.
           format: json
-
-      - name: Print steps context output
-        run: |
-          echo 'All=${{ steps.changed_files.outputs.all }}'
-          echo 'Added=${{ steps.changed_files.outputs.added }}'
-          echo 'Modified=${{ steps.changed_files.outputs.modified }}'
-          echo 'Removed=${{ steps.changed_files.outputs.removed }}'
-          echo 'Renamed=${{ steps.changed_files.outputs.renamed }}'
-          echo 'Added/Modified=${{ steps.changed_files.outputs.added_modified }}'
 
         # 处理main分支的文档和图片
       - name: transform 'main' branch
