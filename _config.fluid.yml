@@ -490,7 +490,7 @@ index:
 
       # 请求地址
       # Request url
-      url: "https://blog.jaychou.site/api/everyday"
+      url: "https://blog.jaychou.site/api/subtitle"
 
       # 请求方法
       # Request method
