@@ -48,20 +48,6 @@ for post in post_list:
     # 修改html指定标签的内容
     with open(post, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'lxml')
-         # 添加编辑按钮
-        license_dev = soup.find('div',class_='license-meta')
-        # 添加编辑按钮  <div class="license-meta-item"> <div>编辑</div> <div><a href="https://github.com/Oooutman/oooutman.github.io/edit/HexoBlog/source/_posts/FileBrowser安装配置教程.md" target="_blank">✏️</a></div> </div>
-        license_tag = soup.new_tag('div',class_='license-meta-item')
-        edit_dev_tag = soup.new_tag('div',text='编辑')
-        alink_tag= soup.new_tag('div' )
-        a_tag= soup.new_tag('a',href=f'https://github.com/Oooutman/oooutman.github.io/edit/HexoBlog/source/_posts/FileBrowser安装配置教程.md',target='_blank',text='✏️')
-        alink_tag.append(a_tag)
-        license_tag.append(edit_dev_tag)
-        license_tag.append(alink_tag)
-        license_dev.append(license_tag)
-        
-        
-        
         # 修改图片比例
         raw_style = soup.find('div',class_='banner')['style']
         # 读取/source/_posts/文章.md里的banner_img_ratio
