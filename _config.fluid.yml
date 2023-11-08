@@ -16,6 +16,10 @@
 # Global
 #---------------------------
 
+background_image:
+  enable: true
+  src: /img/bg/bg01.png
+
 # 用于浏览器标签的图标
 # Icon for browser tab
 favicon: /img/fluid.png
@@ -30,7 +34,7 @@ tab_title_separator: " - "
 
 # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 # Force all links to be HTTPS (applicable to HTTP mixed error)
-force_https: false
+force_https: true
 
 # 代码块的增强配置
 # Enhancements to code blocks
@@ -232,10 +236,13 @@ font:
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
 custom_js:
+  - /js/custom.js
 
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
 custom_css:
+  - /css/custom.css
+  - /css/iconfont.css
 
 # 网页访问统计
 # Analysis of website visitors
@@ -293,7 +300,7 @@ web_analytics:  # 网页访问统计
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
 lazyload:
-  enable: true
+  enable: false
 
   # 加载时的占位图片
   # The placeholder image when loading
@@ -379,8 +386,7 @@ banner:
 
   # 图片最小的宽高比，以免图片两边被过度裁剪，适用于移动端竖屏时，如需关闭设为 0
   # Minimum ratio of width to height, applicable to the vertical screen of mobile device, if you need to close it, set it to 0
-  width_height_ratio: 1.0
-
+  width_height_ratio: 0
 # 向下滚动的箭头
 # Scroll down arrow
 scroll_down_arrow:
@@ -389,7 +395,7 @@ scroll_down_arrow:
   # 头图高度不小于指定比例，才显示箭头
   # Only the height of the banner image is greater than the ratio, the arrow is displayed
   # Available: 0 - 100
-  banner_height_limit: 80
+  banner_height_limit: 90
 
   # 翻页后自动滚动
   # Auto scroll after page turning
@@ -456,17 +462,18 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/default.png
+  banner_img: /img/bg/default.jpg
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
   # Available: 0 - 100
-  banner_img_height: 100
+  banner_img_height: 80
 
   # 头图黑色蒙版的不透明度，available: 0 - 1.0， 1 是完全不透明
   # Opacity of the banner mask, 1.0 is completely opaque
   # Available: 0 - 1.0
-  banner_mask_alpha: 0.3
+  banner_mask_alpha: 0
+  
 
   # 首页副标题的独立设置
   # Independent config of home page subtitle
@@ -475,7 +482,7 @@ index:
 
     # 为空则按 hexo config.subtitle 显示
     # If empty, text based on `subtitle` in hexo config
-    text: "An elegant Material-Design theme for Hexo"
+    text: "一二三四五 上山打老虎_"
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
@@ -530,11 +537,11 @@ index:
 post:
   banner_img: /img/default.png
   banner_img_height: 70
-  banner_mask_alpha: 0.3
+  banner_mask_alpha: 0
 
   # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
   # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
-  default_index_img:
+  default_index_img: /img/bg/default_index_img.jpg
 
   # 文章标题下方的元信息
   # Meta information below title
@@ -724,7 +731,7 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
-    type: disqus
+    type: valine
 
 
 #---------------------------
@@ -892,8 +899,8 @@ discuss:
 #---------------------------
 archive:
   banner_img: /img/default.png
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  banner_img_height: 80
+  banner_mask_alpha: 0
 
 
 #---------------------------
@@ -903,8 +910,8 @@ archive:
 category:
   enable: true
   banner_img: /img/default.png
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  banner_img_height: 80
+  banner_mask_alpha: 0
 
   # 分类的排序字段，前面带减号是倒序，不带减号是正序
   # Sort field for categories, with a minus sign is reverse order
@@ -933,7 +940,7 @@ tag:
   enable: true
   banner_img: /img/default.png
   banner_img_height: 80
-  banner_mask_alpha: 0.3
+  banner_mask_alpha: 0
   tagcloud:
     min_font: 15
     max_font: 30
@@ -949,8 +956,8 @@ tag:
 about:
   enable: true
   banner_img: /img/default.png
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  banner_img_height: 80
+  banner_mask_alpha: 0
   avatar: /img/avatar.png
   name: "Fluid"
   intro: "An elegant theme for Hexo"
@@ -971,8 +978,8 @@ about:
 #---------------------------
 page:
   banner_img: /img/default.png
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  banner_img_height: 80
+  banner_mask_alpha: 0
 
 
 #---------------------------
@@ -982,8 +989,8 @@ page:
 page404:
   enable: true
   banner_img: /img/default.png
-  banner_img_height: 85
-  banner_mask_alpha: 0.3
+  banner_img_height: 80
+  banner_mask_alpha: 0
   # 重定向到首页的延迟(毫秒)
   # Delay in redirecting to home page (milliseconds)
   redirect_delay: 5000
@@ -996,8 +1003,8 @@ page404:
 links:
   enable: true
   banner_img: /img/default.png
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  banner_img_height: 80
+  banner_mask_alpha: 0
   # 友链的成员项
   # Member item of page
   items:
