@@ -6,8 +6,8 @@ import re
 
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
 theme = sys.argv[1]
-change_list = sys.argv[2]
-print(change_list)
+commits = sys.argv[2]
+print(commits)
 
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')

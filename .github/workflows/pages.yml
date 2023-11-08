@@ -70,20 +70,13 @@ jobs:
       #     message: '🐳 chore: 更新hexo-blog文档图片'
       #     repository: nichuanfang/hexo-blog
 
-      # # 获取此次git提交变化的文件列表
-      - name: 获取此次git提交变化的文件列表
-        id: get_file_list
-        run: |
-          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
-
       # 处理main分支的文档和图片
       - name: transform 'main' branch
         working-directory: ./hexo-blog
         env:
           THEME: ${{ vars.THEME }}
-          CHANGE_LIST: ${{ steps.get_file_list.outputs.files }}
         run: |
-          python transform.py $THEME $CHANGE_LIST
+          python transform.py $THEME
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-aurora
@@ -180,20 +173,14 @@ jobs:
         working-directory: ./hexo-blog
         run: pip install -r requirements.txt
 
-      # # 获取此次git提交变化的文件列表
-      - name: 获取此次git提交变化的文件列表
-        id: get_file_list
-        run: |
-          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD)"
-
         # 处理main分支的文档和图片
       - name: transform 'main' branch
         working-directory: ./hexo-blog
         env:
           THEME: ${{ vars.THEME }}
-          CHANGE_LIST: ${{ steps.get_file_list.outputs.files }}
+          COMMITS: ${{ github.event.commits }}
         run: |
-          python transform.py $THEME $CHANGE_LIST
+          python transform.py $THEME $COMMITS
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-fluid
