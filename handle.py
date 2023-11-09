@@ -7,13 +7,12 @@ import re
 from bs4 import BeautifulSoup
 import lxml
 
-# 将source/css/main.css拷贝到public/css/
-# shutil.copy('source/css/main.css','public/css/main.css')
 
 def saveFile(data,file_path):
     f_obj = open(f'{file_path}', 'w+',encoding="utf-8") # w 表示打开方式,也可用wb
     f_obj.write(data)
     f_obj.close()
+
 
 
 # 遍历public文件夹 获取所有文章
@@ -72,6 +71,39 @@ for post in post_list:
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
             # 保存
             saveFile(soup.__str__(),post)
+        else:
+            # 获取文章目录名称
+            post_name = os.path.basename(os.path.dirname(post))
+            
+            # 查看source/img/post/文章文件夹下是否有图片
+            if os.path.exists(os.path.join('source', 'img', 'post', post_name)):
+                # 判断该文件夹是否包含banner图
+                banner_flag = False
+                for root, dirs, files in os.walk(os.path.join('source', 'img', 'post', post_name)):
+                    for file in files:
+                        if file.startswith('banner') and file.endswith(('.jpg','.png','.webp')):
+                            # 设置了banner图  但没有设置banner_img_ratio头 默认使用center
+                            banner_flag = True
+                            break
+                if not banner_flag:
+                    # 没有设置banner图 使用默认图  需要设置比率30%
+                    banner_img_ratio = 30
+            else:
+                banner_img_ratio = 30
+            if banner_img_ratio:
+                # 设置默认banner的比例
+                raw_style_list = raw_style.split(' ')
+                # center 90% / cover no-repeat;
+                raw_style_list[4] = f'{banner_img_ratio}%;'
+                new_list = []
+                new_list.append(raw_style_list[0])
+                new_list.append(raw_style_list[1])
+                new_list.append(f'center {banner_img_ratio}% / cover no-repeat;')
+                new_list.append(raw_style_list[5])
+                new_list.append(raw_style_list[6])
+                soup.find('div',class_='banner')['style'] = ' '.join(new_list)
+                # 保存
+                saveFile(soup.__str__(),post)
             
 # # 如果source/img/post存在 删除source/img/post文件夹的所有文件
 # if os.path.exists('source/img/post'):
