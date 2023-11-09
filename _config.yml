@@ -104,4 +104,42 @@ theme: fluid
 deploy:
   type: ''
 
-all_minifier: true
+all_minifier: false
+
+# html压缩
+html_minifier:
+  enable: true
+  ignore_error: false
+  silent: false
+  exclude:
+
+# css压缩
+css_minifier:
+  enable: true
+  silent: false
+  exclude:
+    - '*.min.css'
+
+# js压缩
+js_minifier:
+  enable: true
+  mangle: true
+  silent: false
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
+js_concator:
+  enable: false
+  bundle_path: 4
+  front: false
+  silent: false
+
+# 图片优化
+image_minifier:
+  enable: true
+  interlaced: true
+  multipass: true
+  optimizationLevel: 2
+  pngquant: true
+  progressive: false
