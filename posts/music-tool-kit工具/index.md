@@ -17,21 +17,6 @@ sticky: 20
 
 ---
 
-**内容目录**：
-
-- [环境准备](#环境准备)
-  - [安装](#安装)
-  - [升级](#升级)
-  - [卸载](#卸载)
-- [使用](#使用)
-  - [音乐下载](#音乐下载)
-  - [音乐搜索](#音乐搜索)
-  - [音乐剪辑](#音乐剪辑)
-  - [提取伴奏](#提取伴奏)
-  - [csv 批量模板](#csv-批量模板)
-  - [批量下载](#批量下载)
-- [License](#license)
-
 # 环境准备
 
 ## 安装
@@ -44,6 +29,7 @@ pip install -U music-tool-kit
 ![help](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/help.png)
 
 {%note warning%}
+准备环境
 
 - [python](https://www.python.org/)版本:**3.11.0 及以上**
 - 需安装[ffmpeg](https://ffmpeg.org/)并正确配置环境变量
