@@ -238,10 +238,8 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           connect_timeout: 20s
           first_ssh: |
-            systemctl stop nginx
             rm -rf /root/blog
           scp: |
-            './hexo-blog-fluid/public/*' => /root/blog
+            './hexo-blog-fluid/dist.tar' => /root/blog
           last_ssh: |
             chmod 777 /root/blog
-            systemctl start nginx
