@@ -4,7 +4,7 @@ tags: github
 # 分类
 categories: Devops
 # banner图片比例
-# banner_img_ratio:
+banner_img_ratio: 37
 # 置顶配置 数字越大优先级越高
 # sticky:
 ---
