@@ -108,6 +108,3 @@ for post in post_list:
 # # 如果source/img/post存在 删除source/img/post文件夹的所有文件
 # if os.path.exists('source/img/post'):
 #     shutil.rmtree('source/img/post')
-
-# 将public文件夹压缩为一个文件dist.zip
-shutil.make_archive('dist', 'tar', 'public')
