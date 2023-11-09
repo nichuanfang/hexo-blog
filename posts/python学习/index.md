@@ -113,7 +113,7 @@ Type "help", "copyright",
 
 ### 3.2. Python 注释
 
-Python 中单行注释以 `#` 开头，实例如下：
+Python 中单行注释以 `#` 开头， 实例如下：
 
 ```python
 # 这是一个注释

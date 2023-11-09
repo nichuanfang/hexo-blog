@@ -11,7 +11,7 @@ sticky: 20
 个人博客搭建心得 使用`hexo + fluid`主题
 
 {%note success%}
-本文主要介绍了个人博客搭建的心得，使用`hexo + fluid`主题，以及一些常用的插件。
+本文主要介绍了个人博客搭建的心得，使用`hexo + fluid`主题，以及一些常用的插件 。
 {%endnote%}
 
 ## 1. Hexo
