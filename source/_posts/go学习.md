@@ -4,13 +4,15 @@ tags: go
 # 分类
 categories: 编程语言
 # banner图片比例
-# banner_img_ratio: 80
+banner_img_ratio: 30
 title: go学习
 date: 2023-11-09 16:04:17
-updated: 2023-11-09 16:25:49
+updated: 2023-11-09 16:38:34
 banner_img: /img/post/go学习/banner.webp
 index_img: /img/post/go学习/index.webp
 ---
+
+![测试图片](/img/post/go学习/test.jpg)
 
 # go 学习技巧
 
