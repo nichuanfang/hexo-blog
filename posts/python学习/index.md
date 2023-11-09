@@ -78,7 +78,7 @@ python3
 
 #### 2.3.1. 下载
 
-[Python 官网](https://www.python.org/downloads/)下载最新版本的 Python，目前最新版本为 3.9.1。
+[Python 官网](https://www.python.org/downloads/) 下载最新版本的 Python，目前最新版本为 3.9.1。
 
 #### 2.3.2. 安装
 
@@ -96,7 +96,7 @@ brew install python3
 ```bash
 # 查看版本
 python3 -V
-# 进入交互式环境
+# 进入 交互式环境
 python3
 ```
 

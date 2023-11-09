@@ -31,7 +31,7 @@ go 的优点:
 var a int
 var b string
 var c bool
-var d float32
+var d  float32
 var e float64
 var f byte
 var g rune
