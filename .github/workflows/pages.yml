@@ -201,7 +201,8 @@ jobs:
         working-directory: ./hexo-blog-fluid
         run: |
           python handle.py
-          tar -zcvf dist.tar.gz public
+          cd public 
+          tar -zcvf dist.tar.gz *
 
       # 更新hexo-blog项目
       - name: 更新hexo-blog项目
@@ -241,11 +242,9 @@ jobs:
           first_ssh: |
             rm -rf /root/blog
           scp: |
-            './hexo-blog-fluid/dist.tar.gz' => /root/blog
+            './hexo-blog-fluid/public/dist.tar.gz' => /root/blog
           last_ssh: |
-            tar -zxvf /root/blog/dist.tar.gz
-            mv /root/blog/public /root/blog
+            tar -zxvf /root/blog/dist.tar.gz -C /root/blog
             rm -rf /root/blog/dist.tar.gz
-            rm -rf /root/blog/public
             chmod 777 /root/blog
             systemctl restart nginx
