@@ -201,6 +201,7 @@ jobs:
         working-directory: ./hexo-blog-fluid
         run: |
           python handle.py
+          sudo apt-get install tar -y
           tar -zcvf dist.tar.gz public
 
       # 更新hexo-blog项目
