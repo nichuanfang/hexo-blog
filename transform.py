@@ -36,6 +36,8 @@ def file_to_webp(input_path:str,output_path:str):
         im = im.resize((im.size[0],int(im.size[1]*1920/im.size[0])))
     
     im.save(output_path,'WEBP',quality=100)
+    # 删除原图片
+    os.remove(input_path)
     return output_path
 
 
