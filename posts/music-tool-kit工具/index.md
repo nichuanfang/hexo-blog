@@ -28,7 +28,7 @@ pip install -U music-tool-kit
 
 ![help](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/help.png)
 
-{%note warning%}
+{%note info%}
 **准备环境**
 
 - [python](https://www.python.org/)版本:**3.11.0 及以上**
