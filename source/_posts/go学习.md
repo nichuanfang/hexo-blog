@@ -7,9 +7,9 @@ categories: 编程语言
 # banner_img_ratio: 90
 title: go学习
 date: 2023-11-09 08:35:02
-updated: 2023-11-09 08:35:02
-banner_img: /img/post/go学习/banner.jpg
-index_img: /img/post/go学习/index.jpg
+updated: 2023-11-09 14:44:58
+banner_img: /img/post/go学习/banner.webp
+index_img: /img/post/go学习/index.webp
 ---
 
 # go 学习技巧
@@ -45,4 +45,13 @@ var k [10]int
 var l map[string]int
 var m func(a int) int
 var n *int
+```
+
+#### 2.1.2. 常量
+
+```go
+// 声明常量
+const a int = 10
+const b string = "hello"
+const c bool = true
 ```
