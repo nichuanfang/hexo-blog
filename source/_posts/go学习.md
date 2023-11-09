@@ -7,12 +7,12 @@ categories: 编程语言
 banner_img_ratio: 30
 title: go学习
 date: 2023-11-09 16:04:17
-updated: 2023-11-09 16:43:44
+updated: 2023-11-09 16:48:40
 banner_img: /img/post/go学习/banner.webp
 index_img: /img/post/go学习/index.webp
 ---
 
-![测试图片](/img/post/go学习/test.jpg)
+![测试图片](test.jpg)
 
 # go 学习技巧
 
@@ -24,8 +24,6 @@ go 的优点:
 - 编译快
 - 并发编程
 - 内存管理
-
-![测试图片2](/img/post/go学习test1.webp)
 
 ## 2. 语法
 
