@@ -83,12 +83,26 @@ if theme == 'fluid':
                                         else:
                                             left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result}')
                         
-                        # 如果当前目录下有banner.jpg则设置banner_img
-                        if 'banner.jpg' in post_files or 'banner.png' in post_files or 'banner.webp' in post_files:
-                            head_lines.append(f'banner_img: /img/post/{dir}/banner.jpg\n')
-                        # 如果当前目录下有index.jpg则设置index_img
-                        if 'index.jpg' in post_files or 'index.png' in post_files or 'index.webp' in post_files:
-                            head_lines.append(f'index_img: /img/post/{dir}/index.jpg\n')
+                        # 获取extend 优先级jpg>png>webp
+                        banner_extend = None
+                        index_extend = None
+                        if 'banner.jpg' in post_files:
+                            banner_extend = 'jpg'
+                        elif 'banner.png' in post_files:
+                            banner_extend = 'png'
+                        elif 'banner.webp' in post_files:
+                            banner_extend = 'webp'
+                            
+                        if 'index.jpg' in post_files:
+                            index_extend = 'jpg'
+                        elif 'index.png' in post_files:
+                            index_extend = 'png'
+                        elif 'index.webp' in post_files:
+                            index_extend = 'webp'
+                        if banner_extend:
+                            head_lines.append(f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
+                        if index_extend:
+                            head_lines.append(f'index_img: /img/post/{dir}/index.{index_extend}\n')
                         
                         head_lines.insert(0,'---\n')
                         head_lines.append('---\n')
