@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+source/img/post/*
+!source/img/post/__init__.py
