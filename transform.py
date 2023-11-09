@@ -16,8 +16,8 @@ try:
     change_files = changes.replace('[','').replace(']','').replace('"','').split(',')
 except:
     change_files = []
-if len(change_files) == 0:
-    exit(0)
+# if len(change_files) == 0:
+#     exit(0)
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
@@ -45,7 +45,7 @@ if theme == 'fluid':
             # 标记该文档是否需要更新
             dir_changed = False
             for assert_file in assert_list:
-                if change_files.__contains__(f'posts/{dir}/{assert_file}'):
+                if len(change_files)!=0 and change_files.__contains__(f'posts/{dir}/{assert_file}'):
                     dir_changed = True
                     break
             # if skip_flag:
