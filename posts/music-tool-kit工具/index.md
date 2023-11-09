@@ -29,7 +29,7 @@ pip install -U music-tool-kit
 ![help](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/help.png)
 
 {%note warning%}
-准备环境
+**准备环境**
 
 - [python](https://www.python.org/)版本:**3.11.0 及以上**
 - 需安装[ffmpeg](https://ffmpeg.org/)并正确配置环境变量
