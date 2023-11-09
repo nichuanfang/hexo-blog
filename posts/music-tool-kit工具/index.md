@@ -1,6 +1,9 @@
 ---
 # 标签
-tags: tools music youtube
+tags:
+  - tools
+  - music
+  - youtube
 # 分类
 categories: 工具
 # banner图片比例
