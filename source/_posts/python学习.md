@@ -8,9 +8,9 @@ banner_img_ratio: 10
 sticky: 10
 title: python学习
 date: 2023-11-09 05:24:11
-updated: 2023-11-09 15:22:47
-banner_img: /img/post/python学习/banner.png
-index_img: /img/post/python学习/index.png
+updated: 2023-11-09 17:11:50
+banner_img: /img/post/python学习/banner.webp
+index_img: /img/post/python学习/index.webp
 ---
 
 # Python 学习
@@ -83,7 +83,7 @@ python3
 
 #### 2.3.1. 下载
 
-[Python 官网](https://www.python.org/downloads/)下载最新版本的 Python，目前最新版本为 3.9.1。
+[Python 官网](https://www.python.org/downloads/) 下载最新版本的 Python，目前最新版本为 3.9.1。
 
 #### 2.3.2. 安装
 
@@ -101,7 +101,7 @@ brew install python3
 ```bash
 # 查看版本
 python3 -V
-# 进入交互式环境
+# 进入 交互式环境
 python3
 ```
 
@@ -118,7 +118,7 @@ Type "help", "copyright",
 
 ### 3.2. Python 注释
 
-Python 中单行注释以 `#` 开头，实例如下：
+Python 中单行注释以 `#` 开头， 实例如下：
 
 ```python
 # 这是一个注释

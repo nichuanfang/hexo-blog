@@ -7,7 +7,7 @@ categories: hello-world
 banner_img_ratio: 90
 title: hello-world
 date: 2023-11-09 05:24:11
-updated: 2023-11-09 14:42:31
+updated: 2023-11-09 17:11:50
 banner_img: /img/post/hello-world/banner.jpg
 index_img: /img/post/hello-world/index.jpg
 ---
@@ -39,7 +39,7 @@ index_img: /img/post/hello-world/index.jpg
 
 `单行注释`
 
-> REALITY 使用其它端口貌似也具有相同伪装性（不打保证），对于自己服务器上已经有站点的，也不用为了共存另外设置反向代理或分流之类的，直接使用其它端口就可以了。
+> REALITY  使用其它端口貌似也 具有相同伪装性（不打保证）， 对于自己服务器上已经有站点的，也不用为了共存另外设置反向代理或分流之类的，直接使用其它端口就可以了。
 
 ````bash
 

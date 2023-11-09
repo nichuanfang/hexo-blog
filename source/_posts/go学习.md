@@ -7,7 +7,7 @@ categories: 编程语言
 banner_img_ratio: 30
 title: go学习
 date: 2023-11-09 16:04:17
-updated: 2023-11-09 16:53:46
+updated: 2023-11-09 17:11:50
 banner_img: /img/post/go学习/banner.webp
 index_img: /img/post/go学习/index.webp
 ---
@@ -22,7 +22,7 @@ go 的优点:
 
 - 语法简单
 - 编译快
-- 并发编程
+- 并发 编程
 - 内存管理
 
 ## 2. 语法
@@ -36,7 +36,7 @@ go 的优点:
 var a int
 var b string
 var c bool
-var d float32
+var d  float32
 var e float64
 var f byte
 var g rune
