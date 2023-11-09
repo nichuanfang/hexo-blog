@@ -9,7 +9,7 @@ categories: 工具
 sticky: 20
 title: music-tool-kit工具
 date: 2023-11-09 17:25:01
-updated: 2023-11-09 17:25:01
+updated: 2023-11-09 17:39:29
 ---
 
 {%note  success%}
@@ -46,13 +46,15 @@ pip install -U music-tool-kit
 
 ![help](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/help.png)
 
-> **Note**
->
-> - [python](https://www.python.org/)版本:**3.11.0 及以上**
-> - 需安装[ffmpeg](https://ffmpeg.org/)并正确配置环境变量
-> - 如果需要下载 youtube 的音乐,需要准备**科学上网**环境
-> - `[]`标记的项目表示可不填
-> - 为规避特殊字符导致路径识别失败,**标题**、**路径**、**URL**等相关的参数尽量使用**双引号**`""`
+{%note warning%}
+
+- [python](https://www.python.org/)版本:**3.11.0 及以上**
+- 需安装[ffmpeg](https://ffmpeg.org/)并正确配置环境变量
+- 如果需要下载 youtube 的音乐,需要准备**科学上网**环境
+- `[]`标记的项目表示可不填
+- 为规避特殊字符导致路径识别失败,**标题**、**路径**、**URL**等相关的参数尽量使用**双引号**
+
+{%endnote%}
 
 ## 升级
 
@@ -88,11 +90,13 @@ mk "https://www.youtube.com/playlist?list=PL8B3F8A7B0A9F4DE8 | 1,2,3,4,5"
 
 ![download_list](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/batch_download.png)
 
-> **Note**
->
-> - 标题格式为 **歌曲名-歌手(专辑名)** 输出歌曲格式默认为 **mp3**
-> - music-tool-kit 会根据**标题**,自动将下载的音频元信息补全,包括歌曲名,歌手(艺术家),内置封面图片,以及专辑名称.如果不遵循该标题格式,元信息可能补全失败
-> - 仅支持下载 youtube 的列表下载,url|后面的列表序号之间需要用逗号分隔
+{%note info%}
+
+- 标题格式为 **歌曲名-歌手(专辑名)** 输出歌曲格式默认为 **mp3**
+- music-tool-kit 会根据**标题**,自动将下载的音频元信息补全,包括歌曲名,歌手(艺术家),内置封面图片,以及专辑名称.如果不遵循该标题格式,元信息可能补全失败
+- 仅支持下载 youtube 的列表下载,url|后面的列表序号之间需要用逗号分隔
+
+{%endnote%}
 
 ## 音乐搜索
 
@@ -103,11 +107,13 @@ mk -s "关键字"
 ![search](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/search.png)
 支持 youtube bilibili 输出优先级 youtube > bilibili,输入列表序号,输入标题,完成下载
 
-> **Note**
->
-> - 最多显示 20 条数据
-> - 直接按`Enter`可以跳出序号选择界面,输入的序号不能超过最大返回的条目数
-> - 如果不想设置标题 直接按`Enter`即可
+{%note info%}
+
+- 最多显示 20 条数据
+- 直接按`Enter`可以跳出序号选择界面,输入的序号不能超过最大返回的条目数
+- 如果不想设置标题 直接按`Enter`即可
+
+{%endnote%}
 
 ## 音乐剪辑
 
@@ -136,10 +142,12 @@ mk -e "输入的mp3文件" [模型名称]
 
 ![extract](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/inst.png)
 
-> **Note**
->
-> - 默认模型为`UVR_MDXNET_Main`,具体请结合音乐类型和自己的实际听感自行调整模型
-> - 伴奏提取比较吃 cpu 性能,时间比较漫长,请耐心等待,大概需要 5~10 分钟
+{%note warning%}
+
+- 默认模型为`UVR_MDXNET_Main`,具体请结合音乐类型和自己的实际听感自行调整模型
+- 伴奏提取比较吃 cpu 性能,时间比较漫长,请耐心等待,大概需要 5~10 分钟
+
+{%endnote%}
 
 ## csv 批量模板
 
