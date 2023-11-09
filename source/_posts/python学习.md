@@ -8,7 +8,7 @@ banner_img_ratio: 10
 sticky: 10
 title: python学习
 date: 2023-11-09 05:24:11
-updated: 2023-11-09 15:19:35
+updated: 2023-11-09 15:22:47
 banner_img: /img/post/python学习/banner.png
 index_img: /img/post/python学习/index.png
 ---
@@ -88,7 +88,7 @@ python3
 #### 2.3.2. 安装
 
 {%note warning%}
-安装时注意勾选 `Add Python 3.9 to PATH`，这样就可以在命令行中直接使用 `python` 命令。
+安装时注意勾选 `Add Python 3.9 to PATH`，这样就可以在命令行中直接使用 `python` 命 令。
 如果安装失败，可以尝试使用 `brew` 安装。
 {%endnote%}
 
