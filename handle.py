@@ -7,6 +7,7 @@ import re
 from bs4 import BeautifulSoup
 import lxml
 
+
 # 将source/css/main.css拷贝到public/css/
 # shutil.copy('source/css/main.css','public/css/main.css')
 
@@ -63,15 +64,11 @@ for post in post_list:
         if banner_img_ratio:
             raw_style_list = raw_style.split(' ')
             # center 90% / cover no-repeat;
-            raw_style_list[4] = f'{banner_img_ratio}%;'
             new_list = []
             new_list.append(raw_style_list[0])
             new_list.append(raw_style_list[1])
-            new_list.append(f'center {banner_img_ratio}% / cover no-repeat;')
-            new_list.append(raw_style_list[5])
-            new_list.append(raw_style_list[6])
+            new_list.append(raw_style_list[2])
+            new_list.append(f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
-            
-            
             # 保存
             saveFile(soup.__str__(),post)
