@@ -31,6 +31,8 @@ def file_to_webp(input_path:str,output_path:str):
     # 如果是jpg或者png 则转为webp
     im = Image.open(input_path).convert('RGB')
     im.save(output_path,'WEBP',quality=95)
+    # 删除原文件
+    os.remove(input_path)
     return output_path
 
 

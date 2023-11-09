@@ -83,7 +83,7 @@ python3
 #### 2.3.2. 安装
 
 {%note warning%}
-安装时注意勾选 `Add Python 3.9 to PATH`，这样就可以在命令行中直接使用 `python` 命令。
+安装时注意勾选 `Add Python 3.9 to PATH`，这样就可以在命令行中直接使用 `python` 命 令。
 如果安装失败，可以尝试使用 `brew` 安装。
 {%endnote%}
 
