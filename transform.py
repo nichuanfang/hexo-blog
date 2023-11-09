@@ -3,9 +3,12 @@ import datetime
 import sys
 import re
 import shutil
+from PIL import Image
 
 
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
+jpg_png_pattern = re.compile('.(jpg|png)$')
+
 theme = sys.argv[1]
 changes = sys.argv[2]
 # [".github/workflows/pages.yml","posts/python学习/index.md"]
@@ -17,6 +20,18 @@ if len(change_files) == 0:
     exit(0)
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+def file_to_webp(input_path:str,output_path:str):
+    """将jpg,png转webp
+
+    Args:
+        input_path (str): 读入文件全路径
+        output_path (str): 输出文件目录
+    """    
+    # 如果是jpg或者png 则转为webp
+    im = Image.open(input_path).convert('RGB')
+    im.save(output_path,'WEBP',quality=95)
+    return output_path
 
 
 if theme == 'fluid':
@@ -38,18 +53,17 @@ if theme == 'fluid':
                 for post_file in post_files:
                     # 横幅图片
                     if post_file.endswith(('.jpg','png','webp')):
-                        # 如果是png或者jpg且图片大小大于1M 将其先转为webp
-                        # if post_file.endswith(['.jpg','png']) and os.path.getsize(os.path.join(post_root,post_file)) > 1024*1024:
-                        #     os.system(f'cwebp -q 80 {os.path.join(post_root,post_file)} -o {os.path.join(post_root,post_file)}.webp')
-                        #     os.remove(os.path.join(post_root,post_file))
-                        #     post_file = post_file + '.webp'
-                        
-                        
                         # 如果 fluid_img_path/dir不存在则创建
                         if not os.path.exists(os.path.join(fluid_img_path,dir)): 
                             os.mkdir(os.path.join(fluid_img_path,dir))
-                        # 将文件移动到对应的img文件夹
-                        shutil.copy2(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
+                            
+                        # 如果是png或者jpg且图片大小大于1M 将其先转为webp
+                        if post_file.endswith(('.jpg','png')) and os.path.getsize(os.path.join(post_root,post_file)) > 1024*1024:
+                            new_image_path = file_to_webp(os.path.join(post_root,post_file),os.path.join(post_root,post_file.replace('.jpg','.webp').replace('.png','.webp')))
+                            # 将文件移动到对应的img文件夹
+                            shutil.copy2(new_image_path,os.path.join(fluid_img_path,dir,post_file))
+                        else:
+                            shutil.copy2(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
                     # 文档
                     elif post_file == 'index.md':
                         # 处理post_file的头部
