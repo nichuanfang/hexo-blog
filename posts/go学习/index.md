@@ -7,9 +7,9 @@ categories: 编程语言
 banner_img_ratio: 30
 ---
 
-![测试图片](test.jpg)
+![测试图片](test1.jpg)
 
-# go 学习技巧
+# go 学习 技巧
 
 ## 1. 语言特性
 
