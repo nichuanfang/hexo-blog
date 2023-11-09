@@ -4,7 +4,7 @@ tags: go
 # 分类
 categories: 编程语言
 # banner图片比例
-# banner_img_ratio: 90
+# banner_img_ratio: 80
 ---
 
 # go 学习技巧
