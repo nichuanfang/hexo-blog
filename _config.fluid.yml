@@ -538,7 +538,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/default.png
+  banner_img: /img/bg/default_banner_img.jpg
   banner_img_height: 70
   banner_mask_alpha: 0
 
