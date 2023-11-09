@@ -5,7 +5,7 @@ tags: python
 categories: 编程语言
 # banner图片比例
 banner_img_ratio: 10
-sticky: 10
+# sticky: 10
 ---
 
 # Python 学习
