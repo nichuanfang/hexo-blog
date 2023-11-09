@@ -5,7 +5,6 @@ import re
 import shutil
 from PIL import Image
 
-
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
 jpg_png_pattern = re.compile('.(jpg|png)$')
 
@@ -30,8 +29,15 @@ def file_to_webp(input_path:str,output_path:str):
     """    
     # 如果是jpg或者png 则转为webp
     im = Image.open(input_path).convert('RGB')
-    im.save(output_path,'WEBP',quality=90)
+    # 调整图片分辨率
+    if im.size[0] > 1920:
+        im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
+    else:
+        im = im.resize((im.size[0],int(im.size[1]*1920/im.size[0])))
+    
+    im.save(output_path,'WEBP',quality=100)
     return output_path
+
 
 
 if theme == 'fluid':
