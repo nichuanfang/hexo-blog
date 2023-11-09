@@ -6,7 +6,7 @@ categories: 工具
 # banner图片比例
 # banner_img_ratio:
 # 置顶配置 数字越大优先级越高
-sticky:30
+sticky: 30
 ---
 
 {%note  success%}
