@@ -9,7 +9,7 @@ categories: 工具
 sticky: 30
 title: music-tool-kit工具
 date: 2023-11-09 17:25:01
-updated: 2023-11-09 19:13:32
+updated: 2023-11-09 19:17:45
 index_img: /img/post/music-tool-kit工具/index.webp
 ---
 
@@ -30,7 +30,7 @@ python -m pip install –upgrade pip
 pip install -U music-tool-kit
 ```
 
-![help](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/help.png)
+![help](/img/post/music-tool-kit工具/help.png)
 
 {%note info%}
 **准备环境**
@@ -65,7 +65,7 @@ mk  "网址" "[标题]" "[封面url]"
 ```
 
 **普通下载**
-![download](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/download.png)
+![download](/img/post/music-tool-kit工具/download.png)
 
 **列表下载**使用方法为 `mk "列表url | 列表序号"` ,**url 需要为 [youtube](https://www.youtube.com) 的列表格式(url 中含有 list=)**,如果想下载全部歌曲,直接输入 `mk "列表url |"` 即可!
 
@@ -75,7 +75,7 @@ mk  "网址" "[标题]" "[封面url]"
 mk "https://www.youtube.com/playlist?list=PL8B3F8A7B0A9F4DE8 | 1,2,3,4,5"
 ```
 
-![download_list](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/batch_download.png)
+![download_list](/img/post/music-tool-kit工具/batch_download.png)
 
 {%note info%}
 
@@ -91,7 +91,7 @@ mk "https://www.youtube.com/playlist?list=PL8B3F8A7B0A9F4DE8 | 1,2,3,4,5"
 mk -s "关键字"
 ```
 
-![search](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/search.png)
+![search](/img/post/music-tool-kit工具/search.png)
 支持 youtube bilibili 输出优先级 youtube > bilibili,输入列表序号,输入标题,完成下载
 
 {%note info%}
@@ -108,7 +108,7 @@ mk -s "关键字"
 mk -c "输入的mp3文件" 开始时间 结束时间
 ```
 
-![clip](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/clip.png)
+![clip](/img/post/music-tool-kit工具/clip.png)
 
 > Tips: 时间格式为 `00:00:00`
 
@@ -127,7 +127,7 @@ mk -e "输入的mp3文件" [模型名称]
 - `UVR_MDXNET_KARA_2` (一般,人声剔除不干净,声音忽高忽低)
 - `Kim_Inst` (一般)
 
-![extract](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/inst.png)
+![extract](/img/post/music-tool-kit工具/inst.png)
 
 {%note warning%}
 
@@ -143,7 +143,7 @@ mk -t
 ```
 
 生成的模板文件如下:
-![csv_template](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/csv_template.png)
+![csv_template](/img/post/music-tool-kit工具/csv_template.png)
 用户自行填写下载信息,保存后使用`mk "csv文件"`即可批量下载
 
 | url  | title | cover_url | start_time | end_time | instrumental                |
@@ -156,7 +156,7 @@ mk -t
 mk "csv文件"
 ```
 
-![csv_download](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/csv_download.png)
+![csv_download](/img/post/music-tool-kit工具/csv_download.png)
 
 # License
 
