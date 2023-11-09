@@ -25,12 +25,19 @@ if theme == 'fluid':
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
-            if not f'posts/{dir}/index.md' in change_files:
+            # 只要一下文件做变更 视为更新文档
+            assert_list = ['index.md','banner.jpg','banner.png','banner.webp','index.jpg','index.png','index.webp']
+            assert_flag = False
+            for assert_file in assert_list:
+                if change_files.__contains__(f'posts/{dir}/{assert_file}'):
+                    assert_flag = True
+                    break
+            if assert_flag:
                 continue
-            for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):  
+            for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):
                 for post_file in post_files:
                     # 横幅图片
-                    if post_file.endswith(['.jpg','png','webp']):
+                    if post_file.endswith(('.jpg','png','webp')):
                         # 如果是png或者jpg且图片大小大于1M 将其先转为webp
                         # if post_file.endswith(['.jpg','png']) and os.path.getsize(os.path.join(post_root,post_file)) > 1024*1024:
                         #     os.system(f'cwebp -q 80 {os.path.join(post_root,post_file)} -o {os.path.join(post_root,post_file)}.webp')
@@ -83,7 +90,7 @@ if theme == 'fluid':
                                     # 如果是https或者http开头 不替换
                                     if result.startswith('https') or result.startswith('http'):
                                         continue
-                                    elif result.endswith('.jpg') or result.endswith('.png')  or result.endswith('.webp'):
+                                    elif result.endswith(('.jpg','png','webp')):
                                         # 如果是/开头 则在前面加上posts/目录名
                                         if result.startswith('/'):
                                             left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}{result}')
