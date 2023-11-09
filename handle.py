@@ -72,3 +72,7 @@ for post in post_list:
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
             # 保存
             saveFile(soup.__str__(),post)
+            
+# 如果source/img/post存在 删除source/img/post文件夹的所有文件
+if os.path.exists('source/img/post'):
+    shutil.rmtree('source/img/post')
