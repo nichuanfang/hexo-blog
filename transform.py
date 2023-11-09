@@ -31,6 +31,13 @@ if theme == 'fluid':
                 for post_file in post_files:
                     # 横幅图片
                     if post_file.endswith(['.jpg','png','webp']):
+                        # 如果是png或者jpg且图片大小大于1M 将其先转为webp
+                        # if post_file.endswith(['.jpg','png']) and os.path.getsize(os.path.join(post_root,post_file)) > 1024*1024:
+                        #     os.system(f'cwebp -q 80 {os.path.join(post_root,post_file)} -o {os.path.join(post_root,post_file)}.webp')
+                        #     os.remove(os.path.join(post_root,post_file))
+                        #     post_file = post_file + '.webp'
+                        
+                        
                         # 如果 fluid_img_path/dir不存在则创建
                         if not os.path.exists(os.path.join(fluid_img_path,dir)): 
                             os.mkdir(os.path.join(fluid_img_path,dir))

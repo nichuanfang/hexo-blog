@@ -41,3 +41,12 @@ var l map[string]int
 var m func(a int) int
 var n *int
 ```
+
+#### 2.1.2. 常量
+
+```go
+// 声明常量
+const a int = 10
+const b string = "hello"
+const c bool = true
+```
