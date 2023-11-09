@@ -9,7 +9,7 @@ categories: 工具
 sticky: 20
 title: music-tool-kit工具
 date: 2023-11-09 17:25:01
-updated: 2023-11-09 17:39:29
+updated: 2023-11-09 17:45:03
 ---
 
 {%note  success%}
@@ -19,21 +19,6 @@ updated: 2023-11-09 17:39:29
 > 本项目仅为个人使用,无任何商业用途,仅支持 mp3 格式的音乐
 
 ---
-
-**内容目录**：
-
-- [环境准备](#环境准备)
-  - [安装](#安装)
-  - [升级](#升级)
-  - [卸载](#卸载)
-- [使用](#使用)
-  - [音乐下载](#音乐下载)
-  - [音乐搜索](#音乐搜索)
-  - [音乐剪辑](#音乐剪辑)
-  - [提取伴奏](#提取伴奏)
-  - [csv 批量模板](#csv-批量模板)
-  - [批量下载](#批量下载)
-- [License](#license)
 
 # 环境准备
 
@@ -47,6 +32,7 @@ pip install -U music-tool-kit
 ![help](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/example/help.png)
 
 {%note warning%}
+准备环境
 
 - [python](https://www.python.org/)版本:**3.11.0 及以上**
 - 需安装[ffmpeg](https://ffmpeg.org/)并正确配置环境变量
