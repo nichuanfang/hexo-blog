@@ -51,7 +51,6 @@ for post in post_list:
         soup = BeautifulSoup(f, 'lxml')
         # 修改图片比例
         raw_style = soup.find('div',class_='banner')['style']
-        print(f'raw_style: {raw_style}')
         # 读取/source/_posts/文章.md里的banner_img_ratio
         raw_post_path = os.path.join('source', '_posts', post.replace('\\','/').split('/')[-2]+'.md')
         banner_img_ratio = None
