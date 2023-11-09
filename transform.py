@@ -30,7 +30,7 @@ def file_to_webp(input_path:str,output_path:str):
     """    
     # 如果是jpg或者png 则转为webp
     im = Image.open(input_path).convert('RGB')
-    im.save(output_path,'WEBP',quality=95)
+    im.save(output_path,'WEBP',quality=90)
     return output_path
 
 
