@@ -5,10 +5,10 @@ tags: python
 categories: 编程语言
 # banner图片比例
 banner_img_ratio: 10
-sticky: 10
+# sticky: 10
 title: python学习
 date: 2023-11-09 05:24:11
-updated: 2023-11-09 17:11:50
+updated: 2023-11-09 17:25:01
 banner_img: /img/post/python学习/banner.webp
 index_img: /img/post/python学习/index.webp
 ---

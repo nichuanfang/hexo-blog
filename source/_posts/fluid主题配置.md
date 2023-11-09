@@ -5,10 +5,10 @@ tags: hexo
 categories: 个人博客
 # banner图片比例
 banner_img_ratio: 20
-sticky: 20
+# sticky: 20
 title: fluid主题配置
 date: 2023-11-09 05:24:11
-updated: 2023-11-09 17:11:50
+updated: 2023-11-09 17:25:01
 banner_img: /img/post/fluid主题配置/banner.jpg
 index_img: /img/post/fluid主题配置/index.jpg
 ---
