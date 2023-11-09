@@ -1,6 +1,9 @@
 ---
 # 标签
-tags: tools music youtube
+tags:
+  - tools
+  - music
+  - youtube
 # 分类
 categories: 工具
 # banner图片比例
@@ -9,7 +12,7 @@ categories: 工具
 sticky: 30
 title: music-tool-kit工具
 date: 2023-11-09 17:25:01
-updated: 2023-11-09 20:17:02
+updated: 2023-11-09 23:46:38
 index_img: /img/post/music-tool-kit工具/index.webp
 ---
 
