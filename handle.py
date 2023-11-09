@@ -7,7 +7,6 @@ import re
 from bs4 import BeautifulSoup
 import lxml
 
-
 # 将source/css/main.css拷贝到public/css/
 # shutil.copy('source/css/main.css','public/css/main.css')
 
