@@ -27,12 +27,12 @@ if theme == 'fluid':
         for dir in dirs:
             # 只要一下文件做变更 视为更新文档
             assert_list = ['index.md','banner.jpg','banner.png','banner.webp','index.jpg','index.png','index.webp']
-            assert_flag = False
+            skip_flag = True
             for assert_file in assert_list:
                 if change_files.__contains__(f'posts/{dir}/{assert_file}'):
-                    assert_flag = True
+                    skip_flag = False
                     break
-            if assert_flag:
+            if skip_flag:
                 continue
             for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):
                 for post_file in post_files:
