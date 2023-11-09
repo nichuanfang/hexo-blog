@@ -2,6 +2,7 @@ import os
 import datetime
 import sys
 import re
+import shutil
 
 
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
@@ -29,12 +30,12 @@ if theme == 'fluid':
             for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):  
                 for post_file in post_files:
                     # 横幅图片
-                    if post_file.endswith('.jpg'):
+                    if post_file.endswith(['.jpg','png','webp']):
                         # 如果 fluid_img_path/dir不存在则创建
-                        if not os.path.exists(os.path.join(fluid_img_path,dir)):
+                        if not os.path.exists(os.path.join(fluid_img_path,dir)): 
                             os.mkdir(os.path.join(fluid_img_path,dir))
                         # 将文件移动到对应的img文件夹
-                        os.rename(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
+                        shutil.copy2(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
                     # 文档
                     elif post_file == 'index.md':
                         # 处理post_file的头部
@@ -67,7 +68,7 @@ if theme == 'fluid':
                         
                         # 对left_lines的图片进行替换
                         for i in range(len(left_lines)):
-                            if left_lines[i].__contains__('.jpg'):
+                            if left_lines[i].__contains__('.jpg') or left_lines[i].__contains__('.png') or left_lines[i].__contains__('.webp'):
                                 # 根据正则表达式[^/\\(]+.(jpg|png) 找出符合的字符串
                                 result_list:list[str] = img_regex.findall(left_lines[i])
                                 for result in result_list:
@@ -75,7 +76,7 @@ if theme == 'fluid':
                                     # 如果是https或者http开头 不替换
                                     if result.startswith('https') or result.startswith('http'):
                                         continue
-                                    elif result.endswith('.jpg') or result.endswith('.png'):
+                                    elif result.endswith('.jpg') or result.endswith('.png')  or result.endswith('.webp'):
                                         # 如果是/开头 则在前面加上posts/目录名
                                         if result.startswith('/'):
                                             left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}{result}')
@@ -83,10 +84,10 @@ if theme == 'fluid':
                                             left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result}')
                         
                         # 如果当前目录下有banner.jpg则设置banner_img
-                        if 'banner.jpg' in post_files:
+                        if 'banner.jpg' in post_files or 'banner.png' in post_files or 'banner.webp' in post_files:
                             head_lines.append(f'banner_img: /img/post/{dir}/banner.jpg\n')
                         # 如果当前目录下有index.jpg则设置index_img
-                        if 'index.jpg' in post_files:
+                        if 'index.jpg' in post_files or 'index.png' in post_files or 'index.webp' in post_files:
                             head_lines.append(f'index_img: /img/post/{dir}/index.jpg\n')
                         
                         head_lines.insert(0,'---\n')
