@@ -101,11 +101,18 @@ if theme == 'fluid':
                                 if result.startswith('https') or result.startswith('http'):
                                     continue
                                 elif result.endswith(('.jpg','png','webp')):
-                                    # 如果是/开头 则在前面加上posts/目录名
-                                    if result.startswith('/'):
-                                        left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}{result}')
-                                    else:
-                                        left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result}')
+                                    try:
+                                        # 判断该图片是否大于1m 且为jpg或者png 则转为webp
+                                        if os.path.getsize(os.path.join(post_root,result)) > 1024*1024 and result.split('.')[-1] in ['jpg','png']:
+                                            file_to_webp(os.path.join(post_root,result),os.path.join(fluid_img_path,dir,result.split('.')[0]+'.webp'))
+                                            left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}{result.split(".")[0]+".webp"}')
+                                        else:
+                                            # 如果是/开头 则在前面加上posts/目录名
+                                            if result.startswith('/'):
+                                                left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}{result}')
+                                            else:
+                                                left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result}')
+                                    except:continue
                     
                     # 获取extend 优先级jpg>png>webp
                     banner_extend = None
