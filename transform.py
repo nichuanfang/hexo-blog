@@ -42,13 +42,14 @@ if theme == 'fluid':
         for dir in dirs:
             # 只要一下文件做变更 视为更新文档
             assert_list = ['index.md','banner.jpg','banner.png','banner.webp','index.jpg','index.png','index.webp']
-            skip_flag = True
+            # 标记该文档是否需要更新
+            dir_changed = False
             for assert_file in assert_list:
                 if change_files.__contains__(f'posts/{dir}/{assert_file}'):
-                    skip_flag = False
+                    dir_changed = True
                     break
-            if skip_flag:
-                continue
+            # if skip_flag:
+            #     continue
             for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):
                 if 'index.md' not in post_files:
                     continue
@@ -80,7 +81,7 @@ if theme == 'fluid':
                     if not os.path.exists(os.path.join(fluid_posts_path,dir+'.md')):
                         head_lines.append(f'date: {now}\n')
                     else:
-                        # 读取os.path.join(fluid_posts_path,dir+'.md')文件的date和updated
+                        # 读取os.path.join(fluid_posts_path,dir+'.md')文件的date
                         with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
                             lines = f.readlines()
                             for line in lines:
@@ -88,7 +89,16 @@ if theme == 'fluid':
                                     head_lines.append(line)
                                     break
                         # posts/python学习/index.md
-                    head_lines.append(f'updated: {now}\n')
+                    if dir_changed:
+                        head_lines.append(f'updated: {now}\n')
+                    else:
+                        # 读取os.path.join(fluid_posts_path,dir+'.md')文件的updated
+                        with open(os.path.join(fluid_posts_path,dir+'.md'),'r',encoding='utf-8') as f:
+                            lines = f.readlines()
+                            for line in lines:
+                                if line.startswith('updated:'):
+                                    head_lines.append(line)
+                                    break
                     
                     # 对left_lines的图片进行替换
                     for i in range(len(left_lines)):
