@@ -58,14 +58,8 @@ if theme == 'fluid':
                         # 如果 fluid_img_path/dir不存在则创建
                         if not os.path.exists(os.path.join(fluid_img_path,dir)): 
                             os.mkdir(os.path.join(fluid_img_path,dir))
-                            
-                        # 如果是png或者jpg且图片大小大于1M 将其先转为webp
-                        if post_file.endswith(('.jpg','png')) and os.path.getsize(os.path.join(post_root,post_file)) > 1024*1024:
-                            new_image_path = file_to_webp(os.path.join(post_root,post_file),os.path.join(post_root,post_file.replace('.jpg','.webp').replace('.png','.webp')))
                             # 将文件移动到对应的img文件夹
-                            shutil.copy2(new_image_path,os.path.join(fluid_img_path,dir,post_file))
-                        else:
-                            shutil.copy2(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
+                        shutil.copy2(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
                     # 文档
                     elif post_file == 'index.md':
                         # 处理post_file的头部
