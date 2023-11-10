@@ -21,6 +21,13 @@ const ap = new APlayer({
         'http://p1.music.126.net/9KeyafHLjadqSQTRS_tN5Q==/5741649720318487.jpg?param=130y130',
     },
     {
+      name: 'Lost Good Things',
+      artist: '陈光荣',
+      url: 'http://music.163.com/song/media/outer/url?id=27591655.mp3',
+      cover:
+        'http://p2.music.126.net/9KeyafHLjadqSQTRS_tN5Q==/5741649720318487.jpg?param=130y130',
+    },
+    {
       name: '前線拠点 セリエナのテーマ',
       artist: '成田暁彦',
       url: 'http://music.163.com/song/media/outer/url?id=1396557590.mp3',
