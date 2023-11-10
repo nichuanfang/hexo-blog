@@ -41,23 +41,32 @@ def get_public_list():
                                         
     return post_list
 
-
 post_list = get_public_list()
+
+# 添加归档,分类,友链页面
+post_list.append('public/archives/index.html')
+post_list.append('public/categories/index.html')
+post_list.append('public/links/index.html')
+
 for post in post_list:
     # 修改html指定标签的内容
     with open(post, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'lxml')
         # 修改图片比例
         raw_style = soup.find('div',class_='banner')['style']
-        # 读取/source/_posts/文章.md里的banner_img_ratio
-        raw_post_path = os.path.join('source', '_posts', post.replace('\\','/').split('/')[-2]+'.md')
-        banner_img_ratio = None
-        with open(raw_post_path, 'r', encoding='utf-8') as raw_post:
-            raw_lines = raw_post.readlines()
-            for line in raw_lines:
-                if line.startswith('banner_img_ratio:'):
-                    banner_img_ratio = line.split(':')[1].strip()
-                    break
+        if post.replace('\\','/').split('/')[-2] in ['archives','categories','links']:
+            # 对于archives, categories, links页面  banner_img_ratio默认为30
+            banner_img_ratio = 30
+        else:
+            # 读取/source/_posts/文章.md里的banner_img_ratio
+            raw_post_path = os.path.join('source', '_posts', post.replace('\\','/').split('/')[-2]+'.md')
+            banner_img_ratio = None
+            with open(raw_post_path, 'r', encoding='utf-8') as raw_post:
+                raw_lines = raw_post.readlines()
+                for line in raw_lines:
+                    if line.startswith('banner_img_ratio:'):
+                        banner_img_ratio = line.split(':')[1].strip()
+                        break
         if banner_img_ratio:
             # raw_style_list = raw_style.split(' ')
             # # center 90% / cover no-repeat;
