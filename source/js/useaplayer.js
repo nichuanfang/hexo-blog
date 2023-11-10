@@ -14,18 +14,25 @@ const ap = new APlayer({
         'http://p2.music.126.net/9KeyafHLjadqSQTRS_tN5Q==/5741649720318487.jpg?param=130y130',
     },
     {
+      name: 'Gloves 2 Ali',
+      artist: '陈光荣',
+      url: 'http://music.163.com/song/media/outer/url?id=27591659.mp3',
+      cover:
+        'http://p1.music.126.net/9KeyafHLjadqSQTRS_tN5Q==/5741649720318487.jpg?param=130y130',
+    },
+    {
+      name: '前線拠点 セリエナのテーマ',
+      artist: '成田暁彦',
+      url: 'http://music.163.com/song/media/outer/url?id=1396557590.mp3',
+      cover:
+        'http://p1.music.126.net/fvwzr-hFA4l8BYM1e869Gg==/109951164423254613.jpg?param=130y130',
+    },
+    {
       name: '踊子プリムロゼのテーマ',
       artist: '西木康智',
       url: 'http://music.163.com/song/media/outer/url?id=865857528.mp3',
       cover:
         'http://p1.music.126.net/SypSF_x_SmVCQPVwntNHdQ==/109951168458284081.jpg?param=130y130',
-    },
-    {
-      name: 'nightshift',
-      artist: 'Force of Nature',
-      url: 'http://music.163.com/song/media/outer/url?id=1788778.mp3',
-      cover:
-        'http://p2.music.126.net/Ld2cxUrdld7iLUIyw0w_NQ==/895002465062769.jpg?param=130y130',
     },
     {
       name: 'Heartbeat, Heartbreak',
@@ -52,6 +59,13 @@ const ap = new APlayer({
       name: 'Tokyo Emergency',
       artist: '目黒将司',
       url: 'http://music.163.com/song/media/outer/url?id=454231744.mp3',
+      cover:
+        'http://p2.music.126.net/FmuZirfGmg9FbMy3hkEqAA==/109951165567176149.jpg?param=130y130',
+    },
+    {
+      name: 'Tokyo Daylight',
+      artist: '目黒将司',
+      url: 'http://music.163.com/song/media/outer/url?id=454224871.mp3',
       cover:
         'http://p2.music.126.net/FmuZirfGmg9FbMy3hkEqAA==/109951165567176149.jpg?param=130y130',
     },
