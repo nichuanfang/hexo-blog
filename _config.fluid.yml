@@ -836,7 +836,7 @@ valine:
 # See: https://waline.js.org/
 waline:
   serverURL: 'http://waline.jaychou.site'
-  path: '/'
+  path: window.location.pathname
   meta: ['nick', 'mail', 'link']
   requiredMeta: ['nick']
   lang: 'zh-CN'
