@@ -9,8 +9,8 @@ banner_img_ratio: 20
 title: fluid主题配置
 date: 2023-11-09 05:24:11
 updated: 2023-11-09 17:25:01
-banner_img: /img/post/fluid主题配置/banner.jpg
-index_img: /img/post/fluid主题配置/index.jpg
+banner_img: /img/post/fluid主题配置/banner.webp
+index_img: /img/post/fluid主题配置/index.webp
 ---
 
 个人博客搭建心得 使用`hexo + fluid`主题
