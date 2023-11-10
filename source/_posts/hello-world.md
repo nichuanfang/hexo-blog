@@ -8,8 +8,8 @@ banner_img_ratio: 90
 title: hello-world
 date: 2023-11-09 05:24:11
 updated: 2023-11-09 17:11:50
-banner_img: /img/post/hello-world/banner.jpg
-index_img: /img/post/hello-world/index.jpg
+banner_img: /img/post/hello-world/banner.webp
+index_img: /img/post/hello-world/index.webp
 ---
 
 ```stylus
