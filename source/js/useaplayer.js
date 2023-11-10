@@ -1,5 +1,9 @@
 const ap = new APlayer({
   container: document.getElementById('aplayer'),
+  autoplay: true,
+  loop: 'all',
+  order: 'random',
+  preload: 'auto',
   fixed: true,
   audio: [
     {

@@ -104,7 +104,9 @@ theme: fluid
 deploy:
   type: ''
 
-all_minifier: false
+# 安装
+# npm install hexo-all-minifier --save
+all_minifier: true
 
 # html压缩
 html_minifier:
@@ -137,9 +139,9 @@ js_concator:
 
 # 图片优化
 image_minifier:
-  enable: true
-  interlaced: true
-  multipass: true
+  enable: false # 图片不压缩
+  interlaced: false
+  multipass: false
   optimizationLevel: 2
-  pngquant: true
+  pngquant: false
   progressive: false
