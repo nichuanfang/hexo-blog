@@ -104,6 +104,10 @@ theme: fluid
 deploy:
   type: ''
 
+# sitemap
+sitemap:
+  path: sitemap.xml
+
 # 安装
 # npm install hexo-all-minifier --save
 all_minifier: true

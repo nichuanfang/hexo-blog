@@ -133,3 +133,5 @@ for post in post_list:
 
 # 将rebot.txt复制到public文件夹下
 shutil.copy2('robots.txt','public/robots.txt')
+# 将public/html/googled6964a02c0841f8d.html 剪切到public下
+shutil.move('public/html/googled6964a02c0841f8d.html','public/googled6964a02c0841f8d.html')
