@@ -29,11 +29,12 @@ def file_to_webp(input_path:str,output_path:str):
     """    
     # 如果是jpg或者png 则转为webp
     im = Image.open(input_path).convert('RGB')
+    # # 如果图片大小大于2m 则调整分辨率
+    # if os.path.getsize(input_path) > 2*1024*1024:
+    #     im = im.resize((int(im.size[0]*0.8),int(im.size[1]*0.8)))
     # 调整图片分辨率
     if im.size[0] > 1920:
         im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
-    else:
-        im = im.resize((im.size[0],int(im.size[1]*1920/im.size[0])))
     
     im.save(output_path,'WEBP',quality=92)
     return output_path
