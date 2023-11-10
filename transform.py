@@ -118,8 +118,8 @@ if theme == 'fluid':
                                     continue
                                 elif result.endswith(('.jpg','png','webp')):
                                     try:
-                                        # 判断该图片是否大于512kb 且为jpg或者png 则转为webp
-                                        if os.path.getsize(os.path.join(post_root,result)) > 600*1024 and result.split('.')[-1] in ['jpg','png']:
+                                        # 判断该图片是否为jpg或者png 则转为webp
+                                        if result.split('.')[-1] in ['jpg','png']:
                                             file_to_webp(os.path.join(post_root,result),os.path.join(fluid_img_path,dir,result.split('.')[0]+'.webp'))
                                             os.remove(os.path.join(fluid_img_path,dir,result))
                                             left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result.split(".")[0]+".webp"}')
@@ -134,29 +134,29 @@ if theme == 'fluid':
                     # 获取extend 优先级jpg>png>webp
                     banner_extend = None
                     index_extend = None
-                    if 'banner.jpg' in post_files:
-                        banner_extend = 'jpg'
+                    if 'banner.webp' in post_files:
+                        banner_extend = 'webp'
                     elif 'banner.png' in post_files:
                         banner_extend = 'png'
-                    elif 'banner.webp' in post_files:
-                        banner_extend = 'webp'
+                    elif 'banner.jpg' in post_files:
+                        banner_extend = 'jpg'
                         
-                    if 'index.jpg' in post_files:
-                        index_extend = 'jpg'
+                    if 'index.webp' in post_files:
+                        index_extend = 'webp'
                     elif 'index.png' in post_files:
                         index_extend = 'png'
-                    elif 'index.webp' in post_files:
-                        index_extend = 'webp'
+                    elif 'index.jpg' in post_files:
+                        index_extend = 'jpg'
                     if banner_extend:
-                        # 如果图片大于1m且为jpg或者png 则转为webp
-                        if os.path.getsize(os.path.join(post_root,f'banner.{banner_extend}')) > 600*1024 and banner_extend in ['jpg','png']:
+                        # 如果图片为jpg或者png 则转为webp
+                        if banner_extend in ['jpg','png']:
                             file_to_webp(os.path.join(post_root,f'banner.{banner_extend}'),os.path.join(fluid_img_path,dir,f'banner.webp'))
                             os.remove(os.path.join(fluid_img_path,dir,f'banner.{banner_extend}'))
                             banner_extend = 'webp'
                         head_lines.append(f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
                     if index_extend:
-                        # 如果图片大于1m且为jpg或者png 则转为webp
-                        if  os.path.getsize(os.path.join(post_root,f'index.{index_extend}')) > 600*1024 and index_extend in ['jpg','png']:
+                        # 如果图片为jpg或者png 则转为webp
+                        if  index_extend in ['jpg','png']:
                             file_to_webp(os.path.join(post_root,f'index.{index_extend}'),os.path.join(fluid_img_path,dir,f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,dir,f'index.{index_extend}'))
                             index_extend = 'webp'
