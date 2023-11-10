@@ -130,8 +130,12 @@ for post in post_list:
                 soup.find('div',class_='banner')['style'] = ' '.join(new_list)
                 # 保存
                 saveFile(soup.__str__(),post)
+                
+# seo优化
 
 # 将rebot.txt复制到public文件夹下
 shutil.copy2('robots.txt','public/robots.txt')
 # 将googled6964a02c0841f8d.html复制到public下
 shutil.copy2('googled6964a02c0841f8d.html','public/googled6964a02c0841f8d.html')
+# 将baidu_verify_codeva-MeGg14ZRyV.html复制到public下
+shutil.copy2('baidu_verify_codeva-MeGg14ZRyV.html','baidu_verify_codeva-MeGg14ZRyV.html')
