@@ -808,7 +808,6 @@ gitalk:
   language: zh-CN
   distractionFreeMode: false
   recentComment: true
-  proxy: https://cors-anywhere.azm.workers.dev/
 
 # Valine
 # 基于 LeanCloud
