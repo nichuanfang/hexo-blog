@@ -11,10 +11,10 @@ https://blog.jaychou.site/tags/github/
 https://blog.jaychou.site/tags/hexo/
 https://blog.jaychou.site/tags/go/
 https://blog.jaychou.site/tags/hello-world/
+https://blog.jaychou.site/tags/python/
 https://blog.jaychou.site/tags/tools/
 https://blog.jaychou.site/tags/music/
 https://blog.jaychou.site/tags/youtube/
-https://blog.jaychou.site/tags/python/
 https://blog.jaychou.site/tags/%E5%9F%9F%E5%90%8D/
 https://blog.jaychou.site/tags/HTTPS/
 https://blog.jaychou.site/categories/Devops/
