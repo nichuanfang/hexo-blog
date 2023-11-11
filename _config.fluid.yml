@@ -815,13 +815,13 @@ valine:
   appId: enOFHBl7E8Mh2ZLlcjZ679m0-gzGzoHsz
   appKey: eZI7IWrl3Nq2PqR3CLZhsqTg
   path: window.location.pathname
-  placeholder:
-  avatar: 'retro'
+  placeholder: '说点什么吧...'
+  avatar: 'mp'
   meta: ['nick', 'mail', 'link']
-  requiredFields: []
+  requiredFields: ['nick']
   pageSize: 10
   lang: 'zh-CN'
-  highlight: false
+  highlight: true
   recordIP: false
   serverURLs: ''
   emojiCDN:
