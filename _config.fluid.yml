@@ -246,9 +246,9 @@ custom_css:
   - /css/iconfont.css
   - /css/APlayer.min.css
 
-# custom_html: '
-#   <!--aplayer-->
-#   <div id="aplayer"></div>'
+custom_html: '
+  <!--aplayer-->
+  <div id="aplayer"></div>'
 
 # 网页访问统计
 # Analysis of website visitors
