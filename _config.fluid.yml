@@ -246,7 +246,7 @@ custom_css:
   - /css/iconfont.css
   - /css/APlayer.min.css
 
-custom_html:
+custom_html: '<div id="aplayer"></div>'
 
 # 网页访问统计
 # Analysis of website visitors
