@@ -7,6 +7,7 @@ import re
 from bs4 import BeautifulSoup
 import lxml
 import requests
+import re
 
 
 def saveFile(data,file_path):
@@ -18,6 +19,12 @@ def update_baidu_ziyuan():
     # 读取sitemap.xml 更新到百度搜索平台 
     with open('public/sitemap.xml', 'r', encoding='utf-8') as f:
         lines = f.readlines()
+        # 通过正则表达式提取字符串<loc>https://blog.jaychou.site/about/index.html</loc>  <loc>和</loc>之间的内容
+        urls = re.findall(r'<loc>(.*?)</loc>', ''.join(lines))
+        # 将结果写入urls.txt 每行一条
+        with open('seo/urls.txt', 'w+', encoding='utf-8') as f:
+            for url in urls:
+                f.write(url+'\n')
         
         headers = {
             'Content-Type': 'text/plain',
