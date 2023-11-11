@@ -6,6 +6,7 @@ import shutil
 import re
 from bs4 import BeautifulSoup
 import lxml
+import requests
 
 
 def saveFile(data,file_path):
@@ -13,7 +14,25 @@ def saveFile(data,file_path):
     f_obj.write(data)
     f_obj.close()
 
+def update_baidu_ziyuan():
+    # 读取sitemap.xml 更新到百度搜索平台 
+    with open('public/sitemap.xml', 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        
+        headers = {
+            'Content-Type': 'text/plain',
+        }
 
+        with open('seo/urls.txt', 'rb') as f:
+            data = f.read()
+
+        response = requests.post(
+            'http://data.zz.baidu.com/urls?site=https://blog.jaychou.site&token=gXiKnZcZfevhKqhL',
+            headers=headers,
+            data=data,
+        )
+        if response.status_code == 200:
+            print('百度搜索平台更新成功')
 
 # 遍历public文件夹 获取所有文章
 def get_public_list():
@@ -139,3 +158,5 @@ shutil.copy2('seo/robots.txt','public/robots.txt')
 shutil.copy2('seo/googled6964a02c0841f8d.html','public/googled6964a02c0841f8d.html')
 # 将baidu_verify_codeva-MeGg14ZRyV.html复制到public下
 shutil.copy2('seo/baidu_verify_codeva-MeGg14ZRyV.html','public/baidu_verify_codeva-MeGg14ZRyV.html')
+# 更新百度搜索平台
+update_baidu_ziyuan()
