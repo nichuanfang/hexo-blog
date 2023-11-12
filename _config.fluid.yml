@@ -469,7 +469,7 @@ index:
   banner_img: /img/bg/default.webp
 
   # 头图高度，屏幕百分比
-  # Height ratio of banner image
+  # Height ratio of banner  image
   # Available: 0 - 100
   banner_img_height: 100
 
