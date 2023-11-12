@@ -1,0 +1,21 @@
+name: 更新主题
+
+on:
+  push:
+    branches:
+      - fluid-theme
+    paths:
+      - '_config.fluid.yml'
+      - '_config.yml'
+
+jobs:
+  update_theme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 部署hexo-blog
+        uses: rshop/trigger-workflow-action@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          repository: 'nichuanfang/hexo-blog'
+          workflowId: 56880669
+          branch: main
