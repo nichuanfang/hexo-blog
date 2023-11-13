@@ -28,6 +28,13 @@ const ap = new APlayer({
         'http://p2.music.126.net/9KeyafHLjadqSQTRS_tN5Q==/5741649720318487.jpg?param=130y130',
     },
     {
+      name: '只要为你活一天',
+      artist: '刘家昌/黄英华',
+      url: 'http://music.163.com/song/media/outer/url?id=35288859.mp3',
+      cover:
+        'http://p1.music.126.net/cpoUinrExafBHL5Nv5iDHQ==/109951166361218466.jpg?param=130y130',
+    },
+    {
       name: '前線拠点 セリエナのテーマ',
       artist: '成田暁彦',
       url: 'http://music.163.com/song/media/outer/url?id=1396557590.mp3',
