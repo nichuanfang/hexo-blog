@@ -7,33 +7,6 @@ categories: hello-world
 banner_img_ratio: 90
 ---
 
-```stylus
----------------- dest 列表 -----------------
-1) learn.microsoft.com
-2) www.apple.com
-3) music.apple.com
-4) www.fandom.com
-5) www.lovelive-anime.jp
-6) tidal.com
-7) zoro.to
-8) www.pixiv.co.jp
-9) mxj.myanimelist.net
-10) mora.jp
-11) www.j-wave.co.jp
-12) www.dmm.com
-13) booth.pm
-14) www.ivi.tv
-15) fmovies.to/home
-16) www.leercapitulo.com
-17) www.sky.it
-18) www.sky.com
-19) www.smdyy.cc
-20) www.telecinco.es
-请选择你的 dest, 当前默认使用 "learn.microsoft.com", 自填选 0:
-```
-
-`单行注释`
-
 > REALITY  使用其它端口貌似也 具有相同伪装性（不打保证）， 对于自己服务器上已经有站点的，也不用为了共存另外设置反向代理或分流之类的，直接使用其它端口就可以了。
 
 ````bash
