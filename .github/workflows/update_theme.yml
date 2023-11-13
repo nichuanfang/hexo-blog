@@ -7,8 +7,9 @@ on:
     paths:
       - '_config.fluid.yml'
       - '_config.yml'
-      - 'source/css'
-      - 'source/js'
+      - 'source/css/main.css'
+      - 'source/css/custom.css'
+      - 'source/js/custom.js'
 
 jobs:
   update_theme:
