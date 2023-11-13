@@ -10,6 +10,7 @@ on:
       - 'source/css/main.css'
       - 'source/css/custom.css'
       - 'source/js/custom.js'
+      - 'source/js/useplayer.js'
 
 jobs:
   update_theme:
