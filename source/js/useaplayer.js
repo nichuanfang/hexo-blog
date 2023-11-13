@@ -3,6 +3,7 @@ const ap = new APlayer({
   autoplay: false,
   loop: 'all',
   order: 'random',
+  
   preload: 'none',
   fixed: true,
   audio: [
