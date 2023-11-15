@@ -16,6 +16,12 @@ h6:hover>.anchorjs-link {
   display: none;
 }
 
+@font-face {
+  font-family: "LXGW WenKai Screen R";
+  src: url("../fonts/LXGWWenKaiScreenR.ttf") format("truetype");
+  font-weight: 400;
+}
+
 .banner {
   height: 100%;
   position: relative;
@@ -332,7 +338,7 @@ sup>a::before,
 }
 
 .footnote-list ol li:before {
-  font-family: "Helvetica Neue", monospace, "Monaco";
+  font-family: "LXGW WenKai Screen R", monospace, "Monaco";
   content: "[" counter(sectioncounter) "]";
   counter-increment: sectioncounter;
 }
@@ -709,7 +715,7 @@ sup>a::before,
 .noscript-warning {
   background-color: #f55;
   color: #fff;
-  font-family: sans-serif;
+  font-family: LXGW WenKai Screen R;
   font-size: 1rem;
   font-weight: bold;
   position: fixed;
@@ -2376,7 +2382,7 @@ input[type=checkbox] {
   color: var(--link-hover-color);
   background-color: initial;
   font-weight: bold;
-  font-family: "iconfont";
+  font-family: "LXGW WenKai Screen R";
   font-style: normal;
   -webkit-font-smoothing: antialiased;
 }
