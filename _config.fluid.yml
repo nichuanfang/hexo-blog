@@ -320,7 +320,7 @@ lazyload:
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
-iconfont: //at.alicdn.com/t/font_1736178_lbnruvf0jn.css
+iconfont: //at.alicdn.com/t/font_1736278_lbnruvf0jn.css
 
 #---------------------------
 # 页头
@@ -543,7 +543,7 @@ index:
 #---------------------------
 post:
   banner_img: /img/bg/default_banner_img.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
 
   # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
@@ -918,7 +918,7 @@ discuss:
 #---------------------------
 archive:
   banner_img: /img/bg/default.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
 
 #---------------------------
@@ -928,7 +928,7 @@ archive:
 category:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
 
   # 分类的排序字段，前面带减号是倒序，不带减号是正序
@@ -972,7 +972,7 @@ tag:
 about:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
   avatar: /img/avatar.png
   name: 'Fluid'
@@ -1001,7 +1001,7 @@ about:
 #---------------------------
 page:
   banner_img: /img/bg/default.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
 
 #---------------------------
@@ -1011,7 +1011,7 @@ page:
 page404:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
   # 重定向到首页的延迟(毫秒)
   # Delay in redirecting to home page (milliseconds)
@@ -1024,7 +1024,7 @@ page404:
 links:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 60
+  banner_img_height: 62
   banner_mask_alpha: 0
   # 友链的成员项
   # Member item of page
