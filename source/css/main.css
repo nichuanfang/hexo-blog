@@ -939,7 +939,7 @@ html {
 html,
 body {
   height: 100%;
-  font-family: HarmonyOS_Sans_SC_Regular;
+  font-family: LXGW WenKai Screen R;
   overflow-wrap: break-word;
 }
 
@@ -1635,7 +1635,7 @@ figure.highlight td.code>pre {
 .markdown-body {
   font-size: 1rem;
   line-height: 1.6;
-  font-family: HarmonyOS_Sans_SC_Regular;
+  font-family: LXGW WenKai Screen R;
   margin-bottom: 2rem;
   color: var(--post-text-color);
 }
