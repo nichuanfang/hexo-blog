@@ -73,6 +73,7 @@ post_list = get_public_list()
 post_list.append('public/archives/index.html')
 post_list.append('public/categories/index.html')
 post_list.append('public/links/index.html')
+post_list.append('public/index.html')
 
 for post in post_list:
     # 修改html指定标签的内容
@@ -80,7 +81,7 @@ for post in post_list:
         soup = BeautifulSoup(f, 'lxml')
         # 修改图片比例
         raw_style = soup.find('div',class_='banner')['style']
-        if post.replace('\\','/').split('/')[-2] in ['archives','categories','links']:
+        if post.replace('\\','/').split('/')[-2] in ['archives','categories','links','public']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31
             banner_img_ratio = 31
         else:
