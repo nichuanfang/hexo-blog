@@ -7,8 +7,8 @@ https://blog.jaychou.site/2023/11/09/fluid%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/
 https://blog.jaychou.site/2023/11/09/go%E5%AD%A6%E4%B9%A0/
 https://blog.jaychou.site/2023/11/09/python%E5%AD%A6%E4%B9%A0/
 https://blog.jaychou.site/
-https://blog.jaychou.site/tags/github/
 https://blog.jaychou.site/tags/hexo/
+https://blog.jaychou.site/tags/github/
 https://blog.jaychou.site/tags/go/
 https://blog.jaychou.site/tags/hello-world/
 https://blog.jaychou.site/tags/tools/
@@ -17,8 +17,8 @@ https://blog.jaychou.site/tags/youtube/
 https://blog.jaychou.site/tags/python/
 https://blog.jaychou.site/tags/%E5%9F%9F%E5%90%8D/
 https://blog.jaychou.site/tags/HTTPS/
-https://blog.jaychou.site/categories/Devops/
 https://blog.jaychou.site/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/
+https://blog.jaychou.site/categories/Devops/
 https://blog.jaychou.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/
 https://blog.jaychou.site/categories/hello-world/
 https://blog.jaychou.site/categories/%E5%B7%A5%E5%85%B7/
