@@ -319,7 +319,7 @@ lazyload:
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
-# iconfont: //at.alicdn.com/t/font_1736278_lbnruvf0jn.css
+iconfont: /css/iconfont.css
 
 #---------------------------
 # 页头
@@ -470,7 +470,7 @@ index:
   # 头图高度，屏幕百分比
   # Height ratio of banner  image
   # Available: 0 - 100
-  banner_img_height: 60
+  banner_img_height: 62
 
   # 头图黑色蒙版的不透明度，available: 0 - 1.0， 1 是完全不透明
   # Opacity of the banner mask, 1.0 is completely opaque
@@ -797,7 +797,7 @@ gitalk:
   enable: true
   autoExpand: true
   clientID: 'ca420c20079ca22e7bb6'
-  clientSecret: 'ddd5921b74beedda73363cf89a851986311f914a'
+  clientSecret: 'ddd5921b74beedda73365cf89a851986511f914a'
   repo: 'hexo-blog-comments'
   owner: 'nichuanfang'
   admin: ['nichuanfang']
@@ -971,7 +971,7 @@ tag:
 about:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 62
+  banner_img_height: 65
   banner_mask_alpha: 0
   avatar: /img/avatar.png
   name: 'Fluid'
@@ -1023,7 +1023,7 @@ page404:
 links:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 62
+  banner_img_height: 80
   banner_mask_alpha: 0
   # 友链的成员项
   # Member item of page

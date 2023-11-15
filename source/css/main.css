@@ -16,12 +16,6 @@ h6:hover>.anchorjs-link {
   display: none;
 }
 
-@font-face {
-  font-family: "LXGW WenKai Screen R";
-  src: url("../fonts/LXGWWenKaiScreenR.woff2") format("truetype");
-  font-weight: 400;
-}
-
 .banner {
   height: 100%;
   position: relative;
