@@ -84,7 +84,7 @@ for post in post_list:
         raw_style = soup.find('div',class_='banner')['style']
         if post.replace('\\','/').split('/')[-2] in ['archives','categories','tags','links','public']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31
-            banner_img_ratio = 20
+            banner_img_ratio = 31
         else:
             # 读取/source/_posts/文章.md里的banner_img_ratio
             raw_post_path = os.path.join('source', '_posts', post.replace('\\','/').split('/')[-2]+'.md')
