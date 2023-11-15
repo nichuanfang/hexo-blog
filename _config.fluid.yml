@@ -971,7 +971,7 @@ tag:
 about:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 65
+  banner_img_height: 62
   banner_mask_alpha: 0
   avatar: /img/avatar.png
   name: 'Fluid'
