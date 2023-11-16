@@ -116,12 +116,6 @@ for post in post_list:
             new_list.append(raw_style_list[2])
             new_list.append(f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
-            
-            
-            # 预加载网页字体 <head>添加<link rel="preload" href="/assets/Pacifico-Bold.woff2" as="font" type="font/woff2" crossorigin>
-            soup.head.append(soup.new_tag('link', rel="preload", href="/fonts/LXGWWenKaiScreenR.woff2", as_="font", type="font/woff2", crossorigin=""))
-            # 移除head标签的<link href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css" rel="stylesheet">
-            soup.head.find('link', href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css").extract()
             # 保存
             saveFile(soup.__str__(),post)
         else:
@@ -163,11 +157,6 @@ for post in post_list:
                 new_list.append(raw_style_list[2])
                 new_list.append(f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
                 soup.find('div',class_='banner')['style'] = ' '.join(new_list)
-                
-                # 预加载网页字体 <head>添加<link rel="preload" href="/assets/Pacifico-Bold.woff2" as="font" type="font/woff2" crossorigin>
-                soup.head.append(soup.new_tag('link', rel="preload", href="//blog.jaychou.site/fonts/LXGWWenKaiScreenR.woff2", as_="font", type="font/woff2", crossorigin=""))
-                # 移除head标签的<link href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css" rel="stylesheet">
-                soup.head.find('link', href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css").extract()
                 # 保存
                 saveFile(soup.__str__(),post)
                 
