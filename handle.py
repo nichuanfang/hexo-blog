@@ -117,10 +117,6 @@ for post in post_list:
             new_list.append(f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
             soup.find('div',class_='banner')['style'] = ' '.join(new_list)
             
-            # 移除head中<link href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css" rel="stylesheet"/>标签
-            soup.find('link',href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css").extract()
-            # 添加自定义标签
-            # soup.head.append(soup.new_tag('link', href="/css/font_1749284_hj8rtnfg7um.css", rel="stylesheet"))
             # 保存
             saveFile(soup.__str__(),post)
         else:
@@ -161,8 +157,6 @@ for post in post_list:
                 new_list.append(raw_style_list[1])
                 new_list.append(raw_style_list[2])
                 new_list.append(f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
-                soup.find('div',class_='banner')['style'] = ' '.join(new_list)
-                soup.find('link',href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css").extract()
                 # 保存
                 saveFile(soup.__str__(),post)
                 
