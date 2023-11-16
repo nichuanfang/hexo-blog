@@ -1,9 +1,9 @@
 /* 暗中观察 */
-@font-face {
+/* @font-face {
     font-family: "LXGW WenKai Screen R";
     src: url("../fonts/LXGWWenKaiScreenR.woff2") format("truetype");
     font-weight: 400;
-}
+} */
 
 #background-image {
     position: fixed;
