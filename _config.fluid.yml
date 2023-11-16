@@ -243,7 +243,6 @@ custom_js:
 # The usage is the same as custom_js
 custom_css:
   - /css/custom.css
-  - /css/font_1749284_hj8rtnfg7um.css
   - /css/APlayer.min.css
 
 custom_html: '<div id="aplayer"></div>'
@@ -320,7 +319,7 @@ lazyload:
 
 # 图标库，包含了大量社交类图标，主题依赖的不包含在内，因此可自行修改，详见 https://hexo.fluid-dev.com/docs/icon/
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
-iconfont: /css/iconfont.css
+iconfont: /css/font_1749284_hj8rtnfg7um.css
 
 #---------------------------
 # 页头
