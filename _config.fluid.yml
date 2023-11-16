@@ -243,6 +243,7 @@ custom_js:
 # The usage is the same as custom_js
 custom_css:
   - /css/custom.css
+  - /css/font_1749284_hj8rtnfg7um.css
   - /css/APlayer.min.css
 
 custom_html: '<div id="aplayer"></div>'
