@@ -157,6 +157,7 @@ for post in post_list:
                 new_list.append(raw_style_list[1])
                 new_list.append(raw_style_list[2])
                 new_list.append(f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
+                soup.find('div',class_='banner')['style'] = ' '.join(new_list)
                 # 保存
                 saveFile(soup.__str__(),post)
                 
