@@ -22,37 +22,6 @@ except:
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-def dl_img(head_lines:list,output_path:str,post_files:list):
-    """下载图片到指定文件夹
-
-    Args:
-        urls (list): 图片地址列表
-        output_path (str): 指定路径
-        post_files(list): 文章目录的所有文件
-    """    
-    for head_line in head_lines:
-        head_line_split:list = head_line.split(':', 1)
-        if len(head_line_split)!=2:
-            continue
-        type = head_line_split[0].strip()
-        img_url = head_line_split[1].strip()
-        try:
-            response = requests.get(img_url)
-        except:
-            print(f'图片地址:{img_url}错误!')
-            continue
-        im = Image.open(BytesIO(response.content))
-        if im.size[0] > 1920:
-            im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
-        if type == 'index_img_url':
-            im.save(os.path.join(output_path,'index.webp'),'WEBP',quality=92)
-            if  not ('index.webp' in post_files):
-                post_files.append('index.webp')
-        elif type == 'banner_img_url':
-            im.save(os.path.join(output_path,'banner.webp'),'WEBP',quality=92)
-            if  not ('banner.webp' in post_files):
-                post_files.append('banner.webp')
-
 def file_to_webp(input_path:str,output_path:str):
     """将jpg,png转webp
 
@@ -77,6 +46,39 @@ def file_to_webp(input_path:str,output_path:str):
 if theme == 'fluid':
     fluid_posts_path = os.path.join(os.path.pardir,'hexo-blog-fluid','source','_posts')
     fluid_img_path = os.path.join(os.path.pardir,'hexo-blog-fluid','source','img','post')
+    
+    def dl_img(head_lines:list,output_path:str,post_files:list):
+        """下载图片到指定文件夹
+
+        Args:
+            urls (list): 图片地址列表
+            output_path (str): 指定路径
+            post_files(list): 文章目录的所有文件
+        """    
+        for head_line in head_lines:
+            head_line_split:list = head_line.split(':', 1)
+            if len(head_line_split)!=2:
+                continue
+            type = head_line_split[0].strip()
+            img_url = head_line_split[1].strip()
+            try:
+                response = requests.get(img_url)
+            except:
+                print(f'图片地址:{img_url}错误!')
+                continue
+            im = Image.open(BytesIO(response.content))
+            if im.size[0] > 1920:
+                im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
+            if type == 'index_img_url':
+                im.save(os.path.join(output_path,'index.webp'),'WEBP',quality=92)
+                if  not ('index.webp' in post_files):
+                    post_files.append('index.webp')
+            elif type == 'banner_img_url':
+                im.save(os.path.join(output_path,'banner.webp'),'WEBP',quality=92)
+                if  not ('banner.webp' in post_files):
+                    post_files.append('banner.webp')
+    
+    
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
@@ -168,7 +170,7 @@ if theme == 'fluid':
                     # 如果配置了index_img_url/banner_img_url 下载到当前文件夹下
                     filtered_img_res = [item for item in head_lines if item.startswith(('index_img_url','banner_img_url'))]
                     if len(filtered_img_res)!=0:
-                        dl_img(filtered_img_res,os.path.join(post_root),post_files)
+                        dl_img(filtered_img_res,os.path.join(fluid_img_path,dir),post_files)
                     banner_extend = None
                     index_extend = None
                     if 'banner.webp' in post_files:
@@ -217,8 +219,6 @@ if theme == 'fluid':
                     else:
                         # index图和banner图都不存在
                         pass
-                    
-                        
                     
                     head_lines.insert(0,'---\n')
                     head_lines.append('---\n')
