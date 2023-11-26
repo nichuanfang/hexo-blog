@@ -80,17 +80,20 @@ banner_img_ratio: 25
 3. 编辑系统变量 `Path` 添加变量值： `;%MAVEN_HOME%\bin`
 4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
 
-   {% fold info @settings.xml %}
+{% fold info @settings.xml %}
 
-  <?xml version="1.0" encoding="UTF-8"?>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
+    <!-- 本地仓库路径 -->
     <localRepository>D:\mvn_repo</localRepository>
 
     <mirrors>
+      <!-- 阿里云镜像 -->
       <mirror>
         <id>aliyun</id>
         <name>aliyun</name>
@@ -99,6 +102,7 @@ banner_img_ratio: 25
       </mirror>
     </mirrors>
 
+    <!-- 指定jdk版本 -->
     <profiles>
       <profile>
         <id>jdk8</id>
@@ -116,6 +120,7 @@ banner_img_ratio: 25
     </profiles>
 
 </settings>
+```
 
 {% endfold %}
 
