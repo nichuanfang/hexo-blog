@@ -956,7 +956,7 @@ category:
 tag:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 80
+  banner_img_height: 62
   banner_mask_alpha: 0
   tagcloud:
     min_font: 20
@@ -1024,7 +1024,7 @@ page404:
 links:
   enable: true
   banner_img: /img/bg/default.webp
-  banner_img_height: 80
+  banner_img_height: 62
   banner_mask_alpha: 0
   # 友链的成员项
   # Member item of page
