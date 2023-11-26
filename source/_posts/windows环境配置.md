@@ -7,7 +7,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-26 20:48:55
+updated: 2023-11-26 21:13:37
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/index.webp
 ---
@@ -77,6 +77,8 @@ index_img: /img/post/windows环境配置/index.webp
    git config --global --unset http.proxy
    git config --global --unset https.proxy
    ```
+
+   > sock5 代理地址根据实际情况修改
 
 ### maven
 
