@@ -17,14 +17,19 @@ banner_img_ratio: 25
 
 ```shell
 变量名：JAVA_HOME
-变量值：D:\soft\java\jdk1.8.0_91        // 要根据自己的实际路径配置
+变量值：D:\soft\java\jdk1.8.0_91        
 
 变量名：CLASSPATH
-变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;         //记得前面有个"."
+变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;   
 
 变量名：Path
 变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
 ```
+
+{%note warning%}
+* JAVA_HOME要根据自己的实际路径配置
+* CLASSPATH记得前面有个"."
+{%endnote%}
 
 ## python
 
