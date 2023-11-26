@@ -74,7 +74,7 @@ index_img_url: https://pixabay.com/get/gc4a88896c4d477d84a476488651425d95402e9db
 {% endfold %}
 ```
 
-> info: 和行内标签类似的可选参数 title: 折叠块上的标题
+> info: 和行内标签类似的可选参数 title: 折叠块上的 标题
 
 ## 分类
 
