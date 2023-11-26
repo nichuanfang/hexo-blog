@@ -4,7 +4,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-27 00:06:06
+updated: 2023-11-27 02:16:14
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
@@ -12,10 +12,6 @@ index_img: /img/post/windows环境配置/banner.webp
 {%note success%} 每次重装系统都需要重新配置一遍环境,索性将配置步骤记录下来,方便以后重装系统后使用{%endnote%}
 
 # windows 环境配置(win10/11)
-
-{% fold info @settings.xml %}
-测速
-{% endfold %}
 
 ## 开发环境配置
 
@@ -88,6 +84,49 @@ index_img: /img/post/windows环境配置/banner.webp
 2. 新建系统变量 `MAVEN_HOME` 变量值：`D:\soft\apache-maven-3.6.3`
 3. 编辑系统变量 `Path` 添加变量值： `;%MAVEN_HOME%\bin`
 4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
+   {% fold success @settings.xml %}
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+
+   <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+       <!-- 本地仓库路径 -->
+       <localRepository>D:\mvn_repo</localRepository>
+
+       <mirrors>
+         <!-- 阿里云镜像 -->
+         <mirror>
+           <id>aliyun</id>
+           <name>aliyun</name>
+           <mirrorOf>central</mirrorOf>
+           <url>https://maven.aliyun.com/repository/public</url>
+         </mirror>
+       </mirrors>
+
+       <!-- 指定jdk版本 -->
+       <profiles>
+         <profile>
+           <id>jdk8</id>
+           <activation>
+             <activeByDefault>true</activeByDefault>
+             <jdk>8</jdk>
+           </activation>
+           <properties>
+             <maven.compiler.source>8</maven.compiler.source>
+             <maven.compiler.target>8</maven.compiler.target>
+               <maven.compiler.compilerVersion>8</maven.compiler.compilerVersion>
+           </properties>
+         </profile>
+
+       </profiles>
+
+   </settings>
+   ```
+
+   {% endfold %}
 
 ### tomcat
 
