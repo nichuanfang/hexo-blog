@@ -24,7 +24,7 @@ index_img_url: https://pixabay.com/get/gc4a88896c4d477d84a476488651425d95402e9db
 - 如果配置了 index_img_url,则当前文件夹下的 index.jpg 无效
 - 如果配置了 banner_img_url,则当前文件夹下的 banner.jpg 无效
 - 如果只配置了 banner_img_url,则 index_img 使用相同的图片源
-- 如果只配置了 index.jpg 或者 banner.jpg,则另一个缺省为同一个图片
+- 如果只配置了 index.jpg 或者 banner.jpg,则另一个缺省为 同一个图片
 
   {%endnote%}
 
