@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import lxml
 import requests
 import re
+import random
 
 
 def saveFile(data,file_path):
@@ -67,6 +68,10 @@ def get_public_list():
                                         
     return post_list
 
+# 随机选取一个img/bg/default的图片 拷贝到img/bg/default.webp
+img_num = random.randint(1, 8)
+shutil.copy2(os.path.join('source','img','bg','default',f'{img_num}.webp'),os.path.join('public','img','bg','default.webp'))
+
 post_list = get_public_list()
 
 # 添加归档,分类,友链页面
@@ -86,6 +91,7 @@ for post in post_list:
             # 对于archives, categories, links页面  banner_img_ratio默认为31
             banner_img_ratio = 31
         elif post.replace('\\','/').split('/')[-2] in ['tags','links']:
+            # 差18
             banner_img_ratio = 48
         else:
             # 读取/source/_posts/文章.md里的banner_img_ratio
