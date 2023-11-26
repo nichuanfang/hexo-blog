@@ -2,13 +2,13 @@
 # 标签
 tags: python
 # 分类
-categories: 编程语言
+categories: 技术
 # banner图片比例
 banner_img_ratio: 10
 # sticky: 10
 title: python学习
 date: 2023-11-09 05:24:11
-updated: 2023-11-27 00:06:06
+updated: 2023-11-27 02:51:57
 banner_img: /img/post/python学习/banner.webp
 index_img: /img/post/python学习/banner.webp
 ---

@@ -1,15 +1,17 @@
 ---
 # 标签
-tags: github
+tags: GithubActions
 # 分类
-categories: Devops
+categories:
+  - 技术
+  - 工具
 # banner图片比例
 banner_img_ratio: 37
 # 置顶配置 数字越大优先级越高
 # sticky:
 title: GithubActions密钥和变量统一管理
 date: 2023-11-10 01:34:19
-updated: 2023-11-27 00:06:06
+updated: 2023-11-27 02:51:57
 banner_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
 index_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
 ---

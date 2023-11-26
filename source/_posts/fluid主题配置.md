@@ -1,14 +1,12 @@
 ---
-# 标签
-tags: hexo
-# 分类
-categories: 个人博客
+tags: hexo主题
+categories: 应用
 # banner图片比例
 banner_img_ratio: 20
 # sticky: 20
 title: fluid主题配置
 date: 2023-11-09 05:24:11
-updated: 2023-11-27 00:06:06
+updated: 2023-11-27 02:51:57
 banner_img: /img/post/fluid主题配置/banner.webp
 index_img: /img/post/fluid主题配置/banner.webp
 ---

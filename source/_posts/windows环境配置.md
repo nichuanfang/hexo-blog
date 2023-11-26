@@ -1,10 +1,10 @@
 ---
-tags: 环境变量 windows
+tags: windows
 categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-27 02:40:06
+updated: 2023-11-27 02:51:57
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
