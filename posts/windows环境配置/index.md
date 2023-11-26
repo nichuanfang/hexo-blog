@@ -73,6 +73,8 @@ banner_img_ratio: 25
    git config --global --unset https.proxy
    ```
 
+   > sock5 代理地址根据实际情况修改
+
 ### maven
 
 ### tomcat
