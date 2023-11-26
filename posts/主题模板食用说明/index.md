@@ -39,29 +39,31 @@ index_img_url: https://pixabay.com/get/gc4a88896c4d477d84a476488651425d95402e9db
 ```
 
 可选便签：
-{% note primary %}
+{% note primary %}primary
 {% endnote %}
 
-{% note secondary %}
+{% note secondary %}secondary
 {% endnote %}
 
-{% note success %}
+{% note success %}success
 {% endnote %}
 
-{% note danger %}
+{% note danger %}danger
 {% endnote %}
 
-{% note warning %}
+{% note warning %}warning
 {% endnote %}
 
-{% note info %}
+{% note info %}info
 {% endnote %}
 
-{% note light %}
+{% note light %}light
 {% endnote %}
 
 {%note warning%}
-使用时 {% note primary %} 和 {% endnote %} 需单独一行，否则会出现问题
+
+使用时 `{% note primary %}` 和 `{% endnote %}` 需单独一行，否则会出现问题
+
 {%endnote%}
 
 ## 折叠块
