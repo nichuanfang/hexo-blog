@@ -1,9 +1,6 @@
 ---
-# 标签
 tags: go
-# 分类
-categories: 编程语言
-# banner图片比例
+categories: 技术
 banner_img_ratio: 30
 ---
 

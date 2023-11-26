@@ -1,5 +1,5 @@
 ---
-tags: 环境变量 windows
+tags: windows
 categories: 应用
 banner_img_ratio: 25
 ---

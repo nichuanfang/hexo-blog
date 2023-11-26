@@ -1,8 +1,10 @@
 ---
 # 标签
-tags: github
+tags: GithubActions
 # 分类
-categories: Devops
+categories:
+  - 技术
+  - 工具
 # banner图片比例
 banner_img_ratio: 37
 # 置顶配置 数字越大优先级越高

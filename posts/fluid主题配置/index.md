@@ -1,8 +1,6 @@
 ---
-# 标签
-tags: hexo
-# 分类
-categories: 个人博客
+tags: hexo主题
+categories: 应用
 # banner图片比例
 banner_img_ratio: 20
 # sticky: 20

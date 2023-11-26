@@ -2,7 +2,7 @@
 # 标签
 tags: python
 # 分类
-categories: 编程语言
+categories: 技术
 # banner图片比例
 banner_img_ratio: 10
 # sticky: 10

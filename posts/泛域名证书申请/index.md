@@ -1,10 +1,9 @@
 ---
 # 标签
 tags:
-  - 域名
-  - HTTPS
+  - 计算机网络
 # 分类
-categories: 建站
+categories: 技术
 # banner图片比例
 # banner_img_ratio:
 # 置顶配置 数字越大优先级越高
