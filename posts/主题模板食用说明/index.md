@@ -3,7 +3,7 @@ tags:
   - fluid
   - hexo
 categories: 主题配置
-index_img_url: https://pixabay.com/get/gaab8d1b5bab50e6c3b545087096f7fa004525748429bf6db38ce8014bb01d246bb432b4ccc0428e4da59029b3562ab03.jpg
+# index_img_url:
 # banner_img_ratio:
 # sticky:
 ---
