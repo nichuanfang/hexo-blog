@@ -31,14 +31,16 @@ def file_to_webp(input_path:str,output_path:str):
     """    
     # 如果是jpg或者png 则转为webp
     im = Image.open(input_path).convert('RGB')
-    # # 如果图片大小大于2m 则调整分辨率
-    # if os.path.getsize(input_path) > 2*1024*1024:
-    #     im = im.resize((int(im.size[0]*0.8),int(im.size[1]*0.8)))
+    quality = 92
+    # 如果图片大小大于2/4m 则调整quality
+    if os.path.getsize(input_path) > 2*1024*1024:
+        quality = 85
+    if os.path.getsize(input_path) > 4*1024*1024:
+        quality = 80
     # 调整图片分辨率
     if im.size[0] > 1920:
         im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
-    
-    im.save(output_path,'WEBP',quality=92)
+    im.save(output_path,'WEBP',quality=quality)
     return output_path
 
 
@@ -66,15 +68,22 @@ if theme == 'fluid':
             except:
                 print(f'图片地址:{img_url}错误!')
                 continue
+            res_content = response.content
             im = Image.open(BytesIO(response.content))
+            quality = 92
+            # 如果图片大小大于2/4m 则调整quality
+            if res_content.__sizeof__() > 2*1024*1024:
+                quality = 85
+            if res_content.__sizeof__()> 4*1024*1024:
+                quality = 80
             if im.size[0] > 1920:
                 im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
             if type == 'index_img_url':
-                im.save(os.path.join(output_path,'index.webp'),'WEBP',quality=92)
+                im.save(os.path.join(output_path,'index.webp'),'WEBP',quality=quality)
                 if  not ('index.webp' in post_files):
                     post_files.append('index.webp')
             elif type == 'banner_img_url':
-                im.save(os.path.join(output_path,'banner.webp'),'WEBP',quality=92)
+                im.save(os.path.join(output_path,'banner.webp'),'WEBP',quality=quality)
                 if  not ('banner.webp' in post_files):
                     post_files.append('banner.webp')
     
