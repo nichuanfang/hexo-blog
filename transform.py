@@ -93,14 +93,13 @@ if theme == 'fluid':
             for post_root, post_dirs, post_files in os.walk(os.path.join(root,dir)):
                 if 'index.md' not in post_files:
                     continue
-                
+                # 如果 fluid_img_path/dir不存在则创建
+                if not os.path.exists(os.path.join(fluid_img_path,dir)): 
+                    os.mkdir(os.path.join(fluid_img_path,dir))
+                    # 将文件移动到对应的img文件夹
                 for post_file in post_files:
                     # 横幅图片
                     if post_file.endswith(('.jpg','png','webp')):
-                        # 如果 fluid_img_path/dir不存在则创建
-                        if not os.path.exists(os.path.join(fluid_img_path,dir)): 
-                            os.mkdir(os.path.join(fluid_img_path,dir))
-                            # 将文件移动到对应的img文件夹
                         shutil.copy2(os.path.join(post_root,post_file),os.path.join(fluid_img_path,dir,post_file))
                 
                 # 处理post_file的头部
