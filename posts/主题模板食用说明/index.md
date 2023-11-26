@@ -4,7 +4,7 @@ tags:
   - hexo
 categories: 主题配置
 # index_img_url:
-# banner_img_ratio:
+banner_img_ratio: 82
 # sticky:
 ---
 
@@ -60,7 +60,7 @@ categories: 主题配置
 {% note light %}light
 {% endnote %}
 
-> 使用时 {% note primary %} 和 {% endnote %} 需单独一行，否则会出现问题
+> 使用时 `{% note primary %}` 和 `{% endnote %}` 需单独一行，否则会出现问题
 
 ## 折叠块
 
