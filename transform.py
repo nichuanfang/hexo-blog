@@ -72,9 +72,9 @@ if theme == 'fluid':
             im = Image.open(BytesIO(response.content))
             quality = 92
             # 如果图片大小大于2/4m 则调整quality
-            if res_content.__sizeof__() > 2*1024*1024:
+            if res_content.__sizeof__() > 2*1024*1024 and res_content.__sizeof__() < 2*1024*1024:
                 quality = 85
-            if res_content.__sizeof__()> 4*1024*1024:
+            if res_content.__sizeof__()>= 4*1024*1024:
                 quality = 80
             if im.size[0] > 1920:
                 im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
