@@ -1,9 +1,6 @@
 ---
-# 标签
 tags: 环境变量 windows
-# 分类
 categories: 应用
-# banner图片比例
 banner_img_ratio: 25
 ---
 
@@ -19,7 +16,7 @@ banner_img_ratio: 25
 
 ```bash
 变量名：JAVA_HOME
-变量值：D:\soft\java\jdk1.8.0_91
+变量值：D:\soft\java\jdk8
 
 变量名：CLASSPATH
 变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
@@ -32,18 +29,19 @@ banner_img_ratio: 25
 
 - `JAVA_HOME`要根据自己的实际路径配置
 - `CLASSPATH`记得前面有个"."
+- 在`Path`前面新增变量值
   {%endnote%}
 
 ### python
 
-变量设置参数如下:
+下载 [python 安装包](https://www.python.org/ftp/python/3.11.6/python-3.11.6-amd64.exe),安装之后如果没勾选添加 python.exe 到系统变量,环境变量需要设置参数如下:
 
 ```bash
 变量名：PYTHON_HOME
 变量值：D:\soft\python
 ```
 
-{%note warning%}
+{%note info%}
 
 - 只有 python 的免安装版本需要配置
 - `PYTHON_HOME`的路径根据自己 python 的实际路径配置
@@ -76,6 +74,50 @@ banner_img_ratio: 25
    > sock5 代理地址根据实际情况修改
 
 ### maven
+
+1. 在[maven 归档库](https://archive.apache.org/dist/maven/maven-3/)下载[压缩包](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip),解压缩到软件目录
+2. 新建系统变量 `MAVEN_HOME` 变量值：`D:\soft\apache-maven-3.6.3`
+3. 编辑系统变量 `Path` 添加变量值： `;%MAVEN_HOME%\bin`
+4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
+
+   {% fold info @settings.xml %}
+
+  <?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <localRepository>D:\mvn_repo</localRepository>
+
+    <mirrors>
+      <mirror>
+        <id>aliyun</id>
+        <name>aliyun</name>
+        <mirrorOf>central</mirrorOf>
+        <url>https://maven.aliyun.com/repository/public</url>
+      </mirror>
+    </mirrors>
+
+    <profiles>
+      <profile>
+        <id>jdk8</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+          <jdk>8</jdk>
+        </activation>
+        <properties>
+          <maven.compiler.source>8</maven.compiler.source>
+          <maven.compiler.target>8</maven.compiler.target>
+            <maven.compiler.compilerVersion>8</maven.compiler.compilerVersion>
+        </properties>
+      </profile>
+
+    </profiles>
+
+</settings>
+
+{% endfold %}
 
 ### tomcat
 
