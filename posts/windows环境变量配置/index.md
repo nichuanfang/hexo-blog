@@ -15,7 +15,7 @@ banner_img_ratio: 25
 
 变量设置参数如下：
 
-```shell
+```bash
 变量名：JAVA_HOME
 变量值：D:\soft\java\jdk1.8.0_91        
 
@@ -27,11 +27,25 @@ banner_img_ratio: 25
 ```
 
 {%note warning%}
-* JAVA_HOME要根据自己的实际路径配置
-* CLASSPATH记得前面有个"."
+* `JAVA_HOME`要根据自己的实际路径配置
+* `CLASSPATH`记得前面有个"."
 {%endnote%}
 
 ## python
+
+变量设置参数如下:
+
+```bash
+变量名：PYTHON_HOME
+变量值：D:\soft\python 
+```
+
+{%note warning%}
+
+* 只有python的免安装版本需要配置
+* `PYTHON_HOME`的路径根据自己python的实际路径配置
+
+{%note%}
 
 ## go
 
