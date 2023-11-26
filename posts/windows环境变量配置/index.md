@@ -10,3 +10,20 @@ categories: 应用
 ---
 
 # 环境变量配置(win10/11)
+
+## java
+
+## python
+
+## go
+
+## git
+
+## maven
+
+## tomcat
+
+## ffmpeg
+
+## yt-dlp
+
