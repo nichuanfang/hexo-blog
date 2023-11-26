@@ -7,9 +7,9 @@ categories: 编程语言
 banner_img_ratio: 30
 title: go学习
 date: 2023-11-09 16:04:17
-updated: 2023-11-09 17:25:01
+updated: 2023-11-27 00:06:06
 banner_img: /img/post/go学习/banner.webp
-index_img: /img/post/go学习/index.webp
+index_img: /img/post/go学习/banner.webp
 ---
 
 # go 学习 技巧
