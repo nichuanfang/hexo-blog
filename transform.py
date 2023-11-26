@@ -4,6 +4,8 @@ import sys
 import re
 import shutil
 from PIL import Image
+import requests
+from io import BytesIO
 
 img_regex = re.compile(r'[(](.*?)[)]',re.S)
 jpg_png_pattern = re.compile('.(jpg|png)$')
@@ -19,6 +21,33 @@ except:
 #     exit(0)
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+def dl_img(head_lines:list,output_path:str):
+    """下载图片到指定文件夹
+
+    Args:
+        urls (list): 图片地址列表
+        output_path (str): 指定路径
+    """    
+    for head_line in head_lines:
+        print(f'开始下载文章图片: {head_line}')
+        head_line_split:list = head_line.split(':', 1)
+        if len(head_line_split)!=2:
+            continue
+        type = head_line_split[0].strip()
+        img_url = head_line_split[1].strip()
+        try:
+            response = requests.get(img_url)
+        except:
+            print(f'图片地址:{img_url}错误!')
+            continue
+        im = Image.open(BytesIO(response.content))
+        if im.size[0] > 1920:
+            im = im.resize((1920,int(im.size[1]*1920/im.size[0])))
+        if type == 'index_img_url':
+            im.save(os.path.join(output_path,'index.webp'),'WEBP',quality=92)
+        elif type == 'banner_img_url':
+            im.save(os.path.join(output_path,'banner.webp'),'WEBP',quality=92)
 
 def file_to_webp(input_path:str,output_path:str):
     """将jpg,png转webp
@@ -132,7 +161,11 @@ if theme == 'fluid':
                                                 left_lines[i] = left_lines[i].replace(result,f'/img/post/{dir}/{result}')
                                     except:continue
                     
-                    # 获取extend 优先级jpg>png>webp
+                    # 处理index图和banner图
+                    # 如果配置了index_img_url/banner_img_url 下载到当前文件夹下
+                    filtered_img_res = [item for item in head_lines if item.startswith(('index_img_url','banner_img_url'))]
+                    if len(filtered_img_res)!=0:
+                        dl_img(filtered_img_res,os.path.join(post_root))
                     banner_extend = None
                     index_extend = None
                     if 'banner.webp' in post_files:
@@ -148,20 +181,41 @@ if theme == 'fluid':
                         index_extend = 'png'
                     elif 'index.jpg' in post_files:
                         index_extend = 'jpg'
-                    if banner_extend:
+                    
+                    if banner_extend and index_extend:
                         # 如果图片为jpg或者png 则转为webp
                         if banner_extend in ['jpg','png']:
                             file_to_webp(os.path.join(post_root,f'banner.{banner_extend}'),os.path.join(fluid_img_path,dir,f'banner.webp'))
                             os.remove(os.path.join(fluid_img_path,dir,f'banner.{banner_extend}'))
                             banner_extend = 'webp'
-                        head_lines.append(f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
-                    if index_extend:
                         # 如果图片为jpg或者png 则转为webp
                         if  index_extend in ['jpg','png']:
                             file_to_webp(os.path.join(post_root,f'index.{index_extend}'),os.path.join(fluid_img_path,dir,f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,dir,f'index.{index_extend}'))
                             index_extend = 'webp'
+                        head_lines.append(f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
                         head_lines.append(f'index_img: /img/post/{dir}/index.{index_extend}\n')
+                    elif  banner_extend and index_extend==None:
+                        # 只设置了banner图
+                        if banner_extend in ['jpg','png']:
+                            file_to_webp(os.path.join(post_root,f'banner.{banner_extend}'),os.path.join(fluid_img_path,dir,f'banner.webp'))
+                            os.remove(os.path.join(fluid_img_path,dir,f'banner.{banner_extend}'))
+                            banner_extend = 'webp'
+                        head_lines.append(f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
+                        head_lines.append(f'index_img: /img/post/{dir}/banner.{banner_extend}\n')
+                    elif  index_extend and banner_extend==None:
+                        # 只设置了index图
+                        if  index_extend in ['jpg','png']:
+                            file_to_webp(os.path.join(post_root,f'index.{index_extend}'),os.path.join(fluid_img_path,dir,f'index.webp'))
+                            os.remove(os.path.join(fluid_img_path,dir,f'index.{index_extend}'))
+                            index_extend = 'webp'
+                        head_lines.append(f'banner_img: /img/post/{dir}/index.{index_extend}\n')
+                        head_lines.append(f'index_img: /img/post/{dir}/index.{index_extend}\n')
+                    else:
+                        # index图和banner图都不存在
+                        pass
+                    
+                        
                     
                     head_lines.insert(0,'---\n')
                     head_lines.append('---\n')
