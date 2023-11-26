@@ -11,6 +11,8 @@ banner_img_ratio: 25
 
 # 开发环境配置(win10/11)
 
+## java 
+
 变量设置参数如下：
 
 ```shell
@@ -23,8 +25,6 @@ banner_img_ratio: 25
 变量名：Path
 变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
 ```
-
-## java 
 
 ## python
 
