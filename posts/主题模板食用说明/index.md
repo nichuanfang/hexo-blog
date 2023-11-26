@@ -60,7 +60,7 @@ banner_img_ratio: 82
 {% note light %}light
 {% endnote %}
 
-> 使用时 `{% note primary %}` 和 `{% endnote %}` 需单独一行，否则会出现问题
+> 使用 primary 时 `note primary` 和 `endnote` 需单独一行，否则会出现问题
 
 ## 折叠块
 
