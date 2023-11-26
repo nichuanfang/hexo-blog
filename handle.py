@@ -1,6 +1,7 @@
 # 读取public的文章
 
 from genericpath import isdir
+import json
 import os
 import shutil 
 import re
@@ -76,9 +77,7 @@ for default_root,default_dirs,default_files in os.walk(os.path.join('source','im
             'file_name': default_file,
             'ratio': default_file[:-6].split('_')[1]
         }
-for k,v in default_img_dict:
-    print(f'k: {k}')
-    print(f'v: {v}')
+print(default_img_dict.__str__())
 # 随机选取一个img/bg/default的图片 拷贝到img/bg/default.webp
 img_num = random.randint(1, 6)
 shutil.copy2(os.path.join('source','img','bg','default',f'{default_img_dict[img_num]["file_name"]}'),os.path.join('public','img','bg','default.webp'))
