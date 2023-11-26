@@ -8,6 +8,10 @@ banner_img_ratio: 25
 
 # windows 环境配置(win10/11)
 
+{% fold info @settings.xml %}
+测速
+{% endfold %}
+
 ## 开发环境配置
 
 ### java
@@ -79,9 +83,6 @@ banner_img_ratio: 25
 2. 新建系统变量 `MAVEN_HOME` 变量值：`D:\soft\apache-maven-3.6.3`
 3. 编辑系统变量 `Path` 添加变量值： `;%MAVEN_HOME%\bin`
 4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
-
-{% fold info @settings.xml %}测速
-{% endfold %}
 
 ### tomcat
 
