@@ -33,9 +33,9 @@ def file_to_webp(input_path:str,output_path:str):
     im = Image.open(input_path).convert('RGB')
     quality = 92
     # 如果图片大小大于2/4m 则调整quality
-    if os.path.getsize(input_path) > 2*1024*1024:
+    if os.path.getsize(input_path) > 2*1024*1024 and os.path.getsize(input_path) < 4*1024*1024:
         quality = 85
-    if os.path.getsize(input_path) > 4*1024*1024:
+    if os.path.getsize(input_path) >= 4*1024*1024:
         quality = 80
     # 调整图片分辨率
     if im.size[0] > 1920:
