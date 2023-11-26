@@ -7,9 +7,13 @@ categories: 应用
 banner_img_ratio: 25
 ---
 
-# 开发环境配置(win10/11)
+{%note success%} 每次重装系统都需要重新配置一遍环境,索性将配置步骤记录下来,方便以后重装系统后使用{%endnote%}
 
-## java
+# windows 环境配置(win10/11)
+
+## 开发环境配置
+
+### java
 
 下载[jdk8 安装包](https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-windows-x64.exe)(需要登录 oracle),环境变量设置参数如下：
 
@@ -30,7 +34,7 @@ banner_img_ratio: 25
 - `CLASSPATH`记得前面有个"."
   {%endnote%}
 
-## python
+### python
 
 变量设置参数如下:
 
@@ -45,9 +49,9 @@ banner_img_ratio: 25
 - `PYTHON_HOME`的路径根据自己 python 的实际路径配置
   {%endnote%}
 
-## go
+### go
 
-## git
+### git
 
 1. 下载 [git 安装包](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe)并安装,需要勾选**添加 git 到环境变量**
 2. 配置`用户名`和`邮箱`
@@ -69,10 +73,14 @@ banner_img_ratio: 25
    git config --global --unset https.proxy
    ```
 
-## maven
+### maven
 
-## tomcat
+### tomcat
 
-## ffmpeg
+### idea
 
-## yt-dlp
+## 其他软件
+
+### ffmpeg
+
+### yt-dlp
