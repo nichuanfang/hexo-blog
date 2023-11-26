@@ -7,7 +7,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境变量配置
 date: 2023-11-26 17:25:11
-updated: 2023-11-26 20:22:56
+updated: 2023-11-26 20:38:05
 banner_img: /img/post/windows环境变量配置/banner.webp
 index_img: /img/post/windows环境变量配置/index.webp
 ---
@@ -16,7 +16,7 @@ index_img: /img/post/windows环境变量配置/index.webp
 
 ## java
 
-变量设置参数如下：
+下载[jdk8 安装包](https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-windows-x64.exe)(需要登录 oracle),环境变量设置参数如下：
 
 ```bash
 变量名：JAVA_HOME
@@ -54,7 +54,25 @@ index_img: /img/post/windows环境变量配置/index.webp
 
 ## git
 
-## github
+1. 下载 [git 安装包](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe)并安装,需要勾选**添加 git 到环境变量**
+2. 配置`用户名`和`邮箱`
+
+   ```bash
+   git config --global user.name "用户名"
+   git config --global user.email "邮箱"
+   ```
+
+3. 配置`代理`
+
+   ```bash
+   # 设置代理
+   git config --global http.proxy 'socks5://127.0.0.1:10808'
+   git config --global https.proxy 'socks5://127.0.0.1:10808'
+
+   # 取消代理
+   git config --global --unset http.proxy
+   git config --global --unset https.proxy
+   ```
 
 ## maven
 
