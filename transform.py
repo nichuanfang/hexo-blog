@@ -240,6 +240,10 @@ if theme == 'fluid':
                     # 将处理后的文件写入
                     with open(os.path.join(fluid_posts_path,file_name),'w+',encoding='utf-8') as f:
                         f.writelines(new_lines)
+        # 如果在该分支删除文章 应该与fluid分支同步
+        # for fluid_root,fluid_dirs,fluid_files in os.walk(fluid_posts_path):
+        #     diff_dirs = fluid_dirs - dirs
+        #     # 删除对应dir的文章
 elif theme == 'aurora':
     # todo 
     pass
