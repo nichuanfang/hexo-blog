@@ -23,12 +23,12 @@ h6:hover>.anchorjs-link {
   cursor: default;
 }
 
-.banner .mask {
+/* .banner .mask {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-}
+} */
 
 .banner[parallax="true"] {
   will-change: transform;
