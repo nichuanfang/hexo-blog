@@ -2,9 +2,7 @@
 # 标签
 tags: GithubActions
 # 分类
-categories:
-  - 技术
-  - 工具
+categories: 技术
 # banner图片比例
 banner_img_ratio: 37
 # 置顶配置 数字越大优先级越高
