@@ -11,7 +11,7 @@ categories: 应用
 
 # 环境变量配置(win10/11)
 
-## java
+## java 
 
 ## python
 
