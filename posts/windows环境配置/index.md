@@ -79,7 +79,7 @@ banner_img_ratio: 25
 2. 新建系统变量 `MAVEN_HOME` 变量值：`D:\soft\apache-maven-3.6.3`
 3. 编辑系统变量 `Path` 添加变量值： `;%MAVEN_HOME%\bin`
 4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
-   {% fold info @settings.xml %}
+   {% fold success @settings.xml %}
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>
