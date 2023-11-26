@@ -73,14 +73,14 @@ def get_public_list():
 default_img_dict = {}
 for default_root,default_dirs,default_files in os.walk(os.path.join('source','img','bg','default')):
     for default_file in default_files:
-        default_img_dict[default_file[:-6].split('_')[0]] = {
+        default_img_dict[default_file[:-5].split('_')[0]] = {
             'file_name': default_file,
-            'ratio': default_file[:-6].split('_')[1]
+            'ratio': default_file[:-5].split('_')[1]
         }
 print(default_img_dict.__str__())
 # 随机选取一个img/bg/default的图片 拷贝到img/bg/default.webp
 img_num = random.randint(1, 6)
-shutil.copy2(os.path.join('source','img','bg','default',f'{default_img_dict[img_num]["file_name"]}'),os.path.join('public','img','bg','default.webp'))
+shutil.copy2(os.path.join('source','img','bg','default',f'{default_img_dict[str(img_num)]["file_name"]}'),os.path.join('public','img','bg','default.webp'))
 default_ratio = default_img_dict[img_num]["ratio"]
 post_list = get_public_list()
 
