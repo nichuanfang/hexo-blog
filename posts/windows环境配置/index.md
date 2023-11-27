@@ -158,7 +158,7 @@ banner_img_ratio: 25
 
 ### ffmpeg
 
-1. 下载[安装包](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z),解压缩后重命名为 `ffmpeg`
+1. 下载[压缩包](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z),解压缩后重命名为 `ffmpeg`
 2. 打开`PATH`,在**最后面**添加环境变量值: `;D:\soft\ffmpeg\bin`
 
 ### yt-dlp
