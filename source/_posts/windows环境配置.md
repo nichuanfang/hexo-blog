@@ -4,7 +4,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-27 12:47:28
+updated: 2023-11-27 13:17:39
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
@@ -163,4 +163,10 @@ index_img: /img/post/windows环境配置/banner.webp
 
 ### ffmpeg
 
+1. 下载[安装包](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z),解压缩后重命名为 `ffmpeg`
+2. 打开`PATH`,在**最后面**添加环境变量值: `;D:\soft\ffmpeg\bin`
+
 ### yt-dlp
+
+1. 下载[exe 执行文件](https://github.com/yt-dlp/yt-dlp/releases/download/2023.11.16/yt-dlp.exe),新建`D:\soft\yt-dlp`目录,将 `yt-dlp.exe`移动到该目录
+2. 打开`PATH`,在**最后面**添加环境变量值: `;D:\soft\yt-dlp`
