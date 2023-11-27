@@ -150,7 +150,7 @@ banner_img_ratio: 25
     --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
    ```
 
-4. 在[该网站](https://jetbra.in/5d84466e31722979266057664941a71893322460)获取激活码
+4. 在[该网站](https://jetbra.in/5d84466e31722979266057664941a71893322460)获取激活码,填写到 `Activation code`中
 
 > 不用关心激活时间，它是后备许可证，不会过期
 
