@@ -4,7 +4,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-27 11:55:05
+updated: 2023-11-27 12:08:44
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
@@ -53,6 +53,14 @@ index_img: /img/post/windows环境配置/banner.webp
   {%endnote%}
 
 ### go
+
+1. 下载[go 安装包](https://go.dev/dl/go1.21.4.windows-amd64.msi)
+2. 新建环境变量`GOROOT` ,值为 go 安装目录 例如 D:\soft\go
+3. 执行下面的命令修改 `GOPROXY`：
+
+   ```bash
+   go env -w GOPROXY=https://goproxy.cn,direct
+   ```
 
 ### git
 
