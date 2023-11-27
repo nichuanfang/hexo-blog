@@ -49,6 +49,14 @@ banner_img_ratio: 25
 
 ### go
 
+1. 下载[go 安装包](https://go.dev/dl/go1.21.4.windows-amd64.msi)
+2. 新建环境变量`GOROOT` ,值为 go 安装目录 例如 D:\soft\go
+3. 执行下面的命令修改 `GOPROXY`：
+
+   ```bash
+   go env -w GOPROXY=https://goproxy.cn,direct
+   ```
+
 ### git
 
 1. 下载 [git 安装包](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe)并安装,需要勾选**添加 git 到环境变量**
