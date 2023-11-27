@@ -140,6 +140,20 @@ banner_img_ratio: 25
 
 ### idea
 
+1. 下载[idea 安装包](https://download.jetbrains.com/idea/ideaIU-2023.2.2.exe)和[破解包](https://wwdc.lanzouy.com/iwTpX1g33bvg)
+2. 安装 `idea`,解压破解包到 `idea` 安装目录
+3. 将以下内容添加到 idea 安装目录下的`idea64.exe.vmoptions`,`-javaagent`的 `ja-netfilter.jar` 路径根据自己的实际路径填写
+
+   ```bash
+    -javaagent:D:\soft\IntelliJ IDEA 2023.2.2\jetbra\ja-netfilter.jar=jetbrains
+    --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+    --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+   ```
+
+4. 在[该网站](https://jetbra.in/5d84466e31722979266057664941a71893322460)获取激活码
+
+> 不用关心激活时间，它是后备许可证，不会过期
+
 ## 其他软件
 
 ### ffmpeg
