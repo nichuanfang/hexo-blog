@@ -4,7 +4,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-27 12:08:44
+updated: 2023-11-27 12:10:09
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
@@ -34,7 +34,7 @@ index_img: /img/post/windows环境配置/banner.webp
 
 - `JAVA_HOME`要根据自己的实际路径配置
 - `CLASSPATH`记得前面有个"."
-- 在`Path`最前面新增变量值
+- 在`Path`**最前面**新增变量值
   {%endnote%}
 
 ### python
@@ -90,7 +90,7 @@ index_img: /img/post/windows环境配置/banner.webp
 
 1. 在[maven 归档库](https://archive.apache.org/dist/maven/maven-3/)下载[压缩包](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip),解压缩到软件目录
 2. 新建系统变量 `MAVEN_HOME` 变量值：`D:\soft\apache-maven-3.6.3`
-3. 在 `Path` 最后面添加变量值： `;%MAVEN_HOME%\bin`
+3. 在 `Path` **最后面**添加变量值： `;%MAVEN_HOME%\bin`
 4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
    {% fold success @settings.xml %}
 
@@ -141,7 +141,7 @@ index_img: /img/post/windows环境配置/banner.webp
 1. 下载[tomcat 压缩包](https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96-windows-x64.zip),解压缩重命名为 tomcat
 2. 新建环境变量`TOMCAT_HOME`,值为 Tomcat 所在的目录，例如 D:\soft\tomcat
 3. 新建 `CATALINA_HOME` 和 `CATALINA_BASE`， 值都设为`%TOMCAT_HOME%`
-4. 打开 `PATH`，在最后面添加变量值：`;%CATALINA_HOME%\lib;%CATALINA_HOME%\bin`
+4. 打开 `PATH`，在**最后面**添加变量值：`;%CATALINA_HOME%\lib;%CATALINA_HOME%\bin`
 
 ### idea
 
