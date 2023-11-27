@@ -127,7 +127,7 @@ banner_img_ratio: 25
 
 1. 下载[tomcat 压缩包](https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96-windows-x64.zip),解压缩重命名为 tomcat
 2. 新建环境变量`TOMCAT_HOME`,值为 Tomcat 所在的目录，例如 D:\soft\tomcat
-3. 新建 `CATALINA_HOME` 和 `CATALINA_BASE`，值都设为`%TOMCAT_HOME%`
+3. 新建 `CATALINA_HOME` 和 `CATALINA_BASE`， 值都设为`%TOMCAT_HOME%`
 
 ### idea
 
