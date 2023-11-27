@@ -4,7 +4,7 @@ categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
 date: 2023-11-26 20:48:55
-updated: 2023-11-27 12:40:29
+updated: 2023-11-27 12:47:28
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
@@ -155,7 +155,7 @@ index_img: /img/post/windows环境配置/banner.webp
     --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
    ```
 
-4. 在[该网站](https://jetbra.in/5d84466e31722979266057664941a71893322460)获取激活码,填写到 `Activation code`中,激活成功
+4. 在[该网站](https://33tool.com/idea/)获取激活码,填写到 `Activation code`中,激活成功
 
 > 不用关心激活时间，它是后备许可证，不会过期
 
