@@ -246,24 +246,3 @@ jobs:
           author_name: 'nichuanfang'
           message: '🐳 chore: 更新vercel仓库'
           repository: nichuanfang/hexo-blog-vercel
-
-      - name: 发布blog服务
-        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-        env:
-          WELCOME: 'ssh scp ssh pipelines'
-          LASTSSH: 'Doing something after copying'
-        continue-on-error: true
-        with:
-          # HC代表发布xray配置的服务器
-          host: ${{ secrets.VPS_HOST }}
-          user: ${{ secrets.VPS_USER }}
-          pass: ${{ secrets.VPS_PASS }}
-          port: ${{ secrets.VPS_PORT }}
-          connect_timeout: 20s
-          first_ssh: |
-            cd /root/code/nichuanfang.github.io
-            git checkout gh-pages
-            git checkout .
-            git pull
-            cp -rf * /root/blog
-            systemctl restart nginx
