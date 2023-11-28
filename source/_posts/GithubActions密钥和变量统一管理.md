@@ -9,12 +9,12 @@ banner_img_ratio: 37
 # sticky:
 title: GithubActions密钥和变量统一管理
 date: 2023-11-10 01:34:19
-updated: 2023-11-27 02:54:02
+updated: 2023-11-28 20:29:10
 banner_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
 index_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
 ---
 
-# 集中管理同一个账户下的变量和密钥
+# 集中管理同一个账户下的变量和 密钥
 
 ## 使用步骤
 
