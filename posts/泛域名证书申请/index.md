@@ -9,7 +9,7 @@ categories: 技术
 # 置顶配置 数字越大优先级越高
 ---
 
-# 泛域名证书申请 (Ubuntu 18)
+# 泛域名证书申请 (Ubuntu 20)
 
 > 全网 HTTPS 时代就要到来，[Let’s Encrypt](https://letsencrypt.org/) 三个月有效期的免费 HTTPS 证书现在支持泛域名了，我们可以通过 [Certbot](https://certbot.eff.org/) 非常方便的申请和更新证书。网上很多关于 Certbot 的文章，但是关于泛域名证书的自动更新很少提及，或者很多误区，这里简单的讲解一下。
 
