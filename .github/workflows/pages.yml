@@ -237,8 +237,8 @@ jobs:
           directory: ./hexo-blog-vercel
           github_token: ${{ secrets.GH_TOKEN }}
           branch: 'main'
-          author_email: 'github-actions[bot]@users.noreply.github.com'
-          author_name: 'github-actions[bot]'
+          author_email: 'f18326186224@gmail.com'
+          author_name: 'nichuanfang'
           message: '🐳 chore: 更新vercel仓库'
           repository: nichuanfang/hexo-blog-vercel
 
