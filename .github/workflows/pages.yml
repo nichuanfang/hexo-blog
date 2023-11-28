@@ -228,11 +228,11 @@ jobs:
         uses: amondnet/vercel-action@v25.1.1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-args: '--prod'
+          github-token: ${{ secrets.GH_TOKEN }}
+          # vercel-args: '--prod'
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
-          working-directory: ./hexo-blog-fluid
+          working-directory: hexo-blog-fluid
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
