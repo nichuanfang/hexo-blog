@@ -8,3 +8,4 @@ public/
 _multiconfig.yml
 source/img/post/*
 !source/img/post/__init__.py
+.vercel
