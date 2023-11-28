@@ -493,7 +493,7 @@ index:
 
       # 请求地址
       # Request url
-      url: 'https://v2.jinrishici.com/backend/one.json'
+      url: 'https://v2.jinrishici.com/one.json'
 
       # 请求方法
       # Request method
