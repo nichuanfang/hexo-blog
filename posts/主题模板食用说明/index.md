@@ -6,7 +6,7 @@ banner_img_ratio: 82
 # sticky:
 ---
 
-# 主题模板食用说明~
+# 主题模板食用说明~~
 
 ## Front-matter 说明
 
