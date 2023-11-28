@@ -224,15 +224,14 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - name: 部署到vercel
-        uses: amondnet/vercel-action@v25.1.1
+      - name: Deploy to Vercel Action
+        uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          github-token: ${{ secrets.GH_TOKEN }}
-          # vercel-args: '--prod'
-          vercel-org-id: ${{ secrets.ORG_ID}}
-          vercel-project-id: ${{ secrets.PROJECT_ID}}
-          working-directory: hexo-blog-fluid
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.ORG_ID}}
+          VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID}}
+          WORKING_DIRECTORY: ./hexo-blog-fluid
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
