@@ -138,18 +138,21 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          persist-credentials: false
           path: hexo-blog
 
       - uses: actions/checkout@v4
         with:
           ref: fluid-theme
           fetch-depth: 0
+          persist-credentials: false
           path: hexo-blog-fluid
 
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
+          persist-credentials: false
           path: hexo-blog-vercel
 
       - name: Use Node.js 18.x
