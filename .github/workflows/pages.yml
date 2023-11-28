@@ -146,6 +146,12 @@ jobs:
           fetch-depth: 0
           path: hexo-blog-fluid
 
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          path: hexo-blog-vercel
+
       - name: Use Node.js 18.x
         uses: actions/setup-node@v4.0.0
         with:
@@ -201,6 +207,7 @@ jobs:
         working-directory: ./hexo-blog-fluid
         run: |
           python handle.py
+          cp -rf ./public/* ../hexo-blog-vercel
 
       # 更新hexo-blog项目
       - name: 更新hexo-blog项目
@@ -224,14 +231,16 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Deploy to Vercel Action
-        uses: BetaHuhn/deploy-to-vercel-action@v1
+      - name: 发布到vercel仓库
+        uses: Smart-Transportation/push@v1.3
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.ORG_ID}}
-          VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID}}
-          WORKING_DIRECTORY: hexo-blog-fluid
+          directory: ./hexo-blog-vercel
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: 'main'
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          author_name: 'github-actions[bot]'
+          message: '🐳 chore: 更新vercel仓库'
+          repository: nichuanfang/hexo-blog-vercel
 
       - name: 发布blog服务
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
