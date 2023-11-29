@@ -18,7 +18,9 @@ Fluid.plugins = {
       t.onreadystatechange = function () {
         if (t.readyState === 4 && t.status === 200) {
           var res = JSON.parse(t.responseText)
-          var e = res.data.content
+          e = res.data.content
+        }
+      }
     }
     var a = new window.Typed('#subtitle', {
       strings: ['  ', e],
