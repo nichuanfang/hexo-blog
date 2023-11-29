@@ -13,9 +13,9 @@ Fluid.plugins = {
       fetch('https://v2.jinrishici.com/one.json', {
         method: 'GET',
         mode: 'cors',
-        // headers: {
-        //   'Content-Type': 'application/json',
-        // },
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
         // .then((response) => response.json())
         .then((data) => {
