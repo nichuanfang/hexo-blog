@@ -1,10 +1,14 @@
-var xhr = new XMLHttpRequest()
-xhr.open('GET', 'https://v2.jinrishici.com/one.json', true)
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var data = JSON.parse(xhr.responseText)
+fetch('https://v2.jinrishici.com/one.json', {
+  method: 'GET',
+  mode: 'cors', // 设置跨域请求模式
+})
+  .then((response) => response.json())
+  .then((data) => {
+    // 处理返回的数据
     console.log(data)
     console.log(data.data.content) // 获取每日一句内容
-  }
-}
-xhr.send()
+  })
+  .catch((error) => {
+    // 处理错误
+    console.error('Error:', error)
+  })
