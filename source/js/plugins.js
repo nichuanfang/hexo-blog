@@ -10,18 +10,18 @@ Fluid.plugins = {
     }
     // 如果是首页 则设置e的内容为通过http请求获取的内容 请求的地址为https://v2.jinrishici.com/one.json
     if (window.location.pathname === '/') {
-      fetch('https://baidu.com', {
+      fetch('https://v2.jinrishici.com/one.json', {
         method: 'GET',
         mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
       })
-        .then((response) => response.json())
+        // .then((response) => response.json())
         .then((data) => {
           // 处理返回的数据
           console.log(data)
-          e = data.data.content
+          // e = data.data.content
         })
         .catch((error) => {
           // 处理错误
