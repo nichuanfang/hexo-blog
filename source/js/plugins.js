@@ -8,6 +8,7 @@ Fluid.plugins = {
     if (!('Typed' in window)) {
       return
     }
+    var meiriyiju = e
     if (window.location.pathname === '/') {
       var xhr = new XMLHttpRequest()
       xhr.open(
@@ -18,13 +19,13 @@ Fluid.plugins = {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           var data = JSON.parse(xhr.responseText)
-          e = data.data.content
+          meiriyiju = data.data.content
         }
       }
       xhr.send()
     }
     var a = new window.Typed('#subtitle', {
-      strings: ['  ', e],
+      strings: ['  ', meiriyiju],
       cursorChar: CONFIG.typing.cursorChar,
       typeSpeed: CONFIG.typing.typeSpeed,
       loop: CONFIG.typing.loop,
