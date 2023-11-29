@@ -8,9 +8,20 @@ Fluid.plugins = {
     if (!('Typed' in window)) {
       return
     }
-    // 如果是首页 则设置e的内容为通过http请求获取的内容 请求的地址为https://v2.jinrishici.com/one.json
     if (window.location.pathname === '/') {
-      e = ''
+      var xhr = new XMLHttpRequest()
+      xhr.open(
+        'GET',
+        'https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token=OaRRgw0D8d0DCbYyySSLxLF5f70EjhLS',
+        true
+      )
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText)
+          e = data.data.content
+        }
+      }
+      xhr.send()
     }
     var a = new window.Typed('#subtitle', {
       strings: ['  ', e],
