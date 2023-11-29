@@ -1,9 +1,5 @@
 // 等待文档加载完成
 $(document).ready(function () {
-  // 如果是首页 则设置subtitle内容为test
-  if (window.location.pathname === '/') {
-    jQuery('#subtitle').text('test')
-  }
   // 获取背景图像元素
   var backgroundImage = jQuery('#background-image')
   // 如果背景图像元素不存在，则返回
