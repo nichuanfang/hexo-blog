@@ -10,7 +10,8 @@ Fluid.plugins = {
     }
     // 如果是首页 则设置e的内容为test
     if (window.location.pathname === '/') {
-        e = 'test'
+      e = 'test'
+    }
     var a = new window.Typed('#subtitle', {
       strings: ['  ', e],
       cursorChar: CONFIG.typing.cursorChar,
