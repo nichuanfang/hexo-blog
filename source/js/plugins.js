@@ -8,7 +8,6 @@ Fluid.plugins = {
     if (!('Typed' in window)) {
       return
     }
-    var meiriyiju = e
     if (window.location.pathname === '/') {
       var xhr = new XMLHttpRequest()
       xhr.open(
@@ -19,25 +18,40 @@ Fluid.plugins = {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           var data = JSON.parse(xhr.responseText)
-          meiriyiju = data.data.content
+          var meiriyiju = data.data.content
+          var a = new window.Typed('#subtitle', {
+            strings: ['  ', meiriyiju],
+            cursorChar: CONFIG.typing.cursorChar,
+            typeSpeed: CONFIG.typing.typeSpeed,
+            loop: CONFIG.typing.loop,
+          })
+          a.stop()
+          var t = document.getElementById('subtitle')
+          if (t) {
+            t.innerText = ''
+          }
+          jQuery(document).ready(function () {
+            a.start()
+          })
         }
       }
       xhr.send()
+    } else {
+      var a = new window.Typed('#subtitle', {
+        strings: ['  ', e],
+        cursorChar: CONFIG.typing.cursorChar,
+        typeSpeed: CONFIG.typing.typeSpeed,
+        loop: CONFIG.typing.loop,
+      })
+      a.stop()
+      var t = document.getElementById('subtitle')
+      if (t) {
+        t.innerText = ''
+      }
+      jQuery(document).ready(function () {
+        a.start()
+      })
     }
-    var a = new window.Typed('#subtitle', {
-      strings: ['  ', meiriyiju],
-      cursorChar: CONFIG.typing.cursorChar,
-      typeSpeed: CONFIG.typing.typeSpeed,
-      loop: CONFIG.typing.loop,
-    })
-    a.stop()
-    var t = document.getElementById('subtitle')
-    if (t) {
-      t.innerText = ''
-    }
-    jQuery(document).ready(function () {
-      a.start()
-    })
   },
   fancyBox: function (e) {
     if (!CONFIG.image_zoom.enable || !('fancybox' in jQuery)) {
