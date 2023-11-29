@@ -10,17 +10,23 @@ Fluid.plugins = {
     }
     // 如果是首页 则设置e的内容为通过http请求获取的内容 请求的地址为https://v2.jinrishici.com/one.json
     if (window.location.pathname === '/') {
-      var t = new XMLHttpRequest()
-      t.open('GET', 'https://v2.jinrishici.com/one.json', true)
-      // 支持跨域请求
-      t.withCredentials = true
-      t.send()
-      t.onreadystatechange = function () {
-        if (t.readyState === 4 && t.status === 200) {
-          var res = JSON.parse(t.responseText)
-          e = res.data.content
-        }
-      }
+      fetch('https://v2.jinrishici.com/one.json', {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // 处理返回的数据
+          console.log(data)
+          e = data.data.content
+        })
+        .catch((error) => {
+          // 处理错误
+          console.error('Error:', error)
+        })
     }
     var a = new window.Typed('#subtitle', {
       strings: ['  ', e],
