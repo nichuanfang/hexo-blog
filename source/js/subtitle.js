@@ -13,9 +13,12 @@
 // }
 // xhr.send()
 
-fetch('https://v2.jinrishici.com/one.json', {
+fetch('https://v2.jinrishici.com/sentence', {
   method: 'GET',
   mode: 'cors', // 设置跨域请求模式
+  headers: {
+    'X-User-Token': 'xNJL0fQDhPz3++IrWZte3QnBlkeSC+J/',
+  },
 })
   .then((response) => response.json())
   .then((data) => {
