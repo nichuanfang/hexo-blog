@@ -38,6 +38,7 @@ git clone https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-aly
 mv certbot-letencrypt-wildcardcertificates-alydns-au certbot
 cd certbot
 chmod 777 au.sh
+
 ```
 
 ### 2. 配置
