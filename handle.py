@@ -112,7 +112,7 @@ for post in post_list:
         body = soup.find('body')
         script_tag = soup.new_tag('script')
         script_tag.append(
-            'var live2d =  jQuery("#live2d-widget");live2d.css({display: "block"})')
+            'document.getElementById("live2dcanvas").style.display = "block"')
         body.append(script_tag)
         if post_name in ['archives', 'categories', 'public', 'tags', 'links']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31
