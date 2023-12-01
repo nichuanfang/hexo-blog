@@ -149,3 +149,23 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
+
+live2d:
+  model:
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
+    use: live2d-widget-model-shizuku
+  display:
+    superSample: 2
+    width: 120
+    height: 200
+    position: right
+    hOffset: 20
+    vOffset: 20
+  mobile:
+    show: true
+    scale: 0.5
+  react:
+    opacityDefault: 0.7
+    opacityOnHover: 0.2
