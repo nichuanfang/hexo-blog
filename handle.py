@@ -106,6 +106,14 @@ for post in post_list:
         # 修改图片比例
         raw_style = soup.find('div', class_='banner')['style']
         post_name = post.replace('\\', '/').split('/')[-2]
+
+        # 处理看板娘白屏问题
+        # 在body的最后面添加一个<script></script>
+        body = soup.find('body')
+        script_tag = soup.new_tag('script')
+        script_tag.append(
+            'var live2d =  jQuery("#live2d-widget");live2d.css({display: block})')
+        body.append(script_tag)
         if post_name in ['archives', 'categories', 'public', 'tags', 'links']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31
             banner_img_ratio = default_ratio
