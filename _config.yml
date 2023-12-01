@@ -157,12 +157,12 @@ live2d:
     vHeadPos: 0.618
     use: live2d-widget-model-shizuku
   display:
-    superSample: 2
+    superSample: 1
     width: 120
     height: 200
     position: right
     hOffset: 20
-    vOffset: 20
+    vOffset: 0
   mobile:
     show: false
     scale: 0.5
