@@ -151,6 +151,8 @@ image_minifier:
   progressive: false
 
 live2d:
+  tagMode: false
+  debug: false
   model:
     scale: 1
     hHeadPos: 0.5
