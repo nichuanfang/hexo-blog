@@ -151,6 +151,7 @@ image_minifier:
   progressive: false
 
 live2d:
+  enable: true
   tagMode: false
   debug: false
   model:
@@ -159,9 +160,9 @@ live2d:
     vHeadPos: 0.618
     use: live2d-widget-model-shizuku
   display:
-    superSample: 2
-    width: 120
-    height: 200
+    # superSample: 2
+    width: 150
+    height: 300
     position: right
     hOffset: 20
     vOffset: 0
