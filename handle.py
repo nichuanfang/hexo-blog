@@ -124,9 +124,10 @@ for post in post_list:
             post_metas = soup.find('div', class_='post-metas my-3')
 
             edit_tag = soup.new_tag(
-                'div', class_='post-meta', style='margin-left: auto')
+                'div', class_='post-meta')
+            # 设置样式margin-left: auto
+            edit_tag['style'] = 'margin-left: auto'
             edit_tag_a = soup.new_tag('a', class_='print-no-link')
-            # https://github.com/nichuanfang/doc/edit/main/src/resume/README.md
             edit_tag_a[
                 'href'] = f'https://github.com/nichuanfang/hexo-blog/edit/main/posts/{post_name}/index.md'
             edit_tag_a['target'] = '_blank'
@@ -134,8 +135,7 @@ for post in post_list:
                 'span', style='color: #007bff', aria_label='hexo-blog', class_='hint--top hint--rounded')
             edit_tag_a_span_i = soup.new_tag(
                 'i', class_='iconfont icon-pen')
-            # 设置edit_tag_a_span_i的内容为在Github上编辑本页
-            edit_tag_a_span_i.string = '在Github上编辑本页'
+            edit_tag_a_span_i.append('在Github上编辑本页')
             edit_tag_a_span.append(edit_tag_a_span_i)
             edit_tag_a.append(edit_tag_a_span)
             edit_tag.append(edit_tag_a)
