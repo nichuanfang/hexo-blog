@@ -150,8 +150,9 @@ image_minifier:
   pngquant: false
   progressive: false
 
+# 看板娘
 live2d:
-  enable: true
+  enable: false
   tagMode: false
   debug: false
   model:
