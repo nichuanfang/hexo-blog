@@ -6,6 +6,6 @@ hexo.extend.filter.register('theme_inject', function (injects) {
   // 修复刷新空白
   injects.head.raw(
     'default',
-    'document.getElementById("live2dcanvas").style.display = "none"'
+    '<script>document.getElementById("live2dcanvas").style.display = "none"</script>'
   )
 })
