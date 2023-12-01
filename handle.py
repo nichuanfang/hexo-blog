@@ -165,9 +165,6 @@ for post in post_list:
             new_list.append(
                 f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
             soup.find('div', class_='banner')['style'] = ' '.join(new_list)
-
-            # 保存
-            saveFile(soup.__str__(), post)
         else:
             # 获取文章目录名称
             post_name = os.path.basename(os.path.dirname(post))
@@ -208,8 +205,8 @@ for post in post_list:
                 new_list.append(
                     f'{banner_img_ratio}%;{raw_style_list[3].split(";",1)[1]}')
                 soup.find('div', class_='banner')['style'] = ' '.join(new_list)
-                # 保存
-                saveFile(soup.__str__(), post)
+        # 保存
+        saveFile(soup.__str__(), post)
 
 # seo优化
 
