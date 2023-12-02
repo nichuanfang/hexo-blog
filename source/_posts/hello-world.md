@@ -6,7 +6,7 @@ categories: 其他
 # banner图片比例
 banner_img_ratio: 90
 title: hello-world
-date: 2023-12-02 16:42:49
+date: 2023-12-02 16:57:30
 banner_img: /img/post/hello-world/banner.webp
 index_img: /img/post/hello-world/banner.webp
 ---
