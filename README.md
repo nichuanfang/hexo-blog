@@ -110,7 +110,7 @@ sticky:
 {% endnote %}
 ```
 
-![Alt text](.github/assets/primary.png)
+> primary
 
 ```bash
 {% note primary %}
