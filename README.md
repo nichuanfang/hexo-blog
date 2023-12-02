@@ -35,6 +35,8 @@ sticky:
 
 ## 便签
 
+### Github 自带便签
+
 > [!NOTE]
 >
 > 这是笔记内容
@@ -85,9 +87,74 @@ sticky:
 > 这是警告内容
 ```
 
+### 主题便签
+
+success
+
+```bash
+{% note success %}
+文字 或者 `markdown` 均可
+{% endnote %}
+```
+
+primary
+
+```bash
+{% note primary %}
+{% endnote %}
+```
+
+secondary
+
+```bash
+{% note secondary %}
+{% endnote %}
+```
+
+success
+
+```bash
+{% note success %}
+{% endnote %}
+```
+
+danger
+
+```bash
+{% note danger %}
+{% endnote %}
+```
+
+warning
+
+```warning
+{% note warning %}
+{% endnote %}
+```
+
+info
+
+```bash
+{% note info %}
+{% endnote %}
+```
+
+light
+
+```bash
+{% note light %}
+{% endnote %}
+```
+
+> [!warning]
+>
+> 使用时 {% note primary %} 和 {% endnote %} 需单独一行，否则会出现问题
+
 ## 折叠块
 
 使用折叠块，可以折叠代码、图片、文字等任何内容，你可以在 markdown 中按如下格式：
+
+### Github 自带折叠块
 
 <details>
 <summary>Click me</summary>
@@ -103,6 +170,14 @@ sticky:
 ```
 
 > summary 设置折叠块上的标题
+
+### 主题折叠块
+
+```bash
+{% fold info @title %}
+需要折叠的一段内容，支持 markdown
+{% endfold %}
+```
 
 ## 分类
 
