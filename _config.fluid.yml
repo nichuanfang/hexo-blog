@@ -991,7 +991,7 @@ about:
         link: 'https://douban.com',
         tip: '豆瓣',
       }
-    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/favicon.png' }
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/bg/favicon.png' }
 
 #---------------------------
 # 自定义页
@@ -1034,31 +1034,31 @@ links:
         title: 'Blog Repository',
         intro: '博客仓库',
         link: 'https://github.com/nichuanfang/hexo-blog',
-        avatar: '/img/favicon.png',
+        avatar: '/img/bg/favicon.png',
       }
     - {
         title: 'MyDocuments',
         intro: '个人文档平台',
         link: 'https://doc.jaychou.site/',
-        avatar: '/img/favicon.png',
+        avatar: '/img/bg/favicon.png',
       }
     - {
         title: 'Fluid Blog',
         intro: '主题博客',
         link: 'https://hexo.fluid-dev.com/',
-        avatar: '/img/favicon.png',
+        avatar: '/img/bg/favicon.png',
       }
     - {
         title: 'Fluid Docs',
         intro: '主题使用指南',
         link: 'https://hexo.fluid-dev.com/docs/',
-        avatar: '/img/favicon.png',
+        avatar: '/img/bg/favicon.png',
       }
     - {
         title: 'Fluid Repo',
         intro: '主题 GitHub 仓库',
         link: 'https://github.com/fluid-dev/hexo-theme-fluid',
-        avatar: '/img/favicon.png',
+        avatar: '/img/bg/favicon.png',
       }
 
   # 当成员头像加载失败时，替换为指定图片
@@ -1069,7 +1069,7 @@ links:
   # Custom content at the bottom of the links
   custom:
     enable: false
-    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
+    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/bg/favicon.png</li></ul>'
 
 #---------------------------
 # 以下是配置 JS CSS 等静态资源的 URL 前缀，可以自定义成 CDN 地址，
