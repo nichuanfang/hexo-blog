@@ -28,6 +28,7 @@ go 的优点:
 
 ```go
 // 声明变量
+
 var a int
 var b string
 var c bool
