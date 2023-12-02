@@ -95,12 +95,11 @@ if theme == 'fluid':
 
     if os.path.exists(os.path.join(fluid_posts_path)):
         shutil.rmtree(os.path.join(fluid_posts_path))
-    else:
-        os.mkdir(os.path.join(fluid_posts_path))
+
     if os.path.exists(os.path.join(fluid_img_path)):
         shutil.rmtree(os.path.join(fluid_img_path))
-    else:
-        os.mkdir(os.path.join(fluid_img_path))
+    os.mkdir(os.path.join(fluid_posts_path))
+    os.mkdir(os.path.join(fluid_img_path))
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
