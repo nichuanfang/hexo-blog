@@ -26,8 +26,6 @@ sticky:
 
 ## 便签
 
-### Github原生便签:
-
 > [!NOTE]  
 > [!NOTE]  
 
