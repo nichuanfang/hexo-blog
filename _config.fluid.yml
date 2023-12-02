@@ -1031,6 +1031,18 @@ links:
   # Member item of page
   items:
     - {
+        title: 'Blog Repository',
+        intro: '博客仓库',
+        link: 'https://github.com/nichuanfang/hexo-blog',
+        avatar: '/img/favicon.png',
+      }
+    - {
+        title: 'MyDocuments',
+        intro: '个人文档平台',
+        link: 'https://doc.jaychou.site/',
+        avatar: '/img/favicon.png',
+      }
+    - {
         title: 'Fluid Blog',
         intro: '主题博客',
         link: 'https://hexo.fluid-dev.com/',
