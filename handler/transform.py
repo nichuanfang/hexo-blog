@@ -184,6 +184,9 @@ if theme == 'fluid':
                             head_lines.append(
                                 f'date: {posts_update_dict[dir]}\n')
                             head_lines.append(f'updated: {now}\n')
+                    else:
+                        head_lines.append(f'date: {now}\n')
+                        head_lines.append(f'updated: {now}\n')
 
                     # 对left_lines的图片进行替换
                     for i in range(len(left_lines)):
