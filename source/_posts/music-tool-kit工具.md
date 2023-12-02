@@ -12,7 +12,7 @@ categories: 工具
 # sticky: 30
 title: music-tool-kit工具
 date: 2023-11-09 17:25:01
-updated: 2023-11-27 02:37:12
+updated: 2023-12-02 13:01:56
 banner_img: /img/post/music-tool-kit工具/index.webp
 index_img: /img/post/music-tool-kit工具/index.webp
 ---
@@ -36,7 +36,7 @@ pip install -U music-tool-kit
 
 ![help](/img/post/music-tool-kit工具/help.webp)
 
-{%note info%}
+{%note primary%}
 **准备环境**
 
 - [python](https://www.python.org/)版本:**3.11.0 及以上**
