@@ -12,18 +12,13 @@ jpg_png_pattern = re.compile('.(jpg|png)$')
 
 theme = sys.argv[1]
 # 新增/修改的文件
-changes_am = sys.argv[2]
-# 删除的文件
-changes_m = sys.argv[3]
+changes = sys.argv[2]
 # [".github/workflows/pages.yml","posts/python学习/index.md"]
 try:
-    change_files_am = changes_am.replace(
-        '[', '').replace(']', '').replace('"', '').split(',')
-    change_files_m = changes_m.replace(
+    change_files = changes.replace(
         '[', '').replace(']', '').replace('"', '').split(',')
 except:
-    change_files_am = []
-    change_files_m = []
+    change_files = []
 # if len(change_files) == 0:
 #     exit(0)
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
@@ -98,28 +93,21 @@ if theme == 'fluid':
                 if not ('banner.webp' in post_files):
                     post_files.append('banner.webp')
 
-    # 处理删除的文章
-    for change_m in change_files_m:
-        if change_m.startswith('posts/') and change_m.endswith('.md'):
-            # 删除对应的文章
-            dir = change_m.split('/')[1]
-            print(f'删除文章:{dir}.md')
-            # 删除对应的文章文件夹
-            if os.path.exists(os.path.join(fluid_posts_path, dir)):
-                print(f'删除文章文件夹:{os.path.join(fluid_posts_path, dir)}')
-                shutil.rmtree(os.path.join(fluid_posts_path, dir))
-            # 删除对应的图片文件夹
-            if os.path.exists(os.path.join(fluid_img_path, dir)):
-                print(f'删除图片文件夹:{os.path.join(fluid_img_path, dir)}')
-                shutil.rmtree(os.path.join(fluid_img_path, dir))
-    # 处理added/updated的文章
+    if os.path.exists(os.path.join(fluid_posts_path, dir)):
+        shutil.rmtree(os.path.join(fluid_posts_path, dir))
+    else:
+        os.mkdir(os.path.join(fluid_posts_path, dir))
+    if os.path.exists(os.path.join(fluid_img_path, dir)):
+        shutil.rmtree(os.path.join(fluid_img_path, dir))
+    else:
+        os.mkdir(os.path.join(fluid_img_path, dir))
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
             # 标记该文档是否需要更新
             dir_changed = False
-            for change_am in change_files_am:
-                if change_am.__contains__(f'posts/{dir}/'):
+            for change in change_files:
+                if change.__contains__(f'posts/{dir}/'):
                     dir_changed = True
                     break
 

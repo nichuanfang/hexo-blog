@@ -197,9 +197,8 @@ jobs:
         env:
           THEME: ${{ vars.THEME }}
           CHANGES_AM: ${{ steps.changed_files.outputs.added_modified }}
-          CHANGES_D: ${{ steps.changed_files.outputs.removed  }}
         run: |
-          python transform.py $THEME $CHANGES_AM $CHANGES_D
+          python transform.py $THEME $CHANGES_AM
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-fluid
