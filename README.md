@@ -11,13 +11,6 @@ sticky:
 
 ## Front-matter 说明
 
-1. `tags`: 标签
-2. `categories`: 分类
-3. `index_img_url`: 首页缩略图 url 如果配置将忽略当前文件夹的 index.jpg
-4. `banner_img_url`: 文章配图 url 如果配置将忽略当前文件夹的 banner.jpg
-5. `banner_img_ratio`: banner 图片比例
-6. `sticky`: 置顶配置 数字越大优先级越高
-
 ```BASH
 tags:
 categories:
@@ -26,6 +19,14 @@ banner_img_url:
 banner_img_ratio:
 sticky:
 ```
+
+- `tags`: 标签
+- `categories`: 分类
+- `index_img_url`: 首页缩略图 url 如果配置将忽略当前文件夹的 index.jpg
+- `banner_img_url`: 文章配图 url 如果配置将忽略当前文件夹的 banner.jpg
+- `banner_img_ratio`: banner 图片比例
+- `sticky`: 置顶配置 数字越大优先级越高
+
 
 > [!TIP]
 >
