@@ -15,7 +15,7 @@ banner_img_ratio: 90
 [信息] 已重启 xray 服务
 -------------- client config --------------
 address     : "45.32.50.85"
-port        : 443
+port        : 8443
 protocol    : "vless"
 id          : "422939fd-f699-4a26-a6d7-61e17ee3dd88"
 flow        : "xtls-rprx-vision"
