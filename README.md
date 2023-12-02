@@ -27,7 +27,6 @@ sticky:
 - `banner_img_ratio`: banner 图片比例
 - `sticky`: 置顶配置 数字越大优先级越高
 
-
 > [!TIP]
 >
 > - 如果配置了 index_img_url,则当前文件夹下的 index.jpg 无效
@@ -42,7 +41,7 @@ sticky:
 
 ```bash
 > [!NOTE]
-> 
+>
 > 这是笔记内容
 ```
 
@@ -52,7 +51,7 @@ sticky:
 
 ```bash
 > [!TIP]
-> 
+>
 > 这是提示内容
 ```
 
@@ -62,7 +61,7 @@ sticky:
 
 ```bash
 > [!IMPORTANT]
-> 
+>
 > 这是重要内容
 ```
 
@@ -72,7 +71,7 @@ sticky:
 
 ```bash
 > [!WARNING]
-> 
+>
 > 这是注意内容
 ```
 
@@ -82,7 +81,7 @@ sticky:
 
 ```bash
 > [!CAUTION]
-> 
+>
 > 这是警告内容
 ```
 
@@ -95,7 +94,6 @@ sticky:
 我是折叠块
 </details>
 
-
 ```bash
 <details>
 <summary>Click me</summary>
@@ -104,7 +102,7 @@ sticky:
 
 ```
 
-> summary设置折叠块上的标题
+> summary 设置折叠块上的标题
 
 ## 分类
 
