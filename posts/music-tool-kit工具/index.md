@@ -31,7 +31,7 @@ pip install -U music-tool-kit
 
 ![help](help.png)
 
-{%note info%}
+{%note primary%}
 **准备环境**
 
 - [python](https://www.python.org/)版本:**3.11.0 及以上**
