@@ -17,8 +17,8 @@ https://blog.jaychou.site/tags/tools/
 https://blog.jaychou.site/tags/music/
 https://blog.jaychou.site/tags/youtube/
 https://blog.jaychou.site/tags/python/
-https://blog.jaychou.site/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/
 https://blog.jaychou.site/tags/windows/
+https://blog.jaychou.site/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/
 https://blog.jaychou.site/categories/%E6%8A%80%E6%9C%AF/
 https://blog.jaychou.site/categories/%E5%BA%94%E7%94%A8/
 https://blog.jaychou.site/categories/%E5%85%B6%E4%BB%96/
