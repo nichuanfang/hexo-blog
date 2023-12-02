@@ -182,7 +182,8 @@ if theme == 'fluid':
                     elif dir_modified:
                         if len(posts_update_dict) != 0 and dir in posts_update_dict.keys():
                             head_lines.append(
-                                f'date: {posts_update_dict[dir]}\n')
+                                f'updated: {posts_update_dict[dir]}\n')
+                        else:
                             head_lines.append(f'updated: {now}\n')
                     else:
                         head_lines.append(f'date: {now}\n')
