@@ -18,7 +18,7 @@ sticky:
 5. `banner_img_ratio`: banner 图片比例
 6. `sticky`: 置顶配置 数字越大优先级越高
 
-> Note
+> [!NOTE]
 >
 > - 如果配置了 index_img_url,则当前文件夹下的 index.jpg 无效
 > - 如果配置了 banner_img_url,则当前文件夹下的 banner.jpg 无效
