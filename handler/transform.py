@@ -185,31 +185,6 @@ if theme == 'fluid':
                                 f'date: {posts_update_dict[dir]}\n')
                             head_lines.append(f'updated: {now}\n')
 
-                    # date和updated都设置为当前时间
-                    if not os.path.exists(os.path.join(fluid_posts_path, dir+'.md')):
-                        head_lines.append(f'date: {now}\n')
-                    else:
-                        # 读取os.path.join(fluid_posts_path,dir+'.md')文件的date
-                        with open(os.path.join(fluid_posts_path, dir+'.md'), 'r', encoding='utf-8') as f:
-                            lines = f.readlines()
-                            for line in lines:
-                                if line.startswith('date:'):
-                                    head_lines.append(line)
-                                    break
-                        # posts/python学习/index.md
-                    if dir_added:
-                        # 新增
-                        head_lines.append(f'updated: {now}\n')
-                    elif dir_modified:
-                        # 修改
-                        # 读取os.path.join(fluid_posts_path,dir+'.md')文件的updated
-                        with open(os.path.join(fluid_posts_path, dir+'.md'), 'r', encoding='utf-8') as f:
-                            lines = f.readlines()
-                            for line in lines:
-                                if line.startswith('updated:'):
-                                    head_lines.append(line)
-                                    break
-
                     # 对left_lines的图片进行替换
                     for i in range(len(left_lines)):
                         if left_lines[i].__contains__('.jpg') or left_lines[i].__contains__('.png') or left_lines[i].__contains__('.webp'):
