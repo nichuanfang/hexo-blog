@@ -107,10 +107,10 @@ if theme == 'fluid':
         for fluid_root, fluid_dirs, fluid_files in os.walk(fluid_posts_path):
             for fluid_file in fluid_files:
                 if fluid_file.endswith('.md'):
+                    post_date_item = {}
                     with open(os.path.join(fluid_root, fluid_file), 'r', encoding='utf-8') as f:
                         lines = f.readlines()
                         for line in lines:
-                            post_date_item = {}
                             if line.startswith('title:'):
                                 post_date_item['post_name'] = line.split(':', 1)[
                                     1].strip()
@@ -120,8 +120,8 @@ if theme == 'fluid':
                             elif line.startswith('updated:'):
                                 post_date_item['updated'] = line.split(
                                     ':', 1)[1].strip()
-                        posts_update_dict[post_date_item['post_name']
-                                          ] = post_date_item
+                    posts_update_dict[post_date_item['post_name']
+                                      ] = post_date_item
 
         shutil.rmtree(os.path.join(fluid_posts_path))
 
