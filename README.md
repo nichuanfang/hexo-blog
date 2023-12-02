@@ -110,7 +110,11 @@ sticky:
 {% endnote %}
 ```
 
+<<<<<<< HEAD
 > primary
+=======
+![Alt text](.github/assets/primary.png)
+>>>>>>> 0f6d12b (feat: 新增TOC)
 
 ```bash
 {% note primary %}
@@ -207,7 +211,6 @@ sticky:
 ## 标签
 
 Tags 根据需要灵活添加，但应避免添加太细的 tag 以避免膨胀，例如
-
 
 > [!NOTE]
 >
