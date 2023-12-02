@@ -26,36 +26,74 @@ sticky:
 
 ## 便签
 
-在 markdown 中加入如下的代码来使用便签：
+### Github原生标签:
 
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]  
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+### 主题扩展便签:
+
+success
 ```bash
 {% note success %}
 文字 或者 `markdown` 均可
 {% endnote %}
 ```
 
-可选便签：
+primary
+```bash
 {% note primary %}
 {% endnote %}
+```
 
+secondary
+```bash
 {% note secondary %}
 {% endnote %}
+```
 
+success
+```bash
 {% note success %}
 {% endnote %}
+```
 
+danger
+```bash
 {% note danger %}
 {% endnote %}
+```
 
+warning
+```warning
 {% note warning %}
 {% endnote %}
-
+```
+info
+```bash
 {% note info %}
 {% endnote %}
+```
 
+light
+```bash
 {% note light %}
 {% endnote %}
-
+```
+> [!warning]
+>
 > 使用时 {% note primary %} 和 {% endnote %} 需单独一行，否则会出现问题
 
 ## 折叠块
