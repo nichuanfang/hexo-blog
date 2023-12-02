@@ -110,11 +110,7 @@ sticky:
 {% endnote %}
 ```
 
-<<<<<<< HEAD
-> primary
-=======
 ![Alt text](.github/assets/primary.png)
->>>>>>> 0f6d12b (feat: 新增TOC)
 
 ```bash
 {% note primary %}
