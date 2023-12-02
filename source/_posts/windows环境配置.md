@@ -3,8 +3,7 @@ tags: windows
 categories: 应用
 banner_img_ratio: 25
 title: windows环境配置
-date: 2023-11-26 20:48:55
-updated: 2023-11-27 13:20:04
+date: 2023-12-02 16:39:57
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
