@@ -7,7 +7,7 @@ categories: 技术
 banner_img_ratio: 10
 # sticky: 10
 title: python学习
-date: 2023-12-02 16:39:57
+date: 2023-12-02 16:42:49
 banner_img: /img/post/python学习/banner.webp
 index_img: /img/post/python学习/banner.webp
 ---
