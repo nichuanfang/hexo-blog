@@ -26,22 +26,22 @@ sticky:
 
 ## 便签
 
-### Github原生标签:
+### Github原生便签:
 
 > [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
+> [!NOTE]  
 
 > [!TIP]
-> Optional information to help a user be more successful.
+> [!TIP]
 
 > [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
+> [!IMPORTANT]  
 
 > [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
+> [!WARNING]  
 
 > [!CAUTION]
-> Negative potential consequences of an action.
+> [!CAUTION]
 
 ### 主题扩展便签:
 
