@@ -7,7 +7,7 @@ categories: 其他
 banner_img_ratio: 90
 title: hello-world
 date: 2023-12-02 17:22:33
-updated: 2023-12-02 17:22:33
+updated: 2023-12-02 22:52:41
 banner_img: /img/post/hello-world/banner.webp
 index_img: /img/post/hello-world/banner.webp
 ---
@@ -20,7 +20,7 @@ index_img: /img/post/hello-world/banner.webp
 [信息] 已重启 xray 服务
 -------------- client config --------------
 address     : "45.32.50.85"
-port        : 443
+port        : 8443
 protocol    : "vless"
 id          : "422939fd-f699-4a26-a6d7-61e17ee3dd88"
 flow        : "xtls-rprx-vision"
