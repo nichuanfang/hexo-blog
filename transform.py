@@ -103,11 +103,14 @@ if theme == 'fluid':
         if change_m.startswith('posts/') and change_m.endswith('.md'):
             # 删除对应的文章
             dir = change_m.split('/')[1]
+            print(f'删除文章:{dir}.md')
             # 删除对应的文章文件夹
             if os.path.exists(os.path.join(fluid_posts_path, dir)):
+                print(f'删除文章文件夹:{os.path.join(fluid_posts_path, dir)}')
                 shutil.rmtree(os.path.join(fluid_posts_path, dir))
             # 删除对应的图片文件夹
             if os.path.exists(os.path.join(fluid_img_path, dir)):
+                print(f'删除图片文件夹:{os.path.join(fluid_img_path, dir)}')
                 shutil.rmtree(os.path.join(fluid_img_path, dir))
     # 处理added/updated的文章
     # 遍历posts文件夹
