@@ -1,4 +1,5 @@
 from calendar import c
+from math import e
 import os
 import datetime
 import sys
@@ -99,7 +100,27 @@ if theme == 'fluid':
                 if not ('banner.webp' in post_files):
                     post_files.append('banner.webp')
 
+    posts_update_dict = {}
+
     if os.path.exists(os.path.join(fluid_posts_path)):
+        # 读取文章的更新时间 写入到posts_update_dict
+        for fluid_root, fluid_dirs, fluid_files in os.walk(fluid_posts_path):
+            for fluid_file in fluid_files:
+                if fluid_file.endswith('.md'):
+                    with open(os.path.join(fluid_root, fluid_file), 'r', encoding='utf-8') as f:
+                        lines = f.readlines()
+                        for line in lines:
+                            post_name = None
+                            date = None
+                            if line.startswith('title:'):
+                                post_name = line.split(':', 1)[1].strip()
+                            elif line.startswith('date:'):
+                                date = line.split(':', 1)[1].strip()
+                            else:
+                                continue
+                            if post_name and date:
+                                posts_update_dict[post_name] = date
+
         shutil.rmtree(os.path.join(fluid_posts_path))
 
     if os.path.exists(os.path.join(fluid_img_path)):
@@ -154,6 +175,16 @@ if theme == 'fluid':
 
                     # 对head_lines进行处理
                     head_lines.append(f'title: {dir}\n')
+
+                    if dir_added:
+                        head_lines.append(f'date: {now}\n')
+                        head_lines.append(f'updated: {now}\n')
+                    elif dir_modified:
+                        if len(posts_update_dict) != 0 and dir in posts_update_dict.keys():
+                            head_lines.append(
+                                f'date: {posts_update_dict[dir]}\n')
+                            head_lines.append(f'updated: {now}\n')
+
                     # date和updated都设置为当前时间
                     if not os.path.exists(os.path.join(fluid_posts_path, dir+'.md')):
                         head_lines.append(f'date: {now}\n')
