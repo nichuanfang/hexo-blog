@@ -102,7 +102,7 @@ sticky:
 
 ### 主题便签
 
-success
+> success
 
 ```bash
 {% note success %}
@@ -110,49 +110,49 @@ success
 {% endnote %}
 ```
 
-primary
+> primary
 
 ```bash
 {% note primary %}
 {% endnote %}
 ```
 
-secondary
+> secondary
 
 ```bash
 {% note secondary %}
 {% endnote %}
 ```
 
-success
+> success
 
 ```bash
 {% note success %}
 {% endnote %}
 ```
 
-danger
+> danger
 
 ```bash
 {% note danger %}
 {% endnote %}
 ```
 
-warning
+> warning
 
 ```warning
 {% note warning %}
 {% endnote %}
 ```
 
-info
+> info
 
 ```bash
 {% note info %}
 {% endnote %}
 ```
 
-light
+> light
 
 ```bash
 {% note light %}
