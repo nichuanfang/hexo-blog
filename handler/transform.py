@@ -110,16 +110,18 @@ if theme == 'fluid':
                     with open(os.path.join(fluid_root, fluid_file), 'r', encoding='utf-8') as f:
                         lines = f.readlines()
                         for line in lines:
-                            post_name = None
-                            date = None
+                            post_date_item = {}
                             if line.startswith('title:'):
-                                post_name = line.split(':', 1)[1].strip()
+                                post_date_item['post_name'] = line.split(':', 1)[
+                                    1].strip()
                             elif line.startswith('date:'):
-                                date = line.split(':', 1)[1].strip()
-                            else:
-                                continue
-                            if post_name and date:
-                                posts_update_dict[post_name] = date
+                                post_date_item['date'] = line.split(':', 1)[
+                                    1].strip()
+                            elif line.startswith('updated:'):
+                                post_date_item['updated'] = line.split(
+                                    ':', 1)[1].strip()
+                        posts_update_dict[post_date_item['post_name']
+                                          ] = post_date_item
 
         shutil.rmtree(os.path.join(fluid_posts_path))
 
@@ -181,13 +183,31 @@ if theme == 'fluid':
                         head_lines.append(f'updated: {now}\n')
                     elif dir_modified:
                         if len(posts_update_dict) != 0 and dir in posts_update_dict.keys():
-                            head_lines.append(
-                                f'updated: {posts_update_dict[dir]}\n')
+                            if 'date' in posts_update_dict[dir].keys():
+                                head_lines.append(
+                                    f'date: {posts_update_dict[dir]["date"]}\n')
+                            else:
+                                head_lines.append(f'date: {now}\n')
+                            head_lines.append(f'updated: {now}\n')
                         else:
+                            head_lines.append(f'date: {now}\n')
                             head_lines.append(f'updated: {now}\n')
                     else:
-                        head_lines.append(f'date: {now}\n')
-                        head_lines.append(f'updated: {now}\n')
+                        # 没改动 空部署
+                        if len(posts_update_dict) != 0 and dir in posts_update_dict.keys():
+                            if 'date' in posts_update_dict[dir].keys():
+                                head_lines.append(
+                                    f'date: {posts_update_dict[dir]["date"]}\n')
+                            else:
+                                head_lines.append(f'date: {now}\n')
+                            if 'updated' in posts_update_dict[dir].keys():
+                                head_lines.append(
+                                    f'updated: {posts_update_dict[dir]["updated"]}\n')
+                            else:
+                                head_lines.append(f'updated: {now}\n')
+                        else:
+                            head_lines.append(f'date: {now}\n')
+                            head_lines.append(f'updated: {now}\n')
 
                     # 对left_lines的图片进行替换
                     for i in range(len(left_lines)):
