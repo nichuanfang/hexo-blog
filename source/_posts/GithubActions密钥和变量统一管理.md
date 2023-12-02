@@ -8,6 +8,8 @@ banner_img_ratio: 37
 # 置顶配置  数字越大优先级越高
 # sticky:
 title: GithubActions密钥和变量统一管理
+date: 2023-12-02 17:15:58
+updated: 2023-12-02 17:15:58
 banner_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
 index_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
 ---
