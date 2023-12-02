@@ -196,9 +196,10 @@ jobs:
         working-directory: ./hexo-blog
         env:
           THEME: ${{ vars.THEME }}
-          CHANGES_AM: ${{ steps.changed_files.outputs.added_modified }}
+          CHANGES_ADD: ${{ steps.changed_files.outputs.added }}
+          CHANGES_MOD: ${{ steps.changed_files.outputs.modified }}
         run: |
-          python transform.py $THEME $CHANGES_AM
+          python transform.py $THEME $CHANGES_ADD $CHANGES_MOD
 
       - name: 安装npm依赖
         working-directory: ./hexo-blog-fluid

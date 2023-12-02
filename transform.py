@@ -1,3 +1,4 @@
+from calendar import c
 import os
 import datetime
 import sys
@@ -11,14 +12,19 @@ img_regex = re.compile(r'[(](.*?)[)]', re.S)
 jpg_png_pattern = re.compile('.(jpg|png)$')
 
 theme = sys.argv[1]
-# 新增/修改的文件
-changes = sys.argv[2]
+# 新增的文件
+changes_add = sys.argv[2]
+# 修改的文件
+changes_modify = sys.argv[3]
 # [".github/workflows/pages.yml","posts/python学习/index.md"]
 try:
-    change_files = changes.replace(
+    change_files_add = changes_add.replace(
+        '[', '').replace(']', '').replace('"', '').split(',')
+    change_files_modify = changes_modify.replace(
         '[', '').replace(']', '').replace('"', '').split(',')
 except:
-    change_files = []
+    change_files_add = []
+    change_files_modify = []
 # if len(change_files) == 0:
 #     exit(0)
 # 获取当前时间  格式为 yyyy-mm-dd hh:mm:ss
@@ -103,11 +109,22 @@ if theme == 'fluid':
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
+            # 如果posts/{dir}/目录没有md文件 直接跳过
+            if not os.path.exists(os.path.join(root, dir, 'index.md')):
+                continue
+
             # 标记该文档是否需要更新
-            dir_changed = False
-            for change in change_files:
+            dir_added = False
+            dir_modified = False
+            for change in change_files_add:
+                # 说明新增了文章
+                if change == f'posts/{dir}/index.md':
+                    dir_added = True
+                    break
+            for change in change_files_modify:
+                # 只要文章文件夹有改动 就说明修改了文章
                 if change.__contains__(f'posts/{dir}/'):
-                    dir_changed = True
+                    dir_modified = True
                     break
 
             for post_root, post_dirs, post_files in os.walk(os.path.join(root, dir)):
@@ -149,9 +166,11 @@ if theme == 'fluid':
                                     head_lines.append(line)
                                     break
                         # posts/python学习/index.md
-                    if dir_changed:
+                    if dir_added:
+                        # 新增
                         head_lines.append(f'updated: {now}\n')
-                    else:
+                    elif dir_modified:
+                        # 修改
                         # 读取os.path.join(fluid_posts_path,dir+'.md')文件的updated
                         with open(os.path.join(fluid_posts_path, dir+'.md'), 'r', encoding='utf-8') as f:
                             lines = f.readlines()
