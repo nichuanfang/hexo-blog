@@ -100,7 +100,7 @@ if theme == 'fluid':
 
     # 处理删除的文章
     for change_m in change_files_m:
-        if change_m.startswith('posts/'):
+        if change_m.startswith('posts/') and change_m.endswith('.md'):
             # 删除对应的文章
             dir = change_m.split('/')[1]
             # 删除对应的文章文件夹
@@ -113,9 +113,6 @@ if theme == 'fluid':
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
-            # 只要一下文件做变更 视为更新文档
-            assert_list = ['index.md', 'banner.jpg', 'banner.png',
-                           'banner.webp', 'index.jpg', 'index.png', 'index.webp']
             # 标记该文档是否需要更新
             dir_changed = False
             for change_am in change_files_am:
