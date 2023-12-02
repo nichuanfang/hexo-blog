@@ -18,7 +18,16 @@ sticky:
 5. `banner_img_ratio`: banner 图片比例
 6. `sticky`: 置顶配置 数字越大优先级越高
 
-> [!NOTE]
+```BASH
+tags:
+categories:
+index_img_url:
+banner_img_url:
+banner_img_ratio:
+sticky:
+```
+
+> [!TIP]
 >
 > - 如果配置了 index_img_url,则当前文件夹下的 index.jpg 无效
 > - 如果配置了 banner_img_url,则当前文件夹下的 banner.jpg 无效
@@ -80,13 +89,21 @@ sticky:
 
 使用折叠块，可以折叠代码、图片、文字等任何内容，你可以在 markdown 中按如下格式：
 
+<details>
+<summary>Click me</summary>
+我是折叠块
+</details>
+
+
 ```bash
-{% fold info @title %}
-需要折叠的一段内容，支持 markdown
-{% endfold %}
+<details>
+<summary>Click me</summary>
+我是折叠块
+</details>
+
 ```
 
-> info: 和行内标签类似的可选参数 title: 折叠块上的标题
+> summary设置折叠块上的标题
 
 ## 分类
 
