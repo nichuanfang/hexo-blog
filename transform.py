@@ -93,14 +93,14 @@ if theme == 'fluid':
                 if not ('banner.webp' in post_files):
                     post_files.append('banner.webp')
 
-    if os.path.exists(os.path.join(fluid_posts_path, dir)):
-        shutil.rmtree(os.path.join(fluid_posts_path, dir))
+    if os.path.exists(os.path.join(fluid_posts_path)):
+        shutil.rmtree(os.path.join(fluid_posts_path))
     else:
-        os.mkdir(os.path.join(fluid_posts_path, dir))
-    if os.path.exists(os.path.join(fluid_img_path, dir)):
-        shutil.rmtree(os.path.join(fluid_img_path, dir))
+        os.mkdir(os.path.join(fluid_posts_path))
+    if os.path.exists(os.path.join(fluid_img_path)):
+        shutil.rmtree(os.path.join(fluid_img_path))
     else:
-        os.mkdir(os.path.join(fluid_img_path, dir))
+        os.mkdir(os.path.join(fluid_img_path))
     # 遍历posts文件夹
     for root, dirs, files in os.walk('posts'):
         for dir in dirs:
