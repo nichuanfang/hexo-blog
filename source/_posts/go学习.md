@@ -3,8 +3,8 @@ tags: go
 categories: 技术
 banner_img_ratio: 30
 title: go学习
-date: 2023-12-02 17:15:58
-updated: 2023-12-02 17:15:58
+date: 2023-12-02 17:19:06
+updated: 2023-12-02 17:19:06
 banner_img: /img/post/go学习/banner.webp
 index_img: /img/post/go学习/banner.webp
 ---
@@ -28,7 +28,6 @@ go 的优点:
 
 ```go
 // 声明变量
-
 var a int
 var b string
 var c bool
