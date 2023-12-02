@@ -26,21 +26,25 @@ sticky:
 
 ## 便签
 
-> [!NOTE]  
-> [!NOTE]  
+> [!NOTE]
+>
+> 这是笔记内容
 
 > [!TIP]
-> [!TIP]
+>
+> 这是提示内容
 
-> [!IMPORTANT]  
-> [!IMPORTANT]  
+> [!IMPORTANT]
+>
+> 这是重要内容
 
-> [!WARNING]  
-> [!WARNING]  
+> [!WARNING]
+>
+> 这是注意内容
 
 > [!CAUTION]
-> [!CAUTION]
-
+>
+> 这是警告内容
 
 ## 折叠块
 
