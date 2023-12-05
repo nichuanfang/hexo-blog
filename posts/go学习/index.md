@@ -4,23 +4,13 @@ categories: 技术
 banner_img_ratio: 30
 ---
 
-原文：[Learning Go — from zero to hero](https://www.freecodecamp.org/news/learning-go-from-zero-to-hero-d2a3223b3d86/)，作者：[Milap Neupane](https://www.freecodecamp.org/news/author/milapneupane/)
+{% note success %}
+  让我们先对 Go（或称 Golang ）做一个小小的介绍。Go 是由谷歌工程师 Robert Griesemer、Rob Pike 和 Ken Thompson 设计的。它是一种静态类型的、编译的语言。第一个版本于 2012 年 3 月作为开源版本发布。在许多编程语言中，有许多方法来解决一个特定的问题。程序员要花很多时间去思考解决它的最佳方法。Go 却相信用较少的功能——只有一种正确的方式来解决问题,这为开发人员节省了时间，并使大型代码库易于维护。 Go 中没有像 `maps` 和 `filters` 这样的 “表达性”功能。{% endnote %}
 
-让我们先对 Go（或称 Golang ）做一个小小的介绍。Go 是由谷歌工程师 Robert Griesemer、Rob Pike 和 Ken Thompson 设计的。它是一种静态类型的、编译的语言。第一个版本于 2012 年 3 月作为开源版本发布。
-
-> “Go 是一种开源的编程语言，它使人们能够轻松地构建简单、可靠和高效的软件”。- GoLang
-
-在许多编程语言中，有许多方法来解决一个特定的问题。程序员要花很多时间去思考解决它的最佳方法。
-
-Go 却相信用较少的功能——只有一种正确的方式来解决问题。
-
-这为开发人员节省了时间，并使大型代码库易于维护。 Go 中没有像 `maps` 和 `filters` 这样的 “表达性”功能。
-
-> “当你有增加表现力的功能时，通常会增加系统开销”—— Rob Pike
+> - “Go 是一种开源的编程语言，它使人们能够轻松地构建简单、可靠和高效的软件”。- GoLang
+> - “当你有增加表现力的功能时，通常会增加系统开销”—— Rob Pike
 
 ![1*AUiSG5Gqz8MzaGCvGpckGA](https://cdn-media-1.freecodecamp.org/images/1*AUiSG5Gqz8MzaGCvGpckGA.png)
-
-最近发表的新的 golang 标志：[https://blog.golang.org/go-brand](https://blog.golang.org/go-brand)
 
 ### 入门
 
@@ -41,7 +31,9 @@ Go 中的 workspace 是由环境变量 `GOPATH` 定义的。
 设置 `GOPATH` 到你想要的目录。现在，让我们把它添加到 `~/workspace` 文件夹内。
 
 ```shell
-# export env export GOPATH=~/workspace # go inside the workspace directory cd ~/workspace
+# export env export GOPATH=~/workspace
+
+# go inside the workspace directory cd ~/workspace
 ```
 
 在我们刚刚创建的 workspace 文件夹中创建 `main.go` 文件，其中包含以下代码。
@@ -49,7 +41,11 @@ Go 中的 workspace 是由环境变量 `GOPATH` 定义的。
 #### Hello World
 
 ```go
-package main import ( "fmt" ) func main(){ fmt.Println("Hello World!") }
+package main import ( "fmt" )
+
+func main(){
+  fmt.Println("Hello World!")
+}
 ```
 
 在上面的例子中，`fmt`是 Go 中的一个内置包，它实现了用于格式化 I/O 输出的函数。
@@ -118,7 +114,11 @@ uint, uint8, uint16, uint32, uint64, uintptr(无符号整型，长度跟平台�
 Go 也支持复数类型，可以用 `complex64` 和 `complex128` 来声明。
 
 ```go
-var a bool = true var b int = 1 var c string = 'hello world' var d float32 = 1.222 var x complex128 = cmplx.Sqrt(-5 + 12i)
+var a bool = true
+var b int = 1
+var c string = 'hello world'
+var d float32 = 1.222
+var x complex128 = cmplx.Sqrt(-5 + 12i)
 ```
 
 #### 数组、切片和 Maps
@@ -168,13 +168,20 @@ numbers = append(numbers, 1, 2, 3, 4)
 另一种增加切片容量的方法是使用 copy 函数。简单地创建另一个容量更大的片断，并将原来的切片复制到新创建的切片上：
 
 ```go
-// create a new slice number2 := make([]int, 15) // copy the original slice to new slice copy(number2, number)
+// create a new slice number2 := make([]int, 15)
+
+// copy the original slice to new slice copy(number2, number)
 ```
 
 我们可以创建一个切片的子切片。这可以通过以下命令简单地完成：
 
 ```go
-// initialize a slice with 4 len and values number2 = []int{1,2,3,4} fmt.Println(numbers) // -> [1 2 3 4] // create sub slices slice1 := number2[2:] fmt.Println(slice1) // -> [3 4] slice2 := number2[:3] fmt.Println(slice2) // -> [1 2 3] slice3 := number2[1:4] fmt.Println(slice3) // -> [2 3 4]
+// initialize a slice with 4 len and values number2 = []int{1,2,3,4} fmt.Println(numbers)
+// -> [1 2 3 4]
+// create sub slices slice1 := number2[2:] fmt.Println(slice1)
+// -> [3 4] slice2 := number2[:3] fmt.Println(slice2)
+// -> [1 2 3] slice3 := number2[1:4] fmt.Println(slice3)
+// -> [2 3 4]
 ```
 
 Maps 是 Go 中的一种数据类型，它将键映射到值。我们可以使用以下命令来定义一个 map：
@@ -186,7 +193,10 @@ var m map[string]int
 `m` 是新的 map 变量，它的键是 `string` 类型， 值是 `integers` 类型。我们很容易在 map 上添加键值对：
 
 ```go
-// adding key/value m['clearity'] = 2 m['simplicity'] = 3 // printing the values fmt.Println(m['clearity']) // -> 2 fmt.Println(m['simplicity']) // -> 3
+// adding key/value m['clearity'] = 2 m['simplicity'] = 3
+// printing the values fmt.Println(m['clearity'])
+// -> 2 fmt.Println(m['simplicity'])
+// -> 3
 ```
 
 ### 类型转换
@@ -194,7 +204,8 @@ var m map[string]int
 一种类型的数据类型可以通过类型转换转换为另一种类型。让我们看看一个简单的类型转换：
 
 ```go
-a := 1.1 b := int(a) fmt.Println(b) //-> 1
+a := 1.1 b := int(a) fmt.Println(b)
+//-> 1
 ```
 
 不是所有类型的数据类型都可以转换为另一种类型。请确保数据类型与转换的内容相匹配。
@@ -206,7 +217,8 @@ a := 1.1 b := int(a) fmt.Println(b) //-> 1
 对于条件性语句，我们可以使用 if-else 语句，如下例所示。请确保大括号与条件语句在同一行。
 
 ```go
-if num := 9; num < 0 { fmt.Println(num, "is negative") } else if num < 10 { fmt.Println(num, "has 1 digit") } else { fmt.Println(num, "has multiple digits") }
+if num := 9; num < 0 { fmt.Println(num, "is negative") }
+ else if num < 10 { fmt.Println(num, "has 1 digit") } else { fmt.Println(num, "has multiple digits") }
 ```
 
 #### switch case
