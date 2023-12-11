@@ -1017,7 +1017,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: /img/bg/default.webp
+  banner_img: /img/bg/default/5_31.webp
   banner_img_height: 62
   banner_mask_alpha: 0
   # 重定向到首页的延迟(毫秒)
