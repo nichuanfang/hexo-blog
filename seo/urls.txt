@@ -12,8 +12,8 @@ https://blog.jaychou.site/2023/12/02/%E6%B3%9B%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%
 https://blog.jaychou.site/
 https://blog.jaychou.site/tags/GithubActions/
 https://blog.jaychou.site/tags/hexo%E4%B8%BB%E9%A2%98/
-https://blog.jaychou.site/tags/go/
 https://blog.jaychou.site/tags/test/
+https://blog.jaychou.site/tags/go/
 https://blog.jaychou.site/tags/tools/
 https://blog.jaychou.site/tags/music/
 https://blog.jaychou.site/tags/youtube/
