@@ -213,6 +213,7 @@ jobs:
         run: |
           python handle.py
           rm -rf ../hexo-blog-vercel/*
+          cp -rf vercel.json ../hexo-blog-vercel
           cp -rf ./public/* ../hexo-blog-vercel
 
       # 更新hexo-blog项目
