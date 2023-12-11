@@ -54,7 +54,7 @@ $(document).ready(function () {
     var currentPage = 1
     var itemsPerPage = 12
     // 定义滚动间隔时间和滚动阈值
-    var scrollInterval = 1000 // 滚动间隔时间，单位为毫秒
+    var scrollInterval = 500 // 滚动间隔时间，单位为毫秒
     var scrollThreshold = 200 // 滚动阈值，表示距离页面底部的距离，单位为像素
 
     // 定义滚动计时器
