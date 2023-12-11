@@ -92,6 +92,13 @@ post_list.append('public/archives/index.html')
 post_list.append('public/categories/index.html')
 post_list.append('public/tags/index.html')
 post_list.append('public/culture/index.html')
+# 文艺
+post_list.append('public/culture/books/index.html')
+post_list.append('public/culture/documentaries/index.html')
+post_list.append('public/culture/movies/index.html')
+post_list.append('public/culture/music/index.html')
+post_list.append('public/culture/shows/index.html')
+post_list.append('public/culture/variety-show/index.html')
 post_list.append('public/links/index.html')
 post_list.append('public/index.html')
 post_list.append('public/404.html')
@@ -107,7 +114,8 @@ for post in post_list:
         print(f'正在对文章: {post_name}进行处理')
         if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31   42-29=13
-            if post_name == 'culture':
+            if post_name == 'culture' or post_name == 'books' or post_name == 'documentaries' or post_name == 'movies' \
+                    or post_name == 'music' or post_name == 'shows' or post_name == 'variety-show':
                 img_num = 3
             elif post_name == 'links':
                 img_num = 4
