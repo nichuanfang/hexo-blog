@@ -118,7 +118,7 @@ for post in post_list:
                 img_num = 2
             else:
                 img_num = 6
-            default_ratio = default_img_dict[str(img_num)]["ratio"]
+            banner_img_ratio = default_img_dict[str(img_num)]["ratio"]
         else:
             # 读取/source/_posts/文章.md里的banner_img_ratio
             raw_post_path = os.path.join(
