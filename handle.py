@@ -110,8 +110,11 @@ for post in post_list:
 
         print(f'正在对文章: {post_name}进行处理')
         if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture']:
-            # 对于archives, categories, links页面  banner_img_ratio默认为31
-            banner_img_ratio = default_ratio
+            # 对于archives, categories, links页面  banner_img_ratio默认为31   42-29=13
+            if post_name == 'culture':
+                banner_img_ratio = default_ratio-13
+            else:
+                banner_img_ratio = default_ratio
         else:
             # 读取/source/_posts/文章.md里的banner_img_ratio
             raw_post_path = os.path.join(
