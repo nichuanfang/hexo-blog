@@ -95,17 +95,11 @@ figure {
 
 /* 文艺相关的样式 */
 
-@media (max-width: 767px) {
-    .post-body {
-            text-align: justify;
-    }
-}
-
-
-/* .post-body {
+.post-body {
+    text-align: justify;
     font-family: LXGWWenKaiLite, 'PingFang SC', 'Microsoft YaHei', sans-serif;
     overflow-wrap: break-word;
-} */
+}
 
 .subpage-box {
     display: flex;
@@ -158,4 +152,69 @@ figure {
     margin: 0;
     object-fit: cover;
     opacity: .9;
+}
+
+.media:nth-Child(2n-1) {
+    padding-right: 8px;
+}
+
+.media {
+    width: 50%;
+    height: 150px;
+    float: left;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.media-cover {
+    width: 100px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+}
+
+.media-meta {
+    width: calc(100% - 100px);
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.media-meta-item.title {
+    font-weight: 700;
+    font-size: .85em;
+}
+
+.media-meta-item {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: .8em;
+    line-height: 1.8em;
+}
+
+.media-meta-item .author {
+    opacity: .65;
+}
+
+.media-meta-item .star-score {
+    color: #b96c68;
+    height: 0;
+    display: inline;
+    float: right;
+    position: relative;
+}
+
+.media-meta-item.intro {
+    text-align: justify;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }

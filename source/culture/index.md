@@ -16,7 +16,7 @@ comments: false
         <img alt="纪录片" data-src="/img/bg/culture/jilupian_cover.webp" src="/img/bg/culture/jilupian_cover.webp" data-loaded="true"></a>
     </div>
     <div class="subpage-box-cover">
-      <a href="series/" data-pjax-state="">
+      <a href="shows/" data-pjax-state="">
         <p class="image-caption">剧集</p>
         <img alt="剧集" data-src="/img/bg/culture/show_cover.webp" src="/img/bg/culture/show_cover.webp" data-loaded="true"></a>
     </div>
