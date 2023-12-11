@@ -108,7 +108,7 @@ for post in post_list:
         post_name = post.replace('\\', '/').split('/')[-2]
 
         print(f'正在对文章: {post_name}进行处理')
-        if post_name in ['archives', 'categories', 'public', 'tags', 'links']:
+        if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31
             banner_img_ratio = default_ratio
         else:
