@@ -1007,7 +1007,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/bg/default/3_31.webp
+  banner_img: /img/bg/default/3_18.webp
   banner_img_height: 45
   banner_mask_alpha: 0
 
