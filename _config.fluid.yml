@@ -1088,7 +1088,7 @@ links:
 #---------------------------
 
 static_prefix:
-  # 内部静态
+  # 内部 静态
   # Internal static
   internal_js: /js
   internal_css: /css
