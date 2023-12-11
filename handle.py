@@ -112,7 +112,7 @@ for post in post_list:
         if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31   42-29=13
             if post_name == 'culture':
-                banner_img_ratio = str(int(default_ratio)-13)
+                banner_img_ratio = str(int(default_ratio)-8)
             else:
                 banner_img_ratio = default_ratio
         else:
