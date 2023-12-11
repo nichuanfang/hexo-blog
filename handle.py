@@ -85,11 +85,6 @@ for default_root, default_dirs, default_files in os.walk(os.path.join('source', 
             'file_name': default_file,
             'ratio': default_file[:-5].split('_')[1]
         }
-# 随机选取一个img/bg/default的图片 拷贝到img/bg/default.webp
-img_num = random.randint(1, 6)
-shutil.copy2(os.path.join('source', 'img', 'bg', 'default',
-             f'{default_img_dict[str(img_num)]["file_name"]}'), os.path.join('public', 'img', 'bg', 'default.webp'))
-default_ratio = default_img_dict[str(img_num)]["ratio"]
 post_list = get_public_list()
 
 # 添加归档,分类,友链页面
@@ -112,9 +107,26 @@ for post in post_list:
         if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31   42-29=13
             if post_name == 'culture':
-                banner_img_ratio = str(int(default_ratio)-8)
+                img_num = 6
+                tag = 'culture'
+            elif post_name == 'links':
+                img_num = 4
+                tag = 'links'
+            elif post_name == 'archives':
+                img_num = 3
+                tag = 'archives'
+            elif post_name == 'categories':
+                img_num = 1
+                tag = 'categories'
+            elif post_name == 'tags':
+                img_num = 2
+                tag = 'tags'
             else:
-                banner_img_ratio = default_ratio
+                img_num = 5
+                tag = 'index'
+            shutil.copy2(os.path.join('source', 'img', 'bg', 'default',
+                                      f'{default_img_dict[str(img_num)]["file_name"]}'), os.path.join('public', 'img', 'bg', f'{tag}_default.webp'))
+            default_ratio = default_img_dict[str(img_num)]["ratio"]
         else:
             # 读取/source/_posts/文章.md里的banner_img_ratio
             raw_post_path = os.path.join(
