@@ -358,6 +358,12 @@ navbar:
         link: '/categories/',
         icon: 'iconfont icon-category-fill',
       }
+    - {
+        key: 'culture',
+        link: '/culture/',
+        icon: 'iconfont icon-music',
+        name: '文艺',
+      }
     - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
     # - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }
@@ -1002,7 +1008,7 @@ about:
 #---------------------------
 page:
   banner_img: /img/bg/default.webp
-  banner_img_height: 62
+  banner_img_height: 30
   banner_mask_alpha: 0
 
 #---------------------------
