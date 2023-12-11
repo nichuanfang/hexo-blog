@@ -1,13 +1,12 @@
-from calendar import c
-from math import e
-import os
 import datetime
-import sys
+import os
 import re
 import shutil
-from PIL import Image
-import requests
+import sys
 from io import BytesIO
+
+import requests
+from PIL import Image
 
 img_regex = re.compile(r'[(](.*?)[)]', re.S)
 jpg_png_pattern = re.compile('.(jpg|png)$')
@@ -43,13 +42,13 @@ def file_to_webp(input_path: str, output_path: str):
     im = Image.open(input_path).convert('RGB')
     quality = 92
     # 如果图片大小大于2/4m 则调整quality
-    if os.path.getsize(input_path) > 2*1024*1024 and os.path.getsize(input_path) < 4*1024*1024:
+    if os.path.getsize(input_path) > 2 * 1024 * 1024 and os.path.getsize(input_path) < 4 * 1024 * 1024:
         quality = 85
-    if os.path.getsize(input_path) >= 4*1024*1024:
+    if os.path.getsize(input_path) >= 4 * 1024 * 1024:
         quality = 80
     # 调整图片分辨率
     if im.size[0] > 1920:
-        im = im.resize((1920, int(im.size[1]*1920/im.size[0])))
+        im = im.resize((1920, int(im.size[1] * 1920 / im.size[0])))
     im.save(output_path, 'WEBP', quality=quality)
     return output_path
 
@@ -59,7 +58,8 @@ if theme == 'fluid':
         os.path.pardir, 'hexo-blog-fluid', 'source', '_posts')
     fluid_img_path = os.path.join(
         os.path.pardir, 'hexo-blog-fluid', 'source', 'img', 'post')
-
+    
+    
     def dl_img(head_lines: list, output_path: str, post_files: list):
         """下载图片到指定文件夹
 
@@ -83,12 +83,12 @@ if theme == 'fluid':
             im = Image.open(BytesIO(response.content))
             quality = 92
             # 如果图片大小大于2/4m 则调整quality
-            if res_content.__sizeof__() > 2*1024*1024 and res_content.__sizeof__() < 4*1024*1024:
+            if res_content.__sizeof__() > 2 * 1024 * 1024 and res_content.__sizeof__() < 4 * 1024 * 1024:
                 quality = 85
-            if res_content.__sizeof__() >= 4*1024*1024:
+            if res_content.__sizeof__() >= 4 * 1024 * 1024:
                 quality = 80
             if im.size[0] > 1920:
-                im = im.resize((1920, int(im.size[1]*1920/im.size[0])))
+                im = im.resize((1920, int(im.size[1] * 1920 / im.size[0])))
             if type == 'index_img_url':
                 im.save(os.path.join(output_path, 'index.webp'),
                         'WEBP', quality=quality)
@@ -99,9 +99,10 @@ if theme == 'fluid':
                         'WEBP', quality=quality)
                 if not ('banner.webp' in post_files):
                     post_files.append('banner.webp')
-
+    
+    
     posts_update_dict = {}
-
+    
     if os.path.exists(os.path.join(fluid_posts_path)):
         # 读取文章的更新时间 写入到posts_update_dict
         for fluid_root, fluid_dirs, fluid_files in os.walk(fluid_posts_path):
@@ -121,10 +122,10 @@ if theme == 'fluid':
                                 post_date_item['updated'] = line.split(
                                     ':', 1)[1].strip()
                     posts_update_dict[post_date_item['post_name']
-                                      ] = post_date_item
-
+                    ] = post_date_item
+        
         shutil.rmtree(os.path.join(fluid_posts_path))
-
+    
     if os.path.exists(os.path.join(fluid_img_path)):
         shutil.rmtree(os.path.join(fluid_img_path))
     os.mkdir(os.path.join(fluid_posts_path))
@@ -135,7 +136,7 @@ if theme == 'fluid':
             # 如果posts/{dir}/目录没有md文件 直接跳过
             if not os.path.exists(os.path.join(root, dir, 'index.md')):
                 continue
-
+            
             # 标记该文档是否需要更新
             dir_added = False
             dir_modified = False
@@ -149,7 +150,7 @@ if theme == 'fluid':
                 if change.__contains__(f'posts/{dir}/'):
                     dir_modified = True
                     break
-
+            
             for post_root, post_dirs, post_files in os.walk(os.path.join(root, dir)):
                 if 'index.md' not in post_files:
                     continue
@@ -162,22 +163,22 @@ if theme == 'fluid':
                     if post_file.endswith(('.jpg', 'png', 'webp')):
                         shutil.copy2(os.path.join(post_root, post_file), os.path.join(
                             fluid_img_path, dir, post_file))
-
+                
                 # 处理post_file的头部
                 with open(os.path.join(post_root, 'index.md'), 'r+', encoding='utf-8') as f:
                     lines = f.readlines()
                     try:
                         first_index = lines.index('---\n')
-                        last_index = lines.index('---\n', first_index+1)
-                        head_lines = lines[first_index+1:last_index]
-                        left_lines = lines[last_index+1:]
+                        last_index = lines.index('---\n', first_index + 1)
+                        head_lines = lines[first_index + 1:last_index]
+                        left_lines = lines[last_index + 1:]
                     except:
                         head_lines = []
                         left_lines = lines
-
+                    
                     # 对head_lines进行处理
                     head_lines.append(f'title: {dir}\n')
-
+                    
                     if dir_added:
                         head_lines.append(f'date: {now}\n')
                         head_lines.append(f'updated: {now}\n')
@@ -208,10 +209,11 @@ if theme == 'fluid':
                         else:
                             head_lines.append(f'date: {now}\n')
                             head_lines.append(f'updated: {now}\n')
-
+                    
                     # 对left_lines的图片进行替换
                     for i in range(len(left_lines)):
-                        if left_lines[i].__contains__('.jpg') or left_lines[i].__contains__('.png') or left_lines[i].__contains__('.webp'):
+                        if left_lines[i].__contains__('.jpg') or left_lines[i].__contains__('.png') or left_lines[
+                            i].__contains__('.webp'):
                             # 根据正则表达式[^/\\(]+.(jpg|png) 找出符合的字符串
                             result_list: list[str] = img_regex.findall(
                                 left_lines[i])
@@ -225,11 +227,11 @@ if theme == 'fluid':
                                         # 判断该图片是否为jpg或者png 则转为webp
                                         if result.split('.')[-1] in ['jpg', 'png']:
                                             file_to_webp(os.path.join(post_root, result), os.path.join(
-                                                fluid_img_path, dir, result.split('.')[0]+'.webp'))
+                                                fluid_img_path, dir, result.split('.')[0] + '.webp'))
                                             os.remove(os.path.join(
                                                 fluid_img_path, dir, result))
                                             left_lines[i] = left_lines[i].replace(
-                                                result, f'/img/post/{dir}/{result.split(".")[0]+".webp"}')
+                                                result, f'/img/post/{dir}/{result.split(".")[0] + ".webp"}')
                                         else:
                                             # 如果是/开头 则在前面加上posts/目录名
                                             if result.startswith('/'):
@@ -240,7 +242,7 @@ if theme == 'fluid':
                                                     result, f'/img/post/{dir}/{result}')
                                     except:
                                         continue
-
+                    
                     # 处理index图和banner图
                     # 如果配置了index_img_url/banner_img_url 下载到当前文件夹下
                     filtered_img_res = [item for item in head_lines if item.startswith(
@@ -256,28 +258,28 @@ if theme == 'fluid':
                         banner_extend = 'png'
                     elif 'banner.jpg' in post_files:
                         banner_extend = 'jpg'
-
+                    
                     if 'index.webp' in post_files:
                         index_extend = 'webp'
                     elif 'index.png' in post_files:
                         index_extend = 'png'
                     elif 'index.jpg' in post_files:
                         index_extend = 'jpg'
-
+                    
                     if banner_extend and index_extend:
                         # 如果图片为jpg或者png 则转为webp
                         if banner_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'banner.{banner_extend}'), os.path.join(
                                 fluid_img_path, dir, f'banner.webp'))
                             os.remove(os.path.join(fluid_img_path,
-                                      dir, f'banner.{banner_extend}'))
+                                                   dir, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
                         # 如果图片为jpg或者png 则转为webp
                         if index_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'index.{index_extend}'), os.path.join(
                                 fluid_img_path, dir, f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,
-                                      dir, f'index.{index_extend}'))
+                                                   dir, f'index.{index_extend}'))
                             index_extend = 'webp'
                         head_lines.append(
                             f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
@@ -289,7 +291,7 @@ if theme == 'fluid':
                             file_to_webp(os.path.join(post_root, f'banner.{banner_extend}'), os.path.join(
                                 fluid_img_path, dir, f'banner.webp'))
                             os.remove(os.path.join(fluid_img_path,
-                                      dir, f'banner.{banner_extend}'))
+                                                   dir, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
                         head_lines.append(
                             f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
@@ -301,7 +303,7 @@ if theme == 'fluid':
                             file_to_webp(os.path.join(post_root, f'index.{index_extend}'), os.path.join(
                                 fluid_img_path, dir, f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,
-                                      dir, f'index.{index_extend}'))
+                                                   dir, f'index.{index_extend}'))
                             index_extend = 'webp'
                         head_lines.append(
                             f'banner_img: /img/post/{dir}/index.{index_extend}\n')
@@ -310,11 +312,11 @@ if theme == 'fluid':
                     else:
                         # index图和banner图都不存在
                         pass
-
+                    
                     head_lines.insert(0, '---\n')
                     head_lines.append('---\n')
                     new_lines = head_lines + left_lines
-
+                    
                     # 如果_posts文件夹不存在则创建
                     if not os.path.exists(fluid_posts_path):
                         os.mkdir(fluid_posts_path)
@@ -326,6 +328,7 @@ if theme == 'fluid':
         # for fluid_root,fluid_dirs,fluid_files in os.walk(fluid_posts_path):
         #     diff_dirs = fluid_dirs - dirs
         #     # 删除对应dir的文章
+
 elif theme == 'aurora':
     # todo
     pass
