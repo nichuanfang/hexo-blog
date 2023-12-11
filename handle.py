@@ -96,6 +96,7 @@ post_list = get_public_list()
 post_list.append('public/archives/index.html')
 post_list.append('public/categories/index.html')
 post_list.append('public/tags/index.html')
+post_list.append('public/culture/index.html')
 post_list.append('public/links/index.html')
 post_list.append('public/index.html')
 
