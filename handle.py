@@ -94,6 +94,7 @@ post_list.append('public/tags/index.html')
 post_list.append('public/culture/index.html')
 post_list.append('public/links/index.html')
 post_list.append('public/index.html')
+post_list.append('public/404.html')
 
 for post in post_list:
     # 修改html指定标签的内容
