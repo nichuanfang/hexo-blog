@@ -472,7 +472,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/bg/index_default.webp
+  banner_img: /img/bg/default/5_20.webp
 
   # 头图高度，屏幕百分比
   # Height ratio of banner  image
@@ -924,7 +924,7 @@ discuss:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/bg/archives_default.webp
+  banner_img: /img/bg/default/3_60.webp
   banner_img_height: 62
   banner_mask_alpha: 0
 
@@ -934,7 +934,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/bg/categories_default.webp
+  banner_img: /img/bg/default/1_69.webp
   banner_img_height: 62
   banner_mask_alpha: 0
 
@@ -943,7 +943,7 @@ category:
   # Options: length | name
   order_by: '-length'
 
-  # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在子分类则默认展开
+  # 层级的折叠深度，0 是全部折叠， 大于 0 后如果存在子分类则默认展开
   # Collapse depth. If 0, all posts collapsed. If greater than 0, it will be expanded by default if there are subcategories
   collapse_depth: 0
 
@@ -962,7 +962,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/bg/tags_default.webp
+  banner_img: /img/bg/default/2_50.webp
   banner_img_height: 62
   banner_mask_alpha: 0
   tagcloud:
@@ -1007,7 +1007,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/bg/culture_default.webp
+  banner_img: /img/bg/default/6_31.webp
   banner_img_height: 30
   banner_mask_alpha: 0
 
@@ -1030,7 +1030,7 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: /img/bg/links_default.webp
+  banner_img: /img/bg/default/4_31.webp
   banner_img_height: 62
   banner_mask_alpha: 0
   # 友链的成员项

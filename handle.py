@@ -108,24 +108,16 @@ for post in post_list:
             # 对于archives, categories, links页面  banner_img_ratio默认为31   42-29=13
             if post_name == 'culture':
                 img_num = 6
-                tag = 'culture'
             elif post_name == 'links':
                 img_num = 4
-                tag = 'links'
             elif post_name == 'archives':
                 img_num = 3
-                tag = 'archives'
             elif post_name == 'categories':
                 img_num = 1
-                tag = 'categories'
             elif post_name == 'tags':
                 img_num = 2
-                tag = 'tags'
             else:
                 img_num = 5
-                tag = 'index'
-            shutil.copy2(os.path.join('source', 'img', 'bg', 'default',
-                                      f'{default_img_dict[str(img_num)]["file_name"]}'), os.path.join('public', 'img', 'bg', f'{tag}_default.webp'))
             default_ratio = default_img_dict[str(img_num)]["ratio"]
         else:
             # 读取/source/_posts/文章.md里的banner_img_ratio
