@@ -472,7 +472,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/bg/default/5_20.webp
+  banner_img: /img/bg/default/6_20.webp
 
   # 头图高度，屏幕百分比
   # Height ratio of banner  image
@@ -924,7 +924,7 @@ discuss:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/bg/default/3_60.webp
+  banner_img: /img/bg/default/5_31.webp
   banner_img_height: 62
   banner_mask_alpha: 0
 
@@ -1007,7 +1007,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/bg/default/6_31.webp
+  banner_img: /img/bg/default/3_31.webp
   banner_img_height: 30
   banner_mask_alpha: 0
 
@@ -1030,7 +1030,7 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: /img/bg/default/4_31.webp
+  banner_img: /img/bg/default/4_60.webp
   banner_img_height: 62
   banner_mask_alpha: 0
   # 友链的成员项
