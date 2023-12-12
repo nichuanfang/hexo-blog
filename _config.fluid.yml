@@ -224,7 +224,7 @@ color:
   button_hover_bg_color: '#f2f3f5'
   button_hover_bg_color_dark: '#46647e'
 
-# 主题字体配置
+# 主题字体 配置
 # Font
 font:
   font_size: 16px
