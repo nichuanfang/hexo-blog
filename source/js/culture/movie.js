@@ -31,8 +31,8 @@ $(document).ready(function () {
       document.getElementById('loading').style.display = 'none'
     }
 
+    // 将10分制评分(带小数)转换为5分制评分(带小数)  并转换为星星表示
     function convertToStars(rating) {
-      // 将10分制评分(带小数)转换为5分制评分(带小数)  并转换为星星表示
       var num = parseFloat(rating) / 2
       // 如果4.3分以上 也是五星
       if (num > 4.3) {
@@ -55,6 +55,14 @@ $(document).ready(function () {
         grey_star += '☆'
       }
       return [star, grey_star]
+    }
+
+    // 对jsonData进行排序 按照last_watched_at降序排列
+    function sortJsonData(jsonData) {
+      jsonData.sort(function (a, b) {
+        return b.last_watched_at - a.last_watched_at
+      })
+      return jsonData
     }
 
     // 发起异步请求获取下一页的 json 数据的函数
@@ -90,7 +98,7 @@ $(document).ready(function () {
 
       // 获取目标容器元素
       var container = document.querySelector('.movie-culture-list')
-
+      jsonData = sortJsonData(jsonData)
       // 遍历 JSON 数据并生成对应的 <div> 元素
       jsonData.forEach(function (item) {
         // 创建 media 元素
