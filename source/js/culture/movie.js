@@ -42,6 +42,7 @@ $(document).ready(function () {
       var halfStar = num - fullStar
       var noStar = 5 - fullStar - Math.ceil(halfStar)
       var star = ''
+      var grey_star = ''
       for (var i = 0; i < fullStar; i++) {
         star += '★'
       }
@@ -51,9 +52,9 @@ $(document).ready(function () {
       }
       for (var i = 0; i < noStar; i++) {
         // 空星
-        star += ''
+        grey_star += '☆'
       }
-      return star
+      return [star, grey_star]
     }
 
     // 发起异步请求获取下一页的 json 数据的函数
@@ -130,7 +131,17 @@ $(document).ready(function () {
 
         var starScoreSpan = document.createElement('span')
         starScoreSpan.classList.add('star-score')
-        starScoreSpan.textContent = convertToStars(item.rating)
+
+        star = convertToStars(item.rating)[0]
+        grey_star = convertToStars(item.rating)[1]
+        starScoreSpan.textContent = star
+
+        // 创建starScoreSpan的grey_starSpan元素
+        var grey_starSpan = document.createElement('span')
+        grey_starSpan.classList.add('grey-star')
+        grey_starSpan.textContent = grey_star
+        starScoreSpan.appendChild(grey_starSpan)
+
         meta.appendChild(starScoreSpan)
 
         mediaMeta.appendChild(meta)

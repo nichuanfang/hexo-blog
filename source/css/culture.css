@@ -113,6 +113,10 @@
     position: relative;
 }
 
+.media-meta-item .grey-star {
+    color: #d3d3d3;
+}
+
 .media-meta-item.intro {
     text-align: justify;
     display: -webkit-box;
@@ -123,6 +127,8 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
+
+
 
 /* 加载动画容器样式 */
 .loading-container {
