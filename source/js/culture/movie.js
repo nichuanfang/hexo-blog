@@ -57,14 +57,6 @@ $(document).ready(function () {
       return [star, grey_star]
     }
 
-    // 对jsonData进行排序 按照last_watched_at降序排列
-    function sortJsonData(jsonData) {
-      jsonData.sort(function (a, b) {
-        return b.last_watched_at - a.last_watched_at
-      })
-      return jsonData
-    }
-
     // 发起异步请求获取下一页的 json 数据的函数
     function fetchNextPage(currentPage, itemsPerPage) {
       // 根据实际情况拼接下一页的 json-src
@@ -98,19 +90,29 @@ $(document).ready(function () {
 
       // 获取目标容器元素
       var container = document.querySelector('.movie-culture-list')
-      jsonData = sortJsonData(jsonData)
       // 遍历 JSON 数据并生成对应的 <div> 元素
       jsonData.forEach(function (item) {
         // 创建 media 元素
         var media = document.createElement('div')
         media.classList.add('media')
 
+        // 创建超链接 url为电影详情页  电影id为参数
+
+        var url = '/culture/movies/detail?tmdb_id=' + item.movie_id
+
         // 创建 media-cover 元素
         var mediaCover = document.createElement('div')
         mediaCover.classList.add('media-cover')
         mediaCover.style.backgroundImage =
           'url(' + coverSrc + item.cover_image_url + ')'
-        media.appendChild(mediaCover)
+        // 创建超链接 包围mediaCover
+        var mediaCoverLink = document.createElement('a')
+        mediaCoverLink.setAttribute('target', '_blank')
+        mediaCoverLink.classList.add('media-cover-link')
+        mediaCoverLink.setAttribute('href', url)
+        mediaCoverLink.appendChild(mediaCover)
+
+        media.appendChild(mediaCoverLink)
 
         // 创建 media-meta 元素
         var mediaMeta = document.createElement('div')
@@ -119,7 +121,14 @@ $(document).ready(function () {
         // 创建 title 元素
         var title = document.createElement('div')
         title.classList.add('media-meta-item', 'title')
-        title.textContent = item.movie_name
+        // 创建超链接 包围title
+        var titleLink = document.createElement('a')
+        titleLink.classList.add('title-link')
+        titleLink.setAttribute('target', '_blank')
+        titleLink.setAttribute('href', url)
+        titleLink.textContent = item.movie_name
+        title.appendChild(titleLink)
+
         mediaMeta.appendChild(title)
 
         // 创建元信息元素
