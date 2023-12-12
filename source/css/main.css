@@ -1015,7 +1015,7 @@ i.iconfont {
   --board-bg-color: #fff;
   --text-color: #3c4858;
   --sec-text-color: #718096;
---code-color: #c7254e;
+  --code-color: #c7254e;
   --post-text-color: #2c3e50;
   --post-heading-color: #428bca;
   --post-link-color: #0366d6;
@@ -1043,7 +1043,7 @@ i.iconfont {
     --board-bg-color: #252d38;
     --text-color: #c4c6c9;
     --sec-text-color: #a7a9ad;
---code-color: #f29766;
+    --code-color: #f29766;
     --post-text-color: #c4c6c9;
     --post-heading-color: #428bca;
     --post-link-color: #1589e9;
@@ -1059,7 +1059,7 @@ i.iconfont {
     --button-hover-bg-color: #46647e;
     --highlight-bg-color: #22272e;
     --inlinecode-bg-color: rgba(24, 28, 39, 0.4);
-      }
+  }
 
   :root:not([data-user-color-scheme]) img {
     -webkit-filter: brightness(0.9);
@@ -1098,30 +1098,30 @@ i.iconfont {
   }
 }
 
-    [data-user-color-scheme="dark"] {
-      --body-bg-color: #181c27;
-      --board-bg-color: #252d38;
-      --text-color: #c4c6c9;
-      --sec-text-color: #a7a9ad;
-      --code-color: #f29766;
-      --post-text-color: #c4c6c9;
-      --post-heading-color: #428bca;
-      --post-link-color: #1589e9;
-      --link-hover-color: #30a9de;
-      --link-hover-bg-color: #364151;
-      --line-color: #435266;
-      --navbar-bg-color: #1f3144;
-      --navbar-text-color: #d0d0d0;
-      --subtitle-color: #d0d0d0;
-      --scrollbar-color: #687582;
-      --scrollbar-hover-color: #9da8b3;
-      --button-bg-color: transparent;
-      --button-hover-bg-color: #46647e;
-      --highlight-bg-color: #22272e;
-      --inlinecode-bg-color: rgba(24, 28, 39, 0.4);
-    }
+[data-user-color-scheme="dark"] {
+  --body-bg-color: #181c27;
+  --board-bg-color: #252d38;
+  --text-color: #c4c6c9;
+  --sec-text-color: #a7a9ad;
+  --code-color: #f29766;
+  --post-text-color: #c4c6c9;
+  --post-heading-color: #428bca;
+  --post-link-color: #1589e9;
+  --link-hover-color: #30a9de;
+  --link-hover-bg-color: #364151;
+  --line-color: #435266;
+  --navbar-bg-color: #1f3144;
+  --navbar-text-color: #d0d0d0;
+  --subtitle-color: #d0d0d0;
+  --scrollbar-color: #687582;
+  --scrollbar-hover-color: #9da8b3;
+  --button-bg-color: transparent;
+  --button-hover-bg-color: #46647e;
+  --highlight-bg-color: #22272e;
+  --inlinecode-bg-color: rgba(24, 28, 39, 0.4);
+}
 
-  [data-user-color-scheme="dark"] img {
+[data-user-color-scheme="dark"] img {
   -webkit-filter: brightness(0.9);
   filter: brightness(0.9);
   transition: filter 0.2s ease-in-out;
@@ -1129,33 +1129,33 @@ i.iconfont {
 
 @supports (-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px)) {
 
-    [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
-    [data-user-color-scheme="dark"] .top-nav-collapse,
-    [data-user-color-scheme="dark"] .navbar-col-show {
-      background: rgba(31, 49, 68, 0.7);
-      -webkit-backdrop-filter: blur(2px);
-      backdrop-filter: blur(2px);
-    }
+  [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
+  [data-user-color-scheme="dark"] .top-nav-collapse,
+  [data-user-color-scheme="dark"] .navbar-col-show {
+    background: rgba(31, 49, 68, 0.7);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
+}
 
-  @supports not ((-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px))) {
+@supports not ((-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px))) {
 
-    [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
-    [data-user-color-scheme="dark"] .top-nav-collapse,
-    [data-user-color-scheme="dark"] .navbar-col-show {
-      background: #1f3144;
-    }
+  [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
+  [data-user-color-scheme="dark"] .top-nav-collapse,
+  [data-user-color-scheme="dark"] .navbar-col-show {
+    background: #1f3144;
   }
+}
 
-  [data-user-color-scheme="dark"] .license-box {
-    background-color: rgba(62, 75, 94, 0.35);
-    transition: background-color 0.2s ease-in-out;
-  }
+[data-user-color-scheme="dark"] .license-box {
+  background-color: rgba(62, 75, 94, 0.35);
+  transition: background-color 0.2s ease-in-out;
+}
 
-  [data-user-color-scheme="dark"] .gt-comment-admin .gt-comment-content {
-    background-color: transparent;
-    transition: background-color 0.2s ease-in-out;
-  }
+[data-user-color-scheme="dark"] .gt-comment-admin .gt-comment-content {
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
 
 
 @media print {

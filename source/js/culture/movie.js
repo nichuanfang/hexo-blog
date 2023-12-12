@@ -1,53 +1,4 @@
-// 等待文档加载完成
 $(document).ready(function () {
-  // 获取背景图像元素
-  var backgroundImage = jQuery('#background-image')
-  // 如果背景图像元素不存在，则返回
-  if (backgroundImage.length === 0) {
-    return
-  }
-  // 获取board元素
-  var board = jQuery('#board')
-  // 如果board元素不存在，则返回
-  if (board.length === 0) {
-    return
-  }
-  // 定义posDisplay和scrollDisplay变量，用于控制背景图像的显示
-  var posDisplay = false
-  var scrollDisplay = false
-  // 定义setBackgroundImagePos函数，用于设置背景图像的位置
-  var setBackgroundImagePos = function () {
-    // 获取board元素的左边距
-    var boardLeft = board[0].getClientRects()[0].left
-    // 根据左边距是否大于等于50来决定是否显示背景图像
-    posDisplay = boardLeft >= 50
-    // 设置背景图像的display和left属性
-    backgroundImage.css({
-      display: posDisplay && scrollDisplay ? 'block' : 'none',
-      left: boardLeft - 136 + 'px',
-    })
-  }
-  // 调用setBackgroundImagePos函数
-  setBackgroundImagePos()
-  // 在窗口大小调整时重新调用setBackgroundImagePos函数
-  jQuery(window).resize(setBackgroundImagePos)
-  // 获取board元素的顶部偏移量
-  var headerHeight = board.offset().top
-  // 监听页面滚动事件
-  Fluid.utils.listenScroll(function () {
-    // 获取滚动高度
-    var scrollHeight =
-      document.body.scrollTop + document.documentElement.scrollTop
-    // 根据滚动高度是否大于等于headerHeight来决定是否显示背景图像
-    scrollDisplay = scrollHeight >= headerHeight
-    // 设置背景图像的display属性
-    backgroundImage.css({
-      display: posDisplay && scrollDisplay ? 'block' : 'none',
-    })
-  })
-
-  //========================= 文艺页面的脚本==========================
-
   // 如果存在元素.culture-list的div 元素，则执行以下代码
   if (document.querySelector('.movie-culture-list')) {
     // 定义每页加载的电影数量和当前页数
@@ -67,6 +18,44 @@ $(document).ready(function () {
     var jsonSrc = cultureList.getAttribute('json-src')
     // 获取元素.culture-list的cover-src属性值
     var coverSrc = cultureList.getAttribute('cover-src')
+
+    //======================函数部分=============================
+
+    // 显示加载动画
+    function showLoadingAnimation() {
+      document.getElementById('loading').style.display = 'block'
+    }
+
+    // 隐藏加载动画
+    function hideLoadingAnimation() {
+      document.getElementById('loading').style.display = 'none'
+    }
+
+    // 发起异步请求获取下一页的 json 数据的函数
+    function fetchNextPage(currentPage, itemsPerPage) {
+      // 根据实际情况拼接下一页的 json-src
+      var nextJsonSrc =
+        jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage
+
+      fetch(nextJsonSrc)
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          // 如果数据为空，则返回
+          if (data['data']['data'].length === 0) {
+            hideLoadingAnimation()
+            data_ended = true
+          }
+          // 根据下一页的 json 数据生成子节点
+          generateMovieElements(data, coverSrc)
+          // 隐藏加载动画
+          hideLoadingAnimation()
+        })
+        .catch(function (error) {
+          console.error('Error:', error)
+        })
+    }
 
     // 生成子节点的函数
     function generateMovieElements(data, coverSrc) {
@@ -130,41 +119,7 @@ $(document).ready(function () {
       })
     }
 
-    // 显示加载动画
-    function showLoadingAnimation() {
-      document.getElementById('loading').style.display = 'block'
-    }
-
-    // 隐藏加载动画
-    function hideLoadingAnimation() {
-      document.getElementById('loading').style.display = 'none'
-    }
-
-    // 发起异步请求获取下一页的 json 数据的函数
-    function fetchNextPage(currentPage, itemsPerPage) {
-      // 根据实际情况拼接下一页的 json-src
-      var nextJsonSrc =
-        jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage
-
-      fetch(nextJsonSrc)
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (data) {
-          // 如果数据为空，则返回
-          if (data['data']['data'].length === 0) {
-            hideLoadingAnimation()
-            data_ended = true
-          }
-          // 根据下一页的 json 数据生成子节点
-          generateMovieElements(data, coverSrc)
-          // 隐藏加载动画
-          hideLoadingAnimation()
-        })
-        .catch(function (error) {
-          console.error('Error:', error)
-        })
-    }
+    //===================================================
 
     // 初始化加载
     // 发起异步请求获取第一页的 json 数据
