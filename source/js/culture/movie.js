@@ -31,6 +31,31 @@ $(document).ready(function () {
       document.getElementById('loading').style.display = 'none'
     }
 
+    function convertToStars(rating) {
+      // 将10分制评分(带小数)转换为5分制评分(带小数)  并转换为星星表示
+      var num = parseFloat(rating) / 2
+      // 如果4.3分以上 也是五星
+      if (num > 4.3) {
+        num = 5
+      }
+      var fullStar = parseInt(num)
+      var halfStar = num - fullStar
+      var noStar = 5 - fullStar - Math.ceil(halfStar)
+      var star = ''
+      for (var i = 0; i < fullStar; i++) {
+        star += '★'
+      }
+      for (var i = 0; i < halfStar; i++) {
+        // 半颗星
+        star += '☆'
+      }
+      for (var i = 0; i < noStar; i++) {
+        // 空星
+        star += ''
+      }
+      return star
+    }
+
     // 发起异步请求获取下一页的 json 数据的函数
     function fetchNextPage(currentPage, itemsPerPage) {
       // 根据实际情况拼接下一页的 json-src
@@ -95,12 +120,17 @@ $(document).ready(function () {
         // 创建作者和评分元素
         var authorSpan = document.createElement('span')
         authorSpan.classList.add('author')
-        authorSpan.textContent = '中国 2021'
+        // 地区
+        area = item.area
+        // 发布时间
+        release_year = item.release_year
+
+        authorSpan.textContent = area + ' ' + release_year
         meta.appendChild(authorSpan)
 
         var starScoreSpan = document.createElement('span')
         starScoreSpan.classList.add('star-score')
-        starScoreSpan.textContent = '★★★★★'
+        starScoreSpan.textContent = convertToStars(item.rating)
         meta.appendChild(starScoreSpan)
 
         mediaMeta.appendChild(meta)
