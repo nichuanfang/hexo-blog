@@ -191,6 +191,8 @@
 }
 
 .movie-detail-media-meta-item {
+    display: flex;
+    align-items: center;
     font-size: 0.9em;
     line-height: 1.5em;
     margin-bottom: 5px;
@@ -204,6 +206,7 @@
 .movie-detail-media-meta-item .star-score {
     color: #b96c68;
     margin-left: 10px;
+    margin-right: 125px;
 }
 
 .movie-detail-media-meta-item .grey-star {
@@ -222,4 +225,49 @@
     line-height: 1.5;
     text-align: justify;
     margin-top: 20px;
+}
+
+.movie-detail-media-meta-item .copy,
+.movie-detail-media-meta-item .edit,
+.movie-detail-media-meta-item .link {
+    margin-left: 30px;
+}
+
+.movie-detail-media-meta-item .copy,
+.movie-detail-media-meta-item .edit {
+    margin-right: 6px;
+}
+
+
+.movie-detail-media-meta-item .link a,
+.movie-detail-media-meta-item .copy a,
+.movie-detail-media-meta-item .edit a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.movie-detail-media-meta-item .link a:hover,
+.movie-detail-media-meta-item .copy a:hover,
+.movie-detail-media-meta-item .edit a:hover {
+    color: red;
+}
+
+.movie-detail-media-meta-item .link a::before,
+.movie-detail-media-meta-item .copy a::before,
+.movie-detail-media-meta-item .edit a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.movie-detail-media-meta-item .link a:hover::before,
+.movie-detail-media-meta-item .copy a:hover::before,
+.movie-detail-media-meta-item .edit a:hover::before {
+    transform: scaleX(1);
 }
