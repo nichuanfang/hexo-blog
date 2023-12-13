@@ -929,7 +929,7 @@ discuss:
 #---------------------------
 archive:
   banner_img: /img/bg/default/5_31.webp
-  banner_img_height: 62
+  banner_img_height: 50
   banner_mask_alpha: 0
 
 #---------------------------
