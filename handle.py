@@ -189,7 +189,7 @@ for post in post_list:
 
             # 查看source/img/post/文章文件夹下是否有图片
             if os.path.exists(os.path.join('source', 'img', 'post', post_name)):
-                # 判断该文件夹是否包含banner图
+                # 判断该文件夹是否包含banner图ls
                 banner_flag = False
                 for root, dirs, files in os.walk(os.path.join('source', 'img', 'post', post_name)):
                     for file in files:

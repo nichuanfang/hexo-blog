@@ -65,7 +65,14 @@ $(document).ready(function () {
     var movieDetailHTML = `
         <div class="movie-detail-media">
         <a target="_blank" class="movie-detail-media-cover-link" href="https://www.themoviedb.org/movie/${movieData.movie_id}">
-            <div class="movie-detail-media-cover" style="background-image: url('https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieData.cover_image_url}');"></div>
+            <div class="movie-detail-media-cover" >
+                  <img
+                            srcset="/img/loading.gif"
+                            lazyload
+                            src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieData.cover_image_url}"
+                            data-loaded="true"
+                        />
+            </div>
         </a>
         <div class="movie-detail-media-meta">
             <div class="movie-detail-media-meta-item title">
@@ -88,6 +95,17 @@ $(document).ready(function () {
     // 将电影详情添加到页面中
     var movieDetailContainer = document.getElementById('movie-detail-container')
     movieDetailContainer.innerHTML = movieDetailHTML
+
+    for (const each of document.querySelectorAll('img[lazyload]')) {
+      Fluid.utils.waitElementVisible(
+        each,
+        function () {
+          each.removeAttribute('srcset')
+          each.removeAttribute('lazyload')
+        },
+        CONFIG.lazyload.offset_factor
+      )
+    }
 
     // 获取 open_link 元素
     const openLinkElement = document.querySelector('.link a')

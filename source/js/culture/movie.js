@@ -103,8 +103,22 @@ $(document).ready(function () {
         // 创建 media-cover 元素
         var mediaCover = document.createElement('div')
         mediaCover.classList.add('media-cover')
-        mediaCover.style.backgroundImage =
-          'url(' + coverSrc + item.cover_image_url + ')'
+        // 如果share_link为空 则透明度为0.5
+        if (item.share_link === '') {
+          media.style.opacity = '0.5'
+        }
+
+        // mediaCover.style.backgroundImage =
+        //   'url(' + coverSrc + item.cover_image_url + ')'
+
+        // 创建图片元素
+        var img = document.createElement('img')
+        img.setAttribute('src', coverSrc + item.cover_image_url)
+        img.setAttribute('data-loaded', 'true')
+        img.setAttribute('lazyload', '')
+        img.setAttribute('srcset', '/img/loading.gif')
+        mediaCover.appendChild(img)
+
         // 创建超链接 包围mediaCover
         var mediaCoverLink = document.createElement('a')
         mediaCoverLink.setAttribute('target', '_blank')
@@ -174,6 +188,16 @@ $(document).ready(function () {
 
         // 将 media 元素添加到目标容器中
         container.appendChild(media)
+        for (const each of document.querySelectorAll('img[lazyload]')) {
+          Fluid.utils.waitElementVisible(
+            each,
+            function () {
+              each.removeAttribute('srcset')
+              each.removeAttribute('lazyload')
+            },
+            CONFIG.lazyload.offset_factor
+          )
+        }
       })
     }
 
