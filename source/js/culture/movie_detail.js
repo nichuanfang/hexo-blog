@@ -206,33 +206,61 @@ $(document).ready(function () {
           input.value = ''
           input.focus()
         } else {
-          document.body.removeChild(inputBox)
-          // 保存原始的 editButton 内容
-          const originalButtonText = editButton.innerHTML
+          //  通知服务器更新链接
 
-          // 将 editButton 的文本更改为 "√已更新" 和图标
-          editButton.innerHTML = '已更新 <i class="fas fa-check"></i>'
-          editButton.style.color = 'green' // 设置 editButton 文本颜色为绿色
+          //  请求地址: https://api.jaychou.site/trakt/update_movie_share_link
+          // 请求方法: POST
+          // 请求参数:   movie_id  share_link
+          // 请求参数类型:  application/x-www-form-urlencoded
 
-          // 1秒后还原 editButton 的文本、颜色和图标
-          setTimeout(() => {
-            editButton.innerHTML = originalButtonText
-            editButton.style.color = '' // 还原 editButton 文本颜色
-          }, 1000)
-          // 检查 inputBox 是否存在，然后再移除
-          if (inputBox && inputBox.parentNode) {
-            inputBox.parentNode.removeChild(inputBox)
-          }
-          // 更新打开链接和复制链接的 href 属性 以及还原样式
-          openLinkElement.setAttribute('href', url)
-          openLinkElement.classList.remove('disabled')
-          openLinkElement.style.color = ''
-          // openLink设置target="_blank"
-          openLinkElement.setAttribute('target', '_blank')
-          copyButton.classList.remove('disabled')
-          copyButton.style.color = ''
-          //  更新open_link
-          open_link = url
+          $.ajax({
+            url: 'https://api.jaychou.site/trakt/update_movie_share_link',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+              movie_id: movieData.movie_id,
+              share_link: url,
+            },
+            success: function (data) {
+              if (data.code == 200) {
+                //  更新成功
+                // 保存原始的 editButton 内容
+                const originalButtonText = editButton.innerHTML
+
+                // 将 editButton 的文本更改为 "√已更新" 和图标
+                editButton.innerHTML = '已更新 <i class="fas fa-check"></i>'
+                editButton.style.color = 'green' // 设置 editButton 文本颜色为绿色
+
+                // 1秒后还原 editButton 的文本、颜色和图标
+                setTimeout(() => {
+                  editButton.innerHTML = originalButtonText
+                  editButton.style.color = '' // 还原 editButton 文本颜色
+                }, 1000)
+                // 检查 inputBox 是否存在，然后再移除
+                if (inputBox && inputBox.parentNode) {
+                  inputBox.parentNode.removeChild(inputBox)
+                }
+                // 更新打开链接和复制链接的 href 属性 以及还原样式
+                openLinkElement.setAttribute('href', url)
+                openLinkElement.classList.remove('disabled')
+                openLinkElement.style.color = ''
+                // openLink设置target="_blank"
+                openLinkElement.setAttribute('target', '_blank')
+                copyButton.classList.remove('disabled')
+                copyButton.style.color = ''
+                //  更新open_link
+                open_link = url
+              } else {
+                //  更新失败
+                input.placeholder = '更新失败!'
+                input.value = ''
+                input.focus()
+              }
+            },
+            error: function (error) {
+              console.log(error)
+            },
+          })
         }
       })
 
