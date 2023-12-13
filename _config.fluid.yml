@@ -938,7 +938,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/bg/default/1_69.webp
+  banner_img: /img/bg/default/1_53.webp
   banner_img_height: 50
   banner_mask_alpha: 0
 

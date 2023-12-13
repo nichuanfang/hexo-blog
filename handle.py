@@ -96,6 +96,7 @@ post_list.append('public/culture/index.html')
 post_list.append('public/culture/books/index.html')
 post_list.append('public/culture/documentaries/index.html')
 post_list.append('public/culture/movies/index.html')
+post_list.append('public/culture/movies/detail/index.html')
 post_list.append('public/culture/music/index.html')
 post_list.append('public/culture/shows/index.html')
 post_list.append('public/culture/variety-show/index.html')
@@ -112,10 +113,10 @@ for post in post_list:
         post_name = post.replace('\\', '/').split('/')[-2]
 
         print(f'正在对文章: {post_name}进行处理')
-        if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture', 'books', 'documentaries', 'movies', 'music', 'shows', 'variety-show']:
+        if post_name in ['archives', 'categories', 'public', 'tags', 'links', 'culture', 'books', 'documentaries', 'movies', 'music', 'shows', 'variety-show', 'detail']:
             # 对于archives, categories, links页面  banner_img_ratio默认为31   42-29=13
             if post_name == 'culture' or post_name == 'books' or post_name == 'documentaries' or post_name == 'movies' \
-                    or post_name == 'music' or post_name == 'shows' or post_name == 'variety-show':
+                    or post_name == 'music' or post_name == 'shows' or post_name == 'variety-show' or (post_name == 'detail' and post.replace('\\', '/').split('/')[-4] == 'culture'):
                 img_num = 3
             elif post_name == 'links':
                 img_num = 4
