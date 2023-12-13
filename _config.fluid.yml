@@ -237,6 +237,7 @@ font:
 custom_js:
   - /js/side_bg.js
   - /js/culture/movie.js
+  - /js/culture/movie_detail.js
   - /js/APlayer.min.js
   - /js/useaplayer.js
   # - /js/snow.js

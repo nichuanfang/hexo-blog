@@ -98,7 +98,7 @@ $(document).ready(function () {
 
         // 创建超链接 url为电影详情页  电影id为参数
 
-        var url = '/culture/movies/detail?tmdb_id=' + item.movie_id
+        var url = '/culture/movies/detail/?tmdb_id=' + item.movie_id
 
         // 创建 media-cover 元素
         var mediaCover = document.createElement('div')

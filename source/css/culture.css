@@ -206,7 +206,7 @@
 .movie-detail-media-meta-item .star-score {
     color: #b96c68;
     margin-left: 10px;
-    margin-right: 125px;
+    margin-right: 50px;
 }
 
 .movie-detail-media-meta-item .grey-star {
@@ -216,7 +216,7 @@
 .movie-detail-media-meta-item.intro-title {
     font-weight: 800;
     margin-bottom: 5px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .movie-detail-media-meta-item.intro {
@@ -224,7 +224,7 @@
     font-size: 14px;
     line-height: 1.5;
     text-align: justify;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .movie-detail-media-meta-item .copy,

@@ -1,5 +1,5 @@
 ---
-title: 电影详情页
+title: 电影详情
 comments: false
 ---
 
