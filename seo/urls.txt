@@ -2,8 +2,8 @@ https://blog.jaychou.site/about/index.html
 https://blog.jaychou.site/culture/index.html
 https://blog.jaychou.site/culture/books/index.html
 https://blog.jaychou.site/culture/documentaries/index.html
-https://blog.jaychou.site/culture/music/index.html
 https://blog.jaychou.site/culture/movies/index.html
+https://blog.jaychou.site/culture/music/index.html
 https://blog.jaychou.site/culture/shows/index.html
 https://blog.jaychou.site/culture/variety-show/index.html
 https://blog.jaychou.site/culture/movies/detail/index.html
