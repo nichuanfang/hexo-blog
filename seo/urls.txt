@@ -1,12 +1,12 @@
+https://blog.jaychou.site/about/index.html
 https://blog.jaychou.site/culture/index.html
 https://blog.jaychou.site/culture/books/index.html
 https://blog.jaychou.site/culture/documentaries/index.html
-https://blog.jaychou.site/culture/movies/index.html
 https://blog.jaychou.site/culture/music/index.html
+https://blog.jaychou.site/culture/movies/index.html
 https://blog.jaychou.site/culture/shows/index.html
 https://blog.jaychou.site/culture/variety-show/index.html
 https://blog.jaychou.site/culture/movies/detail/index.html
-https://blog.jaychou.site/about/index.html
 https://blog.jaychou.site/2023/12/02/python%E5%AD%A6%E4%B9%A0/
 https://blog.jaychou.site/2023/12/02/go%E5%AD%A6%E4%B9%A0/
 https://blog.jaychou.site/2023/12/02/hello-world/
@@ -20,10 +20,10 @@ https://blog.jaychou.site/
 https://blog.jaychou.site/tags/GithubActions/
 https://blog.jaychou.site/tags/hexo%E4%B8%BB%E9%A2%98/
 https://blog.jaychou.site/tags/test/
-https://blog.jaychou.site/tags/go/
 https://blog.jaychou.site/tags/tools/
 https://blog.jaychou.site/tags/music/
 https://blog.jaychou.site/tags/youtube/
+https://blog.jaychou.site/tags/go/
 https://blog.jaychou.site/tags/python/
 https://blog.jaychou.site/tags/windows/
 https://blog.jaychou.site/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/
