@@ -114,6 +114,7 @@ $(document).ready(function () {
         // 创建图片元素
         var img = document.createElement('img')
         img.setAttribute('src', coverSrc + item.cover_image_url)
+        img.setAttribute('data-src', coverSrc + item.cover_image_url)
         img.setAttribute('data-loaded', 'true')
         img.setAttribute('lazyload', '')
         img.setAttribute('srcset', '/img/loading.gif')
