@@ -235,9 +235,9 @@ font:
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
 custom_js:
-  - /js/side_bg.js
   - /js/culture/movie.js
   - /js/culture/movie_detail.js
+  - /js/side_bg.js
   - /js/APlayer.min.js
   - /js/useaplayer.js
   # - /js/snow.js
