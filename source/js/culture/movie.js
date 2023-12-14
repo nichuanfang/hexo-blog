@@ -11,21 +11,25 @@ var coverSrc = 'https://image.tmdb.org/t/p/w116_and_h174_face'
 
 // 如果当前页面路径为/culture/*，则发起异步请求获取第一页的 json 数据
 if (window.location.pathname.startsWith('/culture')) {
-  fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
-    .then(function (response) {
-      return response.json()
-    })
-    .then(function (data) {
-      // 如果数据为空，则返回
-      if (data['data']['data'].length != 0) {
-        init_data = data
-        // 存储到sessionStorage
-        sessionStorage.setItem('init_data', JSON.stringify(init_data))
-      }
-    })
-    .catch(function (error) {
-      console.error('Error:', error)
-    })
+  if (sessionStorage.getItem('init_data') != null) {
+    init_data = JSON.parse(sessionStorage.getItem('init_data'))
+  } else {
+    fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        // 如果数据为空，则返回
+        if (data['data']['data'].length != 0) {
+          init_data = data
+          // 存储到sessionStorage
+          sessionStorage.setItem('init_data', JSON.stringify(init_data))
+        }
+      })
+      .catch(function (error) {
+        console.error('Error:', error)
+      })
+  }
 }
 
 $(document).ready(function () {
