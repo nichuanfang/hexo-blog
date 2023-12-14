@@ -11,6 +11,8 @@ on:
       - 'source/css/custom.css'
       - 'source/js/custom.js'
       - 'source/js/useaplayer.js'
+      - 'source/js/culture/*.js'
+      - 'source/culture/*'
 
 jobs:
   update_theme:

@@ -133,7 +133,7 @@ $(document).ready(function () {
         var mediaMeta = document.createElement('div')
         mediaMeta.classList.add('media-meta')
 
-        // 创建 title 元素
+        // 创建 title  元素
         var title = document.createElement('div')
         title.classList.add('media-meta-item', 'title')
         // 创建超链接 包围title
