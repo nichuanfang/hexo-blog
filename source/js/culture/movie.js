@@ -233,6 +233,8 @@ $(document).ready(function () {
       data_ended = true
     }
     generateMovieElements(init_data, coverSrc)
+    // 清空sessionStorage
+    sessionStorage.removeItem('init_data')
 
     // 监听滚动事件
     window.addEventListener('scroll', function () {
