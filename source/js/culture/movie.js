@@ -1,44 +1,17 @@
-var init_data
-
-// 每页加载的电影数量和当前页数
-var currentPage = 1
-// 当前页数
-var itemsPerPage = 12
-
-var jsonSrc = 'https://api.jaychou.site/trakt/movie'
-
-var coverSrc = 'https://image.tmdb.org/t/p/w116_and_h174_face'
-
-// 如果当前页面路径为/culture/*，则发起异步请求获取第一页的 json 数据
-if (window.location.pathname.startsWith('/culture')) {
-  if (sessionStorage.getItem('init_data') != null) {
-    init_data = JSON.parse(sessionStorage.getItem('init_data'))
-  } else {
-    fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (data) {
-        // 如果数据为空，则返回
-        if (data['data']['data'].length != 0) {
-          init_data = data
-          // 存储到sessionStorage
-          sessionStorage.setItem('init_data', JSON.stringify(init_data))
-        }
-      })
-      .catch(function (error) {
-        console.error('Error:', error)
-      })
-  }
-}
-
 $(document).ready(function () {
   // 如果存在元素.culture-list的div 元素，则执行以下代码
   if (document.querySelector('.movie-culture-list')) {
     // 定义滚动间隔时间和滚动阈值
     var scrollInterval = 300 // 滚动间隔时间，单位为毫秒
     var scrollThreshold = 200 // 滚动阈值，表示距离页面底部的距离，单位为像素
+    // 每页加载的电影数量和当前页数
+    var currentPage = 1
+    // 当前页数
+    var itemsPerPage = 12
 
+    var jsonSrc = 'https://api.jaychou.site/trakt/movie'
+
+    var coverSrc = 'https://image.tmdb.org/t/p/w116_and_h174_face'
     // 定义滚动计时器
     var scrollTimer = null
     // 数据是否加载完毕
@@ -232,13 +205,21 @@ $(document).ready(function () {
     //===================================================
 
     // 初始化加载
-    if (init_data == undefined) {
-      hideLoadingAnimation()
-      data_ended = true
-    }
-    generateMovieElements(init_data, coverSrc)
-    // 清空sessionStorage
-    sessionStorage.removeItem('init_data')
+    fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        // 如果数据为空，则返回
+        if (data['data']['data'].length === 0) {
+          hideLoadingAnimation()
+          data_ended = true
+        }
+        generateMovieElements(data, coverSrc)
+      })
+      .catch(function (error) {
+        console.error('Error:', error)
+      })
 
     // 监听滚动事件
     window.addEventListener('scroll', function () {
