@@ -12,6 +12,14 @@ $(document).ready(function () {
     var jsonSrc = 'https://api.jaychou.site/trakt/movie'
 
     var coverSrc = 'https://image.tmdb.org/t/p/w116_and_h174_face'
+
+    var init_data = ''
+    // 如果SessionStorage中有init_data，则读取init_data
+    if (sessionStorage.getItem('movie_init_data')) {
+      init_data = sessionStorage.getItem('movie_init_data')
+      sessionStorage.removeItem('movie_init_data')
+    }
+
     // 定义滚动计时器
     var scrollTimer = null
     // 数据是否加载完毕
@@ -205,21 +213,25 @@ $(document).ready(function () {
     //===================================================
 
     // 初始化加载
-    fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (data) {
-        // 如果数据为空，则返回
-        if (data['data']['data'].length === 0) {
-          hideLoadingAnimation()
-          data_ended = true
-        }
-        generateMovieElements(data, coverSrc)
-      })
-      .catch(function (error) {
-        console.error('Error:', error)
-      })
+    if (init_data != '') {
+      generateMovieElements(JSON.parse(init_data), coverSrc)
+    } else {
+      fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          // 如果数据为空，则返回
+          if (data['data']['data'].length === 0) {
+            hideLoadingAnimation()
+            data_ended = true
+          }
+          generateMovieElements(data, coverSrc)
+        })
+        .catch(function (error) {
+          console.error('Error:', error)
+        })
+    }
 
     // 监听滚动事件
     window.addEventListener('scroll', function () {
