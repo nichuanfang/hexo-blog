@@ -3,7 +3,7 @@
 
 // 如果当前是culture/*页面 才执行以下代码
 if (
-  window.location.pathname.indexOf('/culture/') != -1 &&
+  window.location.pathname == '/culture/' &&
   !sessionStorage.getItem('movie_init_data')
 ) {
   fetch('https://api.jaychou.site/trakt/movie?page=1&page_size=12')

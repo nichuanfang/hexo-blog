@@ -213,8 +213,20 @@ $(document).ready(function () {
     //===================================================
 
     // 初始化加载
-    if (init_data != '') {
-      generateMovieElements(JSON.parse(init_data), coverSrc)
+    if (init_data !== '') {
+      fetch('https://api.jaychou.site/common/init')
+        .then(function (data) {
+          data = JSON.parse(init_data)
+          // 如果数据为空，则返回
+          if (data['data']['data'].length === 0) {
+            hideLoadingAnimation()
+            data_ended = true
+          }
+          generateMovieElements(JSON.parse(init_data), coverSrc)
+        })
+        .catch(function (error) {
+          console.error('Error:', error)
+        })
     } else {
       fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
         .then(function (response) {
@@ -232,6 +244,22 @@ $(document).ready(function () {
           console.error('Error:', error)
         })
     }
+
+    // fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
+    //   .then(function (response) {
+    //     return response.json()
+    //   })
+    //   .then(function (data) {
+    //     // 如果数据为空，则返回
+    //     if (data['data']['data'].length === 0) {
+    //       hideLoadingAnimation()
+    //       data_ended = true
+    //     }
+    //     generateMovieElements(data, coverSrc)
+    //   })
+    //   .catch(function (error) {
+    //     console.error('Error:', error)
+    //   })
 
     // 监听滚动事件
     window.addEventListener('scroll', function () {
