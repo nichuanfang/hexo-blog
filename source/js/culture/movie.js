@@ -212,10 +212,24 @@ $(document).ready(function () {
 
     //===================================================
 
+    function simulateFetch(url) {
+      return new Promise(function (resolve, reject) {
+        // 模拟异步请求
+        setTimeout(function () {
+          // 模拟请求成功，并返回数据
+          resolve({ data: '模拟的异步数据' })
+
+          // 模拟请求失败
+          // reject('请求失败');
+        }, 0) // 模拟请求延迟2秒
+      })
+    }
+
     // 初始化加载
     if (init_data !== '') {
-      fetch('https://api.jaychou.site/common/init')
-        .then(function (data) {
+      // 使用模拟的异步请求
+      simulateFetch('https://api.example.com/data')
+        .then(function (response) {
           data = JSON.parse(init_data)
           // 如果数据为空，则返回
           if (data['data']['data'].length === 0) {
@@ -225,8 +239,23 @@ $(document).ready(function () {
           generateMovieElements(JSON.parse(init_data), coverSrc)
         })
         .catch(function (error) {
+          // 处理请求失败的错误
           console.error('Error:', error)
         })
+
+      // fetch('https://api.jaychou.site/common/init')
+      //   .then(function (data) {
+      //     data = JSON.parse(init_data)
+      //     // 如果数据为空，则返回
+      //     if (data['data']['data'].length === 0) {
+      //       hideLoadingAnimation()
+      //       data_ended = true
+      //     }
+      //     generateMovieElements(JSON.parse(init_data), coverSrc)
+      //   })
+      //   .catch(function (error) {
+      //     console.error('Error:', error)
+      //   })
     } else {
       fetch(jsonSrc + '?page=' + currentPage + '&page_size=' + itemsPerPage)
         .then(function (response) {
