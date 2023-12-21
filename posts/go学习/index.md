@@ -8,7 +8,7 @@ banner_img_ratio: 30
   让我们先对 Go（或称 Golang ）做一个小小的介绍。Go 是由谷歌工程师 Robert Griesemer、Rob Pike 和 Ken Thompson 设计的。它是一种静态类型的、编译的语言。第一个版本于 2012 年 3 月作为开源版本发布。在许多编程语言中，有许多方法来解决一个特定的问题。程序员要花很多时间去思考解决它的最佳方法。Go 却相信用较少的功能——只有一种正确的方式来解决问题,这为开发人员节省了时间，并使大型代码库易于维护。 Go 中没有像 `maps` 和 `filters` 这样的 “表达性”功能。{% endnote %}
 
 > - “Go 是一种开源的编程语言，它使人们能够轻松地构建简单、可靠和高效的软件”。- GoLang
-> - “当你有增加表现力的功能时，通常会增加系统开销”—— Rob Pike
+> - “当你有增加表现力的功能时，通常会增加系统开销”——  Rob Pike
 
 ![1*AUiSG5Gqz8MzaGCvGpckGA](https://cdn-media-1.freecodecamp.org/images/1*AUiSG5Gqz8MzaGCvGpckGA.png)
 
