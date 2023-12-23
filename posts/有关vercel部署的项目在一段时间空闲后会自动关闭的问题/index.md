@@ -8,7 +8,7 @@ categories: 应用
 # 验证
 如下的程序使用vercel部署后可以证明，当短时间连续请求多次时，接口返回的是 “11”->“111”->“1111”，但一段时间没有请求时再请求，接口返回值会变回"11"。
 
-{% fold info @title %}
+{% fold info @example %}
 ``` go
 import (
     "fmt"
