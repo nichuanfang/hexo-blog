@@ -25,12 +25,14 @@ sticky:
 ## Front-matter 说明
 
 ```BASH
+---
 tags:
 categories:
 index_img_url:
 banner_img_url:
 banner_img_ratio:
 sticky:
+---
 ```
 
 - `tags`: 标签
