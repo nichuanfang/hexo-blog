@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="428fe73f-d572-49de-81e5-4fe6f800c990" name="Changes" comment="🐛 Fix handle.py file formatting and remove unnecessary imports&#10;&#10;🔥 Remove unused imports and reformat handle.py file&#10;&#10;🚚 Move code to handle public articles to a separate function&#10;&#10;✨ Add function to save file data to specified file path&#10;&#10;🔀 Merge changes from remote branch&#10;&#10;🔧 Update default_img_dict variable" />
+    <list default="true" id="428fe73f-d572-49de-81e5-4fe6f800c990" name="Changes" comment="🎨 :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +41,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/workspace/python/hexo-blog",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -66,6 +67,7 @@
       <workItem from="1703677811555" duration="516000" />
       <workItem from="1703678576553" duration="640000" />
       <workItem from="1703679418749" duration="1156000" />
+      <workItem from="1703680599213" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="添加了一个新的忽略项 &quot;.venv&quot;。">
       <option name="closed" value="true" />
@@ -75,7 +77,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703679887912</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="🔀 :sparkles: 添加 .venv 到 .gitignore&#10;&#10;简洁清晰的提交信息，使用 GitMoji 约定，并遵循常规提交约定。">
+      <option name="closed" value="true" />
+      <created>1703680632927</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703680632927</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,10 +93,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加了一个新的忽略项 &quot;.venv&quot;。" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了一个新的忽略项 &quot;.venv&quot;。" />
+    <MESSAGE value=" :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
+    <option name="LAST_COMMIT_MESSAGE" value=" :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {
