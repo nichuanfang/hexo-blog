@@ -1,4 +1,10 @@
 ---
+title: music-tool-kit工具
+date: 2023-12-02 17:22:33
+updated: 2023-12-27 21:41:25
+banner_img: /img/post/music-tool-kit工具/index.webp
+index_img: /img/post/music-tool-kit工具/index.webp
+---
 # 标签
 tags:
   - tools
@@ -10,12 +16,6 @@ categories: 工具
 # banner_img_ratio:
 # 置顶配置 数字越大优先级越高
 # sticky: 30
-title: music-tool-kit工具
-date: 2023-12-02 17:22:33
-updated: 2023-12-02 17:39:41
-banner_img: /img/post/music-tool-kit工具/index.webp
-index_img: /img/post/music-tool-kit工具/index.webp
----
 
 {%note  success%}
 **music-tool-kit**，主要使用场景为提取[youtube](https://www.youtube.com)和[bilibili](https://www.bilibili.com)视频中的音频,支持**音频下载**,**元信息自动补全**,**音频截取**,**提取伴奏**,**youtube 列表批量下载**,**自定义批量下载**等.配合[spotify](https://open.spotify.com)的**本地文件**功能可以极大的提升音乐体验([教程](https://www.bilibili.com/video/BV1VL411T7mp/?vd_source=04c6a0d121b6fb871e3d3c0a2554b29b))

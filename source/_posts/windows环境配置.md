@@ -1,13 +1,13 @@
 ---
-tags: windows
-categories: 应用
-banner_img_ratio: 25
 title: windows环境配置
 date: 2023-12-02 17:22:33
-updated: 2023-12-02 17:22:33
+updated: 2023-12-27 21:41:25
 banner_img: /img/post/windows环境配置/banner.webp
 index_img: /img/post/windows环境配置/banner.webp
 ---
+tags: windows
+categories: 应用
+banner_img_ratio: 25
 
 {%note success%} 每次重装系统都需要重新配置一遍环境,索性将配置步骤记录下来,方便以后重装系统后使用{%endnote%}
 

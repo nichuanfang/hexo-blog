@@ -1,4 +1,10 @@
 ---
+title: GithubActions密钥和变量统一管理
+date: 2023-12-02 17:22:33
+updated: 2023-12-27 21:41:25
+banner_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
+index_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
+---
 # 标签
 tags: GithubActions
 # 分类
@@ -7,12 +13,6 @@ categories: 技术
 banner_img_ratio: 37
 # 置顶配置  数字越大优先级越高
 # sticky:
-title: GithubActions密钥和变量统一管理
-date: 2023-12-02 17:22:33
-updated: 2023-12-02 17:22:33
-banner_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
-index_img: /img/post/GithubActions密钥和变量统一管理/banner.webp
----
 
 # 集中管理同一个账户下的变量和 密钥
 

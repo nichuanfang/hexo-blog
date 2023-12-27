@@ -1,13 +1,13 @@
 ---
-tags: go
-categories: 技术
-banner_img_ratio: 30
 title: go学习
 date: 2023-12-02 17:22:33
-updated: 2023-12-21 23:06:28
+updated: 2023-12-27 21:41:25
 banner_img: /img/post/go学习/banner.webp
 index_img: /img/post/go学习/banner.webp
 ---
+tags: go
+categories: 技术
+banner_img_ratio: 30
 
 {% note success %}
   让我们先对 Go（或称 Golang ）做一个小小的介绍。Go 是由谷歌工程师 Robert Griesemer、Rob Pike 和 Ken Thompson 设计的。它是一种静态类型的、编译的语言。第一个版本于 2012 年 3 月作为开源版本发布。在许多编程语言中，有许多方法来解决一个特定的问题。程序员要花很多时间去思考解决它的最佳方法。Go 却相信用较少的功能——只有一种正确的方式来解决问题,这为开发人员节省了时间，并使大型代码库易于维护。 Go 中没有像 `maps` 和 `filters` 这样的 “表达性”功能。{% endnote %}

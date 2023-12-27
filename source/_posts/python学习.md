@@ -1,4 +1,10 @@
 ---
+title: python学习
+date: 2023-12-02 17:22:33
+updated: 2023-12-27 21:41:25
+banner_img: /img/post/python学习/banner.webp
+index_img: /img/post/python学习/banner.webp
+---
 # 标签
 tags: python
 # 分类
@@ -6,12 +12,6 @@ categories: 技术
 # banner图片比例
 banner_img_ratio: 10
 # sticky: 10
-title: python学习
-date: 2023-12-02 17:22:33
-updated: 2023-12-06 16:26:41
-banner_img: /img/post/python学习/banner.webp
-index_img: /img/post/python学习/banner.webp
----
 
 # Python 学习
 
