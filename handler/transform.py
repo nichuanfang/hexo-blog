@@ -352,6 +352,8 @@ if theme == 'fluid':
 					# 移除头部的banner_img和index_img
 					if should_post_update:
 						with open(os.path.join(post_root, 'index.md'), 'w+', encoding='utf-8') as f:
+							head_lines_bk.insert(0, '---\n')
+							head_lines_bk.append('---\n')
 							f.writelines(head_lines_bk + left_lines_bk)
 							os.system(
 								f'echo "should_post_update={should_post_update}" >> "$GITHUB_OUTPUT"')
