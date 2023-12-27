@@ -284,6 +284,7 @@ if theme == 'fluid':
                             # 也需要保留生成好的webp图片到hexo目录 移除文章头部
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
+                            os.remove(os.path.join(post_root, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
                             should_post_update = True
                         # 如果图片为jpg或者png 则转为webp
@@ -294,6 +295,7 @@ if theme == 'fluid':
                                 post_root, f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'index.{index_extend}'))
+                            os.remove(os.path.join(post_root, f'index.{index_extend}'))
                             index_extend = 'webp'
                             should_post_update = True
                         head_lines.append(
@@ -309,6 +311,7 @@ if theme == 'fluid':
                                 post_root, f'banner.webp'))
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
+                            os.remove(os.path.join(post_root, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
                             should_post_update = True
                         head_lines.append(
@@ -324,6 +327,7 @@ if theme == 'fluid':
                                 post_root, f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'index.{index_extend}'))
+                            os.remove(os.path.join(post_root, f'index.{index_extend}'))
                             index_extend = 'webp'
                             should_post_update = True
                         head_lines.append(
