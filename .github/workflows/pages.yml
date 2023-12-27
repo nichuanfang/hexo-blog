@@ -193,6 +193,7 @@ jobs:
         # 处理main分支的文档和图片
       - name: transform 'main' branch
         working-directory: ./hexo-blog
+        id: transform
         env:
           THEME: ${{ vars.THEME }}
           CHANGES_ADD: ${{ steps.changed_files.outputs.added }}
@@ -248,3 +249,17 @@ jobs:
           author_name: 'nichuanfang'
           message: '🐳 chore: 更新vercel仓库'
           repository: nichuanfang/hexo-blog-vercel
+
+      # 更新hexo-blog文章图片
+      - name: 更新hexo-blog文章图片
+        #如果不需要更新图片，可以注释掉这一步 通过transform的输出变量should_post_update判断
+        if: ${{ steps.transform.outputs.should_post_update == 'true' }}
+        uses: Smart-Transportation/push@v1.3
+        with:
+          directory: ./hexo-blog
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: 'main'
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          author_name: 'github-actions[bot]'
+          message: '🐳 chore: 更新hexo-blog文章图片'
+          repository: nichuanfang/hexo-blog

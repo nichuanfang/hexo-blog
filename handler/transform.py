@@ -175,6 +175,10 @@ if theme == 'fluid':
                     except:
                         head_lines = []
                         left_lines = lines
+                        
+                    head_lines_bk = head_lines.copy()
+                    left_lines_bk = left_lines.copy()
+                    should_post_update = False
                     
                     # 对head_lines进行处理
                     head_lines.append(f'title: {dir}\n')
@@ -248,8 +252,9 @@ if theme == 'fluid':
                     filtered_img_res = []
                     for item in head_lines:
                         if item.startswith(('index_img_url', 'banner_img_url')):
-                            head_lines.remove(item)
+                            head_lines_bk.remove(item)
                             filtered_img_res.append(item)
+                            should_post_update = True
                     if len(filtered_img_res) != 0:
                         dl_img(filtered_img_res, os.path.join(
                             fluid_img_path, dir), post_files)
@@ -280,6 +285,7 @@ if theme == 'fluid':
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
+                            should_post_update = True
                         # 如果图片为jpg或者png 则转为webp
                         if index_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'index.{index_extend}'), os.path.join(
@@ -289,6 +295,7 @@ if theme == 'fluid':
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'index.{index_extend}'))
                             index_extend = 'webp'
+                            should_post_update = True
                         head_lines.append(
                             f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
                         head_lines.append(
@@ -303,6 +310,7 @@ if theme == 'fluid':
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
+                            should_post_update = True
                         head_lines.append(
                             f'banner_img: /img/post/{dir}/banner.{banner_extend}\n')
                         head_lines.append(
@@ -317,6 +325,7 @@ if theme == 'fluid':
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'index.{index_extend}'))
                             index_extend = 'webp'
+                            should_post_update = True
                         head_lines.append(
                             f'banner_img: /img/post/{dir}/index.{index_extend}\n')
                         head_lines.append(
@@ -333,16 +342,16 @@ if theme == 'fluid':
                     if not os.path.exists(fluid_posts_path):
                         os.mkdir(fluid_posts_path)
                     file_name = dir + '.md'
-                    print(f'生成的新文档:\n{new_lines}')
                     # 将处理后的文件写入
                     with open(os.path.join(fluid_posts_path, file_name), 'w+', encoding='utf-8') as f:
                         f.writelines(new_lines)
-                    # with open(os.path.join(fluid_posts_path, file_name), 'w+', encoding='utf-8') as f:
-                    #     f.writelines(new_lines)
-        # 如果在该分支删除文章 应该与fluid分支同步
-        # for fluid_root,fluid_dirs,fluid_files in os.walk(fluid_posts_path):
-        #     diff_dirs = fluid_dirs - dirs
-        #     # 删除对应dir的文章
+                    # 移除头部的banner_img和index_img
+                    if should_post_update:
+                        with open(os.path.join(post_root, 'index.md'), 'w+', encoding='utf-8') as f:
+                            f.writelines(head_lines_bk+left_lines_bk)
+                            os.system(
+                                f'echo "should_post_update={should_post_update}" >> "$GITHUB_OUTPUT"')
+        
 
 elif theme == 'aurora':
     # todo
