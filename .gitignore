@@ -9,3 +9,4 @@ _multiconfig.yml
 source/img/post/*
 !source/img/post/__init__.py
 .vercel
+.venv
