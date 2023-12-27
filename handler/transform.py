@@ -271,6 +271,7 @@ if theme == 'fluid':
                         if banner_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'banner.{banner_extend}'), os.path.join(
                                 fluid_img_path, dir, f'banner.webp'))
+                            # 也需要保留生成好的webp图片到hexo目录 移除文章头部
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
                             banner_extend = 'webp'

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="428fe73f-d572-49de-81e5-4fe6f800c990" name="Changes" comment="🎨 :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
+    <list default="true" id="428fe73f-d572-49de-81e5-4fe6f800c990" name="Changes" comment="🎨 :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git.">
+      <change beforePath="$PROJECT_DIR$/.idea/hexo-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hexo-blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/handler/transform.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,17 +40,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/workspace/python/hexo-blog",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.blarc.ai.commits.intellij.plugin.settings.AppSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/workspace/python/hexo-blog&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.blarc.ai.commits.intellij.plugin.settings.AppSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,6 +71,7 @@
       <workItem from="1703678576553" duration="640000" />
       <workItem from="1703679418749" duration="1156000" />
       <workItem from="1703680599213" duration="63000" />
+      <workItem from="1703680688768" duration="172000" />
     </task>
     <task id="LOCAL-00001" summary="添加了一个新的忽略项 &quot;.venv&quot;。">
       <option name="closed" value="true" />
@@ -85,7 +89,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703680632927</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="🎨 :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git.">
+      <option name="closed" value="true" />
+      <created>1703680700526</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703680700526</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,10 +106,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加了一个新的忽略项 &quot;.venv&quot;。" />
     <MESSAGE value=" :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
+    <MESSAGE value=" :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
     <option name="LAST_COMMIT_MESSAGE" value=" :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git." />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {
