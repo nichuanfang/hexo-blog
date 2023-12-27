@@ -1,8 +1,10 @@
+---
 tags: hexo主题
 categories: 应用
 # banner图片比例
 banner_img_ratio: 20
 # sticky: 20
+---
 
 个人博客搭建心得 使用`hexo + fluid`主题
 

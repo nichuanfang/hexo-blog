@@ -1,18 +1,24 @@
+---
 tags: go
 categories: 技术
 banner_img_ratio: 30
+---
 
 {% note success %}
-  让我们先对 Go（或称 Golang ）做一个小小的介绍。Go 是由谷歌工程师 Robert Griesemer、Rob Pike 和 Ken Thompson 设计的。它是一种静态类型的、编译的语言。第一个版本于 2012 年 3 月作为开源版本发布。在许多编程语言中，有许多方法来解决一个特定的问题。程序员要花很多时间去思考解决它的最佳方法。Go 却相信用较少的功能——只有一种正确的方式来解决问题,这为开发人员节省了时间，并使大型代码库易于维护。 Go 中没有像 `maps` 和 `filters` 这样的 “表达性”功能。{% endnote %}
+让我们先对 Go（或称 Golang ）做一个小小的介绍。Go 是由谷歌工程师 Robert Griesemer、Rob Pike 和 Ken Thompson
+设计的。它是一种静态类型的、编译的语言。第一个版本于 2012 年 3 月作为开源版本发布。在许多编程语言中，有许多方法来解决一个特定的问题。程序员要花很多时间去思考解决它的最佳方法。Go
+却相信用较少的功能——只有一种正确的方式来解决问题,这为开发人员节省了时间，并使大型代码库易于维护。 Go 中没有像 `maps`
+和 `filters` 这样的 “表达性”功能。{% endnote %}
 
 > - “Go 是一种开源的编程语言，它使人们能够轻松地构建简单、可靠和高效的软件”。- GoLang
-> - “当你有增加表现力的功能时，通常会增加系统开销”——  Rob Pike
+> - “当你有增加表现力的功能时，通常会增加系统开销”—— Rob Pike
 
 ![1*AUiSG5Gqz8MzaGCvGpckGA](https://cdn-media-1.freecodecamp.org/images/1*AUiSG5Gqz8MzaGCvGpckGA.png)
 
 ### 入门
 
-Go 是由 packages（包）组成的。package main 告诉 Go 编译器，该程序被编译为可执行文件，而不是共享库。它是一个应用程序的入口点。package main 的定义如下：
+Go 是由 packages（包）组成的。package main 告诉 Go 编译器，该程序被编译为可执行文件，而不是共享库。它是一个应用程序的入口点。package
+main 的定义如下：
 
 ```go
 package main
@@ -24,7 +30,8 @@ package main
 
 Go 中的 workspace 是由环境变量 `GOPATH` 定义的。
 
-你写的任何代码都要写在 workspace 里面。Go 将搜索 `GOPATH` 目录内的任何软件包，或者 `GOROOT` 目录，该目录在安装 Go 时默认设置。`GOROOT` 是安装 Go 的路径。
+你写的任何代码都要写在 workspace 里面。Go 将搜索 `GOPATH` 目录内的任何软件包，或者 `GOROOT` 目录，该目录在安装 Go
+时默认设置。`GOROOT` 是安装 Go 的路径。
 
 设置 `GOPATH` 到你想要的目录。现在，让我们把它添加到 `~/workspace` 文件夹内。
 
@@ -48,7 +55,8 @@ func main(){
 
 在上面的例子中，`fmt`是 Go 中的一个内置包，它实现了用于格式化 I/O 输出的函数。
 
-我们通过使用 `import` 关键字在 Go 中导入一个包。`func main` 是代码被执行的主入口点。`Println` 是包 `fmt` 中的一个函数，它为我们打印出 “hello world”。
+我们通过使用 `import` 关键字在 Go 中导入一个包。`func main` 是代码被执行的主入口点。`Println` 是包 `fmt` 中的一个函数，它为我们打印出
+“hello world”。
 
 让我们通过运行这个文件来看看。我们有两种方法可以运行 Go 命令。正如我们所知，Go 是一种编译语言，所以我们首先需要在执行之前编译它。
 
@@ -271,8 +279,8 @@ fmt.Println(*ap) // => 12
 
 在传递结构体作为参数时，或者在为定义的类型声明方法时，通常倾向于使用指针。
 
-1.  传递值时，实际上是在复制值，这意味着更多的内存。
-2.  通过指针，函数改变的值会反映在 方法/函数 调用者身上
+1. 传递值时，实际上是在复制值，这意味着更多的内存。
+2. 通过指针，函数改变的值会反映在 方法/函数 调用者身上
 
 例如：
 
@@ -280,7 +288,8 @@ fmt.Println(*ap) // => 12
 func increment(i *int) { *i++ } func main() { i := 10 increment(&i) fmt.Println(i) } //=> 11
 ```
 
-注意：当你在尝试博客中的示例代码时，不要忘记用 `package main` 包含它，并在需要时导入 fmt 或其他包，如上面第一个 main.go 例子中所示。
+注意：当你在尝试博客中的示例代码时，不要忘记用 `package main` 包含它，并在需要时导入 fmt 或其他包，如上面第一个 main.go
+例子中所示。
 
 ### Functions （函数）
 
@@ -290,7 +299,8 @@ func increment(i *int) { *i++ } func main() { i := 10 increment(&i) fmt.Println(
 func add(a int, b int) int { c := a + b return c } func main() { fmt.Println(add(2, 1)) } //=> 3
 ```
 
-在上面的例子中我们可以看到，Go 函数是用 **func** 关键字来定义的，后面是函数名称。一个函数的 **参数** 需要根据其数据类型来定义，最后是返回的数据类型。
+在上面的例子中我们可以看到，Go 函数是用 **func** 关键字来定义的，后面是函数名称。一个函数的 **参数**
+需要根据其数据类型来定义，最后是返回的数据类型。
 
 一个函数的返回值也可以在函数中预先定义：
 
@@ -312,7 +322,8 @@ Go并不是一种完全面向对象的语言，但通过结构体（Struct）、
 
 #### 结构体（Struct）
 
-结构体是一种类型化的、不同字段的集合。结构体用于将数据分组。例如，如果我们想对 Person 类型的数据进行分组，我们可以定义一个人的属性，其中可能包括姓名、年龄、性别。可以使用以下语法来定义一个结构体：
+结构体是一种类型化的、不同字段的集合。结构体用于将数据分组。例如，如果我们想对 Person
+类型的数据进行分组，我们可以定义一个人的属性，其中可能包括姓名、年龄、性别。可以使用以下语法来定义一个结构体：
 
 ```go
 type person struct { name string age int gender string }
@@ -338,13 +349,16 @@ pp = &person{name: "Bob", age: 42, gender: "Male"} pp.name //=> Bob
 
 #### 方法（Methods）
 
-方法（Method）是一种特殊的函数类型，它有一个 _receiver_ 。_receiver_ 可以是一个值或一个指针。让我们创建一个名为 describe 的方法（Method），它有一个我们在上面的例子中创建的接收器类型的 person：
+方法（Method）是一种特殊的函数类型，它有一个 _receiver_ 。_receiver_ 可以是一个值或一个指针。让我们创建一个名为 describe
+的方法（Method），它有一个我们在上面的例子中创建的接收器类型的 person：
 
 ```go
 package main import "fmt" // struct defination type person struct { name string age int gender string } // method defination func (p *person) describe() { fmt.Printf("%v is %v years old.", p.name, p.age) } func (p *person) setAge(age int) { p.age = age } func (p person) setName(name string) { p.name = name } func main() { pp := &person{name: "Bob", age: 42, gender: "Male"} pp.describe() // => Bob is 42 years old pp.setAge(45) fmt.Println(pp.age) //=> 45 pp.setName("Hari") fmt.Println(pp.name) //=> Bob }
 ```
 
-正如我们在上面的例子中看到的，现在可以使用点运算符来调用该方法，如 `pp.describe`。请注意，_receiver_ 是一个指针。使用指针，我们传递的是一个值的引用，所以如果我们在方法中做任何改变，都会反映在 _receiver_ pp中。它也不会创建一个新的对象的副本，这就节省了内存。
+正如我们在上面的例子中看到的，现在可以使用点运算符来调用该方法，如 `pp.describe`。请注意，_receiver_
+是一个指针。使用指针，我们传递的是一个值的引用，所以如果我们在方法中做任何改变，都会反映在 _receiver_
+pp中。它也不会创建一个新的对象的副本，这就节省了内存。
 
 请注意，在上面的例子中，年龄的值被改变了，而名字的值没有改变，因为setName方法是 _receiver_ 类型的，而 setAge 是指针类型的。
 
@@ -363,11 +377,13 @@ package main import ( "fmt" ) type animal interface { description() string } typ
 ```
 
 type cat struct {  
-在主函数中，我们创建一个动物类型的变量 `a`。我们给动物分配一个 snake 和一个 cat 的类型，并使用 Println 来打印 a.description。由于我们在两种类型（cat 和 snake）中都以不同的方式实现了 describe 方法，我们得到了打印的动物描述。
+在主函数中，我们创建一个动物类型的变量 `a`。我们给动物分配一个 snake 和一个 cat 的类型，并使用 Println 来打印
+a.description。由于我们在两种类型（cat 和 snake）中都以不同的方式实现了 describe 方法，我们得到了打印的动物描述。
 
 ### 包
 
-我们把Go的所有代码都写在一个包里。**main** package 是程序执行的入口点。Go 中有很多内置包。我们一直在使用的最著名的是**fmt**包。
+我们把Go的所有代码都写在一个包里。**main** package 是程序执行的入口点。Go 中有很多内置包。我们一直在使用的最著名的是**fmt**
+包。
 
 > “Go 软件包是 Go 提供的大型编程的主要机制，它们使得将一个大型项目分割成小块成为可能。”  
 > — Robert Griesemer
@@ -378,7 +394,8 @@ type cat struct {
 go get <package-url-github> // example go get github.com/satori/go.uuid
 ```
 
-我们安装的软件包被保存在 GOPATH 环境变量设置的工作目录。你可以通过进入我们工作目录下的 pkg 文件夹 `cd $GOPATH/pkg` 来查看这些软件包。
+我们安装的软件包被保存在 GOPATH 环境变量设置的工作目录。你可以通过进入我们工作目录下的 pkg 文件夹 `cd $GOPATH/pkg`
+来查看这些软件包。
 
 #### 创建自定义包
 
@@ -388,7 +405,8 @@ go get <package-url-github> // example go get github.com/satori/go.uuid
 > mkdir custom_package > cd custom_package
 ```
 
-要创建一个自定义包，我们需要首先创建一个文件夹，并加上我们需要的包名。比方说，我们要建立一个 `person` 包。为此，让我们在 `custom_package` 文件夹中创建一个名为 `person` 的文件夹：
+要创建一个自定义包，我们需要首先创建一个文件夹，并加上我们需要的包名。比方说，我们要建立一个 `person`
+包。为此，让我们在 `custom_package` 文件夹中创建一个名为 `person` 的文件夹：
 
 ```shell
 > mkdir person > cd person
@@ -412,7 +430,8 @@ package person func Description(name string) string { return "The person name is
 package main import( "custom_package/person" "fmt" ) func main(){ p := person.Description("Milap") fmt.Println(p) } // => The person name is: Milap
 ```
 
-在这里，我们现在可以导入我们创建的包 `person` 并使用函数 Description。注意，我们在包中创建的函数 `secretName` 将不能被访问。在 Go 中，没有大写字母开头的方法名称将是私有的。
+在这里，我们现在可以导入我们创建的包 `person` 并使用函数 Description。注意，我们在包中创建的函数 `secretName` 将不能被访问。在
+Go 中，没有大写字母开头的方法名称将是私有的。
 
 #### 包文档
 
@@ -452,11 +471,13 @@ package main import ( "fmt" "encoding/json" ) func main(){ mapA := map[string]in
 package main import ( "fmt" "encoding/json" ) type response struct { PageNumber int `json:"page"` Fruits []string `json:"fruits"` } func main(){ str := `{"page": 1, "fruits": ["apple", "peach"]}` res := response{} json.Unmarshal([]byte(str), &res) fmt.Println(res.PageNumber) } //=> 1
 ```
 
-当使用 unmarshal 解码 json 字节时，第一个参数是 json 字节，第二个参数是我们希望 json 被映射到的响应类型结构的地址。注意，`json: "page"`将页面键映射到结构中的 PageNumber 键。
+当使用 unmarshal 解码 json 字节时，第一个参数是 json 字节，第二个参数是我们希望 json
+被映射到的响应类型结构的地址。注意，`json: "page"`将页面键映射到结构中的 PageNumber 键。
 
 ### 错误处理
 
-错误是指程序中不想要的和意外的结果。比方说，我们正在对一个外部服务进行 API 调用。这个 API 调用可能是成功的，也可能是失败的。当错误类型出现时，Go 程序中的错误可以被识别。让我们看看这个例子：
+错误是指程序中不想要的和意外的结果。比方说，我们正在对一个外部服务进行 API 调用。这个 API 调用可能是成功的，也可能是失败的。当错误类型出现时，Go
+程序中的错误可以被识别。让我们看看这个例子：
 
 ```go
 resp, err := http.Get("http://example.com/")
@@ -480,7 +501,8 @@ func Increment(n int) (int, error) { if n < 0 { // return error object return ni
 
 #### Panic
 
-Panic 是指在程序执行过程中突然遇到的未被处理的东西。在Go中，Panic 不是处理程序中异常的理想方式。建议使用一个错误对象来代替。当 Panic 发生时，程序的执行会被停止。Panic 发生后被执行的东西是 defer。
+Panic 是指在程序执行过程中突然遇到的未被处理的东西。在Go中，Panic 不是处理程序中异常的理想方式。建议使用一个错误对象来代替。当
+Panic 发生时，程序的执行会被停止。Panic 发生后被执行的东西是 defer。
 
 ```go
 //Go package main import "fmt" func main() { f() fmt.Println("Returned normally from f.") } func f() { defer func() { if r := recover(); r != nil { fmt.Println("Recovered in f", r) } }() fmt.Println("Calling g.") g(0) fmt.Println("Returned normally from g.") } func g(i int) { if i > 3 { fmt.Println("Panicking!") panic(fmt.Sprintf("%v", i)) } defer fmt.Println("Defer in g", i) fmt.Println("Printing in g", i) g(i + 1) }
@@ -490,7 +512,8 @@ Panic 是指在程序执行过程中突然遇到的未被处理的东西。在Go
 
 Defer 是指总是在函数的末尾被执行的东西。
 
-在上面的例子中，我们用 panic() 使程序的执行陷入 panic。正如你所注意到的，这里有一个 defer 语句，它将使程序在最后执行这一行。当我们需要在函数结束时执行一些东西时也可以使用 defer，例如关闭一个文件。
+在上面的例子中，我们用 panic() 使程序的执行陷入 panic。正如你所注意到的，这里有一个 defer
+语句，它将使程序在最后执行这一行。当我们需要在函数结束时执行一些东西时也可以使用 defer，例如关闭一个文件。
 
 ### 并发
 
@@ -498,17 +521,21 @@ Go 是在考虑到并发性的情况下建立的。Go 中的并发性可以通�
 
 **Go 协程**
 
-Go 协程是可以与另一个函数并行或同时运行的函数。创建一个 Go 协程非常简单。只需在一个函数前面加上关键字 Go，我们就可以让它并行执行。Go 协程是非常轻量级的，所以我们可以创建成千上万的协程。让我们来看看一个简单的例子：
+Go 协程是可以与另一个函数并行或同时运行的函数。创建一个 Go 协程非常简单。只需在一个函数前面加上关键字 Go，我们就可以让它并行执行。Go
+协程是非常轻量级的，所以我们可以创建成千上万的协程。让我们来看看一个简单的例子：
 
 ```go
 package main import ( "fmt" "time" ) func main() { go c() fmt.Println("I am main") time.Sleep(time.Second * 2) } func c() { time.Sleep(time.Second * 2) fmt.Println("I am concurrent") } //=> I am main //=> I am concurrent
 ```
 
-正如你在上面的例子中所看到的，函数 c 是一个 Go 协程，与 Go 主线程并行执行。有些时候，我们希望在多个线程之间共享资源。Go 倾向于不将一个线程的变量与另一个线程共享，因为这样会增加死锁和资源等待的可能性。还有一种方法可以在 Go 协程之间共享资源：通过 Go channels。
+正如你在上面的例子中所看到的，函数 c 是一个 Go 协程，与 Go 主线程并行执行。有些时候，我们希望在多个线程之间共享资源。Go
+倾向于不将一个线程的变量与另一个线程共享，因为这样会增加死锁和资源等待的可能性。还有一种方法可以在 Go 协程之间共享资源：通过
+Go channels。
 
 **通道**
 
-我们可以使用通道在两个 Go 协程之间传递数据。在创建 channel 时，有必要指定该 channel 接收什么样的数据。让我们创建一个简单的字符串类型的 channel，如下所示：
+我们可以使用通道在两个 Go 协程之间传递数据。在创建 channel 时，有必要指定该 channel 接收什么样的数据。让我们创建一个简单的字符串类型的
+channel，如下所示：
 
 ```go
 c := make(chan string)
@@ -524,7 +551,8 @@ package main import "fmt" func main(){ c := make(chan string) go func(){ c <- "h
 
 **单向通道**
 
-有些情况下，我们希望 Go 程序通过 channel 接收数据，但不发送数据，反之亦然。为此，我们也可以创建一个**单向 channel**。让我们来看看一个简单的例子：
+有些情况下，我们希望 Go 程序通过 channel 接收数据，但不发送数据，反之亦然。为此，我们也可以创建一个**单向 channel**
+。让我们来看看一个简单的例子：
 
 ```go
 package main import ( "fmt" ) func main() { ch := make(chan string) go sc(ch) fmt.Println(<-ch) } func sc(ch chan<- string) { ch <- "hello" }
@@ -560,15 +588,15 @@ package main import "fmt" func main(){ ch := make(chan string, 2) ch <- "hello" 
 
 我们学习了 Go 的一些主要组成部分和特点。
 
-1.  变量、数据类型
-2.  数组 切片 和 maps
-3.  函数
-4.  循环和条件语句
-5.  指针
-6.  软件包
-7.  方法、结构体和接口
-8.  错误处理
-9.  并发 - Go 协程和通道
+1. 变量、数据类型
+2. 数组 切片 和 maps
+3. 函数
+4. 循环和条件语句
+5. 指针
+6. 软件包
+7. 方法、结构体和接口
+8. 错误处理
+9. 并发 - Go 协程和通道
 
 恭喜你，你现在对 Go 有了相当的了解。
 
@@ -581,4 +609,5 @@ package main import "fmt" func main(){ ch := make(chan string, 2) ch <- "hello" 
 [Github](http://github.com/milap-neupane)  
 [Twitter](https://twitter.com/_milap)
 
-我也在 Milap Neupane 博客发布本文：[学习Go，从0到1](https://milapneupane.com.np/2019/07/06/learning-golang-from-zero-to-hero/)
+我也在 Milap Neupane
+博客发布本文：[学习Go，从0到1](https://milapneupane.com.np/2019/07/06/learning-golang-from-zero-to-hero/)

@@ -1,3 +1,4 @@
+---
 # 标签
 tags: python
 # 分类
@@ -5,6 +6,7 @@ categories: 技术
 # banner图片比例
 banner_img_ratio: 10
 # sticky: 10
+---
 
 # Python 学习
 
@@ -137,5 +139,5 @@ Python 使用缩进来表示代码块，不需要使用大括号 `{}`，实例�
 
 ```python
 if 5 > 2:
-    print("Five is greater than two!")
+	print("Five is greater than two!")
 ```
