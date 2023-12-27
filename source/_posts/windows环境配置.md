@@ -1,13 +1,13 @@
 ---
-title: windows环境配置
-date: 2023-12-02 17:22:33
-updated: 2023-12-27 21:41:25
-banner_img: /img/post/windows环境配置/banner.webp
-index_img: /img/post/windows环境配置/banner.webp
----
 tags: windows
 categories: 应用
 banner_img_ratio: 25
+title: windows环境配置
+date: 2023-12-02 17:22:33
+updated: 2023-12-27 21:59:04
+banner_img: /img/post/windows环境配置/banner.webp
+index_img: /img/post/windows环境配置/banner.webp
+---
 
 {%note success%} 每次重装系统都需要重新配置一遍环境,索性将配置步骤记录下来,方便以后重装系统后使用{%endnote%}
 
@@ -17,7 +17,8 @@ banner_img_ratio: 25
 
 ### java
 
-下载[jdk8 安装包](https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-windows-x64.exe)(需要登录 oracle),环境变量设置参数如下：
+下载[jdk8 安装包](https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-windows-x64.exe)(
+需要登录 oracle),环境变量设置参数如下：
 
 ```bash
 变量名：JAVA_HOME
@@ -39,7 +40,8 @@ banner_img_ratio: 25
 
 ### python
 
-下载 [python 安装包](https://www.python.org/ftp/python/3.11.6/python-3.11.6-amd64.exe),安装之后如果没勾选添加 python.exe 到系统变量,环境变量需要设置参数如下:
+下载 [python 安装包](https://www.python.org/ftp/python/3.11.6/python-3.11.6-amd64.exe),安装之后如果没勾选添加 python.exe
+到系统变量,环境变量需要设置参数如下:
 
 ```bash
 变量名：PYTHON_HOME
@@ -64,7 +66,8 @@ banner_img_ratio: 25
 
 ### git
 
-1. 下载 [git 安装包](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe)并安装,需要勾选**添加 git 到环境变量**
+1. 下载 [git 安装包](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe)
+   并安装,需要勾选**添加 git 到环境变量**
 2. 配置`用户名`和`邮箱`
 
    ```bash
@@ -88,7 +91,8 @@ banner_img_ratio: 25
 
 ### maven
 
-1. 在[maven 归档库](https://archive.apache.org/dist/maven/maven-3/)下载[压缩包](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip),解压缩到软件目录
+1. 在[maven 归档库](https://archive.apache.org/dist/maven/maven-3/)
+   下载[压缩包](https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip),解压缩到软件目录
 2. 新建系统变量 `MAVEN_HOME` 变量值：`D:\soft\apache-maven-3.6.3`
 3. 在 `Path` **最后面**添加变量值： `;%MAVEN_HOME%\bin`
 4. 配置 `settings.xml` 该文件位于 **maven 安装目录 conf**下 配置如下
@@ -138,14 +142,16 @@ banner_img_ratio: 25
 
 ### tomcat
 
-1. 下载[tomcat 压缩包](https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96-windows-x64.zip),解压缩重命名为 tomcat
+1. 下载[tomcat 压缩包](https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96-windows-x64.zip)
+   ,解压缩重命名为 tomcat
 2. 新建环境变量`TOMCAT_HOME`,值为 Tomcat 所在的目录，例如 D:\soft\tomcat
 3. 新建 `CATALINA_HOME` 和 `CATALINA_BASE`， 值都设为`%TOMCAT_HOME%`
 4. 打开 `PATH`，在**最后面**添加变量值：`;%CATALINA_HOME%\lib;%CATALINA_HOME%\bin`
 
 ### idea
 
-1. 下载[idea 安装包](https://download.jetbrains.com/idea/ideaIU-2023.2.2.exe)和[破解包](https://wwdc.lanzouy.com/iwTpX1g33bvg)
+1. 下载[idea 安装包](https://download.jetbrains.com/idea/ideaIU-2023.2.2.exe)
+   和[破解包](https://wwdc.lanzouy.com/iwTpX1g33bvg)
 2. 安装 `idea`,解压破解包到 `idea` 安装目录
 3. 将以下内容添加到 idea 安装目录下的`idea64.exe.vmoptions`中,`-javaagent`的 `ja-netfilter.jar` 路径根据自己的实际路径填写
 
@@ -168,5 +174,6 @@ banner_img_ratio: 25
 
 ### yt-dlp
 
-1. 下载[exe 执行文件](https://github.com/yt-dlp/yt-dlp/releases/download/2023.11.16/yt-dlp.exe),新建`D:\soft\yt-dlp`目录,将 `yt-dlp.exe`移动到该目录
+1. 下载[exe 执行文件](https://github.com/yt-dlp/yt-dlp/releases/download/2023.11.16/yt-dlp.exe),新建`D:\soft\yt-dlp`
+   目录,将 `yt-dlp.exe`移动到该目录
 2. 打开`PATH`,在**最后面**添加环境变量值: `;D:\soft\yt-dlp`

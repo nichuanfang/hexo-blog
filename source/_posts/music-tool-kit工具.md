@@ -1,10 +1,4 @@
 ---
-title: music-tool-kit工具
-date: 2023-12-02 17:22:33
-updated: 2023-12-27 21:41:25
-banner_img: /img/post/music-tool-kit工具/index.webp
-index_img: /img/post/music-tool-kit工具/index.webp
----
 # 标签
 tags:
   - tools
@@ -16,9 +10,18 @@ categories: 工具
 # banner_img_ratio:
 # 置顶配置 数字越大优先级越高
 # sticky: 30
+title: music-tool-kit工具
+date: 2023-12-02 17:22:33
+updated: 2023-12-27 21:59:04
+banner_img: /img/post/music-tool-kit工具/index.webp
+index_img: /img/post/music-tool-kit工具/index.webp
+---
 
-{%note  success%}
-**music-tool-kit**，主要使用场景为提取[youtube](https://www.youtube.com)和[bilibili](https://www.bilibili.com)视频中的音频,支持**音频下载**,**元信息自动补全**,**音频截取**,**提取伴奏**,**youtube 列表批量下载**,**自定义批量下载**等.配合[spotify](https://open.spotify.com)的**本地文件**功能可以极大的提升音乐体验([教程](https://www.bilibili.com/video/BV1VL411T7mp/?vd_source=04c6a0d121b6fb871e3d3c0a2554b29b))
+{%note success%}
+**music-tool-kit**，主要使用场景为提取[youtube](https://www.youtube.com)和[bilibili](https://www.bilibili.com)视频中的音频,支持
+**音频下载**,**元信息自动补全**,**音频截取**,**提取伴奏**,**youtube 列表批量下载**,**自定义批量下载**
+等.配合[spotify](https://open.spotify.com)的**本地文件**
+功能可以极大的提升音乐体验([教程](https://www.bilibili.com/video/BV1VL411T7mp/?vd_source=04c6a0d121b6fb871e3d3c0a2554b29b))
 {%endnote%}
 
 > 本项目仅为个人使用,无任何商业用途,仅支持 mp3 格式的音乐
@@ -71,7 +74,8 @@ mk  "网址" "[标题]" "[封面url]"
 **普通下载**
 ![download](/img/post/music-tool-kit工具/download.webp)
 
-**列表下载**使用方法为 `mk "列表url | 列表序号"` ,**url 需要为 [youtube](https://www.youtube.com) 的列表格式(url 中含有 list=)**,如果想下载全部歌曲,直接输入 `mk "列表url |"` 即可!
+**列表下载**使用方法为 `mk "列表url | 列表序号"` ,**url 需要为 [youtube](https://www.youtube.com) 的列表格式(url 中含有
+list=)**,如果想下载全部歌曲,直接输入 `mk "列表url |"` 即可!
 
 例如:
 
@@ -150,9 +154,9 @@ mk -t
 ![csv_template](/img/post/music-tool-kit工具/csv_template.webp)
 用户自行填写下载信息,保存后使用`mk "csv文件"`即可批量下载
 
-| url  | title | cover_url | start_time | end_time | instrumental                |
-| ---- | ----- | --------- | ---------- | -------- | --------------------------- |
-| 网址 | 标题  | 封面 url  | 开始时间   | 结束时间 | 是否生成伴奏(true or false) |
+| url | title | cover_url | start_time | end_time | instrumental          |
+|-----|-------|-----------|------------|----------|-----------------------|
+| 网址  | 标题    | 封面 url    | 开始时间       | 结束时间     | 是否生成伴奏(true or false) |
 
 ## 批量下载
 
@@ -164,4 +168,5 @@ mk "csv文件"
 
 # License
 
-This work is released under the MIT license. A copy of the license is provided in the [LICENSE](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/LICENSE) file.
+This work is released under the MIT license. A copy of the license is provided in
+the [LICENSE](https://raw.githubusercontent.com/nichuanfang/music-tool-kit/main/LICENSE) file.

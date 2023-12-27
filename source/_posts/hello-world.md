@@ -1,16 +1,16 @@
 ---
-title: hello-world
-date: 2023-12-02 17:22:33
-updated: 2023-12-27 21:41:25
-banner_img: /img/post/hello-world/banner.webp
-index_img: /img/post/hello-world/banner.webp
----
 # 标签
 tags: test
 # 分类
 categories: 其他
 # banner图片比例
 banner_img_ratio: 90
+title: hello-world
+date: 2023-12-02 17:22:33
+updated: 2023-12-27 21:59:04
+banner_img: /img/post/hello-world/banner.webp
+index_img: /img/post/hello-world/banner.webp
+---
 
 > REALITY 使用其它端口貌似也具有相同伪装性（不打保证），对于自己服务器上已经有站点的，也不用为了共存另外设置反向代理或分流之类的，直接使用其它端口就可以了。
 
@@ -38,34 +38,40 @@ SpiderX     : "/"
 <!-- 块引用 -->
 
 ```css
-iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -p tcp --dport
+
+443
+-j ACCEPT
 ```
 
 以后要进入这个管理脚本界面输入 `bash Xray-script.sh` 这个**命令**就可以进入了，*现在*别管**dsd**。
 
-{%  note  success  %}
+{% note success %}
 这是一段 success 效果测试代码
-{%  endnote %}
+{% endnote %}
 
-{%  note  info  %}
+{% note info %}
 这是一段 info 效果测试代码
-{%  endnote %}
+{% endnote %}
 
-{%  note  warning  %}
+{% note warning %}
 这是一段 warning 效果测试代码
-{%  endnote %}
+{% endnote %}
 
-{%  note  danger  %}
+{% note danger %}
 这是一段 danger 效果测试代码
-{%  endnote %}
+{% endnote %}
 
-{%  note  primary  %}
+{% note primary %}
 这是一段 primary 效果测试代码
-{%  endnote %}
+{% endnote %}
 
 ![](https://i0.wp.com/www.additudemag.com/wp-content/uploads/2016/11/78_8_Diagnose_Kids_Autism-Misdiagnosis_Slideshow_78_girl-father-playroom_ts_83480810.jpg)
 
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more
+info. If you get any problems when using Hexo, you can find the answer
+in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me
+on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start
 
