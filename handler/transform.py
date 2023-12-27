@@ -245,8 +245,11 @@ if theme == 'fluid':
                     
                     # 处理index图和banner图
                     # 如果配置了index_img_url/banner_img_url 下载到当前文件夹下
-                    filtered_img_res = [item for item in head_lines if item.startswith(
-                        ('index_img_url', 'banner_img_url'))]
+                    filtered_img_res = []
+                    for item in head_lines:
+                        if item.startswith(('index_img_url', 'banner_img_url')):
+                            head_lines.remove(item)
+                            filtered_img_res.append(item)
                     if len(filtered_img_res) != 0:
                         dl_img(filtered_img_res, os.path.join(
                             fluid_img_path, dir), post_files)
@@ -271,6 +274,8 @@ if theme == 'fluid':
                         if banner_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'banner.{banner_extend}'), os.path.join(
                                 fluid_img_path, dir, f'banner.webp'))
+                            shutil.copy2(os.path.join(fluid_img_path, dir, f'banner.webp'), os.path.join(
+                                post_root, f'banner.webp'))
                             # 也需要保留生成好的webp图片到hexo目录 移除文章头部
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
@@ -279,6 +284,8 @@ if theme == 'fluid':
                         if index_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'index.{index_extend}'), os.path.join(
                                 fluid_img_path, dir, f'index.webp'))
+                            shutil.copy2(os.path.join(fluid_img_path, dir, f'index.webp'), os.path.join(
+                                post_root, f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'index.{index_extend}'))
                             index_extend = 'webp'
@@ -291,6 +298,8 @@ if theme == 'fluid':
                         if banner_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'banner.{banner_extend}'), os.path.join(
                                 fluid_img_path, dir, f'banner.webp'))
+                            shutil.copy2(os.path.join(fluid_img_path, dir, f'banner.webp'), os.path.join(
+                                post_root, f'banner.webp'))
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'banner.{banner_extend}'))
                             banner_extend = 'webp'
@@ -303,6 +312,8 @@ if theme == 'fluid':
                         if index_extend in ['jpg', 'png']:
                             file_to_webp(os.path.join(post_root, f'index.{index_extend}'), os.path.join(
                                 fluid_img_path, dir, f'index.webp'))
+                            shutil.copy2(os.path.join(fluid_img_path, dir, f'index.webp'), os.path.join(
+                                post_root, f'index.webp'))
                             os.remove(os.path.join(fluid_img_path,
                                                    dir, f'index.{index_extend}'))
                             index_extend = 'webp'
@@ -322,9 +333,12 @@ if theme == 'fluid':
                     if not os.path.exists(fluid_posts_path):
                         os.mkdir(fluid_posts_path)
                     file_name = dir + '.md'
+                    print(f'生成的新文档:\n{new_lines}')
                     # 将处理后的文件写入
                     with open(os.path.join(fluid_posts_path, file_name), 'w+', encoding='utf-8') as f:
                         f.writelines(new_lines)
+                    # with open(os.path.join(fluid_posts_path, file_name), 'w+', encoding='utf-8') as f:
+                    #     f.writelines(new_lines)
         # 如果在该分支删除文章 应该与fluid分支同步
         # for fluid_root,fluid_dirs,fluid_files in os.walk(fluid_posts_path):
         #     diff_dirs = fluid_dirs - dirs

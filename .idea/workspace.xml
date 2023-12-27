@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="428fe73f-d572-49de-81e5-4fe6f800c990" name="Changes" comment="🎨 :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git.">
-      <change beforePath="$PROJECT_DIR$/.idea/hexo-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hexo-blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/handler/transform.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +71,7 @@
       <workItem from="1703678576553" duration="640000" />
       <workItem from="1703679418749" duration="1156000" />
       <workItem from="1703680599213" duration="63000" />
-      <workItem from="1703680688768" duration="172000" />
+      <workItem from="1703680688768" duration="1823000" />
     </task>
     <task id="LOCAL-00001" summary="添加了一个新的忽略项 &quot;.venv&quot;。">
       <option name="closed" value="true" />
@@ -97,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703680700526</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="🎨 :art: Add .venv to .gitignore&#10;&#10;The .venv directory is being added to the .gitignore file. This directory contains virtual environment files and should not be tracked by Git.">
+      <option name="closed" value="true" />
+      <created>1703680883162</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703680883162</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
