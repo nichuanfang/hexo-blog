@@ -1,10 +1,8 @@
----
 tags: hexo主题
 categories: 应用
 # index_img_url:
 banner_img_ratio: 82
 # sticky:
----
 
 # 主题模板食用说明~~
 

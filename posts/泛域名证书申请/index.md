@@ -1,4 +1,3 @@
----
 # 标签
 tags:
   - 计算机网络
@@ -7,7 +6,6 @@ categories: 技术
 # banner图片比例
 # banner_img_ratio:
 # 置顶配置 数字越大优先级越高
----
 
 # 泛域名证书申请 (Ubuntu 20)
 

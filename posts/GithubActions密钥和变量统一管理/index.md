@@ -1,4 +1,3 @@
----
 # 标签
 tags: GithubActions
 # 分类
@@ -7,7 +6,6 @@ categories: 技术
 banner_img_ratio: 37
 # 置顶配置  数字越大优先级越高
 # sticky:
----
 
 # 集中管理同一个账户下的变量和 密钥
 
