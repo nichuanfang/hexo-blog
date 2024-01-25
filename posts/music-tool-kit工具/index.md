@@ -14,12 +14,12 @@ categories: 工具
 
 {%note success%}
 **music-tool-kit**，主要使用场景为提取[youtube](https://www.youtube.com)和[bilibili](https://www.bilibili.com)视频中的音频,支持
-**音频下载**,**元信息自动补全**,**音频截取**,**提取伴奏**,**youtube 列表批量下载**,**自定义批量下载**
+**音频下载**,**元信息自动补全**,**音频截取**,**youtube 列表批量下载**,**自定义批量下载**
 等.配合[spotify](https://open.spotify.com)的**本地文件**
 功能可以极大的提升音乐体验([教程](https://www.bilibili.com/video/BV1VL411T7mp/?vd_source=04c6a0d121b6fb871e3d3c0a2554b29b))
 {%endnote%}
 
-> 本项目仅为个人使用,无任何商业用途,仅支持 mp3 格式的音乐
+> 本项目仅为个人使用,无任何商业用途,仅支持 m4a 格式的音乐
 
 ---
 
@@ -62,7 +62,7 @@ pip uninstall music-tool-kit
 ## 音乐下载
 
 ```bash
-mk  "网址" "[标题]" "[封面url]"
+mk  "网址" "[标题]"
 
 ```
 
@@ -82,8 +82,6 @@ mk "https://www.youtube.com/playlist?list=PL8B3F8A7B0A9F4DE8 | 1,2,3,4,5"
 
 {%note info%}
 
-- 标题格式为 **歌曲名-歌手(专辑名)** 输出歌曲格式默认为 **mp3**
-- music-tool-kit 会根据**标题**,自动将下载的音频元信息补全,包括歌曲名,歌手(艺术家),内置封面图片,以及专辑名称.如果不遵循该标题格式,元信息可能补全失败
 - 仅支持下载 youtube 的列表下载,url|后面的列表序号之间需要用逗号分隔
 
 {%endnote%}
@@ -108,36 +106,12 @@ mk -s "关键字"
 ## 音乐剪辑
 
 ```bash
-mk -c "输入的mp3文件" 开始时间 结束时间
+mk -c "输入的m4a文件" 开始时间 结束时间
 ```
 
 ![clip](clip.png)
 
 > Tips: 时间格式为 `00:00:00`
-
-## 提取伴奏
-
-```bash
-mk -e "输入的mp3文件" [模型名称]
-```
-
-支持的模型:
-
-- `UVR_MDXNET_Main` (整体较好)
-- `UVR-MDX-NET-Inst_Main` (整体较好)
-- `UVR-MDX-NET-Inst_3` (整体较好)
-- `UVR-MDX-NET-Inst_HQ_3` (整体较好)
-- `UVR_MDXNET_KARA_2` (一般,人声剔除不干净,声音忽高忽低)
-- `Kim_Inst` (一般)
-
-![extract](inst.png)
-
-{%note warning%}
-
-- 默认模型为`UVR_MDXNET_Main`,具体请结合音乐类型和自己的实际听感自行调整模型
-- 伴奏提取比较吃 cpu 性能,时间比较漫长,请耐心等待,大概需要 5~10 分钟
-
-{%endnote%}
 
 ## csv 批量模板
 
@@ -149,9 +123,9 @@ mk -t
 ![csv_template](csv_template.png)
 用户自行填写下载信息,保存后使用`mk "csv文件"`即可批量下载
 
-| url | title | cover_url | start_time | end_time | instrumental          |
-|-----|-------|-----------|------------|----------|-----------------------|
-| 网址  | 标题    | 封面 url    | 开始时间       | 结束时间     | 是否生成伴奏(true or false) |
+| url | title | cover_url | start_time | end_time |
+|-----|-------|-----------|------------|----------|
+| 网址  | 标题    | 封面 url    | 开始时间       | 结束时间     |
 
 ## 批量下载
 
