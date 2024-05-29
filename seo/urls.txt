@@ -1,4 +1,3 @@
-https://blog.jaychou.site/2023/12/02/music-tool-kit%E5%B7%A5%E5%85%B7/
 https://blog.jaychou.site/about/index.html
 https://blog.jaychou.site/culture/index.html
 https://blog.jaychou.site/culture/books/index.html
@@ -8,6 +7,7 @@ https://blog.jaychou.site/culture/music/index.html
 https://blog.jaychou.site/culture/shows/index.html
 https://blog.jaychou.site/culture/variety-show/index.html
 https://blog.jaychou.site/culture/movies/detail/index.html
+https://blog.jaychou.site/2023/12/02/music-tool-kit%E5%B7%A5%E5%85%B7/
 https://blog.jaychou.site/2023/12/02/GithubActions%E5%AF%86%E9%92%A5%E5%92%8C%E5%8F%98%E9%87%8F%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86/
 https://blog.jaychou.site/2023/12/02/fluid%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/
 https://blog.jaychou.site/2023/12/02/go%E5%AD%A6%E4%B9%A0/
