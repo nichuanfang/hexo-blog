@@ -1,300 +1,214 @@
-// 电影详情
 $(document).ready(function () {
-  if (document.querySelector('#movie-detail-container')) {
-    // 将10分制评分(带小数)转换为5分制评分(带小数)  并转换为星星表示
-    function convertToStars(rating) {
-      var num = parseFloat(rating) / 2
-      // 如果4.3分以上 也是五星
-      if (num > 4.3) {
-        num = 5
-      }
-      var fullStar = parseInt(num)
-      var halfStar = num - fullStar
-      var noStar = 5 - fullStar - Math.ceil(halfStar)
-      var star = ''
-      var grey_star = ''
-      for (var i = 0; i < fullStar; i++) {
-        star += '★'
-      }
-      for (var i = 0; i < halfStar; i++) {
-        // 半颗星
-        star += '☆'
-      }
-      for (var i = 0; i < noStar; i++) {
-        // 空星
-        grey_star += '☆'
-      }
-      return [star, grey_star]
-    }
+    if (document.querySelector('#movie-detail-container')) {
+        // 将10分制评分(带小数)转换为5分制评分(带小数) 并转换为星星表示
+        function convertToStars(rating) {
+            let num = parseFloat(rating) / 2;
+            if (num > 4.3) num = 5;
+            const fullStar = parseInt(num);
+            const halfStar = num - fullStar;
+            const noStar = 5 - fullStar - Math.ceil(halfStar);
+            return [
+                '★'.repeat(fullStar) + '☆'.repeat(halfStar),
+                '☆'.repeat(noStar)
+            ];
+        }
 
-    // 验证 URL 是否有效
-    function isValidUrl(url) {
-      const pattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i
-      return pattern.test(url)
-    }
-    // 获取window.location.search中的tmdb_id
-    var tmdb_id = window.location.search.split('=')[1]
+        // 验证 URL 是否有效
+        function isValidUrl(url) {
+            const pattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+            return pattern.test(url);
+        }
 
-    // 从https://api.jaychou.site/trakt/movie/{tmdb_id}获取数据
+        // 获取window.location.search中的tmdb_id
+        const tmdb_id = new URLSearchParams(window.location.search).get('tmdb_id');
 
-    var movieData = {}
-    $.ajax({
-      url: 'https://api.jaychou.site/trakt/movie/' + tmdb_id,
-      type: 'GET',
-      dataType: 'json',
-      async: false,
-      success: function (data) {
-        movieData = data.data
-      },
-      error: function (error) {
-        console.log(error)
-      },
-    })
+        // 从https://api.jaychou.site/trakt/movie/{tmdb_id}获取数据
+        let movieData = {};
+        $.ajax({
+            url: `https://api.jaychou.site/trakt/movie/${tmdb_id}`,
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                movieData = data.data;
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
 
-    // 计算评分
-    stars = convertToStars(movieData.rating)
-    if (movieData.share_link == '') {
-      target_placeholder = ''
-      open_link = '#'
-    } else {
-      target_placeholder = 'target="_blank"'
-      open_link = movieData.share_link
-    }
+        // 计算评分
+        const stars = convertToStars(movieData.rating);
+        const target_placeholder = movieData.share_link ? 'target="_blank"' : '';
+        var open_link = movieData.share_link || '#';
 
-    // 创建并设置电影详情的 HTML 结构
-    var movieDetailHTML = `
-        <div class="movie-detail-media">
+        // 创建并设置电影详情的 HTML 结构
+        const movieDetailHTML = `
+      <div class="movie-detail-media">
         <a target="_blank" class="movie-detail-media-cover-link" href="https://www.themoviedb.org/movie/${movieData.movie_id}">
-            <div class="movie-detail-media-cover" >
-                  <img
-                            srcset="/img/loading.gif"
-                            lazyload
-                            src="https://image.tmdb.org/t/p/w440_and_h660_face${movieData.cover_image_url}"
-                            data-loaded="true"
-                        />
-            </div>
+          <div class="movie-detail-media-cover">
+            <img srcset="/img/loading.gif" lazyload src="https://image.tmdb.org/t/p/w440_and_h660_face${movieData.cover_image_url}" data-loaded="true"/>
+          </div>
         </a>
         <div class="movie-detail-media-meta">
-            <div class="movie-detail-media-meta-item title">
+          <div class="movie-detail-media-meta-item title">
             <a class="title-link" target="_blank" href="https://www.themoviedb.org/movie/${movieData.movie_id}">${movieData.movie_name}</a>
-            </div>
-            <div class="movie-detail-media-meta-item">
+          </div>
+          <div class="movie-detail-media-meta-item">
             <span class="author">${movieData.area} ${movieData.release_year}</span>
             <span class="star-score">${stars[0]}<span class="grey-star">${stars[1]}</span></span>
             <span class="link"><a href="${open_link}" ${target_placeholder}><i class="fas fa-external-link-alt"></i>打开</a></span>
             <span class="copy"><a href="#"><i class="fas fa-copy"></i>复制</a></span>
             <span class="edit"><a href="#"><i class="fas fa-edit"></i>更新</a></span>
-            </div>
-            <div class="movie-detail-media-meta-item intro-title">剧情简介</div>
-            <div class="movie-detail-media-meta-item intro">
-            ${movieData.movie_description}
-            </div>
+          </div>
+          <div class="movie-detail-media-meta-item intro-title">剧情简介</div>
+          <div class="movie-detail-media-meta-item intro">${movieData.movie_description}</div>
         </div>
-        </div>
-    `
-    // 将电影详情添加到页面中
-    var movieDetailContainer = document.getElementById('movie-detail-container')
-    movieDetailContainer.innerHTML = movieDetailHTML
+      </div>
+    `;
 
-    for (const each of document.querySelectorAll('img[lazyload]')) {
-      Fluid.utils.waitElementVisible(
-        each,
-        function () {
-          each.removeAttribute('srcset')
-          each.removeAttribute('lazyload')
-        },
-        CONFIG.lazyload.offset_factor
-      )
-    }
+        // 将电影详情添加到页面中
+        const movieDetailContainer = document.getElementById('movie-detail-container');
+        movieDetailContainer.innerHTML = movieDetailHTML;
 
-    // 获取 open_link 元素
-    const openLinkElement = document.querySelector('.link a')
+        document.querySelectorAll('img[lazyload]').forEach(each => {
+            Fluid.utils.waitElementVisible(each, () => {
+                each.removeAttribute('srcset');
+                each.removeAttribute('lazyload');
+            }, CONFIG.lazyload.offset_factor);
+        });
 
-    //处理复制
-    // 获取复制按钮元素
-    var copyButton = document.querySelector(
-      '.movie-detail-media-meta-item .copy a'
-    )
+        // 获取 open_link 元素
+        const openLinkElement = document.querySelector('.link a');
 
-    // 检查 open_link 是否为空
-    if (openLinkElement.getAttribute('href') == '#') {
-      // 如果 open_link 为空，则将 .copy 和 .link 元素置灰
-      copyButton.classList.add('disabled')
-      openLinkElement.classList.add('disabled')
-      // 设置样式 灰色
-      // TODO  更新链接之后 需要将样式改回来
-      copyButton.style.color = '#999'
-      openLinkElement.style.color = '#999'
-    }
-
-    let isCopyInProgress = false // 标志变量，指示复制操作是否正在进行中
-    let copyTimer // 用于存储定时器的变量
-
-    // 添加复制事件监听器
-    copyButton.addEventListener('click', async (event) => {
-      event.preventDefault() // 阻止超链接的默认跳转行为
-
-      if (open_link != '#') {
-        try {
-          if (isCopyInProgress) {
-            return // 如果复制操作正在进行中，不执行任何操作
-          }
-          // 使用 Clipboard API 将文本内容复制到剪贴板
-          await navigator.clipboard.writeText(open_link)
-
-          // 取消之前的定时器
-          clearTimeout(copyTimer)
-
-          // 保存原始的 copyButton 内容
-          const originalButtonText = copyButton.innerHTML
-
-          copyButton.innerHTML = '已复制<i class="fas fa-check"></i>'
-          copyButton.style.color = 'green'
-          // 设置标志变量为 true，表示复制操作正在进行中
-          isCopyInProgress = true
-          // 1秒后还原 copyButton 的文本和颜色
-          copyTimer = setTimeout(() => {
-            copyButton.innerHTML = originalButtonText
-            copyButton.style.color = '' // 还原 copyButton 文本颜色
-
-            // 设置标志变量为 false，表示复制操作已完成
-            isCopyInProgress = false
-          }, 1000)
-        } catch (err) {
-          console.error('复制到剪贴板失败:', err)
+        // 处理复制
+        const copyButton = document.querySelector('.movie-detail-media-meta-item .copy a');
+        if (openLinkElement.getAttribute('href') == '#') {
+            copyButton.classList.add('disabled');
+            openLinkElement.classList.add('disabled');
+            copyButton.style.color = '#999';
+            openLinkElement.style.color = '#999';
         }
-      }
-    })
 
-    // 获取 editButton 元素
-    const editButton = document.querySelector(
-      '.movie-detail-media-meta-item .edit a'
-    )
+        let isCopyInProgress = false;
+        let copyTimer;
 
-    // 添加编辑事件监听器
-    editButton.addEventListener('click', (event) => {
-      event.preventDefault() // 阻止超链接的默认跳转行为
-
-      // 创建编辑框元素
-      const inputBox = document.createElement('div')
-      inputBox.className = 'input-box'
-      inputBox.style.position = 'fixed'
-      inputBox.style.top = '50%'
-      inputBox.style.left = '50%'
-      inputBox.style.transform = 'translate(-50%, -50%)'
-      inputBox.style.backgroundColor = '#607D8B'
-      inputBox.style.padding = '20px'
-      inputBox.style.border = '1px solid #212529'
-      inputBox.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)'
-      inputBox.style.zIndex = '9999'
-      inputBox.style.width = '400px'
-
-      // 创建输入框元素
-      const input = document.createElement('input')
-      input.type = 'text'
-      input.placeholder = '请输入URL'
-      input.style.width = '100%'
-      input.style.marginBottom = '10px'
-      inputBox.appendChild(input)
-
-      // 创建确认按钮元素
-      const confirmButton = document.createElement('button')
-      confirmButton.textContent = '确认'
-      confirmButton.style.float = 'right'
-      inputBox.appendChild(confirmButton)
-
-      // 创建取消按钮元素
-      const cancelButton = document.createElement('button')
-      cancelButton.textContent = '取消'
-      cancelButton.style.float = 'right'
-      cancelButton.style.marginRight = '10px'
-      inputBox.appendChild(cancelButton)
-
-      // 添加编辑框到页面中
-      document.body.appendChild(inputBox)
-
-      // 将光标聚焦到输入框
-      input.focus()
-
-      // 点击确认按钮的事件处理程序
-      confirmButton.addEventListener('click', () => {
-        const url = input.value
-        if (!isValidUrl(url)) {
-          input.placeholder = 'URL无效!'
-          input.value = ''
-          input.focus()
-        } else {
-          //  通知服务器更新链接
-
-          //  请求地址: https://api.jaychou.site/trakt/update_movie_share_link
-          // 请求方法: POST
-          // 请求参数:   movie_id  share_link
-          // 请求参数类型:  application/x-www-form-urlencoded
-
-          $.ajax({
-            url: 'https://api.jaychou.site/trakt/update_movie_share_link',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-              movie_id: movieData.movie_id,
-              share_link: url,
-            },
-            success: function (data) {
-              if (data.code == 200) {
-                //  更新成功
-                // 保存原始的 editButton 内容
-                const originalButtonText = editButton.innerHTML
-
-                // 将 editButton 的文本更改为 "√已更新" 和图标
-                editButton.innerHTML = '已更新 <i class="fas fa-check"></i>'
-                editButton.style.color = 'green' // 设置 editButton 文本颜色为绿色
-
-                // 1秒后还原 editButton 的文本、颜色和图标
-                setTimeout(() => {
-                  editButton.innerHTML = originalButtonText
-                  editButton.style.color = '' // 还原 editButton 文本颜色
-                }, 1000)
-                // 检查 inputBox 是否存在，然后再移除
-                if (inputBox && inputBox.parentNode) {
-                  inputBox.parentNode.removeChild(inputBox)
+        copyButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            if (open_link != '#') {
+                try {
+                    if (isCopyInProgress) return;
+                    await navigator.clipboard.writeText(open_link);
+                    clearTimeout(copyTimer);
+                    const originalButtonText = copyButton.innerHTML;
+                    copyButton.innerHTML = '已复制<i class="fas fa-check"></i>';
+                    copyButton.style.color = 'green';
+                    isCopyInProgress = true;
+                    copyTimer = setTimeout(() => {
+                        copyButton.innerHTML = originalButtonText;
+                        copyButton.style.color = '';
+                        isCopyInProgress = false;
+                    }, 1000);
+                } catch (err) {
+                    console.error('复制到剪贴板失败:', err);
                 }
-                // 更新打开链接和复制链接的 href 属性 以及还原样式
-                openLinkElement.setAttribute('href', url)
-                openLinkElement.classList.remove('disabled')
-                openLinkElement.style.color = ''
-                // openLink设置target="_blank"
-                openLinkElement.setAttribute('target', '_blank')
-                copyButton.classList.remove('disabled')
-                copyButton.style.color = ''
-                //  更新open_link
-                open_link = url
-              } else {
-                //  更新失败
-                input.placeholder = '更新失败!'
-                input.value = ''
-                input.focus()
-              }
-            },
-            error: function (error) {
-              console.log(error)
-            },
-          })
-        }
-      })
+            }
+        });
 
-      // 点击取消按钮的事件处理程序
-      cancelButton.addEventListener('click', () => {
-        // 移除编辑框
-        document.body.removeChild(inputBox)
-      })
+        const editButton = document.querySelector('.movie-detail-media-meta-item .edit a');
+        editButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            const inputBox = document.createElement('div');
+            inputBox.className = 'input-box';
+            inputBox.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #607D8B;
+        padding: 20px;
+        border: 1px solid #212529;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        width: 400px;
+      `;
 
-      // 输入框的键盘事件处理程序
-      input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-          confirmButton.click() // 模拟点击确认按钮
-          event.preventDefault() // 阻止回车键的默认行为
-        }
-      })
-    })
-  }
-})
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = '请输入URL';
+            input.style.cssText = 'width: 100%; margin-bottom: 10px;';
+            inputBox.appendChild(input);
+
+            const confirmButton = document.createElement('button');
+            confirmButton.textContent = '确认';
+            confirmButton.style.float = 'right';
+            inputBox.appendChild(confirmButton);
+
+            const cancelButton = document.createElement('button');
+            cancelButton.textContent = '取消';
+            cancelButton.style.cssText = 'float: right; margin-right: 10px;';
+            inputBox.appendChild(cancelButton);
+
+            document.body.appendChild(inputBox);
+            input.focus();
+
+            confirmButton.addEventListener('click', () => {
+                const url = input.value;
+                if (!isValidUrl(url)) {
+                    input.placeholder = 'URL无效!';
+                    input.value = '';
+                    input.focus();
+                } else {
+                    $.ajax({
+                        url: 'https://api.jaychou.site/trakt/update_movie_share_link',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            movie_id: movieData.movie_id,
+                            share_link: url,
+                        },
+                        success: function (data) {
+                            if (data.code == 200) {
+                                const originalButtonText = editButton.innerHTML;
+                                editButton.innerHTML = '已更新 <i class="fas fa-check"></i>';
+                                editButton.style.color = 'green';
+                                setTimeout(() => {
+                                    editButton.innerHTML = originalButtonText;
+                                    editButton.style.color = '';
+                                }, 1000);
+                                if (inputBox && inputBox.parentNode) {
+                                    inputBox.parentNode.removeChild(inputBox);
+                                }
+                                openLinkElement.setAttribute('href', url);
+                                openLinkElement.classList.remove('disabled');
+                                openLinkElement.style.color = '';
+                                openLinkElement.setAttribute('target', '_blank');
+                                copyButton.classList.remove('disabled');
+                                copyButton.style.color = '';
+                                open_link = url;
+                            } else {
+                                input.placeholder = '更新失败!';
+                                input.value = '';
+                                input.focus();
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+
+            cancelButton.addEventListener('click', () => {
+                document.body.removeChild(inputBox);
+            });
+
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    confirmButton.click();
+                    event.preventDefault();
+                }
+            });
+        });
+    }
+});

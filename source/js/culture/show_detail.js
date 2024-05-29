@@ -1,30 +1,15 @@
-// 剧集详情
 $(document).ready(function () {
     if (document.querySelector('#show-detail-container')) {
-        // 将10分制评分(带小数)转换为5分制评分(带小数)  并转换为星星表示
+        // 将10分制评分(带小数)转换为5分制评分(带小数) 并转换为星星表示
         function convertToStars(rating) {
-            var num = parseFloat(rating) / 2;
-            // 如果4.3分以上 也是五星
-            if (num > 4.3) {
-                num = 5;
-            }
-            var fullStar = parseInt(num);
-            var halfStar = num - fullStar;
-            var noStar = 5 - fullStar - Math.ceil(halfStar);
-            var star = '';
-            var grey_star = '';
-            for (var i = 0; i < fullStar; i++) {
-                star += '★';
-            }
-            for (var i = 0; i < halfStar; i++) {
-                // 半颗星
-                star += '☆';
-            }
-            for (var i = 0; i < noStar; i++) {
-                // 空星
-                grey_star += '☆';
-            }
-            return [star, grey_star];
+            const num = Math.min(parseFloat(rating) / 2, 5);
+            const fullStar = Math.floor(num);
+            const halfStar = num % 1 >= 0.5 ? 1 : 0;
+            const noStar = 5 - fullStar - halfStar;
+            return [
+                '★'.repeat(fullStar) + '☆'.repeat(halfStar),
+                '☆'.repeat(noStar)
+            ];
         }
 
         // 验证 URL 是否有效
@@ -34,12 +19,12 @@ $(document).ready(function () {
         }
 
         // 获取window.location.search中的tmdb_id
-        var tmdb_id = window.location.search.split('=')[1];
+        const tmdb_id = new URLSearchParams(window.location.search).get('tmdb_id');
 
         // 从https://api.jaychou.site/trakt/show/{tmdb_id}获取数据
-        var showData = {};
+        let showData = {};
         $.ajax({
-            url: 'https://api.jaychou.site/trakt/show/' + tmdb_id,
+            url: `https://api.jaychou.site/trakt/show/${tmdb_id}`,
             type: 'GET',
             dataType: 'json',
             async: false,
@@ -52,114 +37,93 @@ $(document).ready(function () {
         });
 
         // 计算评分
-        var stars = convertToStars(showData.rating);
-        if (showData.share_link == '') {
-            var target_placeholder = '';
-            var open_link = '#';
-        } else {
-            var target_placeholder = 'target="_blank"';
-            var open_link = showData.share_link;
-        }
+        const stars = convertToStars(showData.rating);
+        const target_placeholder = showData.share_link ? 'target="_blank"' : '';
+        var open_link = showData.share_link || '#';
 
         // 创建并设置剧集详情的 HTML 结构
-        var showDetailHTML = `
-        <div class="show-detail-media">
-        <a target="_blank" class="show-detail-media-cover-link" href="https://www.themoviedb.org/tv/${showData.show_id}">
-            <div class="show-detail-media-cover" >
-                  <img
+        const showDetailHTML = `
+            <div class="show-detail-media">
+                <a target="_blank" class="show-detail-media-cover-link" href="https://www.themoviedb.org/tv/${showData.show_id}">
+                    <div class="show-detail-media-cover">
+                        <img
                             srcset="/img/loading.gif"
                             lazyload
                             src="https://image.tmdb.org/t/p/w440_and_h660_face${showData.cover_image_url}"
                             data-loaded="true"
                         />
+                    </div>
+                </a>
+                <div class="show-detail-media-meta">
+                    <div class="show-detail-media-meta-item title">
+                        <a class="title-link" target="_blank" href="https://www.themoviedb.org/tv/${showData.show_id}">${showData.show_name}</a>
+                    </div>
+                    <div class="show-detail-media-meta-item">
+                        <span class="author">${showData.area} ${showData.release_year}</span>
+                        <span class="star-score">${stars[0]}<span class="grey-star">${stars[1]}</span></span>
+                        <span class="link"><a href="${open_link}" ${target_placeholder}><i class="fas fa-external-link-alt"></i>打开</a></span>
+                        <span class="copy"><a href="#"><i class="fas fa-copy"></i>复制</a></span>
+                        <span class="edit"><a href="#"><i class="fas fa-edit"></i>更新</a></span>
+                    </div>
+                    <div class="show-detail-media-meta-item show-progress">观看进度: ${showData.season_progress}</div>
+                    <div class="show-detail-media-meta-item show-ended">剧集状态: ${showData.is_ended ? '完结' : '未完结'}</div>
+                    <div class="show-detail-media-meta-item intro-title">剧情简介</div>
+                    <div class="show-detail-media-meta-item intro">
+                        ${showData.show_description}
+                    </div>
+                </div>
             </div>
-        </a>
-        <div class="show-detail-media-meta">
-            <div class="show-detail-media-meta-item title">
-            <a class="title-link" target="_blank" href="https://www.themoviedb.org/tv/${showData.show_id}">${showData.show_name}</a>
-            </div>
-            <div class="show-detail-media-meta-item">
-            <span class="author">${showData.area} ${showData.release_year}</span>
-            <span class="star-score">${stars[0]}<span class="grey-star">${stars[1]}</span></span>
-            <span class="link"><a href="${open_link}" ${target_placeholder}><i class="fas fa-external-link-alt"></i>打开</a></span>
-            <span class="copy"><a href="#"><i class="fas fa-copy"></i>复制</a></span>
-            <span class="edit"><a href="#"><i class="fas fa-edit"></i>更新</a></span>
-            </div>
-            <div class="show-detail-media-meta-item show-progress">观看进度: ${showData.season_progress}</div>
-            <div class="show-detail-media-meta-item show-ended">剧集状态: ${showData.is_ended ? '完结' : '未完结'}</div>
-            <div class="show-detail-media-meta-item intro-title">剧情简介</div>
-            <div class="show-detail-media-meta-item intro">
-            ${showData.show_description}
-            </div>
-        </div>
-        </div>
-    `;
+        `;
+
         // 将剧集详情添加到页面中
-        var showDetailContainer = document.getElementById('show-detail-container');
+        const showDetailContainer = document.getElementById('show-detail-container');
         showDetailContainer.innerHTML = showDetailHTML;
 
-        for (const each of document.querySelectorAll('img[lazyload]')) {
-            Fluid.utils.waitElementVisible(
-                each,
-                function () {
-                    each.removeAttribute('srcset');
-                    each.removeAttribute('lazyload');
-                },
-                CONFIG.lazyload.offset_factor
-            );
-        }
+        document.querySelectorAll('img[lazyload]').forEach(each => {
+            Fluid.utils.waitElementVisible(each, () => {
+                each.removeAttribute('srcset');
+                each.removeAttribute('lazyload');
+            }, CONFIG.lazyload.offset_factor);
+        });
 
         // 获取 open_link 元素
         const openLinkElement = document.querySelector('.link a');
 
-        //处理复制
-        // 获取复制按钮元素
-        var copyButton = document.querySelector(
-            '.show-detail-media-meta-item .copy a'
-        );
+        // 处理复制
+        const copyButton = document.querySelector('.show-detail-media-meta-item .copy a');
 
         // 检查 open_link 是否为空
-        if (openLinkElement.getAttribute('href') == '#') {
-            // 如果 open_link 为空，则将 .copy 和 .link 元素置灰
+        if (openLinkElement.getAttribute('href') === '#') {
             copyButton.classList.add('disabled');
             openLinkElement.classList.add('disabled');
-            // 设置样式 灰色
-            // TODO  更新链接之后 需要将样式改回来
             copyButton.style.color = '#999';
             openLinkElement.style.color = '#999';
         }
 
-        let isCopyInProgress = false; // 标志变量，指示复制操作是否正在进行中
-        let copyTimer; // 用于存储定时器的变量
+        let isCopyInProgress = false;
+        let copyTimer;
 
         // 添加复制事件监听器
         copyButton.addEventListener('click', async (event) => {
-            event.preventDefault(); // 阻止超链接的默认跳转行为
+            event.preventDefault();
 
-            if (open_link != '#') {
+            if (open_link !== '#') {
                 try {
-                    if (isCopyInProgress) {
-                        return; // 如果复制操作正在进行中，不执行任何操作
-                    }
-                    // 使用 Clipboard API 将文本内容复制到剪贴板
+                    if (isCopyInProgress) return;
+
                     await navigator.clipboard.writeText(open_link);
 
-                    // 取消之前的定时器
                     clearTimeout(copyTimer);
 
-                    // 保存原始的 copyButton 内容
                     const originalButtonText = copyButton.innerHTML;
 
                     copyButton.innerHTML = '已复制<i class="fas fa-check"></i>';
                     copyButton.style.color = 'green';
-                    // 设置标志变量为 true，表示复制操作正在进行中
                     isCopyInProgress = true;
-                    // 1秒后还原 copyButton 的文本和颜色
+
                     copyTimer = setTimeout(() => {
                         copyButton.innerHTML = originalButtonText;
-                        copyButton.style.color = ''; // 还原 copyButton 文本颜色
-
-                        // 设置标志变量为 false，表示复制操作已完成
+                        copyButton.style.color = '';
                         isCopyInProgress = false;
                     }, 1000);
                 } catch (err) {
@@ -169,29 +133,27 @@ $(document).ready(function () {
         });
 
         // 获取 editButton 元素
-        const editButton = document.querySelector(
-            '.show-detail-media-meta-item .edit a'
-        );
+        const editButton = document.querySelector('.show-detail-media-meta-item .edit a');
 
         // 添加编辑事件监听器
         editButton.addEventListener('click', (event) => {
-            event.preventDefault(); // 阻止超链接的默认跳转行为
+            event.preventDefault();
 
-            // 创建编辑框元素
             const inputBox = document.createElement('div');
             inputBox.className = 'input-box';
-            inputBox.style.position = 'fixed';
-            inputBox.style.top = '50%';
-            inputBox.style.left = '50%';
-            inputBox.style.transform = 'translate(-50%, -50%)';
-            inputBox.style.backgroundColor = '#607D8B';
-            inputBox.style.padding = '20px';
-            inputBox.style.border = '1px solid #212529';
-            inputBox.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
-            inputBox.style.zIndex = '9999';
-            inputBox.style.width = '400px';
+            inputBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #607D8B;
+                padding: 20px;
+                border: 1px solid #212529;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                z-index: 9999;
+                width: 400px;
+            `;
 
-            // 创建输入框元素
             const input = document.createElement('input');
             input.type = 'text';
             input.placeholder = '请输入URL';
@@ -199,26 +161,20 @@ $(document).ready(function () {
             input.style.marginBottom = '10px';
             inputBox.appendChild(input);
 
-            // 创建确认按钮元素
             const confirmButton = document.createElement('button');
             confirmButton.textContent = '确认';
             confirmButton.style.float = 'right';
             inputBox.appendChild(confirmButton);
 
-            // 创建取消按钮元素
             const cancelButton = document.createElement('button');
             cancelButton.textContent = '取消';
             cancelButton.style.float = 'right';
             cancelButton.style.marginRight = '10px';
             inputBox.appendChild(cancelButton);
 
-            // 添加编辑框到页面中
             document.body.appendChild(inputBox);
-
-            // 将光标聚焦到输入框
             input.focus();
 
-            // 点击确认按钮的事件处理程序
             confirmButton.addEventListener('click', () => {
                 const url = input.value;
                 if (!isValidUrl(url)) {
@@ -226,13 +182,6 @@ $(document).ready(function () {
                     input.value = '';
                     input.focus();
                 } else {
-                    //  通知服务器更新链接
-
-                    //  请求地址: https://api.jaychou.site/trakt/update_show_share_link
-                    // 请求方法: POST
-                    // 请求参数:   show_id  share_link
-                    // 请求参数类型:  application/x-www-form-urlencoded
-
                     $.ajax({
                         url: 'https://api.jaychou.site/trakt/update_show_share_link',
                         type: 'POST',
@@ -242,36 +191,28 @@ $(document).ready(function () {
                             share_link: url,
                         },
                         success: function (data) {
-                            if (data.code == 200) {
-                                //  更新成功
-                                // 保存原始的 editButton 内容
+                            if (data.code === 200) {
                                 const originalButtonText = editButton.innerHTML;
-
-                                // 将 editButton 的文本更改为 "√已更新" 和图标
                                 editButton.innerHTML = '已更新 <i class="fas fa-check"></i>';
-                                editButton.style.color = 'green'; // 设置 editButton 文本颜色为绿色
+                                editButton.style.color = 'green';
 
-                                // 1秒后还原 editButton 的文本、颜色和图标
                                 setTimeout(() => {
                                     editButton.innerHTML = originalButtonText;
-                                    editButton.style.color = ''; // 还原 editButton 文本颜色
+                                    editButton.style.color = '';
                                 }, 1000);
-                                // 检查 inputBox 是否存在，然后再移除
+
                                 if (inputBox && inputBox.parentNode) {
                                     inputBox.parentNode.removeChild(inputBox);
                                 }
-                                // 更新打开链接和复制链接的 href 属性 以及还原样式
+
                                 openLinkElement.setAttribute('href', url);
                                 openLinkElement.classList.remove('disabled');
                                 openLinkElement.style.color = '';
-                                // openLink设置target="_blank"
                                 openLinkElement.setAttribute('target', '_blank');
                                 copyButton.classList.remove('disabled');
                                 copyButton.style.color = '';
-                                //  更新open_link
                                 open_link = url;
                             } else {
-                                //  更新失败
                                 input.placeholder = '更新失败!';
                                 input.value = '';
                                 input.focus();
@@ -284,17 +225,14 @@ $(document).ready(function () {
                 }
             });
 
-            // 点击取消按钮的事件处理程序
             cancelButton.addEventListener('click', () => {
-                // 移除编辑框
                 document.body.removeChild(inputBox);
             });
 
-            // 输入框的键盘事件处理程序
             input.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
-                    confirmButton.click(); // 模拟点击确认按钮
-                    event.preventDefault(); // 阻止回车键的默认行为
+                    confirmButton.click();
+                    event.preventDefault();
                 }
             });
         });

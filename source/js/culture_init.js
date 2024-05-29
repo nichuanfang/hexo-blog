@@ -2,38 +2,25 @@
 // 如果SessionStorage中没有init_data且inited不存在，则初始化init_data
 
 // 如果当前是culture/*页面 才执行以下代码
-if (
-    window.location.pathname == '/culture/' &&
-    !sessionStorage.getItem('movie_init_data')
-) {
-    fetch('https://api.jaychou.site/trakt/movie?page=1&page_size=12')
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            if (data['data']['data'].length != 0) {
-                sessionStorage.setItem('movie_init_data', JSON.stringify(data))
-            }
-        })
-        .catch(function (error) {
-            console.error('Error:', error)
-        })
-}
+if (window.location.pathname == "/culture/") {
+    const movieDataPromise = !sessionStorage.getItem("movie_init_data") ?
+        fetch("https://api.jaychou.site/trakt/movie?page=1&page_size=12").then(t => t.json()) :
+        Promise.resolve(null);
 
-if (
-    window.location.pathname == '/culture/' &&
-    !sessionStorage.getItem('show_init_data')
-) {
-    fetch('https://api.jaychou.site/trakt/show?page=1&page_size=12')
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            if (data['data']['data'].length != 0) {
-                sessionStorage.setItem('show_init_data', JSON.stringify(data))
+    const showDataPromise = !sessionStorage.getItem("show_init_data") ?
+        fetch("https://api.jaychou.site/trakt/show?page=1&page_size=12").then(t => t.json()) :
+        Promise.resolve(null);
+
+    Promise.all([movieDataPromise, showDataPromise])
+        .then(([movieData, showData]) => {
+            if (movieData && movieData["data"]["data"].length != 0) {
+                sessionStorage.setItem("movie_init_data", JSON.stringify(movieData));
+            }
+            if (showData && showData["data"]["data"].length != 0) {
+                sessionStorage.setItem("show_init_data", JSON.stringify(showData));
             }
         })
-        .catch(function (error) {
-            console.error('Error:', error)
-        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
 }
