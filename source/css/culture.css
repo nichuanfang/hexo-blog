@@ -231,9 +231,9 @@
 }
 
 .movie-detail-media-meta-item.intro {
-    font-size: 1.1em; /* 增大字体 */
+    font-size: 1.0em; /* 增大字体 */
     color: #D3D3D3; /* 浅灰色字体，确保易读 */
-    line-height: 1.6; /* 增加行高 */
+    line-height: 1.5; /* 增加行高 */
 }
 
 
@@ -317,7 +317,7 @@
 }
 
 .show-detail-media-meta-item.intro {
-    font-size: 1.1em; /* 增大字体 */
+    font-size: 1.0em; /* 增大字体 */
     color: #D3D3D3; /* 浅灰色字体，确保易读 */
-    line-height: 1.6; /* 增加行高 */
+    line-height: 1.5; /* 增加行高 */
 }
