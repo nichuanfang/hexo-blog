@@ -3,19 +3,37 @@
 
 // 如果当前是culture/*页面 才执行以下代码
 if (
-  window.location.pathname == '/culture/' &&
-  !sessionStorage.getItem('movie_init_data')
+    window.location.pathname == '/culture/' &&
+    !sessionStorage.getItem('movie_init_data')
 ) {
-  fetch('https://api.jaychou.site/trakt/movie?page=1&page_size=12')
-    .then(function (response) {
-      return response.json()
-    })
-    .then(function (data) {
-      if (data['data']['data'].length != 0) {
-        sessionStorage.setItem('movie_init_data', JSON.stringify(data))
-      }
-    })
-    .catch(function (error) {
-      console.error('Error:', error)
-    })
+    fetch('https://api.jaychou.site/trakt/movie?page=1&page_size=12')
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            if (data['data']['data'].length != 0) {
+                sessionStorage.setItem('movie_init_data', JSON.stringify(data))
+            }
+        })
+        .catch(function (error) {
+            console.error('Error:', error)
+        })
+}
+
+if (
+    window.location.pathname == '/culture/' &&
+    !sessionStorage.getItem('show_init_data')
+) {
+    fetch('https://api.jaychou.site/trakt/show?page=1&page_size=12')
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            if (data['data']['data'].length != 0) {
+                sessionStorage.setItem('show_init_data', JSON.stringify(data))
+            }
+        })
+        .catch(function (error) {
+            console.error('Error:', error)
+        })
 }

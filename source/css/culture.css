@@ -133,7 +133,6 @@
 }
 
 
-
 /* 加载动画容器样式 */
 .loading-container {
     position: absolute;
@@ -154,17 +153,16 @@
 
 /* 电影详情样式 */
 
-.movie-detail-media:nth-child(2n-1) {
-    margin-right: 8px;
-}
-
 .movie-detail-media {
     width: 100%;
-    height: auto;
     display: flex;
-    margin-bottom: 1em;
+    margin-bottom: 2em; /* 增加底部间距 */
     box-sizing: border-box;
     overflow: hidden;
+    padding: 20px; /* 增加内边距 */
+    border-radius: 8px;
+    background-color: inherit; /* 确保背景颜色与周围一致 */
+    border: none; /* 移除边框 */
 }
 
 .movie-detail-media-cover {
@@ -174,99 +172,152 @@
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: contain;
+    border-radius: 8px;
+    margin-right: 30px; /* 增加右侧间距 */
 }
 
 .movie-detail-media-meta {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 10px;
+    padding-left: 15px; /* 增加左侧内边距 */
+    flex: 1;
+}
+
+.movie-detail-media-meta-item {
+    margin-bottom: 15px; /* 增加底部间距 */
+    font-size: 1em;
+    color: #FFFFFF; /* 白色字体，确保在灰色背景上可读 */
 }
 
 .movie-detail-media-meta-item.title {
     font-weight: 900;
-    font-size: 1.2em;
-    margin-bottom: 5px;
-    margin-top: 20px;
-}
-
-.movie-detail-media-meta-item {
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-    line-height: 1.5em;
-    margin-bottom: 5px;
-    margin-top: 20px;
+    font-size: 1.8em; /* 增大标题字体 */
+    margin-bottom: 20px; /* 增加底部间距 */
+    color: #FFD700; /* 金色字体，突出标题 */
 }
 
 .movie-detail-media-meta-item .author {
-    opacity: 0.7;
+    font-size: 1.1em; /* 增大字体 */
+    color: #B0C4DE; /* 浅蓝色字体，柔和且易读 */
 }
 
 .movie-detail-media-meta-item .star-score {
-    color: #b96c68;
+    font-size: 1.3em; /* 增大字体 */
+    color: #FFD700; /* 金色字体，突出评分 */
     margin-left: 10px;
-    margin-right: 50px;
 }
-
-.movie-detail-media-meta-item .grey-star {
-    color: #d3d3d3;
-}
-
-.movie-detail-media-meta-item.intro-title {
-    font-weight: 800;
-    margin-bottom: 5px;
-    margin-top: 40px;
-}
-
-.movie-detail-media-meta-item.intro {
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: justify;
-    margin-top: 10px;
-}
-
-.movie-detail-media-meta-item .copy,
-.movie-detail-media-meta-item .edit,
-.movie-detail-media-meta-item .link {
-    margin-left: 30px;
-}
-
-.movie-detail-media-meta-item .copy,
-.movie-detail-media-meta-item .edit {
-    margin-right: 6px;
-}
-
 
 .movie-detail-media-meta-item .link a,
 .movie-detail-media-meta-item .copy a,
 .movie-detail-media-meta-item .edit a {
-    position: relative;
-    transition: color 0.3s ease;
+    margin-left: 15px; /* 增加左侧间距 */
+    color: #1E90FF; /* 深蓝色字体，易于识别的链接 */
+    text-decoration: none;
 }
 
 .movie-detail-media-meta-item .link a:hover,
 .movie-detail-media-meta-item .copy a:hover,
 .movie-detail-media-meta-item .edit a:hover {
-    color: red;
+    text-decoration: underline;
 }
 
-.movie-detail-media-meta-item .link a::before,
-.movie-detail-media-meta-item .copy a::before,
-.movie-detail-media-meta-item .edit a::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
+.movie-detail-media-meta-item.intro-title {
+    font-weight: bold;
+    font-size: 1.4em; /* 增大字体 */
+    margin-top: 25px; /* 增加顶部间距 */
+    margin-bottom: 15px; /* 增加底部间距 */
+    color: #9E9E9E;
+}
+
+.movie-detail-media-meta-item.intro {
+    font-size: 1.1em; /* 增大字体 */
+    color: #D3D3D3; /* 浅灰色字体，确保易读 */
+    line-height: 1.6; /* 增加行高 */
+}
+
+
+/* 剧集详情样式 */
+
+.show-detail-media {
     width: 100%;
-    height: 2px;
-    background-color: red;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    display: flex;
+    margin-bottom: 2em; /* 增加底部间距 */
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 20px; /* 增加内边距 */
+    border-radius: 8px;
+    background-color: inherit; /* 确保背景颜色与周围一致 */
+    border: none; /* 移除边框 */
 }
 
-.movie-detail-media-meta-item .link a:hover::before,
-.movie-detail-media-meta-item .copy a:hover::before,
-.movie-detail-media-meta-item .edit a:hover::before {
-    transform: scaleX(1);
+.show-detail-media-cover {
+    width: 300px;
+    height: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-right: 30px; /* 增加右侧间距 */
+}
+
+.show-detail-media-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 15px; /* 增加左侧内边距 */
+    flex: 1;
+}
+
+.show-detail-media-meta-item {
+    margin-bottom: 15px; /* 增加底部间距 */
+    font-size: 1em;
+    color: #FFFFFF; /* 白色字体，确保在灰色背景上可读 */
+}
+
+.show-detail-media-meta-item.title {
+    font-weight: 900;
+    font-size: 1.8em; /* 增大标题字体 */
+    margin-bottom: 20px; /* 增加底部间距 */
+    color: #FFD700; /* 金色字体，突出标题 */
+}
+
+.show-detail-media-meta-item .author {
+    font-size: 1.1em; /* 增大字体 */
+    color: #B0C4DE; /* 浅蓝色字体，柔和且易读 */
+}
+
+.show-detail-media-meta-item .star-score {
+    font-size: 1.3em; /* 增大字体 */
+    color: #FFD700; /* 金色字体，突出评分 */
+    margin-left: 10px;
+}
+
+.show-detail-media-meta-item .link a,
+.show-detail-media-meta-item .copy a,
+.show-detail-media-meta-item .edit a {
+    margin-left: 15px; /* 增加左侧间距 */
+    color: #1E90FF; /* 深蓝色字体，易于识别的链接 */
+    text-decoration: none;
+}
+
+.show-detail-media-meta-item .link a:hover,
+.show-detail-media-meta-item .copy a:hover,
+.show-detail-media-meta-item .edit a:hover {
+    text-decoration: underline;
+}
+
+.show-detail-media-meta-item.intro-title {
+    font-weight: bold;
+    font-size: 1.4em; /* 增大字体 */
+    margin-top: 25px; /* 增加顶部间距 */
+    margin-bottom: 15px; /* 增加底部间距 */
+    color: #9E9E9E;
+}
+
+.show-detail-media-meta-item.intro {
+    font-size: 1.1em; /* 增大字体 */
+    color: #D3D3D3; /* 浅灰色字体，确保易读 */
+    line-height: 1.6; /* 增加行高 */
 }
