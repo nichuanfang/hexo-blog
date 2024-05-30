@@ -73,7 +73,7 @@ $(document).ready(function () {
                 mediaCover.appendChild(img);
 
                 const mediaCoverLink = document.createElement('a');
-                // mediaCoverLink.setAttribute('target', '_blank');
+                mediaCoverLink.setAttribute('target', '_blank');
                 mediaCoverLink.classList.add('media-cover-link');
                 mediaCoverLink.setAttribute('href', `/culture/movies/detail/?tmdb_id=${item.movie_id}`);
                 mediaCoverLink.appendChild(mediaCover);
@@ -87,7 +87,7 @@ $(document).ready(function () {
                 title.classList.add('media-meta-item', 'title');
                 const titleLink = document.createElement('a');
                 titleLink.classList.add('title-link');
-                // titleLink.setAttribute('target', '_blank');
+                titleLink.setAttribute('target', '_blank');
                 titleLink.setAttribute('href', `/culture/movies/detail/?tmdb_id=${item.movie_id}`);
                 titleLink.textContent = item.movie_name;
                 title.appendChild(titleLink);
@@ -153,20 +153,6 @@ $(document).ready(function () {
                     currentPage++;
                     if (!data_ended) fetchData(currentPage, itemsPerPage);
                 }, scrollInterval);
-            }
-        });
-
-        // 存储滚动位置
-        $(window).on('beforeunload', function () {
-            sessionStorage.setItem('scrollPosition', $(window).scrollTop());
-        });
-
-        // 页面加载时恢复滚动位置
-        $(window).on('load', function () {
-            const scrollPosition = sessionStorage.getItem('scrollPosition');
-            if (scrollPosition) {
-                $(window).scrollTop(scrollPosition);
-                sessionStorage.removeItem('scrollPosition');
             }
         });
     }
