@@ -23,7 +23,7 @@
       );
     }
 
-    dataList = [];
+    var dataList = [];
     // 如果当前页面是culture/movies 只加载电影的索引数据
     // 如果当前页面是culture/shows 只加载剧集的索引数据
     // 如果当前页面是culture/  加载电影和剧集的索引数据
@@ -177,7 +177,7 @@
           resultHTML +=
             "<a href='" +
             data_url +
-            "' class='list-group-item list-group-item-action font-weight-bolder search-list-title'>" +
+            "' class='list-group-item list-group-item-action font-weight-bolder search-list-title'   target='_blank'>" +
             orig_data_title +
             "</a>";
           var content = orig_data_content;
