@@ -1,6 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-workflow.json": "file:///f%3A/workspace/python/hexo-blog/.github/workflows/deploy.yml"
-    },
-    "python.analysis.typeCheckingMode": "off"
-}

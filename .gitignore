@@ -10,3 +10,5 @@ source/img/post/*
 !source/img/post/__init__.py
 .vercel
 .venv
+.idea/
+.vscode/
