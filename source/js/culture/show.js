@@ -70,7 +70,7 @@ $(document).ready(function () {
                 mediaCover.appendChild(img);
 
                 const mediaCoverLink = document.createElement('a');
-                mediaCoverLink.setAttribute('target', '_blank');
+                // mediaCoverLink.setAttribute('target', '_blank');
                 mediaCoverLink.classList.add('media-cover-link');
                 mediaCoverLink.setAttribute('href', `/culture/shows/detail/?tmdb_id=${item.show_id}`);
                 mediaCoverLink.appendChild(mediaCover);
@@ -83,7 +83,7 @@ $(document).ready(function () {
                 title.classList.add('media-meta-item', 'title');
                 const titleLink = document.createElement('a');
                 titleLink.classList.add('title-link');
-                titleLink.setAttribute('target', '_blank');
+                // titleLink.setAttribute('target', '_blank');
                 titleLink.setAttribute('href', `/culture/shows/detail/?tmdb_id=${item.show_id}`);
                 titleLink.textContent = item.show_name;
                 title.appendChild(titleLink);
@@ -163,6 +163,28 @@ $(document).ready(function () {
                     }
                 }, scrollInterval);
             }
+        });
+
+        // 存储当前滚动位置
+        function storeScrollPosition() {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        }
+
+        // 恢复滚动位置
+        function restoreScrollPosition() {
+            const scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition));
+                sessionStorage.removeItem('scrollPosition'); // 使用后立即删除，以确保只在返回时恢复一次
+            }
+        }
+
+        // 监听浏览器历史记录变化事件
+        window.addEventListener('popstate', restoreScrollPosition);
+
+        // 在离开页面时存储滚动位置
+        document.querySelectorAll('.media-cover-link, .title-link').forEach(link => {
+            link.addEventListener('click', storeScrollPosition);
         });
     }
 });

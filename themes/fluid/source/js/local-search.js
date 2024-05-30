@@ -177,7 +177,7 @@
           resultHTML +=
             "<a href='" +
             data_url +
-            "' class='list-group-item list-group-item-action font-weight-bolder search-list-title'   target='_blank'>" +
+            "' class='list-group-item list-group-item-action font-weight-bolder search-list-title'>" +
             orig_data_title +
             "</a>";
           var content = orig_data_content;
