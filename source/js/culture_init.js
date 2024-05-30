@@ -2,7 +2,7 @@
 // 如果SessionStorage中没有init_data且inited不存在，则初始化init_data
 
 // 如果当前是culture/*页面 才执行以下代码
-if (window.location.pathname == "/culture/") {
+if (window.location.pathname == "/" || window.location.pathname == "/culture/") {
     const movieDataPromise = !sessionStorage.getItem("movie_init_data") ?
         fetch("https://api.jaychou.site/trakt/movie?page=1&page_size=12").then(t => t.json()) :
         Promise.resolve(null);
