@@ -1,7 +1,6 @@
 ---
 tags: 逆向
 categories: 技术分享
-index_img_url: https://ik.imagekit.io/fgro7ei9m/nichuanfang/wallhaven-m9x97m.jpg?updatedAt=1685090713903
 # banner图片比例
 banner_img_ratio: 20
 # sticky: 20
