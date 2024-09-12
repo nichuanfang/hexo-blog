@@ -10,7 +10,7 @@ categories: 技术
 
 哈喽，大家好。平时我们写代码呢，多数情况都是**流水线式**写代码，基本就可以实现业务逻辑了。**如何在写代码中找到乐趣呢**，我觉得，最好的方式就是：**使用设计模式优化自己的业务代码**。今天跟大家聊聊日常工作中，我都使用过哪些设计模式。
 
-![5324f5af7d3b99a031ef6d671d536992.png](https://i-blog.csdnimg.cn/blog_migrate/deb26b4dbe163d4df2f0f0c055a7319d.png)
+![](deb26b4dbe163d4df2f0f0c055a7319d.png)
 
 工作中常用到哪些设计模式
 
@@ -333,7 +333,7 @@ public class Order {
 
 责任链模式实际上是一种处理请求的模式，它让多个处理器（对象节点）都有机会处理该请求，直到其中某个处理成功为止。责任链模式把多个处理器串成链，然后让请求在链上传递：
 
-![ccf5210fc2bf4e78ac3ac713f143441b.png](https://i-blog.csdnimg.cn/blog_migrate/077775fb079a5e30fca760dbdd21de46.png)
+![](077775fb079a5e30fca760dbdd21de46.png)
 
 责任链模式
 
@@ -637,7 +637,7 @@ check rule
 
 假设我们有这么一个业务场景：内部系统不同商户，调用我们系统接口，去跟外部第三方系统交互（http 方式）。走类似这么一个流程，如下：
 
-![3837ecd19c41dca5dccdd58e787ac9ad.png](https://i-blog.csdnimg.cn/blog_migrate/4bf5d54fed16c8eb57e01faa3778bd86.png)
+![](4bf5d54fed16c8eb57e01faa3778bd86.png)
 
 一个请求都会经历这几个流程：
 
