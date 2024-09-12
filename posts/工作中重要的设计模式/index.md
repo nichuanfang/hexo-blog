@@ -1,7 +1,6 @@
 ---
 tags: 设计
 categories: 技术
-index_img_url:
 # banner_img_ratio: 82
 # sticky:
 ---
