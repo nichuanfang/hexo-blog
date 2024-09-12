@@ -2,9 +2,9 @@ https://blog.jaychou.site/2024/09/12/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%87%8D%E8%A6%
 https://blog.jaychou.site/about/index.html
 https://blog.jaychou.site/culture/index.html
 https://blog.jaychou.site/culture/books/index.html
-https://blog.jaychou.site/culture/movies/index.html
 https://blog.jaychou.site/culture/documentaries/index.html
 https://blog.jaychou.site/culture/music/index.html
+https://blog.jaychou.site/culture/movies/index.html
 https://blog.jaychou.site/culture/shows/index.html
 https://blog.jaychou.site/culture/variety-show/index.html
 https://blog.jaychou.site/culture/movies/detail/index.html
