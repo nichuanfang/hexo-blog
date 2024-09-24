@@ -146,7 +146,12 @@
         }
         var orig_data_title = data.title.trim();
         var data_title = orig_data_title.toLowerCase();
-        var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+        var orig_data_content;
+        if (!data.content || data.content.trim() === "") {
+          orig_data_content = orig_data_title;
+        }else{
+          orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+        }
         var data_content = orig_data_content.toLowerCase();
         var data_url = data.url;
         var index_title = -1;
